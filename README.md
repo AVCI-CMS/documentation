@@ -1,75 +1,31 @@
-# AVCI CMS Documentation 📚
+# AVCI CMS
 
-This repository contains the official documentation for **[AVCI CMS](https://avcicms.com)**, a next-generation, flexible, high-performance, and SEO-focused headless content management system. 
+AVCI CMS is a next-generation, flexible, high-performance, and SEO-focused headless content management system designed for modern web applications. 
 
-The live documentation is available at **[doc.avcicms.com](https://doc.avcicms.com)**.
+This repository serves as the source for our documentation and API references.
 
-## 🚀 Getting Started
+## Overview
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+AVCI CMS empowers developers and content creators by completely separating the content repository from the presentation layer. It provides a robust backend to manage your content while allowing you to build your frontend with the tools and frameworks you prefer.
 
-### Prerequisites
+## Key Features
 
-- Node.js (version 18.0 or above)
-- npm or yarn
+*   **API-First Approach:** Deliver content to any platform or device using our comprehensive RESTful and GraphQL APIs.
+*   **Performance Focused:** Built for speed with a modern architecture to ensure lightning-fast response times.
+*   **Advanced SEO Capabilities:** Built-in tools and configurations to maximize search engine visibility and LLM (Large Language Model) optimizations.
+*   **Image Optimization:** Automatic scaling, format conversion, and caching for all your media assets.
+*   **Multi-Language Support:** Native i18n support to manage content across different locales and regions seamlessly.
+*   **Flexible Content Modeling:** Define custom schemas and structures that perfectly fit your specific business needs.
+*   **White Label Ready:** Highly customizable dashboard and interface for agencies and enterprise solutions.
 
-### Installation
+## Resources
 
-Clone the repository and install the dependencies:
+*   **Documentation & Guides:** https://doc.avcicms.com
+*   **Official Website:** https://avcicms.com
+*   **Help Center:** https://avcicms.com/resources/help-center
 
-```bash
-git clone https://github.com/AVCI-CMS/documentation.git
-cd documentation
-npm install
-```
+## Integration
 
-### Local Development
+AVCI CMS provides robust SDKs for various environments (including JavaScript, TypeScript, and Python) to ensure seamless integration into any application. Whether you are building a React single-page application, a Next.js server-rendered site, or a native mobile app, AVCI CMS delivers the content reliably.
 
-To start the local development server:
-
-```bash
-npm start
-```
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-> **Note on Languages:** By default, `npm start` runs the primary language (Turkish). To view and edit the English version locally, run:
-> ```bash
-> npm start -- --locale en
-> ```
-
-### Build
-
-To build the static files for production (both TR and EN locales):
-
-```bash
-npm run build
-```
-
-You can test the production build locally by running:
-
-```bash
-npm run serve
-```
-
-## ✍️ Contributing
-
-We welcome contributions to improve the AVCI CMS documentation! 
-
-Since this project supports multiple languages (Turkish and English), please follow the file structure when contributing:
-
-- **Turkish (Default):** Edit files located in the `docs/` directory.
-- **English:** Edit files located in the `i18n/en/docusaurus-plugin-content-docs/current/` directory.
-
-### Quick Links
-- [Guides](/docs/guides)
-- [API Reference](/docs/api)
-- [SDKs](/docs/sdk)
-
-## 🤝 Community & Support
-
-- [Help Center](https://avcicms.com/resources/help-center)
-- [AVCI CMS Website](https://avcicms.com)
-
-## 📄 License
-
-This documentation is licensed under the MIT License.
+For detailed implementation guides, API endpoint references, and SDK instructions, please visit our official documentation website.
