@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'AVCI CMS',
   tagline: 'AVCI CMS Documentation',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/AVCI-cms-icon.png',
 
   // Removed future v4 flag for plugin compatibility
 
@@ -28,7 +28,7 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'tr',
+    defaultLocale: 'en',
     locales: ['tr', 'en'],
   },
 
