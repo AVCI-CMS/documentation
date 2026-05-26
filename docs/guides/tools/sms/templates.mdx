@@ -1,0 +1,173 @@
+---
+sidebar_position: 6
+title: "SMS Templates"
+sidebar_key: "tools-sms-templates"
+---
+
+# SMS Templates
+
+**Menu Path:** `Tools > SMS > Templates`
+
+Because SMS characters are limited, configuring concise templates is essential to avoid high billing costs from your SMS gateway provider (like Twilio or Netgsm).
+
+## Customizing SMS Alerts
+
+When you edit an SMS template, there is no HTML or Rich Text editor. It is plain text only.
+
+> [!WARNING]
+> **Character Count Warning:** Always check the character counter below the text box. Remember that injecting a variable like a URL (`{{tracking.link}}`) might add 30-40 characters dynamically, potentially pushing your message into a 2-segment billing tier.
+
+## 🗺️ Template Categories and Mapping Logic
+
+SMS Templates use the same code infrastructure as mail templates, but it is highly recommended to keep them short and concise due to the nature of SMS. Templates are dynamically filtered based on the features of your active Workspace configuration.
+
+---
+
+### 🟢 CATEGORY 1: User & Security (Core Auth & User) Templates
+> **Visibility Condition:** `relationTypes.includes('USER')` (Visible if the User Module is active)
+
+| Template Code (`smsType`) | Template Name | Recommended Variables | Description |
+| :--- | :--- | :--- | :--- |
+| `WELCOME` | Welcome Email | `fullname`, `email`, `loginUrl` | Welcome SMS sent to newly registered users. |
+| `RESET_PASSWORD` | Password Reset | `fullname`, `email`, `reset_password_link` | Information sent after a password reset action. |
+| `VALIDATE_EMAIL` | Email Validation Link | `fullname`, `email`, `validationLink`, `validation_link` | Activation link sent to verify the email address. |
+| `FORGOT_PASSWORD` | Forgot Password | `fullname`, `email`, `link`, `reset_password_link` | Recovery link sent to a user who forgot their password. |
+| `PASSWORD_CHANGED` | Password Changed | `fullname`, `email`, `link`, `reset_password_link` | Security alert sent when a user's password is updated. |
+| `OTP` | One-Time Password (OTP) | `fullname`, `email`, `otp`, `expiresIn` | One-time verification code sent during login or critical operations. |
+| `VERIFICATION` | Verification Code | `fullname`, `email`, `verifyLink` | Link sent for general verification processes. |
+| `USER_PANEL_ACCESS` | User Panel Access | `fullname`, `email`, `panelUrl`, `role`, `password` | Panel access credentials sent when a new user is defined. |
+| `ACCOUNT_ACTIVATION` | Account Activation | `fullname`, `email`, `activationLink`, `expiresIn` | Link to activate a suspended or newly created account. |
+| `AGREEMENT_SIGNATURE_REQUEST` | Agreement Signature Request | `fullname`, `email`, `agreementLink` | Notification for a digital agreement the user must sign. |
+| `AGREEMENT_TERMINATION` | Agreement Termination | `fullname`, `email`, `reason`, `terminationDate` | Notification that a signed agreement has been terminated. |
+| `POLICY_UPDATE` | Policy Update | `fullname`, `email`, `policyTitle`, `updateLink` | User agreement or privacy policy updates. |
+| `POLICY_VIOLATION` | Policy Violation | `fullname`, `email`, `violationType`, `consequence` | Notification that the user has violated rules or policies. |
+| `ACCOUNT_SUSPENSION` | Account Suspension | `fullname`, `email`, `reason`, `endDate` | Notice of temporary account suspension for rule violations. |
+| `EMAIL_VERIFICATION` | Email Verification | `fullname`, `email`, `verificationCode`, `verificationLink` | Address verification code during new registration or email change. |
+| `EMAIL_VERIFIED` | Email Verified | `fullname`, `email` | Confirmation that the email address was successfully verified. |
+| `ACCOUNT_CREATED` | Account Created | `fullname`, `email`, `loginUrl` | Notification of automated or admin-created account opening. |
+| `LOGIN_ALERT_NEW_DEVICE` | New Device Login | `fullname`, `email`, `deviceName`, `location`, `dateTime` | Security alert sent when logging into the account from a new device. |
+| `LOGIN_ALERT_NEW_LOCATION` | New Location Login | `fullname`, `email`, `location`, `dateTime` | Alert sent when access is granted from a different or new location. |
+| `SUSPICIOUS_LOGIN` | Suspicious Login Attempt | `fullname`, `email`, `location`, `dateTime`, `actionRequired` | Warning aimed at protecting the account during unusual login attempts. |
+| `ACCOUNT_LOCKED` | Account Locked | `fullname`, `email`, `reason`, `unlockLink` | Notice of account lockdown after multiple failed login attempts. |
+| `PASSWORD_RESET_REQUEST` | Password Reset Request | `fullname`, `email`, `resetLink`, `expiresIn` | Confirmation link initiating the user's password reset process. |
+| `PASSWORD_RESET_CONFIRMATION` | Password Reset Confirmation | `fullname`, `email` | Final confirmation that the password was successfully changed. |
+| `PASSWORD_RESET_LINK_EXPIRED` | Reset Link Expired | `fullname`, `email`, `newResetLink` | Warning to create a new request for an expired password reset link. |
+| `TWO_FA_CODE` | 2FA Verification Code | `fullname`, `email`, `code` | Login code for an account with Two-Factor Authentication (2FA) enabled. |
+| `TWO_FA_ENABLED` | 2FA Enabled | `fullname`, `email` | Notification that Two-Factor Authentication has been successfully activated. |
+| `TWO_FA_DISABLED` | 2FA Disabled | `fullname`, `email` | Critical security alert that Two-Factor Authentication has been turned off. |
+| `BACKUP_CODES_ISSUED` | Backup Codes Generated | `fullname`, `email`, `backupCodes` | Delivery of emergency backup recovery codes for 2FA. |
+| `PROFILE_UPDATE` | Profile Updated | `fullname`, `email`, `updatedFields` | Alert that user profile details (name, surname, etc.) have changed. |
+| `EMAIL_CHANGE_VERIFICATION` | Email Change Verification | `fullname`, `oldEmail`, `newEmail`, `verificationLink` | Verification sent to a user wishing to change their email address. |
+| `EMAIL_CHANGE_ALERT` | Email Change Alert | `fullname`, `oldEmail`, `newEmail` | Security alert sent to the old address when the email is changed. |
+| `PHONE_NUMBER_UPDATED` | Phone Number Updated | `fullname`, `email`, `newPhoneNumber` | Notification regarding a phone number change. |
+| `PAYMENT_INFO_UPDATED` | Payment Info Updated | `fullname`, `email`, `updatedAt` | Warning about the update of registered cards or billing payment methods. |
+| `KYC_REQUIRED` | KYC Verification Required | `fullname`, `email`, `verificationLink`, `deadline` | Request to complete the identity/document verification (KYC) process. |
+| `KYC_APPROVED` | KYC Approved | `fullname`, `email` | Confirmation that the user identity verification process was successful. |
+| `KYC_REJECTED` | KYC Rejected | `fullname`, `email`, `reason`, `retryLink` | Identity verification rejection due to insufficient/incorrect documents and the reason. |
+| `BANK_DETAILS_VERIFICATION` | Bank Details Verification | `fullname`, `email`, `verificationLink` | Notification of the verification stage for entered bank/IBAN details. |
+| `BANK_DETAILS_VERIFIED` | Bank Details Verified | `fullname`, `email` | Notification that bank and IBAN details have been approved. |
+| `ACCOUNT_REACTIVATED` | Account Reactivated | `fullname`, `email` | Confirmation of reopening a closed or frozen account. |
+| `MULTIPLE_FAILED_LOGIN` | Multiple Failed Login Warning | `fullname`, `email`, `count`, `dateTime` | Protective alert sent after consecutive incorrect password attempts. |
+| `ACCOUNT_DELETION_REQUEST` | Account Deletion Request | `fullname`, `email`, `cancellationLink`, `retentionDate` | Member's account deletion request and the grace period for cancellation/recovery. |
+| `ACCOUNT_DELETED` | Account Deleted | `fullname`, `email` | Notification that the account deletion process has been permanently completed. |
+| `ACCOUNT_INACTIVITY_REMINDER` | Inactivity Reminder | `fullname`, `email`, `lastLoginDate`, `consequence` | Activity reminder for accounts that have been unused for a long time. |
+| `ACCOUNT_SCHEDULED_DEACTIVATION`| Scheduled Account Deactivation | `fullname`, `email`, `deactivationDate`, `reactivationLink` | Scheduled account closure date and recovery link. |
+| `TERMS_OF_SERVICE_UPDATE` | Terms of Service Update | `fullname`, `email`, `updateSummary`, `fullAgreementLink` | Notification of legal updates in the terms of use. |
+| `PRIVACY_POLICY_UPDATE` | Privacy Policy Update | `fullname`, `email`, `updateSummary`, `fullPolicyLink` | Delivery of updates in privacy and GDPR policies. |
+| `INVITATION_TO_JOIN` | Invitation to Join Team | `fullname`, `email`, `inviterName`, `itemName`, `role`, `invitationLink` | Invitation letter to join an organization, brand, or team. |
+| `NEW_MEMBER` | New Team Member | `fullname`, `email`, `role`, `inviteUrl` | Notification sent to other admins when a new member joins the team. |
+| `APPROVAL_CONFIRMATION` | Approval Confirmation | `fullname`, `email`, `approvedItem`, `approvalDate` | Notification that a user or member application/registration is approved. |
+| `APPROVAL_REJECTION` | Approval Rejection | `fullname`, `email`, `rejectedItem`, `reason` | Rejection of a member or registration application along with its justification. |
+| `MISSING_DOCUMENTS` | Missing Documents Alert | `fullname`, `email`, `missingDocsList`, `uploadLink` | Request to upload missing documents for registration or KYC processes. |
+
+---
+
+### 🛒 CATEGORY 2: Commerce (E-Commerce & Product) Templates
+> **Visibility Condition:** `template === 'ECOMMERCE' || template === 'MARKETPLACE' || catalogTypes.includes('PRODUCT')`
+
+| Template Code (`smsType`) | Template Name | Recommended Variables | Description |
+| :--- | :--- | :--- | :--- |
+| `NEW_ORDER` | New Order Notification | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | New order alert sent to system administrators when an order is received. |
+| `ORDER_STATUS_CHANGED` | Order Status Changed | `orderNo`, `fullname`, `newStatus`, `oldStatus`, `orderViewLink` | Information sent to the buyer as order preparation stages change. |
+| `ORDER_CONFIRMATION` | Order Confirmation | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total` | Invoice and confirmation summary sent to the customer when the order is completed. |
+| `ORDER_CANCELLED` | Order Cancelled | `orderNo`, `fullname`, `reason`, `refundInfo` | Cancellation and refund information sent to the customer when an order is cancelled. |
+| `ORDER_SHIPPED` | Order Shipped | `orderNo`, `fullname`, `trackingNumber`, `cargoCompany`, `trackingLink` | Notification containing the tracking link indicating the package was handed to the courier. |
+| `ORDER_DELIVERED` | Order Delivered | `orderNo`, `fullname`, `orderViewLink` | Confirmation email that the order successfully reached the recipient. |
+| `ORDER_CREATED` | Order Created | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | Alert for when an order draft is created or awaiting payment. |
+| `ORDER_NOTIFICATION` | Order Notification (General) | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | Other intermediate status updates in order processes. |
+| `ORDER_INVOICE` | Order Invoice | `fullname`, `orderNo`, `attachments` | Delivery of the e-invoice/e-archive PDF document to the customer. |
+| `PAYMENT_RECEIVED` | Payment Received | `fullname`, `orderNo`, `amount`, `currency`, `paymentMethod`, `orderDate`, `orderViewLink` | Information that the order amount was successfully collected. |
+| `PAYMENT_FAILED` | Payment Failed | `fullname`, `orderNo`, `errorMessage`, `retryLink` | Failed payment warning due to a card or POS error, along with a retry link. |
+| `REFUND_INITIATED` | Refund Initiated | `fullname`, `orderNo`, `refundAmount`, `currency`, `estimatedDays` | Information that the refund process has begun by the finance department and the estimated time. |
+| `NEW_SALE` | New Sale Notification | `orderNo`, `fullname`, `amount`, `items` | Congratulatory notification sent to a Merchant when they sell a new product. |
+| `SHIPPING_CONFIRMATION_REQUIRED` | Shipping Confirmation Required | `orderNo`, `fullname`, `deadlineDate` | Warning reminding the seller of the deadline to ship the order. |
+| `SHIPPING_CONFIRMATION` | Shipping Confirmation | `orderNo`, `fullname`, `trackingNo`, `cargoCompany` | Confirmation that the shipping dispatch has been registered in the system. |
+| `BUYER_INQUIRY` | Buyer Inquiry / Request | `fullname`, `email`, `message`, `itemTitle` | Customer question forwarded to the seller regarding a product or order. |
+| `INQUIRY_RESPONSE` | Inquiry Response | `fullname`, `email`, `response`, `itemTitle` | Forwarding the seller's response to the customer's question. |
+| `PRODUCT_APPROVED` | Product Approved | `fullname`, `email`, `productName`, `publishedUrl` | Notification that a new product uploaded by the seller passed editor approval and is live. |
+| `PRODUCT_REVISION_REQUEST` | Product Revision Request | `fullname`, `email`, `productName`, `revisionNotes`, `editUrl` | The editor requesting corrections from the seller for an incomplete/incorrect product. |
+| `PRODUCT_SUBMISSION_GUIDELINES`| Product Submission Guidelines | `fullname`, `email`, `guideLink` | Guide instructing new sellers on how to upload their products according to standards. |
+
+---
+
+### 🏢 CATEGORY 3: Marketplace & Merchant Templates
+> **Visibility Condition:** `template === 'MARKETPLACE' || relationTypes.includes('MERCHANT')`
+
+| Template Code (`smsType`) | Template Name | Recommended Variables | Description |
+| :--- | :--- | :--- | :--- |
+| `APPLICATION_RECEIVED` | Application Received | `fullname`, `email`, `applicationId`, `date` | Confirmation that the marketplace seller candidate's application has reached the system. |
+| `APPLICATION_UNDER_REVIEW` | Application Under Review | `fullname`, `email`, `applicationId`, `status` | Information that the application is in the pre-evaluation commission stage. |
+| `APPLICATION_ADDITIONAL_INFO` | Application Additional Info Request | `fullname`, `email`, `applicationId`, `missingDocsList`, `uploadLink` | Requests for additional documents like signature circular, tax plate, etc. for approval. |
+| `APPLICATION_APPROVED` | Application Approved | `fullname`, `email`, `applicationId`, `approvalDate` | Store opening approval letter and panel credentials for the seller candidate. |
+| `APPLICATION_REJECTED` | Application Rejected | `fullname`, `email`, `applicationId`, `reason` | Reasoned rejection for applications that do not meet marketplace standards. |
+| `APPLICATION_DEFERRED` | Application Deferred | `fullname`, `email`, `applicationId`, `reconsiderationDate` | Postponement of the application to be re-evaluated at a later period. |
+| `APPLICATION_REINVITATION` | Application Reinvitation | `fullname`, `email`, `applicationId`, `inviteLink` | Renewal of rejected or expired store invitations. |
+| `ONBOARDING_CALL_INVITATION` | Onboarding Call Invitation | `fullname`, `email`, `meetingLink`, `meetingDate` | Invitation to a meeting organized to provide store training for new sellers. |
+| `LOGISTICS_GUIDELINES` | Logistics & Shipping Guidelines | `fullname`, `email`, `logisticsInfo` | Usage and packaging standards for marketplace contracted couriers. |
+| `OPERATIONAL_GUIDE` | Operational Guide | `fullname`, `email`, `guideLink` | Manual for order fulfillment, returns management, and panel training. |
+| `COMMISSION_STRUCTURE` | Commission Structure & Rates | `fullname`, `email`, `commissionRate`, `paymentTerms` | Commission rates to be applied by category and payout maturity terms. |
+| `CURATOR_ATTRIBUTION` | Curator Attribution | `fullname`, `email`, `saleAmount`, `commission` | Commission notification for sales made via Curators (Influencers). |
+| `CURATORIAL_UPDATE` | Curatorial Update | `fullname`, `email`, `updateTitle`, `content` | Campaign and rule changes in the Curator / Affiliate program. |
+| `PERFORMANCE_SUMMARY` | Performance Summary | `fullname`, `email`, `period`, `salesTotal`, `viewsTotal` | Revenue and visit statistics sent weekly/monthly to sellers. |
+| `PENALTY_APPLIED` | Penalty Applied | `fullname`, `orderId`, `orderNo`, `amount`, `reason`, `penaltyDate` | Penalty charged to the seller due to delayed shipping, faulty products, or cancellations. |
+| `PENALTY_CANCELLED` | Penalty Cancelled | `fullname`, `orderId`, `orderNo`, `amount`, `reason`, `cancellationDate` | Confirmation of penalty cancellation for a seller whose appeal was justified. |
+| `PENALTY_ADJUSTED` | Penalty Adjusted | `fullname`, `orderId`, `orderNo`, `oldAmount`, `newAmount`, `reason`, `adjustmentDate` | Notification that the penalty amount has been revised. |
+| `PAYMENT_RELEASE_CONFIRMATION` | Payment Release Confirmation | `orderNo`, `fullname`, `releaseAmount` | Bank transfer notification for the payout amount transferred to the seller's account. |
+
+---
+
+### 📅 CATEGORY 4: Event Templates
+> **Visibility Condition:** `catalogTypes.includes('EVENT')` (Visible if Event Catalog is active)
+
+| Template Code (`smsType`) | Template Name | Recommended Variables | Description |
+| :--- | :--- | :--- | :--- |
+| `EVENT_REGISTRATION` | Event Registration | `fullname`, `email`, `eventName`, `eventDate`, `eventUrl` | Confirmation that the attendee successfully registered for an event/webinar. |
+| `EVENT_APPROVED` | Event Approved | `fullname`, `email`, `eventName`, `approvalDate` | Admin approval of an event created by the organizer. |
+| `EVENT_PUBLISHED` | Event Published | `fullname`, `email`, `eventName`, `eventUrl` | Announcement to followers that the event is open for ticket sales or reservations. |
+| `INVITATION_TO_EVENT` | Invitation to Event | `fullname`, `email`, `eventName`, `eventLink` | Event participation invitation sent to special guests or members. |
+
+---
+
+### 📝 CATEGORY 5: Content & General (CMS / Marketing / Form) Templates
+> **Visibility Condition:** *Always visible.*
+
+| Template Code (`smsType`) | Template Name | Recommended Variables | Description |
+| :--- | :--- | :--- | :--- |
+| `NEWSLETTER` | Newsletter Delivery | `email`, `fullname`, `unsubscribeUrl` | Bulk newsletters, campaigns, and blog posts sent to subscriber lists. |
+| `NEWSLETTER_SUBSCRIPTION` | Newsletter Subscription Confirmation | `email`, `fullname`, `unsubscribeUrl` | Welcome/confirmation alert sent to a new subscriber joining the email list. |
+| `CONTACT_FORM` | Contact Form Message | `fullname`, `email`, `message`, `subject`, `submittedAt` | Forwarding the message sent by a visitor from the contact page to admins. |
+| `FORM_SUBMISSION` | Custom Form Submission | `fullname`, `email`, `formName`, `submittedAt`, `fields` | Copy of applications/data coming from dynamic forms on the site. |
+| `COMMENTS` | Comment Notification (General) | `fullname`, `commentText`, `itemTitle` | Warning that comments posted on content or products are awaiting approval. |
+| `NEW_COMMENT` | New Comment Posted | `fullname`, `commentText`, `itemTitle`, `itemUrl`, `authorName` | Notification to system admins of a comment written by a customer. |
+| `COMMENT_APPROVED` | Comment Approved | `fullname`, `commentText`, `itemTitle`, `itemUrl` | Confirmation that the user's comment has been approved and published. |
+| `COMMENT_REJECTED` | Comment Rejected | `fullname`, `commentText`, `itemTitle`, `reason` | Notification that comments not complying with community guidelines were rejected. |
+| `COMMENT_REPLY` | Comment Reply | `fullname`, `commentText`, `replyText`, `itemTitle`, `itemUrl` | Notification sent when an admin or seller replies to the user's comment. |
+| `QUESTIONS` | Question Form Notification | `fullname`, `email`, `question`, `submittedAt` | New questions coming from the FAQ or Under-Product question form. |
+| `NOTIFICATION` | System General Notification | `fullname`, `email`, `message` | Manual or system-triggered free-text notifications. |
+| `FEATURED_NOTIFICATION` | Featured Content Notification | `fullname`, `email`, `featuredItem`, `featuredUrl` | Product of the week, featured author, or blog post promotions. |
+| `CUSTOM` | Custom Free Text | `fullname`, `email` | SMS/Mail template type instantly written entirely via the admin panel. |
+
+---
+
+> [!IMPORTANT]
+> **Variable Usage Rule:** When creating your templates, you must use variables in the `{{variable_name}}` format (Handlebars standard). If a variable is not found in the database or API call while an SMS is sent, the system will not throw an error; instead, it will leave the relevant variable placeholder blank and proceed with the broadcast.

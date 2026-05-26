@@ -1,0 +1,36 @@
+---
+sidebar_position: 3
+title: "Data Tables"
+---
+
+# Using Data Tables
+
+Almost every module in AVCI CMS (Products, Orders, Users, Logs) lists information using our standardized **Data Table** component. Mastering the data table will dramatically speed up your daily workflows.
+
+## 1. Searching and Filtering
+
+Data tables are designed to handle millions of rows without slowing down.
+- **Quick Search:** The search input at the top right of the table usually searches across multiple common columns (e.g., searching "John" in the Users table will check first names, last names, and emails).
+- **Column Filters:** Next to the search bar, you will find an "Advanced Filters" button. This allows you to stack specific conditions:
+  - *Example:* "Status is Active" AND "Price is greater than $50" AND "Category is Shoes".
+- **Sorting:** Click on almost any column header (like "Created Date" or "Price") to sort the data ascending or descending. An arrow will appear indicating the sort direction.
+
+## 2. Bulk Actions
+
+When you need to update many records at once, do not click into them individually.
+1. Hover over the left side of a row to reveal a **Checkbox**.
+2. Click the checkbox to select the row. You can also click the master checkbox at the top left of the table to "Select All on Page".
+3. Once at least one row is selected, a new **Bulk Actions Bar** will slide into view at the top of the table.
+4. From here, you can select actions like "Delete Selected", "Change Status to Inactive", or "Export Selected to CSV".
+
+## 3. Pagination and View Options
+
+At the bottom right of the data table:
+- **Rows per page:** By default, tables show 10 or 20 rows. You can increase this to 50 or 100 if you want to see more data at once or perform larger bulk actions.
+- **Page Navigation:** Use the Previous/Next buttons or type a specific page number to jump deep into your data.
+
+## 4. Row Actions (The "..." Menu)
+
+On the far right of every individual row, you will see an "Actions" column (often represented by three dots `...` or a gear icon).
+- Clicking this opens a context menu specific to that item.
+- Common actions include **Edit**, **View**, **Duplicate**, or **Delete**.

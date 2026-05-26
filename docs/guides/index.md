@@ -3,6 +3,7 @@ id: index
 title: Guides
 slug: /guides
 sidebar_position: 1
+sidebar_key: "guides-index-md"
 ---
 
 # Guides

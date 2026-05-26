@@ -3,6 +3,7 @@ id: index
 title: API Reference
 slug: /api
 sidebar_position: 1
+sidebar_key: "api-index-md"
 ---
 
 # API Reference

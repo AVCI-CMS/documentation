@@ -1,0 +1,22 @@
+---
+sidebar_position: 3
+title: "iyzico"
+---
+
+# iyzico Integration
+
+iyzico is the preferred payment provider for the Turkish market, offering seamless installment support for local credit cards and a robust B2B marketplace sub-merchant (Sub-Merchant) architecture.
+
+## 1. Fetching Credentials
+1. Log in to your iyzico Merchant Panel.
+2. Go to **Settings > Merchant Settings**.
+3. Locate your **API Key** and **Secret Key**.
+
+## 2. Configuration Steps
+1. Navigate to **Workspace > Settings > Sale Settings > Payment** in AVCI CMS.
+2. Select **iyzico**.
+3. Enter your API Key and Secret Key.
+4. **Marketplace Mode:** If you operate a multi-vendor marketplace, ensure you check the "Enable iyzico Marketplace" option so the CMS can automatically split funds between the platform commission and the merchant.
+
+## 3. 3D Secure Preferences
+iyzico requires 3D Secure for certain transactions. We highly recommend forcing 3D Secure for all transactions over a specific monetary threshold to reduce chargeback risks. You can configure this threshold directly in the AVCI CMS panel.

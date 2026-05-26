@@ -1,0 +1,8 @@
+{
+  "label": "Onboarding & Setup",
+  "position": 1.5,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn how to complete the onboarding wizard for your specific account type."
+  }
+}

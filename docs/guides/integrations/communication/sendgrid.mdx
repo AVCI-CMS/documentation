@@ -1,0 +1,15 @@
+---
+sidebar_position: 2
+title: "SendGrid"
+---
+
+# SendGrid Integration
+
+SendGrid is ideal for sending transactional emails (like Order Confirmations or Password Resets).
+
+## Setup
+1. In SendGrid, navigate to **Settings > API Keys**.
+2. Create an API Key with **Mail Send** permissions.
+3. In AVCI CMS, go to **Workspace > Settings > Communication > Email**.
+4. Select **SendGrid** and paste your API Key.
+5. **Domain Authentication:** Do not forget to authenticate your sender domain in SendGrid by adding the required CNAME records to your DNS provider. Emails sent without domain authentication will likely land in the spam folder.

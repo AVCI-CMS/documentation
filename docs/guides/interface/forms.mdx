@@ -1,0 +1,29 @@
+---
+sidebar_position: 4
+title: "Forms & Data Entry"
+---
+
+# Forms & Data Entry
+
+Whenever you click **"Create"** or **"Edit"** in the CMS, you will interact with a standardized form. Because AVCI CMS manages complex e-commerce data, forms are built to be robust and prevent accidental data loss.
+
+## Form Structure & Tabs
+
+For complex entities (like Products or Settings), putting 50 input fields on a single page would be overwhelming. 
+- **Tabbed Navigation:** Look at the top or left side of the form area. You will often see tabs (e.g., "Basic Info", "Pricing", "SEO", "Images").
+- **State Persistence:** You do *not* need to save when switching between tabs. You can fill out "Basic Info", click the "Pricing" tab, fill that out, and then click "Save" once at the very end. The CMS remembers your inputs across tabs.
+
+## Input Validation and Errors
+
+The CMS strictly enforces data integrity to prevent your storefront from breaking.
+- **Required Fields:** Fields marked with a red asterisk (`*`) must be filled out.
+- **Real-time Validation:** If you type an invalid email address format or letters into a "Price" field, the field border will turn red immediately, and a helpful error message will appear below it.
+- **Submission Blockers:** If you try to save a form with errors, the save will fail, and the system will automatically highlight the tab and the specific field that requires your attention.
+
+## Saving Behaviors
+
+At the bottom (or top right) of the form, you will typically see primary action buttons:
+
+- **Cancel / Back:** Discards all unsaved changes and returns you to the previous data table. (The system will warn you if you have unsaved data).
+- **Save & Continue Editing:** Saves your current progress to the database but keeps you on the form. Highly recommended for long data entry tasks to prevent data loss if your internet disconnects.
+- **Save (or Create):** Saves the data and redirects you back to the data table or the item's view page.

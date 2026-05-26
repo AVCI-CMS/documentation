@@ -1,0 +1,27 @@
+---
+sidebar_position: 7
+title: "Disputes"
+---
+
+# Disputes & Chargebacks
+
+**Menu Path:** `Finance & Logistics > Disputes`
+
+The **Disputes** module is critical for protecting your revenue. A dispute (or chargeback) occurs when a customer contacts their bank to reverse a charge, claiming the transaction was fraudulent, unauthorized, or the goods were never delivered.
+
+## The Dispute Process
+
+When a chargeback is initiated, your payment provider (e.g., Stripe) immediately pulls the funds from your account and notifies AVCI CMS. A record is created in this module.
+
+### Responding to a Chargeback
+You have a limited window (usually 7-21 days) to respond to the bank.
+
+1. **Investigate:** Click on the dispute record to see the linked Order and Customer data.
+2. **Gather Evidence:** Check if the item was delivered. Did the customer sign for it? Do you have email logs showing they were satisfied?
+3. **Submit Evidence:** Use the CMS to upload PDF receipts, tracking screenshots, and communication logs. Clicking **"Submit Evidence"** sends this data back to the payment provider to fight the bank's decision.
+
+### Dispute Outcomes
+- **Won:** The bank sided with you. The funds are returned to your master wallet.
+- **Lost:** The bank sided with the customer. The funds are permanently lost, and you are usually hit with an additional "Chargeback Fee" by the payment provider.
+
+> **Marketplace Rule:** If you are running a marketplace and you lose a dispute because the *Merchant* failed to deliver the goods, you should manually use the [Penalties](./penalties.mdx) or [Wallet](./wallet.mdx) module to deduct the lost amount from the responsible Merchant's balance.
