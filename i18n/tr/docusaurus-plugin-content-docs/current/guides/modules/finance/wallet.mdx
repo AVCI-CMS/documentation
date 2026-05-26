@@ -1,0 +1,39 @@
+---
+sidebar_position: 1
+title: "Wallet"
+---
+
+# Wallet (Digital Balances)
+
+**Menu Path:** `Finance & Logistics > Wallet`
+
+The **Wallet** module is a central financial ledger where the digital balances of your platform, customers, and merchants are tracked. In a marketplace environment, the Wallet is the most critical component for managing cash flow, merchant earnings, and store credits.
+
+## Understanding Wallet Types
+
+Depending on your platform's structure, wallets can belong to:
+- **Customers (Store Credit):** Users can have a wallet balance funded by gift cards, refunds, or loyalty rewards, which they can spend at checkout.
+- **Merchants (Earnings):** Sellers accumulate funds in their wallet as their products are sold. This balance represents what the platform owes them, minus commissions.
+- **Master Wallet:** The platform's main account showing total retained earnings (commissions + fees).
+
+## Navigating the Wallet Dashboard
+
+When you open the Wallet module, you will see a high-level summary of funds across the system.
+
+### 1. Balance Overview
+- **Available Balance:** Funds that are cleared and ready to be used or withdrawn.
+- **Pending/Blocked Balance:** Funds that are held temporarily. For instance, a merchant's earnings might be held in escrow for 14 days (the return period) before moving to "Available".
+
+### 2. Payouts (Withdrawal Requests)
+Merchants can request to transfer their *Available Balance* to their real bank accounts.
+- **Reviewing Requests:** Under the "Payouts" tab, you will see pending withdrawal requests.
+- **Approving a Payout:** Click on a pending request, verify the merchant's IBAN or connected Stripe account, and mark it as "Approved" or "Processed". The system will deduct the amount from their wallet.
+
+### 3. Manual Adjustments
+Administrators can manually credit or debit a wallet.
+- Click **"Add Transaction"**.
+- Select the Target Wallet (e.g., a specific customer).
+- Enter the Amount and the Type (e.g., "Credit").
+- **Reason/Note:** Always leave a descriptive note (e.g., "Customer compensation for delayed shipping") for auditing purposes.
+
+> **Auditing:** The Wallet screen shows current balances. To see the step-by-step history of *how* a wallet reached its current balance, you must use the [Transactions](./transactions.mdx) module.

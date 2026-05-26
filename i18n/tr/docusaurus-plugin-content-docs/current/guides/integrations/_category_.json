@@ -1,0 +1,8 @@
+{
+  "label": "Entegrasyonlar",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Ödeme, İletişim, Analitik gibi üçüncü taraf hizmetleri nasıl bağlayacağınızı ve yapılandıracağınızı öğrenin."
+  }
+}

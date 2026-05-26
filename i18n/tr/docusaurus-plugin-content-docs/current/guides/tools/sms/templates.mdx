@@ -1,0 +1,173 @@
+---
+sidebar_position: 6
+title: "SMS Şablonları"
+sidebar_key: "tools-sms-templates"
+---
+
+# SMS Şablonları
+
+**Menü Yolu:** `Araçlar > SMS > Şablonlar`
+
+SMS karakter sayılarının sınırlı olması nedeniyle, SMS servis sağlayıcınızdan (Twilio, Netgsm vb.) yüksek fatura maliyetlerinden kaçınmak için şablonların kısa ve öz yapılandırılması çok önemlidir.
+
+## SMS Uyarılarını Özelleştirme
+
+Bir SMS şablonunu düzenlerken HTML veya Zengin Metin editörü bulunmaz. Yalnızca düz metin desteklenir.
+
+> [!WARNING]
+> **Karakter Sayısı Uyarısı:** Metin kutusunun altındaki karakter sayacını daima kontrol edin. İçeriye yerleştirilen bir değişkenin (ör. URL `{{tracking.link}}`) dinamik olarak 30-40 karakter ekleyebileceğini ve mesajınızı 2 segmentli fiyatlandırma dilimine sokabileceğini unutmayın.
+
+## 🗺️ Şablon Kategorileri ve Haritalama Mantığı
+
+SMS Şablonları, mail şablonlarıyla aynı kod altyapısını kullanır ancak SMS doğasına uygun olarak daha kısa ve özet olarak gönderilmesi tavsiye edilir. Şablonlar, aktif Workspace konfigürasyonunun özelliklerine göre dinamik olarak filtrelenir.
+
+---
+
+### 🟢 KATEGORİ 1: Kullanıcı & Güvenlik (Core Auth & User) Şablonları
+> **Görünürlük Koşulu:** `relationTypes.includes('USER')` (Kullanıcı İlişkisi/Modülü aktifse görünür)
+
+| Şablon Kodu (`smsType`) | Şablon Adı | Önerilen Dinamik Değişkenler | Açıklama |
+| :--- | :--- | :--- | :--- |
+| `WELCOME` | Hoş Geldiniz E-postası | `fullname`, `email`, `loginUrl` | Yeni kayıt olan kullanıcılara gönderilen karşılama. |
+| `RESET_PASSWORD` | Şifre Sıfırlama | `fullname`, `email`, `reset_password_link` | Şifre sıfırlama işlemi gerçekleştikten sonra gönderilen bilgilendirme. |
+| `VALIDATE_EMAIL` | E-posta Doğrulama Linki | `fullname`, `email`, `validationLink`, `validation_link` | E-posta adresini doğrulamak için gönderilen aktivasyon linki. |
+| `FORGOT_PASSWORD` | Şifremi Unuttum | `fullname`, `email`, `link`, `reset_password_link` | Şifresini unutan kullanıcıya gönderilen kurtarma linki. |
+| `PASSWORD_CHANGED` | Şifre Değiştirildi | `fullname`, `email`, `link`, `reset_password_link` | Kullanıcının şifresi güncellendiğinde gönderilen güvenlik uyarısı. |
+| `OTP` | Tek Seferlik Şifre (OTP) | `fullname`, `email`, `otp`, `expiresIn` | Giriş veya kritik işlemlerde gönderilen tek seferlik doğrulama kodu. |
+| `VERIFICATION` | Doğrulama Kodu | `fullname`, `email`, `verifyLink` | Genel doğrulama işlemleri için gönderilen bağlantı. |
+| `USER_PANEL_ACCESS` | Kullanıcı Panel Erişimi | `fullname`, `email`, `panelUrl`, `role`, `password` | Yeni kullanıcı tanımlandığında panel erişim bilgilerinin gönderilmesi. |
+| `ACCOUNT_ACTIVATION` | Hesap Aktivasyonu | `fullname`, `email`, `activationLink`, `expiresIn` | Askıya alınmış veya yeni açılmış hesabı aktive etme bağlantısı. |
+| `AGREEMENT_SIGNATURE_REQUEST` | Sözleşme İmzalama Talebi | `fullname`, `email`, `agreementLink` | Kullanıcının imzalaması gereken dijital sözleşme bildirimi. |
+| `AGREEMENT_TERMINATION` | Sözleşme Feshi | `fullname`, `email`, `reason`, `terminationDate` | İmzalı sözleşmenin feshedildiğine dair bilgilendirme. |
+| `POLICY_UPDATE` | Politika Güncellemesi | `fullname`, `email`, `policyTitle`, `updateLink` | Kullanıcı sözleşmesi veya gizlilik politikası güncellemeleri. |
+| `POLICY_VIOLATION` | Politika İhlali | `fullname`, `email`, `violationType`, `consequence` | Kullanıcının kuralları veya politikaları ihlal ettiğine dair bildirim. |
+| `ACCOUNT_SUSPENSION` | Hesap Askıya Alma | `fullname`, `email`, `reason`, `endDate` | Kurallara uymayan kullanıcı hesabının geçici askıya alınma bildirimi. |
+| `EMAIL_VERIFICATION` | E-posta Doğrulama | `fullname`, `email`, `verificationCode`, `verificationLink` | Yeni kayıt veya e-posta değişiminde adres doğrulama kodu. |
+| `EMAIL_VERIFIED` | E-posta Doğrulandı | `fullname`, `email` | E-posta adresinin başarıyla doğrulandığına dair onay. |
+| `ACCOUNT_CREATED` | Hesap Oluşturuldu | `fullname`, `email`, `loginUrl` | Yönetici tarafından veya sistemce otomatik hesap açılış bildirimi. |
+| `LOGIN_ALERT_NEW_DEVICE` | Yeni Cihaz Girişi | `fullname`, `email`, `deviceName`, `location`, `dateTime` | Hesaba yeni bir cihazdan giriş yapıldığında gönderilen güvenlik uyarısı. |
+| `LOGIN_ALERT_NEW_LOCATION` | Yeni Konum Girişi | `fullname`, `email`, `location`, `dateTime` | Hesaba farklı veya yeni bir konumdan erişim sağlandığında gönderilen uyarı. |
+| `SUSPICIOUS_LOGIN` | Şüpheli Giriş Denemesi | `fullname`, `email`, `location`, `dateTime`, `actionRequired` | Sıra dışı giriş denemelerinde hesabı korumaya yönelik uyarı. |
+| `ACCOUNT_LOCKED` | Hesap Kilitlendi | `fullname`, `email`, `reason`, `unlockLink` | Çoklu başarısız giriş denemesi sonrası hesabın kilitlenme bildirimi. |
+| `PASSWORD_RESET_REQUEST` | Şifre Sıfırlama Talebi | `fullname`, `email`, `resetLink`, `expiresIn` | Kullanıcının şifre sıfırlama sürecini başlattığı onay bağlantısı. |
+| `PASSWORD_RESET_CONFIRMATION` | Şifre Sıfırlama Onayı | `fullname`, `email` | Parolanın başarıyla değiştirildiğine dair son onay bildirimi. |
+| `PASSWORD_RESET_LINK_EXPIRED` | Sıfırlama Linki Süresi Doldu | `fullname`, `email`, `newResetLink` | Süresi dolan şifre sıfırlama linki için yeni talep oluşturma uyarısı. |
+| `TWO_FA_CODE` | 2FA Doğrulama Kodu | `fullname`, `email`, `code` | İki aşamalı doğrulama (2FA) aktif hesaba giriş kodu. |
+| `TWO_FA_ENABLED` | 2FA Aktif Edildi | `fullname`, `email` | İki aşamalı doğrulamanın başarıyla aktif edildiği bildirimi. |
+| `TWO_FA_DISABLED` | 2FA Devre Dışı Bırakıldı | `fullname`, `email` | İki aşamalı doğrulamanın kapatıldığına dair kritik güvenlik uyarısı. |
+| `BACKUP_CODES_ISSUED` | Yedek Kodlar Oluşturuldu | `fullname`, `email`, `backupCodes` | 2FA için acil durum yedek kurtarma kodlarının gönderimi. |
+| `PROFILE_UPDATE` | Profil Güncellendi | `fullname`, `email`, `updatedFields` | Kullanıcı profil bilgilerinin (ad, soyad, vb.) değiştiği uyarısı. |
+| `EMAIL_CHANGE_VERIFICATION` | E-posta Değişim Doğrulaması | `fullname`, `oldEmail`, `newEmail`, `verificationLink` | E-posta adresini değiştirmek isteyen kullanıcıya gönderilen doğrulama. |
+| `EMAIL_CHANGE_ALERT` | E-posta Değişim Bildirimi | `fullname`, `oldEmail`, `newEmail` | E-posta adresi değiştirildiğinde eski adrese gönderilen güvenlik uyarısı. |
+| `PHONE_NUMBER_UPDATED` | Telefon Numarası Güncellendi | `fullname`, `email`, `newPhoneNumber` | Telefon numarası değişikliğine dair bilgilendirme. |
+| `PAYMENT_INFO_UPDATED` | Ödeme Bilgisi Güncellendi | `fullname`, `email`, `updatedAt` | Kayıtlı kart veya fatura ödeme yöntemlerinin güncellenme uyarısı. |
+| `KYC_REQUIRED` | KYC Kimlik Doğrulaması Gerekli | `fullname`, `email`, `verificationLink`, `deadline` | Kimlik/belge doğrulama (KYC) sürecinin tamamlanması talebi. |
+| `KYC_APPROVED` | KYC Onaylandı | `fullname`, `email` | Kullanıcı kimlik doğrulama sürecinin başarıyla tamamlandığı onayı. |
+| `KYC_REJECTED` | KYC Reddedildi | `fullname`, `email`, `reason`, `retryLink` | Yetersiz/hatalı belge nedeniyle kimlik doğrulama reddi ve nedeni. |
+| `BANK_DETAILS_VERIFICATION` | Banka Bilgisi Doğrulaması | `fullname`, `email`, `verificationLink` | Girilen banka/IBAN bilgilerinin doğrulama aşaması bildirimi. |
+| `BANK_DETAILS_VERIFIED` | Banka Bilgisi Doğrulandı | `fullname`, `email` | Banka ve IBAN bilgilerinin onaylandığı bildirimi. |
+| `ACCOUNT_REACTIVATED` | Hesap Yeniden Aktifleştirildi | `fullname`, `email` | Kapatılmış veya dondurulmuş hesabın yeniden açılma onayı. |
+| `MULTIPLE_FAILED_LOGIN` | Çoklu Hatalı Giriş Uyarısı | `fullname`, `email`, `count`, `dateTime` | Üst üste hatalı şifre denemelerinde gönderilen koruyucu uyarı. |
+| `ACCOUNT_DELETION_REQUEST` | Hesap Silme Talebi | `fullname`, `email`, `cancellationLink`, `retentionDate` | Üyenin hesap silme talebi ve vazgeçme/kurtarma opsiyonu süresi. |
+| `ACCOUNT_DELETED` | Hesap Silindi | `fullname`, `email` | Hesap silme işleminin kalıcı olarak tamamlandığı bildirimi. |
+| `ACCOUNT_INACTIVITY_REMINDER` | İnaktiflik Uyarısı | `fullname`, `email`, `lastLoginDate`, `consequence` | Uzun süre kullanılmayan hesaplar için aktiflik hatırlatıcısı. |
+| `ACCOUNT_SCHEDULED_DEACTIVATION`| Zamanlanmış Hesap Kapatma | `fullname`, `email`, `deactivationDate`, `reactivationLink` | Planlı hesap kapatma tarihi ve geri alma bağlantısı. |
+| `TERMS_OF_SERVICE_UPDATE` | Hizmet Koşulları Güncellemesi | `fullname`, `email`, `updateSummary`, `fullAgreementLink` | Kullanım koşullarındaki hukuki güncellemelerin bildirilmesi. |
+| `PRIVACY_POLICY_UPDATE` | Gizlilik Politikası Güncellemesi | `fullname`, `email`, `updateSummary`, `fullPolicyLink` | Gizlilik ve KVKK/GDPR politikalarındaki güncellemelerin iletilmesi. |
+| `INVITATION_TO_JOIN` | Ekibe Davet | `fullname`, `email`, `inviterName`, `itemName`, `role`, `invitationLink` | Bir organizasyona, markaya veya ekibe katılma davet mektubu. |
+| `NEW_MEMBER` | Yeni Ekip Üyesi | `fullname`, `email`, `role`, `inviteUrl` | Ekibe yeni bir üye katıldığında diğer yöneticilere giden bildirim. |
+| `APPROVAL_CONFIRMATION` | Onay Onayı | `fullname`, `email`, `approvedItem`, `approvalDate` | Kullanıcı veya üye başvurusunun/kaydının onaylandığı bildirimi. |
+| `APPROVAL_REJECTION` | Onay Reddi | `fullname`, `email`, `rejectedItem`, `reason` | Üye veya kayıt başvurusunun gerekçesiyle birlikte reddedilmesi. |
+| `MISSING_DOCUMENTS` | Eksik Belge Uyarısı | `fullname`, `email`, `missingDocsList`, `uploadLink` | Kayıt veya KYC süreci için eksik belgelerin yüklenmesi talebi. |
+
+---
+
+### 🛒 KATEGORİ 2: Ticaret (E-Ticaret & Ürün) Şablonları
+> **Görünürlük Koşulu:** `template === 'ECOMMERCE' || template === 'MARKETPLACE' || catalogTypes.includes('PRODUCT')`
+
+| Şablon Kodu (`smsType`) | Şablon Adı | Önerilen Dinamik Değişkenler | Açıklama |
+| :--- | :--- | :--- | :--- |
+| `NEW_ORDER` | Yeni Sipariş Bildirimi | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | Sipariş alındığında sistem yöneticilerine giden yeni sipariş uyarısı. |
+| `ORDER_STATUS_CHANGED` | Sipariş Durumu Değişti | `orderNo`, `fullname`, `newStatus`, `oldStatus`, `orderViewLink` | Siparişin hazırlık aşamaları değiştikçe alıcıya giden bilgilendirme. |
+| `ORDER_CONFIRMATION` | Sipariş Onayı | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total` | Sipariş tamamlandığında müşteriye gönderilen fatura ve onay özeti. |
+| `ORDER_CANCELLED` | Sipariş İptal Edildi | `orderNo`, `fullname`, `reason`, `refundInfo` | Sipariş iptal edildiğinde müşteriye giden iptal ve iade bilgilendirmesi. |
+| `ORDER_SHIPPED` | Sipariş Kargoya Verildi | `orderNo`, `fullname`, `trackingNumber`, `cargoCompany`, `trackingLink` | Sipariş paketinin kargo firmasına verildiğini ve takip linkini içeren bildirim. |
+| `ORDER_DELIVERED` | Sipariş Teslim Edildi | `orderNo`, `fullname`, `orderViewLink` | Siparişin alıcıya başarıyla ulaştığına dair teyit e-postası. |
+| `ORDER_CREATED` | Sipariş Oluşturuldu | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | Sipariş taslağının oluşturulduğu veya ödeme beklediği durum uyarısı. |
+| `ORDER_NOTIFICATION` | Sipariş Bildirimi (Genel) | `orderId`, `orderNo`, `fullname`, `orderedBy`, `orderDate`, `orderViewLink`, `total`, `orderDetails` | Sipariş süreçlerindeki diğer ara durum güncellemeleri. |
+| `ORDER_INVOICE` | Sipariş Faturası | `fullname`, `orderNo`, `attachments` | Sipariş e-arşiv/e-fatura PDF belgesinin müşteriye gönderimi. |
+| `PAYMENT_RECEIVED` | Ödeme Alındı | `fullname`, `orderNo`, `amount`, `currency`, `paymentMethod`, `orderDate`, `orderViewLink` | Sipariş tutarının başarıyla tahsil edildiği bilgisi. |
+| `PAYMENT_FAILED` | Ödeme Başarısız | `fullname`, `orderNo`, `errorMessage`, `retryLink` | Kart veya pos hatası nedeniyle başarısız ödeme uyarısı ve tekrar deneme linki. |
+| `REFUND_INITIATED` | İade Başlatıldı | `fullname`, `orderNo`, `refundAmount`, `currency`, `estimatedDays` | İade sürecinin finans birimince başlatıldığı ve tahmini süre bilgisi. |
+| `NEW_SALE` | Yeni Satış Bildirimi | `orderNo`, `fullname`, `amount`, `items` | Satıcıya (Merchant) yeni bir ürün sattığında gönderilen tebrik bildirimi. |
+| `SHIPPING_CONFIRMATION_REQUIRED` | Kargo Gönderim Onayı Gerekli | `orderNo`, `fullname`, `deadlineDate` | Satıcının siparişi kargolaması için son teslim tarihini hatırlatan uyarı. |
+| `SHIPPING_CONFIRMATION` | Kargo Onayı | `orderNo`, `fullname`, `trackingNo`, `cargoCompany` | Kargo çıkışının sistemde tescillendiğini bildiren teyit. |
+| `BUYER_INQUIRY` | Müşteri Sorusu / Talebi | `fullname`, `email`, `message`, `itemTitle` | Bir ürün veya sipariş hakkında satıcıya iletilen müşteri sorusu. |
+| `INQUIRY_RESPONSE` | Müşteri Sorusu Cevabı | `fullname`, `email`, `response`, `itemTitle` | Satıcının, müşterinin sorusuna verdiği yanıtın iletilmesi. |
+| `PRODUCT_APPROVED` | Ürün Onaylandı | `fullname`, `email`, `productName`, `publishedUrl` | Satıcının yüklediği yeni ürünün editör onayından geçip yayına girmesi. |
+| `PRODUCT_REVISION_REQUEST` | Ürün Revizyon Talebi | `fullname`, `email`, `productName`, `revisionNotes`, `editUrl` | Editörün ürünü eksik/hatalı bularak satıcıdan düzeltme talep etmesi. |
+| `PRODUCT_SUBMISSION_GUIDELINES`| Ürün Yükleme Kuralları | `fullname`, `email`, `guideLink` | Yeni satıcılara ürünlerini nasıl standartlara uygun yükleyeceğini anlatan kılavuz. |
+
+---
+
+### 🏢 KATEGORİ 3: Pazaryeri & Satıcı (Marketplace Only) Şablonları
+> **Görünürlük Koşulu:** `template === 'MARKETPLACE' || relationTypes.includes('MERCHANT')`
+
+| Şablon Kodu (`smsType`) | Şablon Adı | Önerilen Dinamik Değişkenler | Açıklama |
+| :--- | :--- | :--- | :--- |
+| `APPLICATION_RECEIVED` | Satıcı Başvurusu Alındı | `fullname`, `email`, `applicationId`, `date` | Pazaryeri satıcı adayının başvurusunun sisteme ulaştığı teyidi. |
+| `APPLICATION_UNDER_REVIEW` | Satıcı Başvurusu İnceleniyor | `fullname`, `email`, `applicationId`, `status` | Başvurunun ön değerlendirme komisyonu aşamasında olduğu bilgisi. |
+| `APPLICATION_ADDITIONAL_INFO` | Satıcı Ek Evrak Talebi | `fullname`, `email`, `applicationId`, `missingDocsList`, `uploadLink` | Başvuru onayı için imza sirküsü, vergi levhası vb. ek belge talepleri. |
+| `APPLICATION_APPROVED` | Satıcı Başvurusu Onaylandı | `fullname`, `email`, `applicationId`, `approvalDate` | Satıcı adayının mağaza açılış onay mektubu ve panel bilgileri. |
+| `APPLICATION_REJECTED` | Satıcı Başvurusu Reddedildi | `fullname`, `email`, `applicationId`, `reason` | Pazaryeri standartlarına uymayan başvuruların gerekçeli reddi. |
+| `APPLICATION_DEFERRED` | Satıcı Başvurusu Ertelendi | `fullname`, `email`, `applicationId`, `reconsiderationDate` | Başvurunun ileriki bir dönemde tekrar değerlendirilmek üzere ertelenmesi. |
+| `APPLICATION_REINVITATION` | Satıcı Yeniden Davet | `fullname`, `email`, `applicationId`, `inviteLink` | Reddedilen veya süresi dolan mağaza davetlerinin yinelenmesi. |
+| `ONBOARDING_CALL_INVITATION` | Onboarding Görüşme Daveti | `fullname`, `email`, `meetingLink`, `meetingDate` | Yeni satıcılara mağaza eğitimi vermek üzere düzenlenen toplantı daveti. |
+| `LOGISTICS_GUIDELINES` | Lojistik ve Taşıma Kuralları | `fullname`, `email`, `logisticsInfo` | Pazaryeri anlaşmalı kargolarının kullanım ve paketleme standartları. |
+| `OPERATIONAL_GUIDE` | Satıcı Operasyon Kılavuzu | `fullname`, `email`, `guideLink` | Sipariş karşılama, iade yönetimi ve panel eğitimi el kitabı. |
+| `COMMISSION_STRUCTURE` | Komisyon Yapısı ve Oranları | `fullname`, `email`, `commissionRate`, `paymentTerms` | Kategorilere göre uygulanacak komisyon oranları ve hakediş vadeleri. |
+| `CURATOR_ATTRIBUTION` | Küratör Paylaşım Atıfı | `fullname`, `email`, `saleAmount`, `commission` | Küratörler (Influencer) üzerinden yapılan satışların komisyon bildirimi. |
+| `CURATORIAL_UPDATE` | Küratör Güncellemesi | `fullname`, `email`, `updateTitle`, `content` | Küratörlük / Ortaklık programındaki kampanya ve kural değişimleri. |
+| `PERFORMANCE_SUMMARY` | Satıcı Performans Özeti | `fullname`, `email`, `period`, `salesTotal`, `viewsTotal` | Satıcılara haftalık/aylık gönderilen ciro ve ziyaret istatistikleri. |
+| `PENALTY_APPLIED` | Satıcı Cezası Uygulandı | `fullname`, `orderId`, `orderNo`, `amount`, `reason`, `penaltyDate` | Geciken kargo, hatalı ürün veya iptallerden dolayı satıcıya yansıtılan ceza. |
+| `PENALTY_CANCELLED` | Satıcı Cezası İptal Edildi | `fullname`, `orderId`, `orderNo`, `amount`, `reason`, `cancellationDate` | İtirazı haklı bulunan satıcının cezasının iptal edilme onayı. |
+| `PENALTY_ADJUSTED` | Satıcı Cezası Düzenlendi | `fullname`, `orderId`, `orderNo`, `oldAmount`, `newAmount`, `reason`, `adjustmentDate` | Ceza tutarının revize edildiğine dair bilgilendirme. |
+| `PAYMENT_RELEASE_CONFIRMATION` | Hakediş Ödemesi Serbest Bırakıldı | `orderNo`, `fullname`, `releaseAmount` | Satıcının hesabına aktarılan hakediş tutarının banka transfer bildirimi. |
+
+---
+
+### 📅 KATEGORİ 4: Etkinlik (Events) Şablonları
+> **Görünürlük Koşulu:** `catalogTypes.includes('EVENT')` (Etkinlik Kataloğu aktifse görünür)
+
+| Şablon Kodu (`smsType`) | Şablon Adı | Önerilen Dinamik Değişkenler | Açıklama |
+| :--- | :--- | :--- | :--- |
+| `EVENT_REGISTRATION` | Etkinlik Kaydı | `fullname`, `email`, `eventName`, `eventDate`, `eventUrl` | Katılımcının bir etkinliğe/webinara başarıyla kayıt olduğunu bildiren onay. |
+| `EVENT_APPROVED` | Etkinlik Onaylandı | `fullname`, `email`, `eventName`, `approvalDate` | Organizatörün oluşturduğu etkinliğin yönetici onayından geçmesi. |
+| `EVENT_PUBLISHED` | Etkinlik Yayınlandı | `fullname`, `email`, `eventName`, `eventUrl` | Etkinliğin bilet satışına veya rezervasyona açıldığının takipçilere duyurulması. |
+| `INVITATION_TO_EVENT` | Etkinliğe Davet | `fullname`, `email`, `eventName`, `eventLink` | Özel davetlilere veya üyelere gönderilen etkinlik katılım davetiyesi. |
+
+---
+
+### 📝 KATEGORİ 5: İçerik & Genel (CMS / Marketing / Form) Şablonları
+> **Görünürlük Koşulu:** *Her zaman görünür.*
+
+| Şablon Kodu (`smsType`) | Şablon Adı | Önerilen Dinamik Değişkenler | Açıklama |
+| :--- | :--- | :--- | :--- |
+| `NEWSLETTER` | Bülten Gönderimi | `email`, `fullname`, `unsubscribeUrl` | Abone listelerine gönderilen toplu bülten, kampanya ve blog yazıları. |
+| `NEWSLETTER_SUBSCRIPTION` | Bülten Aboneliği Onayı | `email`, `fullname`, `unsubscribeUrl` | E-posta listesine yeni katılan aboneye gönderilen hoş geldiniz/onay uyarısı. |
+| `CONTACT_FORM` | İletişim Formu Mesajı | `fullname`, `email`, `message`, `subject`, `submittedAt` | Ziyaretçinin iletişim sayfasından gönderdiği mesajın yöneticilere iletilmesi. |
+| `FORM_SUBMISSION` | Özel Form Gönderimi | `fullname`, `email`, `formName`, `submittedAt`, `fields` | Sitedeki dinamik formlardan gelen başvuruların/verilerin kopyası. |
+| `COMMENTS` | Yorum Bildirimi (Genel) | `fullname`, `commentText`, `itemTitle` | İçeriklere veya ürünlere yazılan yorumların onay beklediği uyarısı. |
+| `NEW_COMMENT` | Yeni Yorum Yazıldı | `fullname`, `commentText`, `itemTitle`, `itemUrl`, `authorName` | Müşterinin yazdığı yorumun sistem yöneticilerine bildirilmesi. |
+| `COMMENT_APPROVED` | Yorum Onaylandı | `fullname`, `commentText`, `itemTitle`, `itemUrl` | Kullanıcının yazdığı yorumun onaylanıp yayına alındığı teyidi. |
+| `COMMENT_REJECTED` | Yorum Reddedildi | `fullname`, `commentText`, `itemTitle`, `reason` | Topluluk kurallarına uymayan yorumların reddedildiğine dair bilgilendirme. |
+| `COMMENT_REPLY` | Yorum Cevaplandı | `fullname`, `commentText`, `replyText`, `itemTitle`, `itemUrl` | Kullanıcının yorumuna yönetici veya satıcı tarafından cevap yazıldığında giden bildirim. |
+| `QUESTIONS` | Soru Formu Bildirimi | `fullname`, `email`, `question`, `submittedAt` | Sıkça Sorulan Sorular veya Ürün Altı soru formundan gelen yeni sorular. |
+| `NOTIFICATION` | Sistem Genel Bildirimi | `fullname`, `email`, `message` | Manuel veya sistem tetiklemeli serbest bildirimler. |
+| `FEATURED_NOTIFICATION` | Öne Çıkan İçerik Bildirimi | `fullname`, `email`, `featuredItem`, `featuredUrl` | Haftanın ürünü, öne çıkan yazar veya blog yazısı tanıtımları. |
+| `CUSTOM` | Özel Serbest Metin | `fullname`, `email` | Tamamen admin paneli üzerinden anlık yazılan SMS/Mail şablon tipi. |
+
+---
+
+> [!IMPORTANT]
+> **Değişken Kullanım Kuralı:** Şablonlarınızı oluştururken değişkenleri `{{degisken_adi}}` (Handlebars standardı) şeklinde kullanmanız gerekmektedir. Eğer bir e-posta veya SMS gönderilirken değişken veritabanında veya API çağrısında bulunamazsa, sistem hata vermek yerine ilgili değişken yerini boş bırakarak yayını sürdürür.
