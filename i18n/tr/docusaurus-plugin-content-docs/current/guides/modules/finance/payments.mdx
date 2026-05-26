@@ -1,0 +1,35 @@
+---
+sidebar_position: 3
+title: "Payments"
+---
+
+# Payments & Gateways
+
+**Menu Path:** `Finance & Logistics > Payments`
+
+While the Orders module manages the physical movement of goods, the **Payments** module deals exclusively with the movement of money via external gateways (like Stripe, PayPal, iyzico, or bank transfers).
+
+## Understanding Payment Records
+
+Every time a customer attempts to check out, a Payment record is created. 
+
+- **Payment ID:** Internal AVCI CMS reference.
+- **Gateway Reference ID:** The highly important alphanumeric string provided by the bank or Stripe (e.g., `ch_3M...`). You need this code to investigate issues directly on your payment provider's dashboard.
+- **Method:** How the user paid (Credit Card, Apple Pay, Wire Transfer, Cash on Delivery).
+
+## Handling Failed and Pending Payments
+
+Not all checkout attempts succeed.
+
+- **Failed Payments:** If a card is declined (insufficient funds, wrong CVV), it shows here. You can click into the record to see the exact error code returned by the bank.
+- **Pending Wire Transfers:** If a customer chooses "Bank Transfer" at checkout, the payment sits in a "Pending" state. 
+  - *Action Required:* Once you verify the funds have landed in your corporate bank account, you must manually find this record, click **"Mark as Paid"**, which will automatically push the linked Order into the "Processing" state.
+
+## Executing Refunds
+
+Refunds should generally be initiated from the AVCI CMS dashboard so that both the financial and order records remain synchronized.
+
+1. Locate the successful payment record you wish to refund.
+2. Click **"Issue Refund"**.
+3. **Full or Partial:** You can choose to refund the entire amount, or type in a smaller amount (e.g., refunding $20 for a single damaged item in a $100 order).
+4. **Confirm:** This sends an API request to your payment gateway to reverse the charge. The status will update to "Refunded" or "Partially Refunded".

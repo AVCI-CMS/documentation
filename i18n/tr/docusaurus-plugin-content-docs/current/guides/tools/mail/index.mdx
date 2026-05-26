@@ -1,0 +1,27 @@
+---
+sidebar_position: 3
+title: "Mail Tool"
+sidebar_key: "guides-tools-mail-index-mdx"
+---
+
+# Mail Tool (Transactional Emails)
+
+**Menu Path:** `Tools > Mail`
+
+The **Mail Tool** is the engine responsible for dispatching automated, transactional emails to your users (e.g., Order Confirmations, Password Resets).
+
+> **Note:** The technical SMTP credentials (how the emails actually leave your server) are configured in `Workspace Settings > Communication Settings`. This module focuses on the *content* and *logs* of those emails.
+
+## Reviewing Email Logs
+
+It is inevitable that a customer will call support saying, "I never got my order confirmation." This module is where you investigate.
+
+1. Navigate to the Mail Tool's **Logs** tab.
+2. Search by the customer's email address.
+3. **Delivery Status:** Check the status column.
+   - *Sent/Delivered:* The email successfully reached their inbox. (Tell them to check their spam folder).
+   - *Bounced:* Their inbox is full, or they made a typo in their email address during checkout (e.g., `@gamil.com`).
+   - *Failed:* There is a configuration issue with your SMTP server.
+
+## Sending Manual Emails
+While mostly automated, administrators can use this tool to compose and send a manual email to a specific user directly from the CMS, using your official corporate template.

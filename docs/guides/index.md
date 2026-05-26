@@ -1,11 +1,11 @@
 ---
 id: index
-title: Guides
+title: Introduction
 slug: /guides
 sidebar_position: 1
-sidebar_key: "guides-index-md"
+sidebar_key: "introduction-md"
 ---
 
-# Guides
+# Introduction
 
 Welcome to the AVCI-CMS Guides section. Here you will find explanations about the app's pages, settings, and more.
