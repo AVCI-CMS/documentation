@@ -1,0 +1,26 @@
+---
+sidebar_position: 10
+title: "System"
+---
+
+# System & Maintenance
+
+**Menu Path:** `System`
+
+The **System** module provides visibility into the lowest-level operations of the CMS, primarily automated background tasks and data migration tools.
+
+## Scheduled Jobs (Cron)
+
+Modern e-commerce requires constant background processing. The system handles tasks asynchronously so the frontend remains fast.
+
+- **Viewing the Queue:** You can see a list of automated tasks (e.g., "Nightly Database Backup", "Send Abandoned Cart Emails", "Update Exchange Rates").
+- **Status Checks:** See when a job last ran, if it succeeded, or if it failed and threw an error.
+- **Manual Trigger:** If you urgently need the exchange rates updated, you can click "Run Now" next to the job instead of waiting for its scheduled time.
+
+## Data Migration (Import / Export)
+
+When moving from a legacy platform (like Shopify, WooCommerce, or Ticimax) to AVCI CMS, you use these tools.
+
+- **Bulk Import:** Upload a structured CSV or Excel file to instantly create thousands of Products, Categories, or Users. 
+  - *Tip:* Always download the "Sample CSV Template" provided on the screen to ensure your columns map correctly to the database fields.
+- **Full Export:** Download your entire database for offline backups or auditing.

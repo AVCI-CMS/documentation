@@ -1,0 +1,23 @@
+---
+sidebar_position: 3
+title: "REST API"
+---
+
+# REST API
+
+AVCI CMS is a Headless platform, meaning every action you can perform in the admin dashboard can also be performed programmatically via the REST API.
+
+## Authentication
+To access the API, you must generate an API Key.
+1. Go to **Workspace > Settings > Appearance Settings > API Keys**.
+2. Click **Generate New Key**.
+3. Pass this key in the `Authorization` header of your HTTP requests:
+   \`\`\`http
+   Authorization: Bearer YOUR_API_KEY
+   \`\`\`
+
+## Common Use Cases
+- **ERP Synchronization:** Automatically push stock levels and price updates from your ERP into AVCI CMS via `PUT /products/:id`.
+- **Custom Storefronts:** Build mobile apps or custom React/Vue frontends that pull product catalogs via `GET /catalog/products`.
+
+*Note: For detailed endpoint documentation, please refer to our dedicated API Reference portal.*

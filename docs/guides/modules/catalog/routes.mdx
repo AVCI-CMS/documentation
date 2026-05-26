@@ -1,0 +1,36 @@
+---
+sidebar_position: 10
+title: "Routes"
+---
+
+# Routes (Path Planning)
+
+**Menu Path:** `Catalog > Routes`
+
+The **Routes** module is a highly specialized catalog feature designed for businesses dealing with geography, travel, and logistics. It allows you to construct and sell or display sequential geographic paths.
+
+**Use Cases:**
+- Tourism companies selling multi-day guided tours.
+- Logistics firms defining specific delivery zones or paths.
+- Outdoor brands mapping hiking or cycling trails.
+
+## Constructing a Route
+
+Click **"Create"** to open the route builder interface.
+
+### 1. Route Overview
+- **Route Name:** E.g., "7-Day Aegean Coast Roadtrip".
+- **Difficulty / Category:** Tag the route (e.g., "Beginner", "Expert", "Scenic").
+- **Technical Specs:** Enter the total distance (km/miles) and estimated duration (hours/days).
+
+### 2. Waypoint Management (The Map)
+This is the core of the module.
+- **Adding Waypoints:** Add locations sequentially (Point 1, Point 2, Point 3).
+- **Coordinates:** For each waypoint, enter exact Latitude and Longitude data, or use the integrated map search to drop pins.
+- **Waypoint Descriptions:** Add specific text or images for each stop (e.g., "Day 1: Arrival in Izmir and hotel check-in").
+
+### 3. Media and KML/GPX Uploads
+- **Cover Visual:** Upload an enticing hero image for the route.
+- **File Uploads:** (Advanced) If your frontend supports interactive mapping, you can upload industry-standard `.gpx` or `.kml` files generated from GPS devices. The system will parse these files to render accurate paths on frontend maps.
+
+Once saved, the Route data becomes accessible via the API, allowing developers to render beautiful, interactive map experiences for your users.

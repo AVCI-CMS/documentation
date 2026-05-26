@@ -1,0 +1,45 @@
+---
+sidebar_position: 4
+title: "Mail Templates"
+---
+
+# Mail Templates
+
+**Menu Path:** `Tools > Mail > Templates`
+
+Transactional emails have high open rates. Customizing these templates to match your brand's voice and colors is a critical part of the customer experience.
+
+## Editing a Template
+
+1. Click on a specific template in the list (e.g., "Order Confirmation").
+2. **Subject Line:** Make it clear (e.g., "Your AVCI Store Order: `{{order.id}}`").
+3. **Visual Editor:** Use the rich text editor or HTML mode to format the body. You can insert your logo at the top and links to your social media at the bottom.
+
+## Using Dynamic Variables
+
+The CMS injects personalized data into the email at the exact moment it is sent. You must use the exact bracket syntax `{{variable_name}}`.
+
+### Comprehensive Variable Reference
+
+#### Order Confirmation Template
+| Variable | Description | Example Output |
+| :--- | :--- | :--- |
+| `{{customer.name}}` | The buyer's full name. | John Doe |
+| `{{order.id}}` | The unique order reference. | #ORD-98765 |
+| `{{order.total}}` | The final amount paid. | $145.00 |
+| `{{order.items_table}}` | An auto-generated HTML table listing all purchased products. | *(Renders a table)* |
+
+#### Order Shipped Template
+| Variable | Description | Example Output |
+| :--- | :--- | :--- |
+| `{{order.id}}` | The unique order reference. | #ORD-98765 |
+| `{{courier.name}}` | The shipping company selected. | FedEx |
+| `{{tracking.link}}` | A clickable URL to track the package. | [Track Package](https://...) |
+
+#### Password Reset Template
+| Variable | Description | Example Output |
+| :--- | :--- | :--- |
+| `{{user.name}}` | The user's first name. | John |
+| `{{reset_link}}` | The secure, expiring URL to reset the password. | `https://yourstore.com/reset?...` |
+
+> **Warning:** Do not modify the text inside the curly brackets (e.g., do not change `{{order.id}}` to `{{my_order_number}}`), as the system will fail to inject the data, and the customer will see the raw brackets.

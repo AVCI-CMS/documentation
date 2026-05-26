@@ -1,0 +1,25 @@
+---
+sidebar_position: 2
+title: "Stripe"
+---
+
+# Stripe Integration
+
+Stripe is the leading global payment gateway, supporting multiple currencies and automated seller payouts (Stripe Connect).
+
+## 1. Get API Keys
+1. Log in to your Stripe Dashboard.
+2. Navigate to **Developers > API Keys**.
+3. Copy your `Publishable Key` and `Secret Key`.
+
+## 2. Configure in AVCI CMS
+1. Go to **Workspace > Settings > Sale Settings > Payment**.
+2. Select **Stripe** from the provider dropdown.
+3. Paste your keys. Ensure you are using Test Keys for staging environments and Live Keys for production.
+
+## 3. Webhook Setup
+To ensure AVCI CMS receives real-time updates when a payment succeeds or fails:
+1. In Stripe, go to **Developers > Webhooks**.
+2. Add an endpoint pointing to `https://your-api.com/webhooks/stripe`.
+3. Select the events to listen to (e.g., `payment_intent.succeeded`).
+4. Copy the Webhook Signing Secret and paste it into the AVCI CMS Stripe settings.

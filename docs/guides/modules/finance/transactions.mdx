@@ -1,0 +1,36 @@
+---
+sidebar_position: 4
+title: "Transactions"
+---
+
+# Transactions (Ledger)
+
+**Menu Path:** `Finance & Logistics > Transactions`
+
+The **Transactions** module acts as the immutable general ledger of your platform. Every single movement of digital value is recorded here line-by-line. It is the most important tool for your accounting team to perform monthly reconciliations.
+
+## The Anatomy of a Transaction
+
+A single purchase often generates multiple transaction rows in a marketplace. 
+
+For example, if a customer buys a $100 item from "Merchant A" with a 10% platform commission:
+1. **Transaction 1 (Payment):** +$100 enters the Master Wallet from the Customer's credit card.
+2. **Transaction 2 (Earning):** +$90 is credited to Merchant A's Wallet.
+3. **Transaction 3 (Commission):** +$10 is retained in the Master Wallet as platform revenue.
+
+## How to Read the Ledger
+
+When you open the Transactions list, you will see columns defining the exact flow of funds:
+
+- **Source:** Where the money came from (e.g., Customer's Visa, Master Wallet).
+- **Destination:** Where the money went (e.g., Merchant's Wallet, Customer's Store Credit).
+- **Amount & Currency:** The exact value moved.
+- **Type:** The classification of the movement (e.g., `Commission`, `Payout`, `Refund`, `Order_Payment`).
+- **Linked Entity:** A clickable link to the specific Order ID or Payment ID that triggered this movement.
+
+## Exporting for Accounting
+
+To keep your corporate books balanced (in tools like Xero or QuickBooks):
+1. Use the Date Filters to select a specific month (e.g., "August 1st to August 31st").
+2. Click the **"Export CSV"** button.
+3. Hand the resulting spreadsheet to your financial controller to audit the exact commission revenues and merchant liabilities for that period.

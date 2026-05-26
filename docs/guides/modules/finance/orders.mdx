@@ -1,0 +1,45 @@
+---
+sidebar_position: 2
+title: "Orders"
+---
+
+# Order Management
+
+**Menu Path:** `Finance & Logistics > Orders`
+
+**Orders** is the nerve center of your e-commerce operations. This module tracks the lifecycle of every purchase made on your frontend, from the moment a customer checks out to the final delivery.
+
+## The Order Lifecycle
+
+When you access the Orders list, you see a data table sorted by the most recent purchases. The most crucial column here is the **Status**, which dictates what needs to happen next.
+
+### Standard Order Status Flow:
+1. **Pending Payment:** The order is placed, but the payment gateway hasn't confirmed receipt of funds yet (e.g., awaiting wire transfer).
+2. **Processing / Preparing:** Payment is confirmed. The warehouse or merchant should now pack the items.
+3. **Shipped:** The package has been handed over to the courier. A tracking number is usually generated here.
+4. **Delivered:** The customer has received the package.
+5. **Cancelled:** The order was aborted before shipping (by customer request or payment failure).
+6. **Refunded / Returned:** The customer sent the item back after delivery.
+
+## Processing an Order
+
+Click the **"View"** or **"Manage"** button next to an order to open the Order Details screen.
+
+### 1. Verifying Details
+- **Customer & Address:** Double-check the shipping and billing addresses.
+- **Items:** Review the exact variants (e.g., "Red-XL T-Shirt") and quantities purchased.
+- **Fraud Check:** If your payment provider flags the transaction as high-risk, it will be highlighted here.
+
+### 2. Updating Status & Notifying the Customer
+To move an order forward:
+1. Click the **Update Status** dropdown in the top right.
+2. Select the next logical step (e.g., change from "Preparing" to "Shipped").
+3. **Tracking Information:** If changing to "Shipped", a modal will prompt you to select the Courier Company and input the Tracking Number.
+4. Once saved, the CMS automatically triggers an email/SMS to the customer containing their tracking link.
+
+### 3. Handling Modifications
+Sometimes customers make mistakes. Administrators have the power to edit orders *before* they ship.
+- **Edit Address:** Fix typos in the shipping address.
+- **Remove/Add Items:** If an item is unexpectedly out of stock, you can remove it from the order and issue a partial refund directly from this screen.
+
+> **Note on Cancellations:** Changing an order status to "Cancelled" does not automatically refund the credit card in all setups. Always verify with the [Payments](./payments.mdx) module to ensure the funds were successfully reversed.

@@ -1,0 +1,36 @@
+---
+sidebar_position: 6
+title: "SMS Templates"
+---
+
+# SMS Templates
+
+**Menu Path:** `Tools > SMS > Templates`
+
+Because SMS characters are limited, configuring concise templates is essential to avoid high billing costs from your SMS gateway provider (like Twilio or Netgsm).
+
+## Customizing SMS Alerts
+
+When you edit an SMS template, there is no HTML or Rich Text editor. It is plain text only.
+
+### Standard SMS Variables
+
+#### 1. Phone Verification (OTP)
+Used when a user registers or attempts to reset a password via phone.
+| Template Text | Required Variable |
+| :--- | :--- |
+| `Your AVCI verification code is {{otp_code}}. Do not share this code.` | `{{otp_code}}` |
+
+#### 2. Order Shipped
+Used to provide instant tracking access.
+| Template Text | Required Variable |
+| :--- | :--- |
+| `Order #{{order.id}} shipped. Track: {{tracking.link}}` | `{{order.id}}`, `{{tracking.link}}` |
+
+#### 3. Out for Delivery
+Used on the day the courier attempts delivery.
+| Template Text | Required Variable |
+| :--- | :--- |
+| `Your AVCI package will be delivered today by {{courier.name}}.` | `{{courier.name}}` |
+
+> **Character Count Warning:** Always check the character counter below the text box. Remember that injecting a variable like a URL (`{{tracking.link}}`) might add 30-40 characters dynamically, potentially pushing your message into a 2-segment billing tier.
