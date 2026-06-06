@@ -1,0 +1,34 @@
+---
+sidebar_position: 21
+title: "UPS Kargo "
+description: "UPS Kargo ile global teslimat çözümleri"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/ups/ups-icon-filled-256.webp" alt="UPS Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# UPS Kargo 
+
+UPS Kargo ile global teslimat çözümleri
+
+**Resmi Web Sitesi:** [https://www.ups.com.tr](https://www.ups.com.tr)
+
+## Özellikler
+
+- Uluslararası gönderim
+- Gelişmiş takip
+- Güvenilir teslimat
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `customerNumber` | Müşteri Numarası | `text` | ✅ Evet | Örn: UPS Müşteri Numarası |
+| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: UPS Kullanıcı Adı |
+| `password` | Şifre | `password` | ✅ Evet | Örn: UPS Şifresi |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.UPS` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `UPS Kargo` servislerini kullanmaya başlayacaktır.

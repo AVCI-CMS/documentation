@@ -1,0 +1,33 @@
+---
+sidebar_position: 18
+title: "PTT Kargo "
+description: "PTT Kargo servisleri entegrasyonu"
+---
+
+<img src="https://images.seeklogo.com/logo-png/11/1/ptt-logo-png_seeklogo-113534.png" alt="PTT Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# PTT Kargo 
+
+PTT Kargo servisleri entegrasyonu
+
+**Resmi Web Sitesi:** [https://www.ptt.gov.tr](https://www.ptt.gov.tr)
+
+## Özellikler
+
+- Ekonomik gönderim
+- Geniş şube ağı
+- Posta hizmetleri
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `customerNumber` | Müşteri Numarası | `text` | ✅ Evet | Örn: PTT Müşteri Numarası |
+| `password` | Şifre | `password` | ✅ Evet | Örn: PTT Şifresi |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.PTT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `PTT Kargo` servislerini kullanmaya başlayacaktır.

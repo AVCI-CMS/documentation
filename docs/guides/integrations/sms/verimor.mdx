@@ -1,0 +1,36 @@
+---
+sidebar_position: 8
+title: "Verimor SMS"
+description: "Türkiye'nin güvenilir SMS gateway hizmeti ile SMS gönderin"
+---
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtXYswqvmJpc9DspWVSMiDyasypi3H9XEWQ&s" alt="Verimor Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Verimor SMS
+
+Türkiye'nin güvenilir SMS gateway hizmeti ile SMS gönderin
+
+**Resmi Web Sitesi:** [https://www.verimor.com.tr](https://www.verimor.com.tr)
+
+## Özellikler
+
+- Toplu SMS gönderimi
+- OTP SMS'leri
+- Pazarlama SMS'leri
+- SMS raporlama
+- API entegrasyonu
+- Bakiye sorgulama
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: verimor_kullanici_adi |
+| `password` | Şifre | `password` | ✅ Evet | Örn: verimor_sifresi |
+| `defaultSender` | Varsayılan Gönderici | `text` | ❌ Hayır | Örn: AVCI CMS |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.VERIMOR` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Verimor` servislerini kullanmaya başlayacaktır.

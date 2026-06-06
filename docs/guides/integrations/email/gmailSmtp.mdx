@@ -1,0 +1,36 @@
+---
+sidebar_position: 5
+title: "Gmail SMTP Servisi"
+description: "Gmail üzerinden güvenli SMTP e-posta gönderimi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/gmail/gmail-icon-filled-256.webp" alt="Gmail SMTP Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Gmail SMTP Servisi
+
+Gmail üzerinden güvenli SMTP e-posta gönderimi
+
+**Resmi Web Sitesi:** [https://gmail.com](https://gmail.com)
+
+## Özellikler
+
+- Güvenli SMTP
+- OAuth2 desteği
+- Gmail altyapısı
+- Ücretsiz kullanım
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `clientId` | Client ID | `text` | ✅ Evet | Örn: Google OAuth Client ID |
+| `clientSecret` | Client Secret | `password` | ✅ Evet | Örn: Google OAuth Client Secret |
+| `refreshToken` | Refresh Token | `password` | ✅ Evet | Örn: OAuth Refresh Token |
+| `fromEmail` | Gönderen E-posta | `email` | ✅ Evet | Örn: ornek@gmail.com |
+| `fromName` | Gönderen Adı | `text` | ✅ Evet | Örn: Şirket Adı |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.GMAILSMTP` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Gmail SMTP` servislerini kullanmaya başlayacaktır.

@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+title: "SendGrid E-posta Platformu"
+description: "Yüksek performanslı e-posta gönderim platformu ile ulaşılabilirliği artırın"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/sendgrid/sendgrid-icon-filled-256.webp" alt="SendGrid Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# SendGrid E-posta Platformu
+
+Yüksek performanslı e-posta gönderim platformu ile ulaşılabilirliği artırın
+
+**Resmi Web Sitesi:** [https://sendgrid.com](https://sendgrid.com)
+
+## Özellikler
+
+- Yüksek ulaşılabilirlik
+- Gelişmiş analytics
+- Template engine
+- Webhook desteği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `password` | ✅ Evet | Örn: SendGrid API Key'inizi girin |
+| `fromEmail` | Gönderen E-posta | `email` | ✅ Evet | Örn: ornek@domain.com |
+| `fromName` | Gönderen Adı | `text` | ✅ Evet | Örn: Şirket Adı |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.SENDGRID` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `SendGrid` servislerini kullanmaya başlayacaktır.

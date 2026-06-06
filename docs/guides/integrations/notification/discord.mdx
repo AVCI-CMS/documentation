@@ -1,0 +1,51 @@
+---
+sidebar_position: 10
+title: "Discord Bildirimleri"
+description: "Discord sunucularına webhook ile bildirimler gönderin"
+---
+
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Discord Bildirimleri
+
+Discord sunucularına webhook ile bildirimler gönderin
+
+**Resmi Web Sitesi:** [https://discord.com](https://discord.com)
+
+## Özellikler
+
+- Webhook entegrasyonu
+- Embed mesajları
+- Kanal bildirimleri
+- Rich formatting
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `webhookUrl` | Webhook URL | `url` | ✅ Evet | Örn: https://discord.com/api/webhooks/... |
+| `channel` | Kanal | `text` | ✅ Evet | Örn: #genel |
+| `username` | Bot Adı | `text` | ❌ Hayır | Örn: AVCI CMS Bot |
+
+## Kurulum Adımları
+
+### 1. Kanal Ayarlarına Gidin
+Bildirim almak istediğiniz kanalın ayarlarına (dişli çark) girin.
+
+![Kanal Ayarlarına Gidin](/images/guides/discord-setup-1.svg)
+
+### 2. Entegrasyonlar ve Webhook
+Integrations -> Webhooks kısmına gidin ve 'New Webhook' butonuna tıklayın.
+
+![Entegrasyonlar ve Webhook](/images/guides/discord-setup-2.svg)
+
+### 3. URL'yi Kopyalayın
+Webhook URL'sini kopyalayıp aşağıdaki yapılandırma alanına yapıştırın.
+
+![URL'yi Kopyalayın](/images/guides/discord-setup-3.svg)
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.DISCORD` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Discord` servislerini kullanmaya başlayacaktır.

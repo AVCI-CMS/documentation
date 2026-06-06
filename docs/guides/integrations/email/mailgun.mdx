@@ -1,0 +1,35 @@
+---
+sidebar_position: 4
+title: "Mailgun E-posta API"
+description: "Geliştiriciler için tasarlanmış güçlü e-posta API servisi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/mailgun/mailgun-icon-filled-256.webp" alt="Mailgun Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Mailgun E-posta API
+
+Geliştiriciler için tasarlanmış güçlü e-posta API servisi
+
+**Resmi Web Sitesi:** [https://www.mailgun.com](https://www.mailgun.com)
+
+## Özellikler
+
+- RESTful API
+- Webhook entegrasyonu
+- Template desteği
+- Detaylı analytics
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `password` | ✅ Evet | Örn: Mailgun API Key'inizi girin |
+| `domain` | Domain | `text` | ✅ Evet | Örn: mail.domain.com |
+| `fromEmail` | Gönderen E-posta | `email` | ✅ Evet | Örn: ornek@domain.com |
+| `fromName` | Gönderen Adı | `text` | ✅ Evet | Örn: Şirket Adı |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.MAILGUN` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Mailgun` servislerini kullanmaya başlayacaktır.

@@ -1,0 +1,50 @@
+---
+sidebar_position: 11
+title: "Telegram Bildirimleri"
+description: "Telegram botu üzerinden anlık bildirimler gönderin"
+---
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Telegram Bildirimleri
+
+Telegram botu üzerinden anlık bildirimler gönderin
+
+**Resmi Web Sitesi:** [https://telegram.org](https://telegram.org)
+
+## Özellikler
+
+- Bot API entegrasyonu
+- Grup ve kanal bildirimleri
+- Hızlı iletim
+- Zengin medya desteği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `botToken` | Bot Token (API Key) | `password` | ✅ Evet | Örn: 123456789:ABCDefgh... |
+| `chatId` | Varsayılan Chat ID (veya Kanal) | `text` | ✅ Evet | Örn: -100123456789 veya 12345678 |
+
+## Kurulum Adımları
+
+### 1. BotFather ile Bot Oluşturun
+Telegram'da @BotFather'ı bulun ve /newbot komuti ile yeni bir bot oluşturup Token'ı alın.
+
+![BotFather ile Bot Oluşturun](/images/guides/telegram-setup-1.svg)
+
+### 2. Chat ID'nizi Öğrenin
+@userinfobot veya benzeri botlarla kendi chat ID'nizi veya grubunuzun ID'sini öğrenin.
+
+![Chat ID'nizi Öğrenin](/images/guides/telegram-setup-2.svg)
+
+### 3. Bilgileri Kaydedin
+Aldığınız Token ve Chat ID bilgilerini aşağıdaki alanlara girerek kaydedin.
+
+![Bilgileri Kaydedin](/images/guides/telegram-setup-3.svg)
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.TELEGRAM` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Telegram` servislerini kullanmaya başlayacaktır.

@@ -1,0 +1,34 @@
+---
+sidebar_position: 7
+title: "Twilio SMS Servisi"
+description: "Güvenilir SMS gönderim servisi ile müşterilerinizle iletişim kurun"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/twilio/twilio-icon-filled-256.webp" alt="Twilio Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Twilio SMS Servisi
+
+Güvenilir SMS gönderim servisi ile müşterilerinizle iletişim kurun
+
+**Resmi Web Sitesi:** [https://www.twilio.com](https://www.twilio.com)
+
+## Özellikler
+
+- Global SMS gönderimi
+- WhatsApp Business API
+- Voice calls
+- Webhook desteği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `accountSid` | Account SID | `text` | ✅ Evet | Örn: Twilio Account SID |
+| `authToken` | Auth Token | `password` | ✅ Evet | Örn: Twilio Auth Token |
+| `phoneNumber` | Telefon Numarası | `text` | ✅ Evet | Örn: +905551234567 |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.TWILIO` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Twilio` servislerini kullanmaya başlayacaktır.

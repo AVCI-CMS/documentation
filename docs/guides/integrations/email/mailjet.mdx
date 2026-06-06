@@ -1,0 +1,35 @@
+---
+sidebar_position: 2
+title: "Mailjet E-posta Servisi"
+description: "Güvenilir e-posta gönderim servisi ile toplu e-posta kampanyaları yönetin"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/mailjet/mailjet-icon-filled-256.webp" alt="Mailjet Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Mailjet E-posta Servisi
+
+Güvenilir e-posta gönderim servisi ile toplu e-posta kampanyaları yönetin
+
+**Resmi Web Sitesi:** [https://www.mailjet.com](https://www.mailjet.com)
+
+## Özellikler
+
+- Toplu e-posta gönderimi
+- Template yönetimi
+- Analytics ve raporlama
+- SMTP ve API desteği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `text` | ✅ Evet | Örn: Mailjet API Key'inizi girin |
+| `apiSecret` | API Secret | `password` | ✅ Evet | Örn: Mailjet API Secret'ınızı girin |
+| `fromEmail` | Gönderen E-posta | `email` | ✅ Evet | Örn: ornek@domain.com |
+| `fromName` | Gönderen Adı | `text` | ✅ Evet | Örn: Şirket Adı |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.MAILJET` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Mailjet` servislerini kullanmaya başlayacaktır.
