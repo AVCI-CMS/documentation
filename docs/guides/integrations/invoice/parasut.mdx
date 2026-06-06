@@ -1,0 +1,37 @@
+---
+sidebar_position: 24
+title: "Paraşüt E-Fatura "
+description: "Paraşüt API üzerinden otomatik e-fatura, e-arşiv ve müşteri yönetimi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/parasut/parasut-icon-filled-256.webp" alt="Paraşüt Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Paraşüt E-Fatura 
+
+Paraşüt API üzerinden otomatik e-fatura, e-arşiv ve müşteri yönetimi
+
+**Resmi Web Sitesi:** [https://www.parasut.com](https://www.parasut.com)
+
+## Özellikler
+
+- Otomatik E-Fatura oluşturma
+- E-Arşiv desteği
+- Müşteri otomatik senkronizasyonu
+- Ödeme takibi
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `companyId` | Firma ID | `text` | ✅ Evet | Örn: Paraşüt Firma ID |
+| `clientId` | Client ID (Uygulama ID) | `text` | ✅ Evet | Örn: Paraşüt Uygulama Client ID |
+| `clientSecret` | Client Secret (Uygulama Secret) | `password` | ✅ Evet | Örn: Paraşüt Uygulama Client Secret |
+| `username` | Kullanıcı Adı (Email) | `email` | ✅ Evet | Örn: Paraşüt giriş e-postası |
+| `password` | Şifre | `password` | ✅ Evet | Örn: Paraşüt şifreniz |
+| `testMode` | Sandbox Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.PARASUT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Paraşüt` servislerini kullanmaya başlayacaktır.

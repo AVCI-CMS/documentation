@@ -1,0 +1,33 @@
+---
+sidebar_position: 25
+title: "GİB E-Arşiv Portal"
+description: "Gelir İdaresi Başkanlığı E-Arşiv portalı üzerinden ücretsiz fatura kesimi"
+---
+
+<img src="https://images.seeklogo.com/logo-png/34/1/gelir-idaresi-baskanligi-yeni-logo-png_seeklogo-340509.png" alt="GİB Portal Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# GİB E-Arşiv Portal
+
+Gelir İdaresi Başkanlığı E-Arşiv portalı üzerinden ücretsiz fatura kesimi
+
+**Resmi Web Sitesi:** [https://earsivportal.efatura.gov.tr](https://earsivportal.efatura.gov.tr)
+
+## Özellikler
+
+- Ücretsiz E-Arşiv fatura
+- Resmi portal entegrasyonu
+- Fatura sorgulama
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `username` | Kullanıcı Kodu / VKN | `text` | ✅ Evet | Örn: Portal kullanıcı kodu |
+| `password` | Şifre | `password` | ✅ Evet | Örn: Portal şifresi |
+| `testMode` | Test Portalı | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.GIB` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `GİB Portal` servislerini kullanmaya başlayacaktır.

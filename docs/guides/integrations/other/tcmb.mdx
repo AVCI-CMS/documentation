@@ -1,0 +1,31 @@
+---
+sidebar_position: 26
+title: "TCMB Döviz Kurları"
+description: "Türkiye Cumhuriyeti Merkez Bankası üzerinden günlük döviz kurlarını çekin"
+---
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCX-QsN8dt7UrL6PsSRMowcRUQsFhQcH1c4g&s" alt="TCMB Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# TCMB Döviz Kurları
+
+Türkiye Cumhuriyeti Merkez Bankası üzerinden günlük döviz kurlarını çekin
+
+**Resmi Web Sitesi:** [https://www.tcmb.gov.tr](https://www.tcmb.gov.tr)
+
+## Özellikler
+
+- Resmi günlük döviz kurları
+- Çapraz kur hesaplama desteği
+- Otomatik güncelleme
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `autoUpdate` | Otomatik Güncelleme | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.TCMB` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `TCMB` servislerini kullanmaya başlayacaktır.

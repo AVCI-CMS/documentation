@@ -1,22 +1,34 @@
 ---
-sidebar_position: 3
-title: "iyzico"
+sidebar_position: 15
+title: "Iyzico Ödeme Sistemi"
+description: "Türkiye'nin önde gelen ödeme altyapısı ile güvenli ödeme"
 ---
 
-# iyzico Integration
+<img src="https://play-lh.googleusercontent.com/jtTsOrqubY-bKPKe-mdQElyd33A8HoHO1iLVlSujT-MiUx-FIDCTfKah_oKnAs9JgA" alt="Iyzico Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-iyzico is the preferred payment provider for the Turkish market, offering seamless installment support for local credit cards and a robust B2B marketplace sub-merchant (Sub-Merchant) architecture.
+# Iyzico Ödeme Sistemi
 
-## 1. Fetching Credentials
-1. Log in to your iyzico Merchant Panel.
-2. Go to **Settings > Merchant Settings**.
-3. Locate your **API Key** and **Secret Key**.
+Türkiye'nin önde gelen ödeme altyapısı ile güvenli ödeme
 
-## 2. Configuration Steps
-1. Navigate to **Workspace > Settings > Sale Settings > Payment** in AVCI CMS.
-2. Select **iyzico**.
-3. Enter your API Key and Secret Key.
-4. **Marketplace Mode:** If you operate a multi-vendor marketplace, ensure you check the "Enable iyzico Marketplace" option so the CMS can automatically split funds between the platform commission and the merchant.
+**Resmi Web Sitesi:** [https://www.iyzico.com](https://www.iyzico.com)
 
-## 3. 3D Secure Preferences
-iyzico requires 3D Secure for certain transactions. We highly recommend forcing 3D Secure for all transactions over a specific monetary threshold to reduce chargeback risks. You can configure this threshold directly in the AVCI CMS panel.
+## Özellikler
+
+- Kredi kartı ödemeleri
+- Taksit seçenekleri
+- 3D Secure
+- Banka entegrasyonu
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `text` | ✅ Evet | Örn: Iyzico API Key |
+| `secretKey` | Secret Key | `password` | ✅ Evet | Örn: Iyzico Secret Key |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.IYZICO` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Iyzico` servislerini kullanmaya başlayacaktır.
