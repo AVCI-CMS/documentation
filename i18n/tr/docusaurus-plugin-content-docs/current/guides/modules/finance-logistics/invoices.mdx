@@ -1,0 +1,38 @@
+---
+sidebar_position: 6
+title: "Faturalar (Invoices)"
+description: "Resmi vergi faturaları (e-fatura) oluşturma ve yönetimi."
+---
+
+# Faturalar (Invoices)
+
+**Menü Yolu:** `Finans ve Lojistik > Faturalar` (veya `Finance & Logistics > Invoices`)
+
+**Faturalar** modülü, vergi uyumluluğu ve muhasebe için gerekli olan resmi faturalandırma belgelerini (E-Fatura / E-Arşiv gibi) yönetir. *Siparişler* modülü bir müşterinin ne satın aldığını gösterirken, *Faturalar* modülü yasal finansal işlemi kanıtlar.
+
+## Fatura Oluşturma veya Yükleme
+
+Faturalar sıkı bir şekilde Siparişlere (veya Pazaryerindeki Alt Siparişlere) bağlıdır.
+
+1. **Finans ve Lojistik > Siparişler** sayfasına gidin ve bir Sipariş detay sayfasını açın.
+2. **Fatura Yöneticisi (Invoice Manager)** kartını bulun.
+3. Sistem entegrasyonunuza bağlı olarak iki seçeneğiniz vardır:
+
+### Seçenek A: Manuel Yükleme
+Faturaları harici bir ön muhasebe yazılımı (Örn: Logo, Paraşüt, Zirve) kullanarak oluşturuyorsanız:
+1. Harici yazılımınızdan PDF faturasını dışa aktarın (indirin).
+2. Siparişin Fatura Yöneticisi kartında **Fatura Yükle (Upload Invoice)** butonuna tıklayın.
+3. PDF dosyasını seçin. Yüklendikten sonra müşteri, arayüzdeki "Siparişlerim" sayfasından faturayı anında indirebilir.
+
+### Seçenek B: Otomatik Oluşturma (API Entegrasyonu)
+Platformunuz bir E-Fatura entegratörü (Örn: Uyumsoft, Fit Solutions) ile entegre ise:
+1. **E-Fatura Oluştur** butonuna tıklayın.
+2. Sistem müşterinin fatura adresini, vergi/TC kimlik numarasını ve satın alınan ürünleri otomatik olarak entegratör portala gönderir.
+3. Doğrulanmış bir PDF/XML geri döner ve siparişe otomatik olarak eklenir.
+
+## Tüm Faturaları Görüntüleme
+
+Platform genelinde kesilen tüm faturaların genel listesini görmek için:
+1. **Finans ve Lojistik > Faturalar** sayfasına gidin.
+2. Burada faturaları Tarih, Satıcı veya Tutara göre filtreleyebilirsiniz.
+3. Bu liste, ay sonu muhasebe mutabakatları için son derece kullanışlıdır. Muhasebecinize göndermek üzere bu PDF'leri toplu olarak indirebilirsiniz.

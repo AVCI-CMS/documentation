@@ -1,25 +1,33 @@
 ---
-sidebar_position: 7
-title: "Notifications"
+sidebar_position: 3
+title: "Bildirimler (Notifications)"
+description: "Kullanıcılara push, SMS ve uygulama içi uyarılar gönderin."
 ---
 
-# Notifications Log
+# Bildirimler (Notifications)
 
-**Menu Path:** `Communication > Notifications`
+**Menü Yolu:** `İletişim > Bildirimler` (veya `Communication > Notifications`)
 
-The **Notifications** module acts as an audit trail for all systemic alerts sent to your users. It displays a chronological log of Push Notifications (if you have a mobile app) and In-App browser alerts.
+Bülten modülü uzun biçimli e-posta pazarlaması için kullanılırken, **Bildirimler** modülü kısa, acil ve yüksek oranda hedeflenmiş uyarılar için tasarlanmıştır.
 
-## Using the Notifications Log
+## Bildirim Gönderme
 
-You generally do not "create" notifications here; they are triggered by the system (e.g., "Your order has shipped", "Your ticket was answered"). This module is used for monitoring and debugging.
+1. **İletişim > Bildirimler** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
 
-### 1. Delivery Audits
-If a customer claims they never received an update about their order:
-- Search for the user's name or email in the Notifications list.
-- Check the log to see exactly when the system dispatched the alert.
-- Verify the **Status** column to see if the push notification was successfully delivered to their device or if it failed.
+### 1. Mesaj İçeriği
+- **Başlık (Title):** Bildirimin kalın yazılmış ana başlığı.
+- **İçerik (Body):** Kısa bir mesaj (Örn: "Siparişiniz kargoya verildi!", "Flaş İndirim 2 saat içinde bitiyor!").
+- **Hedef URL (Aksiyon):** Kullanıcı bildirime tıkladığında nereye yönlendirilmelidir? (Örn: Belirli bir ürün sayfası veya sipariş takip ekranı).
 
-### 2. Broadcasts (Manual Push)
-Depending on your platform's configuration, administrators may have a **"Send Notification"** button here.
-- This allows you to write a custom, platform-wide message (e.g., "System maintenance tonight at 2 AM").
-- You can target this broadcast to specific user segments (All Users, Merchants Only, VIPs).
+### 2. Bildirim Kanalları
+Mesajı bir veya birden fazla kanal üzerinden iletmeyi seçebilirsiniz:
+- **Uygulama İçi (In-App / Çan Simgesi):** Mesajı web siteniz veya mobil uygulamanız içindeki bildirim tepsisine gönderir.
+- **Push Bildirimi:** Kullanıcının mobil cihazına veya tarayıcısına işletim sistemi düzeyinde bir push uyarısı gönderir (kullanıcının izin vermiş olmasını gerektirir).
+- **SMS:** Bir kısa mesaj gönderir. *(Not: Bu, SMS sağlayıcınıza bağlı olarak mesaj başına maliyet oluşturur).*
+
+### 3. Hedefleme (Targeting)
+- **Genel (Global):** Tüm aktif kullanıcılara gönderin.
+- **Hedeflenmiş:** Belirli bir Kullanıcı ID'sine, belirli bir gruba gönderin veya davranışa göre filtreleyin.
+
+3. Bildirimi anında göndermek (dispatch) için **"Gönder"** butonuna tıklayın.

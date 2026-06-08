@@ -1,25 +1,33 @@
 ---
-sidebar_position: 7
-title: "Places"
+sidebar_position: 5
+title: "Mekanlar (Places)"
+description: "Fiziksel mekanları, mağazaları ve harita koordinatlarını yönetin."
 ---
 
-# Places (Venues & Locations)
+# Mekanlar (Places)
 
-**Menu Path:** `Relations > Places`
+**Menü Yolu:** `İlişkiler > Mekanlar` (veya `Relations > Places`)
 
-The **Places** module serves as a geographical directory for your platform. It is used to define and manage physical locations such as event venues, physical store branches, pickup points, or warehouses.
+**Mekanlar** modülü, fiziksel konumlar için global bir rehber görevi görür. Her Etkinlik (Event) veya Rota (Route) oluşturduğunuzda aynı adres ayrıntılarını tekrar tekrar yazmak yerine, "Mekanı" burada bir kez oluşturur ve bağlarsınız. Bu, platform genelinde mutlak tutarlılık sağlar.
 
-## Why Define Places?
-Instead of manually typing an address every time you create a physical Event, you define the venue once in this module. This ensures mapping coordinates are exact and reusable.
+## Bir Mekan Oluşturma
 
-## Creating a New Place
+1. **İlişkiler > Mekanlar** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
 
-1. Navigate to the Places list and click **"Create"**.
-2. **Name:** Enter the recognizable name of the location (e.g., "Grand Convention Center" or "Taksim Branch").
-3. **Full Address:** Type the complete street address. This text is usually displayed to the end-user.
-4. **Map Coordinates:** 
-   - Enter the exact Latitude and Longitude. 
-   - Many CMS integrations allow you to drop a pin on an embedded Google Map to auto-fill these coordinates. This is vital for generating the "Get Directions" links on the frontend.
-5. **Venue Attributes:** (Optional) Define the maximum seating capacity, parking availability, or accessibility features.
+### 1. Temel Bilgiler (Basic Info)
+- **İsim (Name):** Mekanın veya mağazanın adı (Örn: "Vodafone Park", "Kadıköy Şubesi").
+- **Slug:** Mekan için otomatik olarak oluşturulan URL tanımlayıcısı.
+- **Durum (Status):** Bağlantı kurmak (diğer modüllerde seçebilmek) için durumu *YAYINDA (PUBLISHED)* olarak ayarlayın.
 
-Once saved, this "Place" becomes a selectable option in [Create an Event](../catalog/events/create.mdx) module and Route planner.
+### 2. Konum ve Harita (Kritik)
+- **Adres (Address):** Tam fiziksel adresi girin.
+- **Koordinatlar (Enlem ve Boylam):** Bunları manuel olarak girebilir veya entegre Google Haritalar (veya benzeri bir harita sağlayıcısı) widget'ını kullanabilirsiniz. Haritadaki pini sürüklemek koordinatları otomatik olarak güncelleyecektir.
+- *Bu neden önemlidir?* [Rotalar (Routes)](../catalog/routes) gibi modüller; mesafeleri, transit sürelerini hesaplamak ve harita önizlemeleri oluşturmak için büyük ölçüde bu kesin koordinatlara güvenir.
+
+### 3. Medya ve Detaylar
+- **Görseller (Images):** Mekanın (dış cephe, iç mekan) fotoğraflarını yükleyin.
+- **Kapasite (Capacity):** Mekanın alabileceği maksimum kişi sayısı. Bu, bu lokasyondaki bir Etkinlik (Event) için bilet satarken bir üst sınır (limit) görevi görür.
+- **Açıklama (Description):** Mevcut olanaklar (Örn: "Tekerlekli sandalyeye uygun, Otopark mevcut").
+
+3. **"Kaydet"** butonuna tıklayın. Artık Etkinlikler veya Rotalar oluştururken bu mekanı açılır listeden (dropdown) doğrudan seçebilirsiniz.

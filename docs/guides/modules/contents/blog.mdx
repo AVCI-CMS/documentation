@@ -1,29 +1,43 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: "Blog"
+description: "Publish and manage blog articles."
 ---
 
-# Blog Management
+# Blog
 
 **Menu Path:** `Contents > Blog`
 
-The **Blog** module is the section where you can publish and manage articles, guides, and long-format texts on your platform. Its SEO-friendly structure makes it easier for your content to stand out in search engines.
+The **Blog** module is designed for publishing articles, guides, industry insights, and updates. A consistently updated blog is one of the most effective methods for inbound marketing, customer engagement, and improving your site's SEO (Search Engine Optimization).
 
-## How to Add a New Blog Post?
+## Overview Dashboard
+When you navigate to `Contents > Blog`, you are presented with an overview list of all your articles. Here you can see at a glance the author, publication date, category, and current status of each post. You can also perform bulk actions like deleting or changing the status of multiple articles simultaneously.
 
-1. Navigate to the Blog management screen by following the **Contents > Blog** path from the left menu.
-2. Click the **"Create"** button in the top right corner.
-3. Fill in the following basic information on the screen that appears:
-   - **Title:** The main heading of your post.
-   - **Content:** Format your text, add images or videos using the Rich Text Editor.
-   - **Featured Image:** Upload the main cover photo that will appear in the blog listing.
-   - **Category / Tags:** Assign your post to relevant categories and determine keywords (tags).
-4. Do not forget to fill in the **Meta Title** and **Meta Description** of your post from the SEO settings tab (if any).
-5. When your operations are finished, publish your post by clicking the **"Save"** or **"Publish"** button.
+## Creating a Blog Post
 
-## How to Edit or Delete a Blog Post?
+To write a new article:
 
-- **Editing:** On the blog list screen, you can update the content by clicking the **"Edit" (Pen icon)** button to the right of the post you want to change.
-- **Changing Status:** Instead of completely deleting posts, you can unpublish them by changing their status to "Draft" or "Inactive". You can use the "Status" switch on the edit screen to do this.
+1. Click the **"Add New"** button from the Blog list view.
+2. The article creation screen is divided into comprehensive sections:
 
-> **Important Tip:** Regularly checking your SEO metadata (URL slug, Title) greatly contributes to your content ranking better on Google and other search engines.
+### 1. Basic Info
+- **Title:** The headline of your blog post. This needs to be catchy and relevant.
+- **Status:** Set the article as *Draft* while writing it. Change to *Published* when it's ready to go live. You can also mark outdated posts as *Hidden*.
+- **Category:** Assign the post to a relevant category. Categories are managed centrally (see [Common Categories](../common/categories)). A post can be placed in multiple nested categories (e.g., Technology > Software).
+- **Slug:** The URL string (e.g., `how-to-use-cms`). It is auto-generated from the Title, but you can override it for SEO purposes.
+- **Abstract:** A short teaser text. This is often displayed on the blog homepage card before the user clicks to read the full article.
+
+### 2. Media
+- **Featured Image:** The main cover image for the blog post. This is critical as it will be used as the social media share image (OpenGraph) and the header image for the article.
+- **Gallery:** If your article requires a carousel or a collection of supplementary images at the bottom, upload them here.
+
+### 3. Content (Rich Text)
+- The main drafting area. Use the rich text editor to write your comprehensive guide. You can insert inline images directly into the flow of the text, format quotes, create tables, and structure your article with proper H2/H3 headings for optimal readability.
+
+### 4. SEO
+- Optimize your article specifically for search engines by filling out the shared SEO fields (Title, Description). See the [Common SEO](../common/seo) guide for best practices.
+
+3. Once your article is complete, review the settings and click **"Save"** to apply your changes.
+
+## Comments and Interaction
+If enabled on your frontend, users can leave comments on blog posts. These comments flow into the `Contents > Blog > Comments` section, where you can read, approve, reject, or reply to user feedback using the shared [Comments](../common/comments) interface.

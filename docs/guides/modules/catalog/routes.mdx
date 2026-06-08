@@ -1,36 +1,43 @@
 ---
-sidebar_position: 10
+sidebar_position: 7
 title: "Routes"
+description: "Map-based itineraries, travel routes, and event linking."
 ---
 
-# Routes (Path Planning)
+# Routes
 
 **Menu Path:** `Catalog > Routes`
 
-The **Routes** module is a highly specialized catalog feature designed for businesses dealing with geography, travel, and logistics. It allows you to construct and sell or display sequential geographic paths.
+The **Routes** module is a specialized geographic tool designed for tourism, travel packages, guided tours, or multi-location event planning. It allows you to link multiple Events or Places into a sequential itinerary, complete with map visualizations and capacity limits.
 
-**Use Cases:**
-- Tourism companies selling multi-day guided tours.
-- Logistics firms defining specific delivery zones or paths.
-- Outdoor brands mapping hiking or cycling trails.
+## Creating a Travel Route
 
-## Constructing a Route
+To map out a new itinerary:
 
-Click **"Create"** to open the route builder interface.
+1. Navigate to **Catalog > Routes**.
+2. Click the **"Add New"** button.
 
-### 1. Route Overview
-- **Route Name:** E.g., "7-Day Aegean Coast Roadtrip".
-- **Difficulty / Category:** Tag the route (e.g., "Beginner", "Expert", "Scenic").
-- **Technical Specs:** Enter the total distance (km/miles) and estimated duration (hours/days).
+### 1. Basic Info & Settings
+- **Name:** The title of the tour or route (e.g., "Historical City Walking Tour").
+- **Description:** A detailed explanation of what the route covers.
+- **Status:** *Draft*, *Published*, *Hidden*, or *Pre-Request* (for gathering interest before confirming dates).
+- **Travel Mode:** How will attendees move between points? Choose *Walking*, *Driving*, or *Bicycling*. This is used by the map API to calculate realistic transit times.
+- **Price Type:** Choose *Per Person* (each individual buys a ticket) or *Package* (e.g., buying the whole tour for a group of up to 4 people).
+- **Package Capacity:** If *Package* is selected, specify the maximum number of people allowed in one package.
+- **Date Start & End:** The overall timeframe for this entire route.
+- **Buffer Minutes:** The mandatory rest or transit time (in minutes) required between sequential events on the route.
 
-### 2. Waypoint Management (The Map)
-This is the core of the module.
-- **Adding Waypoints:** Add locations sequentially (Point 1, Point 2, Point 3).
-- **Coordinates:** For each waypoint, enter exact Latitude and Longitude data, or use the integrated map search to drop pins.
-- **Waypoint Descriptions:** Add specific text or images for each stop (e.g., "Day 1: Arrival in Izmir and hotel check-in").
+### 2. Events & Timeline (The Itinerary)
+This is the core of the Routes module. You build the itinerary by adding existing *Events* (which have locations tied to them).
+- **Add Event:** Click "Add Event" to search and add specific events to the timeline.
+- **Drag & Drop Sorting:** Once added, you can drag and drop the events to reorder the itinerary.
+- **Timeline Validation:** The system will automatically validate your timeline! It checks if the physical distance (based on the chosen Travel Mode) and the Buffer Minutes allow enough time to travel from Event A to Event B. If not, a red warning will appear.
+- **Smart Suggestions:** Clicking "Suggest Events" will query the system to find other events happening nearby within the route's timeframe that could fit into the itinerary.
 
-### 3. Media and KML/GPX Uploads
-- **Cover Visual:** Upload an enticing hero image for the route.
-- **File Uploads:** (Advanced) If your frontend supports interactive mapping, you can upload industry-standard `.gpx` or `.kml` files generated from GPS devices. The system will parse these files to render accurate paths on frontend maps.
+### 3. Map Preview
+- As you add and sort events, a dynamic Google Maps preview will generate showing the exact path the route takes.
 
-Once saved, the Route data becomes accessible via the API, allowing developers to render beautiful, interactive map experiences for your users.
+### 4. Waypoints (Optional Stops)
+- **Waypoints:** If you want to add specific stops that are *not* formal Events in your system (e.g., "Lunch at the Park", "Photo Stop at the Bridge"), you can add custom Waypoints with a title and an address.
+
+3. Click **"Save"** to publish the route and allow users to book the itinerary.

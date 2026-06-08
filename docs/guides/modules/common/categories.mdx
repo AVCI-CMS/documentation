@@ -1,0 +1,35 @@
+---
+sidebar_position: 2
+title: "Categories"
+description: "Hierarchical (tree structure) category system and management."
+---
+
+# Categories
+
+The category module allows you to classify your content (products, blog posts, news, places, etc.) in a hierarchical (tree) structure. The category system is designed to allow adding subcategories at an unlimited depth.
+
+## Creating / Editing a Category
+
+When you navigate to the categories page of a module, you can access the category creation form by clicking the "Add New" button.
+
+### 1. Basic Info
+- **Title:** The display name of the category (Required).
+- **Slug:** The extension that will appear in the URL. If left blank, it is automatically generated from the title.
+- **Parent Category:** If this category is under another category, you must select the parent category here. (e.g., Clothing > *T-Shirt*)
+- **Order:** A numeric value that determines the listing order of the categories.
+- **Status:** You can select Active, Draft, or Deleted status.
+
+### 2. Media
+- **Cover Image:** The main image that will appear in category lists or category details. It can be selected from the media library.
+- **Gallery:** If you want to add multiple images to the category, you can use this area (Maximum 10 images).
+
+### 3. Content
+This is the **Rich Text** editor where detailed descriptions for the category are entered. Entering descriptive texts on category pages is important for Search Engine Optimization (SEO). Text formatting and image insertion operations can be performed via the editor.
+
+### 4. Logistics Constraints (Product Categories Only)
+If the category you are editing is a **Product** category, you can define special logistics constraints that will affect shipping integrations:
+- **Fragile / Breakable:** Products requiring special packaging.
+- **Liquid Content:** Products that fall under liquid substance restrictions.
+- **Flammable / Combustible:** Shipments in the dangerous goods class.
+- **Special Handling (White-Glove):** Shipments that require installation or have artistic value.
+- **Insurance Required:** If selected, you are prompted to enter a **Min. Insurance Value**, and the insurance amount for the shipments of products in this category is automatically transmitted to the shipping company.

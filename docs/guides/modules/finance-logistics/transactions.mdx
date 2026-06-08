@@ -1,0 +1,38 @@
+---
+sidebar_position: 4
+title: "Transactions"
+description: "Internal ledger movements, payouts, and merchant balances."
+---
+
+# Transactions
+
+**Menu Path:** `Finance & Logistics > Transactions`
+
+The **Transactions** module acts as the internal financial ledger of your platform. While *Payments* record money moving between the customer's bank and your payment gateway, *Transactions* record how that money is split internally within your platform.
+
+This is especially critical for Marketplace models, where a single payment might generate multiple internal transactions (e.g., Merchant A's earning, Merchant B's earning, and the Platform's commission).
+
+## Understanding Transactions
+
+1. Go to **Finance & Logistics > Transactions**.
+2. Click on a Transaction ID to view the details.
+
+### 1. Transaction Types
+- **EARNING:** Money credited to a Merchant's account for a successful sale.
+- **COMMISSION:** Money deducted from a sale and credited to the Platform as revenue.
+- **PAYOUT:** Money transferred from the Merchant's digital wallet to their actual bank account.
+- **REFUND / CHARGEBACK:** Money deducted due to a returned item or disputed charge.
+- **PENALTY:** Administrative fines deducted from a Merchant's balance.
+
+### 2. Transaction Statuses & Payout Dates
+- **PENDING:** The transaction is logged, but the money is not yet available to the merchant. *Example: An order is shipped but not yet delivered. The funds are held in escrow.*
+  - *Estimated Payout Date:* If pending, a yellow banner will show the estimated date the funds will be cleared (e.g., "Estimated Transfer: 15 Oct 2026").
+- **COMPLETED:** The money has been cleared and officially added to the Merchant's withdrawable Wallet balance.
+- **CANCELLED:** The transaction was voided (e.g., the order was cancelled before fulfillment).
+
+### 3. Financial Breakdown
+- **Amount:** The exact value of the transaction.
+- **Merchant:** Which merchant this transaction belongs to.
+- **Description:** An auto-generated explanation (e.g., "Earnings for Order #12345").
+
+*Note:* All transactions are immutable. To correct a mistake, a new counter-transaction (like a refund) must be issued rather than editing the original record.

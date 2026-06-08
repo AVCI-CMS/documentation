@@ -1,0 +1,39 @@
+---
+sidebar_position: 3
+title: "Attributes"
+description: "Dynamic attribute, variation, and custom field management."
+---
+
+# Attributes
+
+The attributes module allows you to add dynamic fields (product features, merchant profile details, etc.) to the system later on. You can introduce new data entry fields (e.g., "Color", "Size", "Fabric Type" for products) without needing a developer.
+
+## Creating an Attribute
+
+### 1. Basic Info
+- **Label:** The name users will see on the system interface (e.g., *Fabric Type*).
+- **Unique Key:** The code that identifies this feature on the system side, must be in English characters without spaces (e.g., *fabric_type*). It cannot be changed once saved.
+- **Type:** The data type of the attribute. Supported types: String/Text, Number, Date, Select/Checkbox/Radio, Nested, etc.
+
+### 2. Configuration
+*(Visible except for Nested types)*
+- **Placeholder:** The hint text that will appear in the input field when it is empty.
+- **Tooltip:** A small info bubble text to guide the user.
+- **Unit:** Only visible for "Number" types. Adds a unit next to the value (e.g., kg, cm, $).
+
+### 3. Validation Rules
+Used to restrict and validate data entry:
+- **Required:** Is filling it out mandatory?
+- **Min / Max Value:** Lower and upper limits for numerical values.
+- **Min / Max Length:** Character limits for text values.
+- **Pattern (Regex):** Custom validation condition (e.g., Only letters allowed `^[a-zA-Z]+$`).
+- **Custom Message:** The error message to be shown to the user when validation fails.
+
+### 4. Options
+*(Only visible for SELECT, RADIO, CHECKBOX, and MULTI_SELECT types)*
+You can feed the options in two different ways:
+- **Manual Data:** You can create your own Label-Key pairs by clicking "Add Option".
+- **Connect to Source:** You can automatically pull options from another module in the system. For example, if you connect a *Dictionary* category to the source, the words in the dictionary directly become the options for this attribute.
+
+### 5. Nested Fields
+If the attribute type is selected as "NESTED", this attribute becomes a group containing multiple sub-fields within itself. You can add new fields and assign Type, Name, Key, and Required rules to each. (e.g., Sub-fields like Calories (Number), Protein (Number) under the Nutritional Values attribute).

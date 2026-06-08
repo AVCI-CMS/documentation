@@ -1,0 +1,28 @@
+---
+sidebar_position: 4
+title: "Mail"
+description: "SMTP ayarlarını, e-posta şablonlarını yapılandırın ve mail loglarını görüntüleyin."
+---
+
+# Mail
+
+**Menü Yolu:** `Araçlar > Mail` (veya `Tools > Mail`)
+
+*Bülten (Newsletter)* modülü pazarlama yayınları için kullanılırken, **Mail** modülü CMS tarafından oluşturulan tüm işlemsel e-postalar (Örn: "Sipariş Onayları", "Şifre Sıfırlama", "Hoş Geldiniz E-postaları") için teknik omurgadır.
+
+## Temel Özellikler
+
+### 1. SMTP Yapılandırması
+CMS'nin herhangi bir e-posta gönderebilmesi için giden posta sunucusunu (SMTP) yapılandırmanız gerekir.
+- **SMTP Sunucusu (Host)**, **Port**, **Kullanıcı Adı** ve **Şifre** bilgilerinizi girin.
+- **"Gönderen Adı" (From Name)** ve **"Gönderen E-postası" (From Email)** (Örn: `noreply@alanadiniz.com`) değerlerini ayarlayın.
+- *İpucu:* Sistemi canlıya almadan önce yapılandırmanızın doğru çalıştığını doğrulamak için her zaman "Test E-postası Gönder" (Send Test Email) butonunu kullanın.
+
+### 2. E-posta Şablonları (Templates)
+Sistem, genel olaylar (kayıt, şifre unuttum vb.) için önceden tanımlanmış şablonlarla birlikte gelir.
+- Markanızın renklerine uyması ve kurumsal logonuzu eklemek için bu şablonların HTML'sini düzenleyebilirsiniz.
+- Sistemin e-postayı gönderirken otomatik olarak gerçek verilerle değiştireceği `{{FIRST_NAME}}` veya `{{ORDER_NUMBER}}` gibi dinamik etiketler (değişkenler) kullanın.
+
+### 3. Mail Logları (Kayıtları)
+Modül, sistem tarafından gönderilen tüm e-postaların geçmişini (loglarını) tutar.
+- Bir müşteri faturasını almadığını iddia ederse, e-postanın başarıyla teslim edilip edilmediğini, geri dönüp dönmediğini (bounce) veya alıcı sunucu tarafından spam olarak işaretlenip işaretlenmediğini doğrulamak için **Logları** kontrol edebilirsiniz.

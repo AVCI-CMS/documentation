@@ -1,27 +1,33 @@
 ---
-sidebar_position: 9
+sidebar_position: 4
 title: "Organizations"
+description: "Group multiple users under a single B2B corporate account."
 ---
 
-# Organizations (B2B Accounts)
+# Organizations
 
 **Menu Path:** `Relations > Organizations`
 
-The **Organizations** module is designed for B2B (Business-to-Business) e-commerce architectures. It allows you to group multiple individual [Users](./users.mdx) under a single corporate umbrella.
+The **Organizations** module is primarily used for B2B (Business-to-Business) operations. It allows you to group multiple standard *Users* under a single corporate umbrella.
 
-## Understanding Corporate Accounts
+## Why Use Organizations?
 
-In a B2B scenario, a single company might have multiple employees placing orders on your site. Organizations allow you to manage them logically.
-
-- **Shared Billing:** All users assigned to "Company XYZ" can place orders that are automatically billed to Company XYZ's corporate tax ID and billing address.
-- **Tiered Pricing:** You can assign a specific discount tier (e.g., "Wholesale - Tier 1") to an Organization. Every user linked to this organization will automatically see the discounted prices instead of the retail prices.
-- **Credit Limits:** Instead of paying by credit card, an Organization might have a monthly "Net 30" credit limit. Employees draw from this shared credit pool when checking out.
+Imagine you are selling event tickets or training courses. A large corporate client (e.g., "Acme Corp") wants to buy 50 tickets for their employees. 
+Instead of making 50 individual purchases, the "Acme Corp" Organization is billed, but the 50 employees (Users) are linked to the organization to receive their individual tickets.
 
 ## Creating an Organization
 
-1. Click **"Create"** in the Organizations list.
-2. **Corporate Details:** Enter the Company Name, Tax ID, and official corporate address.
-3. **Assign Members:** Search for existing Users in your system and link them to this organization as "Employees" or "Purchasing Managers".
-4. **Set Financial Rules:** Define their credit limit or assign them to a specific B2B pricing group.
+1. Navigate to **Relations > Organizations**.
+2. Click **"Add New"**.
 
-Once saved, the assigned users will experience a customized, corporate checkout flow the next time they log in.
+### 1. Corporate Details
+- **Name:** The legal name of the organization.
+- **Domain:** The corporate email domain (e.g., `@acmecorp.com`). In advanced setups, users registering with this domain can be auto-assigned to the organization.
+- **Billing Information:** Corporate address, tax number, and tax office.
+
+### 2. Managing Members (Users)
+- Once the Organization is created, you can link existing *Users* to it.
+- **Roles:** You can assign specific roles within the organization, such as *Admin* (can buy products on behalf of the company) or *Employee* (can only consume products/tickets assigned to them).
+
+### 3. B2B Pricing (Advanced)
+- Depending on your setup, Organizations can be assigned to special "Customer Groups" that receive distinct B2B pricing, bypassing standard B2C retail prices.

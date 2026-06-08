@@ -1,35 +1,35 @@
 ---
 sidebar_position: 16
-title: "Aras Kargo "
-description: "Aras Kargo altyapısı ile hızlı ve güvenilir teslimat çözümleri"
+title: "Aras Kargo"
+description: "Fast and reliable delivery solutions with Aras Kargo infrastructure"
 ---
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85wDvGim_6hTyZG4Uo_5f7ovtKi8c0vGdig&s" alt="Aras Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-# Aras Kargo 
+# Aras Kargo
 
-Aras Kargo altyapısı ile hızlı ve güvenilir teslimat çözümleri
+Fast and reliable delivery solutions with Aras Kargo infrastructure
 
-**Resmi Web Sitesi:** [https://www.araskargo.com.tr](https://www.araskargo.com.tr)
+**Official Website:** [https://www.araskargo.com.tr](https://www.araskargo.com.tr)
 
-## Özellikler
+## Features
 
-- Otomatik barkod üretimi
-- Anlık durum takibi
-- Bölgesel fiyatlandırma
-- İade süreçleri yönetimi
+- Automatic barcode generation
+- Real-time status tracking
+- Regional pricing
+- Return process management
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: Aras Kargo Kullanıcı Adı |
-| `password` | Şifre | `password` | ✅ Evet | Örn: Aras Kargo Şifresi |
-| `customerCode` | Müşteri Kodu | `text` | ❌ Hayır | Örn: Aras Kargo Müşteri Kodu |
-| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `username` | Username | `text` | ✅ Yes | Ex: Aras Kargo Username |
+| `password` | Password | `password` | ✅ Yes | Ex: Aras Kargo Password |
+| `customerCode` | Customer Code | `text` | ❌ No | Ex: Aras Kargo Customer Code |
+| `testMode` | Test Mode | `boolean` | ❌ No | - |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.ARAS` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Aras Kargo` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.ARAS` enum value. After completing the configuration via the admin panel, the system will automatically start using `Aras Kargo` services.

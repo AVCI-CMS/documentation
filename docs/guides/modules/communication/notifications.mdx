@@ -1,25 +1,33 @@
 ---
-sidebar_position: 7
+sidebar_position: 3
 title: "Notifications"
+description: "Send push, SMS, and in-app alerts to users."
 ---
 
-# Notifications Log
+# Notifications
 
 **Menu Path:** `Communication > Notifications`
 
-The **Notifications** module acts as an audit trail for all systemic alerts sent to your users. It displays a chronological log of Push Notifications (if you have a mobile app) and In-App browser alerts.
+While the Newsletter module is for long-form email marketing, the **Notifications** module is designed for short, urgent, and highly targeted alerts.
 
-## Using the Notifications Log
+## Sending a Notification
 
-You generally do not "create" notifications here; they are triggered by the system (e.g., "Your order has shipped", "Your ticket was answered"). This module is used for monitoring and debugging.
+1. Navigate to **Communication > Notifications**.
+2. Click **"Add New"**.
 
-### 1. Delivery Audits
-If a customer claims they never received an update about their order:
-- Search for the user's name or email in the Notifications list.
-- Check the log to see exactly when the system dispatched the alert.
-- Verify the **Status** column to see if the push notification was successfully delivered to their device or if it failed.
+### 1. Message Content
+- **Title:** The bold headline of the notification.
+- **Body:** A brief message (e.g., "Your order has been shipped!", "Flash Sale ends in 2 hours!").
+- **Target URL (Action):** Where should the user be redirected when they click the notification? (e.g., A specific product page or their order tracking screen).
 
-### 2. Broadcasts (Manual Push)
-Depending on your platform's configuration, administrators may have a **"Send Notification"** button here.
-- This allows you to write a custom, platform-wide message (e.g., "System maintenance tonight at 2 AM").
-- You can target this broadcast to specific user segments (All Users, Merchants Only, VIPs).
+### 2. Notification Channels
+You can choose to push the message through one or multiple channels:
+- **In-App (Bell Icon):** Sends the message to the notification tray within your website or mobile app.
+- **Push Notification:** Sends an OS-level push alert to the user's mobile device or browser (requires the user to have opted-in).
+- **SMS:** Sends a text message. *(Note: This incurs per-message costs depending on your SMS provider).*
+
+### 3. Targeting
+- **Global:** Send to all active users.
+- **Targeted:** Send to a specific User ID, a specific group, or filter by behavior.
+
+3. Click **"Send"** to dispatch the notification instantly.

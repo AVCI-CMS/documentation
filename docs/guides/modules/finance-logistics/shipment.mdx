@@ -1,0 +1,40 @@
+---
+sidebar_position: 7
+title: "Shipment"
+description: "Tracking codes, courier integrations, and delivery management."
+---
+
+# Shipment
+
+**Menu Path:** `Finance & Logistics > Shipment`
+
+The **Shipment** module tracks the physical movement of goods from the warehouse (or Merchant) to the customer's doorstep. It is tightly coupled with the *Orders* module.
+
+## Managing a Shipment
+
+When a customer orders a physical product, a shipment record must be created to inform them of the delivery status.
+
+1. Go to **Finance & Logistics > Orders** and open the specific Order (or Sub-Order).
+2. Locate the **Shipment Manager** card.
+3. The order status must typically be at least *PREPARING* to initiate a shipment.
+
+### Adding Tracking Information Manually
+If you do not have a live API integration with your courier:
+1. Select the **Courier Company** from the dropdown (e.g., UPS, FedEx, DHL).
+2. Enter the **Tracking Number** provided by the courier.
+3. Enter a **Tracking URL** if applicable.
+4. Click **"Save"**. The order status automatically updates to *SHIPPED*, and the customer receives an email with their tracking link.
+
+### Live Courier Integration (Cargo API)
+If your platform is integrated with a cargo provider:
+1. Click **"Generate Cargo Code"**.
+2. The system sends the package dimensions, weight, and customer address to the courier API.
+3. A unique Barcode / Tracking Number is returned instantly.
+4. You can click **"Print Label"** to generate a PDF barcode sticker to paste on the physical box.
+5. The system will automatically poll the courier (via webhooks) and update the order status to *DELIVERED* when the package reaches the customer.
+
+## Global Shipment List
+
+To view all active shipments across the platform:
+1. Navigate to **Finance & Logistics > Shipment**.
+2. This list allows logistics managers to identify delayed packages, missing tracking numbers, or shipments stuck in transit without having to open every single order.

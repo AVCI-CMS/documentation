@@ -1,6 +1,6 @@
 ---
 id: index
-title: AVCI CMS Dokümantasyonu
+title: AVCI CMS Documentation
 slug: /
 sidebar_position: 1
 hide_table_of_contents: true
@@ -9,45 +9,45 @@ sidebar_key: "index-md"
 ---
 
 <div className="hero-header">
-  <h1 className="hero-title">AVCI CMS <span>Dokümantasyonu</span></h1>
+  <h1 className="hero-title">AVCI CMS <span>Documentation</span></h1>
   <p className="hero-subtitle">
-    Modern web uygulamaları için tasarlanmış, esnek, yüksek performanslı ve SEO odaklı yeni nesil Headless CMS.
+    Flexible, high-performance, and SEO-focused next-generation Headless CMS designed for modern web applications.
   </p>
   <div className="hero-buttons">
-    <a href="/guides" className="hero-btn hero-btn-primary">Başlangıç Kılavuzu</a>
-    <a href="/api" className="hero-btn hero-btn-secondary">API Referansı</a>
+    <a href="/guides" className="hero-btn hero-btn-primary">Getting Started</a>
+    <a href="/api" className="hero-btn hero-btn-secondary">API Reference</a>
   </div>
 </div>
 
 <div className="features-grid">
   <div className="feature-card">
     <div className="feature-icon">📚</div>
-    <h3 className="feature-title">Kılavuzlar (Guides)</h3>
+    <h3 className="feature-title">Guides</h3>
     <p className="feature-desc">
-      Sistemin arayüzü, yönetici paneli, üye yönetimi ve temel özelliklerin (SEO, Analitik, Görsel Optimizasyonu) nasıl kullanılacağını adım adım öğrenin.
+      Learn step-by-step how to use the system interface, admin panel, user management, and core features (SEO, Analytics, Image Optimization).
     </p>
-    <a href="/guides" className="feature-link">Rehberlere Göz At →</a>
+    <a href="/guides" className="feature-link">Browse Guides →</a>
   </div>
   
   <div className="feature-card">
     <div className="feature-icon">⚙️</div>
-    <h3 className="feature-title">API Referansı</h3>
+    <h3 className="feature-title">API Reference</h3>
     <p className="feature-desc">
-      Frontend veya mobil uygulamalarınızı geliştirmek için sunduğumuz güçlü ve esnek RESTful ile GraphQL API detayları.
+      Details of the powerful and flexible RESTful and GraphQL APIs we provide to develop your frontend or mobile applications.
     </p>
-    <a href="/api" className="feature-link">API'yi İncele →</a>
+    <a href="/api" className="feature-link">Explore API →</a>
   </div>
 
   <div className="feature-card">
     <div className="feature-icon">🛠</div>
-    <h3 className="feature-title">SDK'lar</h3>
+    <h3 className="feature-title">SDKs</h3>
     <p className="feature-desc">
-      Farklı programlama dilleri ve framework'ler (JS, TS, Python) için hazırladığımız, entegrasyona hazır kütüphaneler.
+      Integration-ready libraries we have prepared for different programming languages and frameworks (JS, TS, Python).
     </p>
-    <a href="/sdk" className="feature-link">Kurulumlara Bak →</a>
+    <a href="/sdk" className="feature-link">View Installations →</a>
   </div>
 </div>
 
 <br/><br/>
 
-> **Yardıma mı ihtiyacınız var?** Bize ulaşmak veya toplulukla fikirlerinizi paylaşmak için [Yardım Merkezimizi](https://avcicms.com/resources/help-center) ziyaret edebilirsiniz.
+> **Need help?** You can visit our [Help Center](https://avcicms.com/resources/help-center) to contact us or share your ideas with the community.

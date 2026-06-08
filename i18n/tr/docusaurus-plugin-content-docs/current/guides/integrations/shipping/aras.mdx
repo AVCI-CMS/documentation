@@ -1,0 +1,35 @@
+---
+sidebar_position: 16
+title: "Aras Kargo "
+description: "Aras Kargo altyapısı ile hızlı ve güvenilir teslimat çözümleri"
+---
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85wDvGim_6hTyZG4Uo_5f7ovtKi8c0vGdig&s" alt="Aras Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Aras Kargo 
+
+Aras Kargo altyapısı ile hızlı ve güvenilir teslimat çözümleri
+
+**Resmi Web Sitesi:** [https://www.araskargo.com.tr](https://www.araskargo.com.tr)
+
+## Özellikler
+
+- Otomatik barkod üretimi
+- Anlık durum takibi
+- Bölgesel fiyatlandırma
+- İade süreçleri yönetimi
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: Aras Kargo Kullanıcı Adı |
+| `password` | Şifre | `password` | ✅ Evet | Örn: Aras Kargo Şifresi |
+| `customerCode` | Müşteri Kodu | `text` | ❌ Hayır | Örn: Aras Kargo Müşteri Kodu |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.ARAS` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Aras Kargo` servislerini kullanmaya başlayacaktır.

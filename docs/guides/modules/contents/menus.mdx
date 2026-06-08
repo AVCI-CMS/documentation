@@ -1,35 +1,42 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: "Menus"
+description: "Configure frontend navigation and menu structures."
 ---
 
 # Menus
 
 **Menu Path:** `Contents > Menus`
 
-The **Menus** module is where you configure the navigation areas of your site such as the top navigation bar (Header Nav), footer, mobile menu using the drag-and-drop method.
-
-You design how users will navigate your site through this module.
+The **Menus** module is where you configure the navigation areas of your site such as the top navigation bar (Header Nav), footer, mobile menu using the drag-and-drop method. You design how users will navigate your site through this module.
 
 ## Creating a New Menu (Menu Group)
 
 Generally, your site has predefined menu areas ("Main Menu", "Footer Links"). To add a new menu group:
 
 1. Go to the **Contents > Menus** screen.
-2. Click the **"Create Menu Group"** option.
-3. Give the menu a name (e.g., "Corporate Footer") and a system identifier (Identifier).
+2. Click the **"Create Menu Group"** (or **"Add New"**) button.
+3. Fill in the **Basic Info** properties:
+   - **Name:** Give the menu a descriptive name (e.g., "Corporate Footer").
+   - **Slug:** The system identifier for this menu (e.g., `corporate-footer`).
+   - **Location:** The designated place in the frontend theme where this menu appears (e.g., `header`, `footer-1`).
+   - **Description:** An optional internal note explaining what this menu is for.
+   - **Active:** Check this box to make the menu active on the site.
+4. Click **"Save"**.
 
 ## Editing Menu Content (Links)
 
-To add a link to an existing menu or change its order:
+Once a menu group is created, you need to add the actual clickable links.
 
-1. Click on the menu group you want to edit.
-2. Press the **"Add Link"** button on the opened menu tree (Tree) interface.
-3. Select the properties of the link you will add:
-   - **Label:** The text the user will see (e.g., "About Us").
+1. Click on the menu group you want to edit from the list.
+2. At the top right, click the **"Menu Items"** button to open the link management interface.
+3. Press the **"Add Link"** button on the opened tree interface.
+4. Select the properties of the link you will add:
+   - **Label:** The text the user will see on the site (e.g., "About Us").
    - **Link Type:** 
-      - *Page:* You can directly select a Page (Pages) you created in the system.
-      - *Category:* You can redirect to a product or blog category.
-      - *Custom URL:* You can enter a completely different external link (`https://...`).
-4. **Drag & Drop:** You can change the order of menu items by dragging them with your mouse or create a **Submenu (Dropdown)** by sliding an item to the right below another.
-5. Save the changes to update your site's navigation.
+      - *Page:* You can directly select a static Page (from the Pages module) you created in the system.
+      - *Category:* You can redirect to a specific product, blog, or news category.
+      - *Custom URL:* You can enter a completely different external link or relative path (`https://...` or `/contact`).
+5. **Drag & Drop:** You can easily change the order of menu items by dragging them with your mouse.
+6. **Hierarchy (Dropdowns):** Create a sub-menu (dropdown) by sliding an item to the right directly below another parent item.
+7. Save the changes to instantly update your site's navigation.

@@ -1,0 +1,35 @@
+---
+sidebar_position: 7
+title: "NFC"
+description: "Manage physical Near Field Communication (NFC) tags and actions."
+---
+
+# NFC
+
+**Menu Path:** `Tools > NFC`
+
+The **NFC (Near Field Communication)** module bridges the gap between your digital CMS and the physical world. It allows you to program, manage, and track physical NFC tags (cards, wristbands, or stickers) that users can tap with their smartphones.
+
+## Common Use Cases
+
+- **Event Tickets:** Instead of a paper ticket, issue NFC wristbands. When security personnel tap the wristband, it validates the ticket in the CMS.
+- **Smart Products:** Embed NFC tags inside luxury physical products. When a buyer taps the product, it opens a digital certificate of authenticity.
+- **Digital Business Cards:** Issue corporate NFC cards to users that, when tapped, share their VCard or portfolio page.
+
+## Managing NFC Tags
+
+1. Navigate to **Tools > NFC**.
+2. Click **"Add New Tag"** to register a physical NFC chip into the system.
+
+### 1. Tag Registration
+- **UID (Unique Identifier):** Every physical NFC chip has a hardcoded, unchangeable factory UID. You must input or scan this UID so the CMS recognizes it.
+- **Label/Name:** Give the tag a recognizable name (e.g., "VIP Wristband #001").
+- **Status:** Set to *ACTIVE* or *DEACTIVATED* (if the tag is lost or stolen).
+
+### 2. Programming Actions (What happens on tap?)
+When a smartphone taps the NFC tag, it usually reads an NDEF record (like a URL). You configure what URL the tag points to from here:
+- **Direct Link:** The tag instantly opens a specific product page or event check-in URL.
+- **Dynamic Link:** The tag points to a generic AVCI-CMS validation URL. The CMS reads the UID and dynamically decides what to display (e.g., showing "Valid" or "Expired" for a ticket).
+
+## Usage Logs
+The NFC module also tracks tap analytics. Every time a Dynamic Link tag is tapped, you can see the Timestamp, the general Geolocation, and the User Agent (Phone model) that performed the tap.

@@ -1,0 +1,47 @@
+---
+sidebar_position: 12
+title: "WhatsApp Bildirimleri"
+description: "Meta Business API üzerinden müşterilerinize WhatsApp mesajları gönderin"
+---
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Business Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# WhatsApp Bildirimleri
+
+Meta Business API üzerinden müşterilerinize WhatsApp mesajları gönderin
+
+**Resmi Web Sitesi:** [https://business.whatsapp.com](https://business.whatsapp.com)
+
+## Özellikler
+
+- Meta Cloud API desteği
+- Onaylı şablon mesajları
+- Yüksek teslimat oranı
+- İnteraktif buton desteği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `accessToken` | Permanent Access Token | `password` | ✅ Evet | Örn: EAAG... |
+| `phoneNumberId` | Phone Number ID | `text` | ✅ Evet | Örn: 123456789012345 |
+| `wabaId` | WhatsApp Business Account ID | `text` | ✅ Evet | Örn: 123456789012345 |
+| `defaultLanguage` | Varsayılan Dil Kodu | `text` | ❌ Hayır | Örn: tr |
+| `testNumber` | Test Telefon Numarası | `text` | ❌ Hayır | Örn: 905551234567 |
+
+## Kurulum Adımları
+
+### 1. Meta App Oluşturun
+developers.facebook.com adresinden bir Business App oluşturun ve WhatsApp ürününü ekleyin.
+
+### 2. API Bilgilerini Alın
+WhatsApp -> Getting Started kısmından Phone Number ID ve Access Token bilgilerini kopyalayın.
+
+### 3. Telefon Numaranızı Kaydedin
+Kendi telefon numaranızı test alıcısı olarak ekleyin ve API bilgilerini buraya girin.
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.WHATSAPP` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `WhatsApp Business` servislerini kullanmaya başlayacaktır.

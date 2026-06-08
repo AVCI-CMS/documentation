@@ -1,34 +1,34 @@
 ---
 sidebar_position: 7
-title: "Twilio SMS Servisi"
-description: "Güvenilir SMS gönderim servisi ile müşterilerinizle iletişim kurun"
+title: "Twilio SMS Service"
+description: "Communicate with your customers with a reliable SMS delivery service"
 ---
 
 <img src="https://cdn-1.webcatalog.io/catalog/twilio/twilio-icon-filled-256.webp" alt="Twilio Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-# Twilio SMS Servisi
+# Twilio SMS Service
 
-Güvenilir SMS gönderim servisi ile müşterilerinizle iletişim kurun
+Communicate with your customers with a reliable SMS delivery service
 
-**Resmi Web Sitesi:** [https://www.twilio.com](https://www.twilio.com)
+**Official Website:** [https://www.twilio.com](https://www.twilio.com)
 
-## Özellikler
+## Features
 
-- Global SMS gönderimi
+- Global SMS delivery
 - WhatsApp Business API
 - Voice calls
-- Webhook desteği
+- Webhook support
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `accountSid` | Account SID | `text` | ✅ Evet | Örn: Twilio Account SID |
-| `authToken` | Auth Token | `password` | ✅ Evet | Örn: Twilio Auth Token |
-| `phoneNumber` | Telefon Numarası | `text` | ✅ Evet | Örn: +905551234567 |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `accountSid` | Account SID | `text` | ✅ Yes | Ex: Twilio Account SID |
+| `authToken` | Auth Token | `password` | ✅ Yes | Ex: Twilio Auth Token |
+| `phoneNumber` | Phone Number | `text` | ✅ Yes | Ex: +905551234567 |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.TWILIO` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Twilio` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.TWILIO` enum value. After completing the configuration via the admin panel, the system will automatically start using `Twilio` services.

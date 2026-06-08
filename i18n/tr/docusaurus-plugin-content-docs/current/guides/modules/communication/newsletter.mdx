@@ -1,28 +1,30 @@
 ---
-sidebar_position: 5
-title: "Newsletter"
+sidebar_position: 2
+title: "Bülten (Newsletter)"
+description: "Abonelerinize toplu e-posta pazarlama kampanyaları gönderin."
 ---
 
-# Newsletter Subscribers
+# Bülten (Newsletter / Mailing)
 
-**Menu Path:** `Communication > Newsletter`
+**Menü Yolu:** `İletişim > Bülten` (veya `Communication > Newsletter`)
 
-The **Newsletter** module manages the database of users and guests who have explicitly opted-in to receive marketing communications from your brand.
+**Bülten** modülü, toplu e-posta iletişimlerini tasarlamanıza, planlamanıza ve göndermenize olanak tanır. Kullanıcılarla yeniden etkileşim kurmak, yeni ürünleri duyurmak veya indirim kuponu kodlarını dağıtmak için temel bir araçtır.
 
-## Growing the Subscriber Base
-Users typically enter this list via:
-- The footer "Subscribe" input on your website.
-- A checkbox during the checkout process ("Keep me updated on news and offers").
-- Lead generation popups.
+## Bir E-posta Kampanyası Oluşturma
 
-## Managing the List
+1. **İletişim > Bülten** sayfasına gidin.
+2. Yeni bir kampanya taslağı hazırlamak için **"Yeni Ekle"** butonuna tıklayın.
 
-### 1. Monitoring Opt-ins
-The data table displays the email addresses, the date they subscribed, and their current status.
-- **Active:** Currently receiving emails.
-- **Unsubscribed:** Users who clicked the "Unsubscribe" link in the footer of a marketing email. *Do not manually switch these back to active, as it violates anti-spam laws.*
+### 1. Kampanya Detayları
+- **Konu Satırı (Subject):** Kullanıcının gelen kutusunda görünen başlık.
+- **Hedef Kitle:** Bu e-postayı kimin alacağını seçin. Tüm aboneleri, belirli kullanıcı gruplarını veya hatta belirli bir süredir giriş yapmayan kullanıcıları hedefleyebilirsiniz.
+- **Zamanlama (Schedule):** E-postayı hemen göndermeyi veya gelecekteki bir tarih ve saat için planlamayı seçin.
 
-### 2. Exporting for Campaigns
-While AVCI CMS can send transactional emails, you will likely use a dedicated marketing platform (like Mailchimp, Klaviyo, or SendGrid) for sending visual newsletters to thousands of people.
-- Click the **"Export CSV"** button to download your active subscriber list.
-- Import this CSV into your external email marketing tool to launch your campaign.
+### 2. E-posta İçeriği (Tasarım)
+- Mesajınızı oluşturmak için zengin metin (Rich Text) editörünü kullanın.
+- Görseller, promosyon afişleri (banner) ve eylem çağrısı düğmeleri (Örn: "İndirimi İncele") yerleştirebilirsiniz.
+- *En İyi Uygulama:* Anti-spam (İstenmeyen e-posta) düzenlemelerine (GDPR/KVKK ve İYS uyumluluğu) uymak için şablonlarınızın en altına her zaman bir abonelikten çıkma (Unsubscribe) bağlantısı ekleyin.
+
+## Aboneleri Yönetme
+- Modül ayrıca tüm aktif e-posta abonelerinin bir listesini tutar.
+- Bir kullanıcı e-postasından "Abonelikten Çık"ı tıklarsa, sistem otomatik olarak profilini işaretler ve gelecekteki pazarlama e-postalarının ona gönderilmesini engeller.

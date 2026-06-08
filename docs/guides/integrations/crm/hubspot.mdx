@@ -1,33 +1,33 @@
 ---
 sidebar_position: 13
 title: "HubSpot CRM"
-description: "Müşteri ilişkileri yönetimi için HubSpot entegrasyonu"
+description: "HubSpot integration for customer relationship management"
 ---
 
 <img src="https://cdn-1.webcatalog.io/catalog/hubspot/hubspot-icon-filled-256.webp" alt="HubSpot Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
 # HubSpot CRM
 
-Müşteri ilişkileri yönetimi için HubSpot entegrasyonu
+HubSpot integration for customer relationship management
 
-**Resmi Web Sitesi:** [https://www.hubspot.com](https://www.hubspot.com)
+**Official Website:** [https://www.hubspot.com](https://www.hubspot.com)
 
-## Özellikler
+## Features
 
-- Contact yönetimi
+- Contact management
 - Lead tracking
 - Deal pipeline
 - Marketing automation
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `apiKey` | API Key | `password` | ✅ Evet | Örn: HubSpot API Key |
-| `portalId` | Portal ID | `text` | ✅ Evet | Örn: HubSpot Portal ID |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `apiKey` | API Key | `password` | ✅ Yes | Ex: HubSpot API Key |
+| `portalId` | Portal ID | `text` | ✅ Yes | Ex: HubSpot Portal ID |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.HUBSPOT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `HubSpot` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.HUBSPOT` enum value. After completing the configuration via the admin panel, the system will automatically start using `HubSpot` services.

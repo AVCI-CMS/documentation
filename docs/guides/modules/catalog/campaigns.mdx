@@ -1,32 +1,34 @@
 ---
-sidebar_position: 8
+sidebar_position: 5
 title: "Campaigns"
+description: "Global discount rules and targeted promotions."
 ---
 
-# Campaigns & Promotions
+# Campaigns
 
 **Menu Path:** `Catalog > Campaigns`
 
-The **Campaigns** module is a powerful promotional engine that allows you to automate complex discount rules across your entire catalog or specific segments, without needing to manually edit individual product prices.
+The **Campaigns** module allows you to configure global discount rules that apply automatically during checkout. Unlike static product discounts, Campaigns are dynamic and time-sensitive.
 
-## Advanced Campaign Mechanics
+## Creating a Campaign
 
-When you click **"Create"**, you enter the campaign builder, which operates on a "Condition -> Action" logic.
+To set up a new promotional campaign:
 
-### Step 1: Definition & Timing
-- **Campaign Name:** An internal and external identifier (e.g., "Summer Clearance 2026").
-- **Schedule:** Set a precise Start Date/Time and End Date/Time. The system will automatically enable and disable the discounts exactly at these moments. No manual intervention required.
+1. Go to **Catalog > Campaigns**.
+2. Click **"Add New"**.
 
-### Step 2: Setting Conditions (The "If")
-Who or what does this campaign apply to?
-- **Target Selection:** Apply to the "Entire Store", "Specific Categories" (e.g., Only Shoes), "Specific Brands", or "Specific Products".
-- **Cart Thresholds:** (Optional) Apply the campaign only if the user's cart total exceeds $100.
-- **User Groups:** (Optional) Restrict the campaign to specific user roles (e.g., "Wholesale Customers Only" or "VIP Members").
+### 1. Basic Info & Dates
+- **Title:** The internal or public name of the campaign (e.g., "Black Friday 2026").
+- **Status:** *Draft*, *Active*, *Inactive*, *Scheduled*, or *Completed*.
+- **Description:** A short explanation of the campaign rules.
+- **Start Date & End Date:** Set the exact window during which this campaign is valid.
 
-### Step 3: Setting Actions (The "Then")
-What happens when the conditions are met?
-- **Percentage Discount:** Reduce the price of eligible items by X% (e.g., 20% off all Shoes).
-- **Fixed Amount Discount:** Deduct a flat $X amount.
-- **Buy X Get Y (BOGO):** Complex logic where adding 3 items charges the price of 2.
+### 2. Discount Value
+- **Discount Percentage (%):** e.g., 20 for a 20% discount.
+- **Discount Amount ($):** A fixed currency deduction (e.g., $50 off). 
+*(Note: Use either Percentage or Amount based on your strategy).*
 
-> **Priority Management:** If a product falls under multiple active campaigns, the system relies on the **Priority Score** you assign. The campaign with the highest priority will override others to prevent accidental double-discounting.
+### 3. Conditions
+- **Conditions List:** Define the specific criteria required for the campaign to trigger. This can include specific product categories, minimum cart values, or user groups. 
+
+3. Click **"Save"** to schedule or activate the campaign.

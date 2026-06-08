@@ -1,0 +1,39 @@
+---
+sidebar_position: 3
+title: "Attributes"
+description: "Dinamik özellik, varyasyon ve özel alan yönetimi."
+---
+
+# Özellikler (Attributes)
+
+Özellikler modülü, sisteme sonradan dinamik alanlar (ürün özellikleri, satıcı profil bilgileri vb.) eklemenizi sağlar. Yazılımcıya ihtiyaç duymadan sisteme yeni veri giriş alanları (örneğin ürünler için "Renk", "Beden", "Kumaş Tipi") kazandırabilirsiniz.
+
+## Özellik Oluşturma
+
+### 1. Temel Bilgiler
+- **Etiket (Label):** Sistemin arayüzünde kullanıcıların göreceği isim (Örn: *Kumaş Tipi*).
+- **Benzersiz Anahtar (Unique Key):** Sistem tarafında bu özelliği tanımlayan, boşluk içermeyen İngilizce karakterli kod (Örn: *fabric_type*). Kaydedildikten sonra değiştirilemez.
+- **Tip (Type):** Özelliğin veri tipi. Desteklenen tipler: Metin (String/Text), Sayı (Number), Tarih (Date), Çoktan Seçmeli (Select/Checkbox/Radio), İç İçe (Nested) vb.
+
+### 2. Yapılandırma (Configuration)
+*(Nested tipler hariç görünür)*
+- **Placeholder:** Boş durumdayken giriş alanında görünecek ipucu metni.
+- **Tooltip:** Kullanıcıyı yönlendirecek küçük bilgi balonu metni.
+- **Birim (Unit):** Sadece "Sayı (Number)" tiplerinde görünür. Değerin yanına birim ekler (Örn: kg, cm, TL).
+
+### 3. Doğrulama Kuralları (Validation Rules)
+Veri girişini kısıtlamak ve doğrulamak için kullanılır:
+- **Zorunlu Alan (Required):** Doldurulması mecburi mi?
+- **Min / Maks Değer:** Sayısal değerler için alt ve üst sınır.
+- **Min / Maks Uzunluk:** Metinsel değerler için karakter sınırı.
+- **Pattern (Regex):** Özel doğrulama koşulu (Örn: Sadece harf girilsin `^[a-zA-Z]+$`).
+- **Özel Hata Mesajı:** Doğrulama başarısız olduğunda kullanıcıya gösterilecek hata.
+
+### 4. Seçenekler (Options)
+*(Sadece SELECT, RADIO, CHECKBOX ve MULTI_SELECT tiplerinde görünür)*
+Seçenekleri iki farklı şekilde besleyebilirsiniz:
+- **Manuel Veri:** "Seçenek Ekle" diyerek kendiniz Etiket-Anahtar (Label-Key) çiftleri oluşturabilirsiniz.
+- **Kaynağa Bağla (Connect to Source):** Seçenekleri sistemdeki başka bir modülden otomatik çekebilirsiniz. Örneğin bir *Sözlük (Dictionary)* kategorisini kaynağa bağlarsanız, sözlükteki kelimeler doğrudan bu özelliğin seçenekleri haline gelir.
+
+### 5. İç İçe Alanlar (Nested Fields)
+Eğer özelliğin tipi "NESTED" seçilmişse, bu özellik kendi içinde birden fazla alt alan barındıran bir grup haline gelir. Yeni alanlar ekleyerek her birine Tip, İsim, Anahtar ve Zorunluluk kuralları atayabilirsiniz. (Örn: Besin Değerleri özelliği altında Kalori (Sayı), Protein (Sayı) gibi alt alanlar).

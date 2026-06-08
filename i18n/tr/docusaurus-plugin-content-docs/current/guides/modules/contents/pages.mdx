@@ -1,27 +1,40 @@
 ---
-sidebar_position: 4
-title: "Pages"
+sidebar_position: 5
+title: "Sayfalar (Pages)"
+description: "Statik ve dinamik bilgilendirme sayfalarının yönetimi."
 ---
 
-# Pages
+# Sayfalar (Pages)
 
-**Menu Path:** `Contents > Pages`
+**Menü Yolu:** `İçerikler > Sayfalar` (veya `Contents > Pages`)
 
-The **Pages** module is the section where you create permanent and structural contents of your website such as "About Us", "Contact", "Terms of Use", "Privacy Policy".
+**Sayfalar** modülü, bir blog veya haber akışının kronolojik sırasına uymayan, genellikle statik ve bağımsız bilgilendirme sayfaları oluşturmak için kullanılır. Klasik kullanım senaryoları arasında "Hakkımızda", "Gizlilik Politikası", "Kullanım Şartları" ve özel açılış sayfaları (landing pages) yer alır.
 
-Unlike blogs and news, pages are generally contents that do not have a specific chronological order and form the basic structure of the site.
+Bu sayfalar marka güveni ve kullanıcı deneyimi açısından kritik olduğundan, bu modül sayfaya doğrudan dinamik formlar veya yasal sözleşmeler eklemek gibi benzersiz özellikler içerir.
 
-## How to Create a New Page?
+## Yeni Bir Sayfa Oluşturma
 
-1. Follow the **Contents > Pages** step from the left menu.
-2. Click the **"Create"** button in the upper right of the opened Pages list.
-3. Fill in the following sections on the page detail screen:
-   - **Title:** The visible name of the page (e.g., Who Are We?).
-   - **Slug:** The URL structure of the page (e.g., `/who-are-we`). It is usually generated automatically from the title, but you can edit it as you wish.
-   - **Content:** The rich text editor (or block design tool if you use one) where you will create the page body.
-4. **SEO and Visibility:** Enter the Meta Title and Description parts to determine how the page will appear in search engines.
-5. Make its Status active and press the **Save** button to publish the page.
+Yeni bir statik sayfa veya açılış sayfası oluşturmak için:
 
-## Using Page Templates
+1. **İçerikler > Sayfalar** ekranına gidin.
+2. Sayfa oluşturucu arayüzünü açmak için **"Yeni Ekle"** butonuna tıklayın.
+3. Sayfanızı yapılandırmak için çeşitli bölümler göreceksiniz:
 
-If you have custom page designs defined in your system (e.g., Template with Contact Form, Full Screen Image Template), you can select the relevant design from the **"Template"** option in the right menu while creating or editing the page. This ensures that your content is rendered with the correct design on the frontend.
+### 1. Temel Bilgiler (Basic Info)
+Bu bölüm sayfanızın temel kimliğini ve davranışını tanımlar.
+- **Başlık (Title):** Sayfanın ana başlığı (Örn: "Şirketimiz Hakkında").
+- **Durum (Status):** Görünürlüğü seçin: *Yayında (Published)*, *Taslak (Draft)*, *Gizli (Hidden)* veya *Silinmiş (Deleted)*.
+- **Kategori (Category):** Sayfalarınızı gruplandırdıysanız (Örn: "Yasal", "Kurumsal Bilgiler"), ilgili kategoriyi seçin.
+- **Slug:** URL yolu (Örn: `hakkimizda`). Bu, doğrudan yönlendirmeler ve SEO için çok önemlidir. Boş bırakılırsa Başlık alanından otomatik üretilir.
+- **Özet (Abstract):** Sayfa içeriğinin kısa bir özeti.
+- **Form:** *Sayfalara Özel!* Bu sayfaya doğrudan bir iletişim formu, anket veya başvuru formu yerleştirmek isterseniz açılır listeden seçin. (Formlar, Özel Formlar (Custom Forms) modülünde yönetilir).
+- **Sözleşme (Agreement):** *Sayfalara Özel!* Bu sayfa, kullanıcının belirli bir yasal sözleşmeyi okuyup kabul etmesini gerektiriyorsa (örn. Gizlilik Politikası onayı), ilgili sözleşmeyi (Terms) buraya bağlayabilirsiniz.
+
+### 2. Medya (Media)
+- **Kapak Görseli (Featured Image):** Sayfanın ana banner veya kahraman (hero) görseli.
+- **Galeri (Gallery):** Frontend tasarımınıza bağlı olarak sayfa düzeninde veya slider'da kullanılabilecek ek görseller.
+
+### 3. İçerik (Zengin Metin - Content)
+- Sayfanızın ana gövdesidir. İçeriğinizi yazmak, metni başlıklarla biçimlendirmek, listeler eklemek, bağlantılar vermek ve metin içi medya eklemek için zengin metin (Rich Text) editörünü kullanın.
+
+4. Düzen ve içeriği yapılandırdıktan sonra sayfayı yayınlamak veya güncellemek için **"Kaydet"** butonuna tıklayın.

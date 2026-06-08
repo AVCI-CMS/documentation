@@ -1,25 +1,33 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 title: "Places"
+description: "Manage physical venues, stores, and map coordinates."
 ---
 
-# Places (Venues & Locations)
+# Places
 
 **Menu Path:** `Relations > Places`
 
-The **Places** module serves as a geographical directory for your platform. It is used to define and manage physical locations such as event venues, physical store branches, pickup points, or warehouses.
+The **Places** module acts as a global directory for physical locations. Instead of typing the same address details every time you create an Event or a Route, you create the "Place" once here and link it. This ensures absolute consistency across the platform.
 
-## Why Define Places?
-Instead of manually typing an address every time you create a physical Event, you define the venue once in this module. This ensures mapping coordinates are exact and reusable.
+## Creating a Place
 
-## Creating a New Place
+1. Navigate to **Relations > Places**.
+2. Click **"Add New"**.
 
-1. Navigate to the Places list and click **"Create"**.
-2. **Name:** Enter the recognizable name of the location (e.g., "Grand Convention Center" or "Taksim Branch").
-3. **Full Address:** Type the complete street address. This text is usually displayed to the end-user.
-4. **Map Coordinates:** 
-   - Enter the exact Latitude and Longitude. 
-   - Many CMS integrations allow you to drop a pin on an embedded Google Map to auto-fill these coordinates. This is vital for generating the "Get Directions" links on the frontend.
-5. **Venue Attributes:** (Optional) Define the maximum seating capacity, parking availability, or accessibility features.
+### 1. Basic Info
+- **Name:** The name of the venue or store (e.g., "Grand Stadium", "Downtown Branch").
+- **Slug:** Auto-generated URL identifier for the place.
+- **Status:** Set to *PUBLISHED* to make it available for linking.
 
-Once saved, this "Place" becomes a selectable option in [Create an Event](../catalog/events/create.mdx) module and Route planner.
+### 2. Location & Map (Critical)
+- **Address:** Enter the full physical address.
+- **Coordinates (Latitude & Longitude):** You can enter these manually, or use the integrated Google Maps (or similar map provider) widget. Dragging the pin on the map will automatically update the coordinates.
+- *Why is this important?* Modules like [Routes](../catalog/routes) rely heavily on these exact coordinates to calculate distances, transit times, and generate map previews.
+
+### 3. Media & Details
+- **Images:** Upload photos of the venue (exterior, interior).
+- **Capacity:** The maximum number of people the place can hold. This acts as an upper limit when selling tickets for an Event at this location.
+- **Description:** Facilities available (e.g., "Wheelchair accessible, Parking available").
+
+3. Click **"Save"**. You can now select this venue from a dropdown when creating Events or Routes.

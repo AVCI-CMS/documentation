@@ -1,33 +1,33 @@
 ---
 sidebar_position: 25
-title: "GİB E-Arşiv Portal"
-description: "Gelir İdaresi Başkanlığı E-Arşiv portalı üzerinden ücretsiz fatura kesimi"
+title: "GIB E-Archive Portal"
+description: "Free invoice generation via the Revenue Administration E-Archive portal"
 ---
 
 <img src="https://images.seeklogo.com/logo-png/34/1/gelir-idaresi-baskanligi-yeni-logo-png_seeklogo-340509.png" alt="GİB Portal Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-# GİB E-Arşiv Portal
+# GIB E-Archive Portal
 
-Gelir İdaresi Başkanlığı E-Arşiv portalı üzerinden ücretsiz fatura kesimi
+Free invoice generation via the Revenue Administration E-Archive portal
 
-**Resmi Web Sitesi:** [https://earsivportal.efatura.gov.tr](https://earsivportal.efatura.gov.tr)
+**Official Website:** [https://earsivportal.efatura.gov.tr](https://earsivportal.efatura.gov.tr)
 
-## Özellikler
+## Features
 
-- Ücretsiz E-Arşiv fatura
-- Resmi portal entegrasyonu
-- Fatura sorgulama
+- Free E-Archive invoice
+- Official portal integration
+- Invoice inquiry
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `username` | Kullanıcı Kodu / VKN | `text` | ✅ Evet | Örn: Portal kullanıcı kodu |
-| `password` | Şifre | `password` | ✅ Evet | Örn: Portal şifresi |
-| `testMode` | Test Portalı | `boolean` | ❌ Hayır | - |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `username` | User Code / VKN | `text` | ✅ Yes | Ex: Portal user code |
+| `password` | Password | `password` | ✅ Yes | Ex: Portal password |
+| `testMode` | Test Portal | `boolean` | ❌ No | - |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.GIB` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `GİB Portal` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.GIB` enum value. After completing the configuration via the admin panel, the system will automatically start using `GIB Portal` services.

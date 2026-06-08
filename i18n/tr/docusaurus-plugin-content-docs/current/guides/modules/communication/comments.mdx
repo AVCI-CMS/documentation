@@ -1,35 +1,31 @@
 ---
-sidebar_position: 1
-title: "Comments"
+sidebar_position: 4
+title: "Yorumlar (Comments)"
+description: "Kullanıcı değerlendirmelerini, puanlamalarını ve blog yorumlarını modere edin."
 ---
 
-# Comments & Reviews
+# Yorumlar (Comments)
 
-**Menu Path:** `Communication > Comments`
+**Menü Yolu:** `İletişim > Yorumlar` (veya `Communication > Comments`)
 
-The **Comments** module is a central moderation hub. It collects all user-generated text submitted across your platform—whether it is a 5-star product review, a comment on a blog post, or feedback on an event.
+**Yorumlar** modülü, platformunuzdaki kullanıcı tarafından oluşturulan içeriği görüntülemenizi, denetlemenizi (modere etmenizi) ve yanıtlamanızı sağlar. Buna ürün değerlendirmeleri, etkinlik geri bildirimleri ve blog yazısı yorumları dahildir.
 
-## Why Moderate Comments?
-User-generated content drives SEO and builds trust, but it can also attract spam or inappropriate language. Moderating ensures that only high-quality, relevant content appears on your public pages.
+## Moderasyon İş Akışı
 
-## The Moderation Workflow
+Yüksek kaliteli içerik sağlamak ve spam veya uygunsuz dili filtrelemek için, yorumlar genellikle herkese açık hale gelmeden önce moderasyon (onay) gerektirir.
 
-When you open the Comments list, you will see a unified feed of all incoming reviews.
+1. **İletişim > Yorumlar** sayfasına gidin.
+2. Yeni yorumlar genellikle *ONAY BEKLİYOR (PENDING)* durumuyla görünür.
+3. İncelemek için bir yoruma tıklayın.
 
-### 1. Status Toggles
-Comments generally enter the system in a **"Pending"** state (unless your Workspace settings allow auto-approval).
-- Read the content of the comment.
-- If it is constructive, click **"Approve"**. It will immediately go live on the relevant product/page.
-- If it contains spam or abusive language, click **"Reject"** or **"Delete"**.
+### İnceleme Eylemleri (Actions)
+- **Onayla (Approve):** Yorum frontend'de (Örn: Ürünün detay sayfasında) görünür hale gelir.
+- **Reddet (Reject):** Yorum gizlenir ve kalıcı olarak işaretlenir. Bunu spam veya hizmet şartları ihlalleri için kullanın.
+- **Sil (Delete):** Kaydı veritabanından tamamen siler.
 
-### 2. Contextual Information
-Next to each comment, you will see exactly where it was posted:
-- **Linked Entity:** A clickable link showing the specific Product (e.g., "Red T-Shirt") or Blog Post.
-- **Author:** The name of the registered User or the guest email address.
-- **Rating:** If the comment is a product review, you will see the star rating attached to it.
+## Yorumları Yanıtlamak
 
-### 3. Administrator Replies
-Often, a negative review can be turned into a positive experience if a merchant or admin replies publicly.
-- Click **"Reply"** on a comment.
-- Type your response (e.g., "We apologize for the sizing issue, please contact support for a free exchange.").
-- Your reply will be threaded below the customer's comment on the frontend, visually distinguished as an "Official Response".
+Kullanıcılarınızla etkileşim kurmak güven oluşturur. Bir kullanıcı bir ürün hakkında olumsuz bir değerlendirme (review) bırakırsa, doğrudan bu modülden resmi bir yanıt yazabilirsiniz.
+- Yanıtınız frontend'de kullanıcının orijinal yorumunun altında iç içe geçmiş (nested) olarak görünecek ve genellikle "Resmi Yanıt / Satıcı Yanıtı" olarak vurgulanacaktır.
+
+*Pazaryerleri (Marketplaces) İçin Not:* Eğer bir yorum özel olarak bir Satıcının ürünü hakkındaysa, ilgili Satıcı da kendi paneline giriş yapıp yoruma yanıt verebilir. Platform Yöneticisi (Admin), hem kullanıcının yorumunu hem de Satıcının yanıtını modere etme yetkisini elinde tutar.

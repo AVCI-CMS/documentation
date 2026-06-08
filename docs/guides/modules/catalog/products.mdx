@@ -1,0 +1,56 @@
+---
+sidebar_position: 2
+title: "Products"
+description: "Comprehensive product creation and inventory management."
+---
+
+# Products
+
+**Menu Path:** `Catalog > Products`
+
+The **Products** module is a robust engine for managing anything you sell or showcase. It supports physical goods, digital downloads, and service packages. Because e-commerce requires deep control over data, the product creation form is divided into highly specialized sections.
+
+## Creating a Product
+
+To add a new product to your catalog:
+
+1. Go to **Catalog > Products**.
+2. Click the **"Add New"** button.
+3. You will be guided through a comprehensive form divided into several key cards:
+
+### 1. General Info
+- **Product Name:** The main title of the product.
+- **Status:** *Draft* (work in progress), *Published* (visible in store), *Hidden*, or *Deleted*.
+- **Category:** Assign to a hierarchical category (from [Common Categories](../common/categories)). E.g., `Electronics > Smartphones`.
+- **Slug:** The URL path for the product page. Auto-generated if left blank.
+- **Brand:** Link the product to a specific brand (from [Relations > Brands](../relations/brands)).
+- **Stock Amount:** Current inventory level. If this hits zero, the frontend will show "Out of Stock".
+- **Product Type:** Choose *Physical*, *Digital*, or *Service*. (This affects shipping requirements).
+- **Sale Type:** How is it sold? Usually *Unit* (piece), but can be configured for weight/volume if your system allows.
+- **Model No & SKU:** Essential identifiers for internal tracking, warehouse management, and accounting.
+
+### 2. Media
+- **Thumbnail:** The primary image shown in product listings, search results, and cart.
+- **Gallery:** Additional images showcasing the product from different angles, lifestyle shots, or zoomed details.
+
+### 3. Pricing
+- **Base Price:** The regular selling price.
+- **Currency:** Ensure the correct currency is selected.
+- **VAT (Taxes):** Indicate if the tax is included in the base price and what the tax rate is.
+- **Discount:** You can apply a direct discount here (percentage or fixed amount) independent of global Campaigns.
+
+### 4. Variants (Attributes)
+- If a product comes in different sizes, colors, or materials, you define them here using the [Common Attributes](../common/attributes) module.
+- *Example:* Add an attribute for "Size" (S, M, L) and "Color" (Red, Blue). The system will generate unique SKUs and stock tracking for the "Red-S" variant.
+
+### 5. Specifications
+- Technical details specific to the product (e.g., "Processor Speed", "Battery Life"). These are often used to generate comparison tables on the frontend.
+
+### 6. Description (Rich Text)
+- The main sales pitch. Use the rich text editor to write comprehensive marketing copy, embed promotional videos, and highlight key features.
+
+### 7. Shipping & Box Contents
+- **Box Contents:** What exactly is inside the package? (e.g., "1x Smartphone, 1x Charger, User Manual"). This sets customer expectations and reduces returns.
+- **Shipping details:** Physical dimensions (Width, Height, Depth) and Weight. This data is critical if you are integrating with a live shipping API (like UPS or FedEx) to calculate dynamic cargo costs.
+
+4. After filling in the required fields, click **"Save"** at the top right to create the product.

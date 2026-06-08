@@ -1,0 +1,37 @@
+---
+sidebar_position: 3
+title: "Ödemeler (Payments)"
+description: "Sanal POS işlemleri, iadeler ve kart detayları."
+---
+
+# Ödemeler (Payments)
+
+**Menü Yolu:** `Finans ve Lojistik > Ödemeler` (veya `Finance & Logistics > Payments`)
+
+*Siparişler* modülü bir satın alımın fiziksel olarak karşılanmasını yönetirken, **Ödemeler** modülü kesinlikle ödeme sağlayıcınızdan (örn. Stripe, Iyzico, PayTR) gelen ham finansal işlemle ilgilenir.
+
+Bu modül, öncelikle muhasebe ve teknik destek ekipleri tarafından paranın bankadan gerçekten geçip geçmediğini doğrulamak, para iadelerini yönetmek veya başarısız işlemleri teşhis etmek (debug) için kullanılır.
+
+## Bir Ödemeyi Görüntüleme
+
+1. **Finans ve Lojistik > Ödemeler** sayfasına gidin.
+2. Ayrıntılarını görüntülemek için bir Ödeme ID'sine tıklayın.
+
+### 1. Ödeme Özeti ve Aksiyonlar (Summary & Actions)
+- **Tutar ve Para Birimi:** Sanal POS / Geçit (gateway) tarafından işlenen kesin brüt tutar.
+- **Ödeme Yöntemi:** İşlemin bir *Kredi Kartı*, *Banka Havalesi (EFT)* veya başka bir yöntem olup olmadığını gösterir.
+- **Durum:** *ÖDENDİ (PAID)*, *BAŞARISIZ (FAILED)*, *İADE EDİLDİ (REFUNDED)* vb.
+- **İade ve İptal:** Ödeme *ÖDENDİ* durumundaysa, bir **İade (Refund)** (parayı müşterinin kartına geri gönderme) veya işlemi tamamen **İptal Etme (Cancel)** butonlarını göreceksiniz. *Dikkat: Bu eylemler doğrudan API üzerinden bankayla iletişim kurar ve genellikle geri alınamaz.*
+
+### 2. Ödeme Yöntemi Detayları
+- **Kredi Kartı:** Kartla ödenmişse, bu kart maskelenmiş kart numarasını (Örn: `4546 **** 1234`), Banka Adını, Kart Tipini ve Taksit detaylarını (Örn: 50 TL x 3 Taksit) gösterir. *Not: PCI-DSS uyumluluğu nedeniyle tam kart numaraları asla saklanmaz.*
+- **Banka Havalesi:** Manuel havale/EFT ile ödenmişse, bu kart gerekli Banka Adını, kullanıcının açıklamaya girmesi gereken sistem tarafından üretilen Referans Kodunu ve hedef IBAN'ı gösterir.
+
+### 3. Sağlayıcı Logları / Kayıtları (Provider Logs - Teknik)
+- Ödeme ağ geçidinden (Örn. Iyzico veya PayTR logları) alınan ham JSON yanıtını içeren oldukça teknik, daraltılabilir (collapsible) bir bölüm.
+- Bu bölüm, bir ödeme başarısız olduğunda geliştiriciler için paha biçilmezdir, çünkü bankadan gelen kesin hata kodunu içerir (Örn: "Yetersiz bakiye", "3D Secure başarısız").
+
+### 4. Güvenlik ve İlişkili Kayıtlar
+- **İşlem ID (Transaction ID):** Ödeme sağlayıcısı tarafından (sizin sisteminiz tarafından değil) oluşturulan benzersiz tanımlayıcı. Ödeme sağlayıcınızın destek ekibiyle görüşürken belirtmeniz gereken ID budur.
+- **İlişkili Sipariş:** Bu parayla tam olarak ne satın alındığını görmek için Siparişler modülüne doğrudan bir bağlantı.
+- **Müşteri:** Ödemeyi başlatan kullanıcının profili.

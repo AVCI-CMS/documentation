@@ -1,0 +1,34 @@
+---
+sidebar_position: 6
+title: "Resend E-posta API"
+description: "Geliştiriciler için modern ve güvenilir e-posta API servisi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/resend/resend-icon-filled-256.webp" alt="Resend Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Resend E-posta API
+
+Geliştiriciler için modern ve güvenilir e-posta API servisi
+
+**Resmi Web Sitesi:** [https://resend.com](https://resend.com)
+
+## Özellikler
+
+- Basit API key ile kullanım
+- React Email desteği
+- Domain doğrulama
+- Webhook ve analytics
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `password` | ✅ Evet | Örn: re_xxxxxxxx Resend API Key |
+| `fromEmail` | Gönderen E-posta | `email` | ✅ Evet | Örn: onaylanmis@domain.com |
+| `fromName` | Gönderen Adı | `text` | ✅ Evet | Örn: Şirket Adı |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.RESEND` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Resend` servislerini kullanmaya başlayacaktır.

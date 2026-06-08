@@ -1,0 +1,40 @@
+---
+sidebar_position: 7
+title: "Kargo (Shipment)"
+description: "Kargo takip kodları, kargo entegrasyonları ve teslimat yönetimi."
+---
+
+# Kargo (Shipment)
+
+**Menü Yolu:** `Finans ve Lojistik > Kargo` (veya `Finance & Logistics > Shipment`)
+
+**Kargo** modülü, malların depodan (veya Satıcıdan) müşterinin kapısına kadar olan fiziksel hareketini izler. *Siparişler* modülü ile sıkı bir şekilde entegredir.
+
+## Bir Kargoyu Yönetme
+
+Bir müşteri fiziksel bir ürün sipariş ettiğinde, onlara teslimat durumu hakkında bilgi vermek için bir kargo kaydı oluşturulmalıdır.
+
+1. **Finans ve Lojistik > Siparişler** sayfasına gidin ve ilgili Siparişi (veya Alt Siparişi) açın.
+2. **Kargo Yöneticisi (Shipment Manager)** kartını bulun.
+3. Bir kargo işlemi başlatmak için sipariş durumunun genellikle en az *HAZIRLANIYOR (PREPARING)* olması gerekir.
+
+### Takip Bilgilerini Manuel Olarak Ekleme
+Kargo şirketinizle canlı bir API entegrasyonunuz yoksa:
+1. Açılır listeden **Kargo Firmasını** seçin (Örn: Yurtiçi Kargo, Aras Kargo, MNG).
+2. Kargo firması tarafından verilen **Takip Numarasını (Barkod No)** girin.
+3. Varsa bir **Takip URL'si** girin.
+4. **"Kaydet"** butonuna tıklayın. Sipariş durumu otomatik olarak *KARGOLANDI (SHIPPED)* olarak güncellenir ve müşteri takip bağlantısını içeren bir e-posta alır.
+
+### Canlı Kargo Entegrasyonu (Kargo API)
+Platformunuz bir kargo sağlayıcısı ile API üzerinden entegre ise:
+1. **"Kargo Kodu Oluştur" (Generate Cargo Code)** butonuna tıklayın.
+2. Sistem paket boyutlarını, ağırlığını ve müşteri adresini kargo API'sine gönderir.
+3. Anında benzersiz bir Barkod / Gönderi Kodu döner.
+4. Fiziksel kutunun üzerine yapıştırmak üzere bir PDF barkod etiketi oluşturmak için **"Etiket Yazdır" (Print Label)** butonuna tıklayabilirsiniz.
+5. Sistem kargo şirketini (webhook'lar aracılığıyla) otomatik olarak sorgulayacak ve paket müşteriye ulaştığında sipariş durumunu otomatik olarak *TESLİM EDİLDİ (DELIVERED)* olarak güncelleyecektir.
+
+## Genel Kargo Listesi
+
+Platform genelindeki tüm aktif kargoları görmek için:
+1. **Finans ve Lojistik > Kargo** sayfasına gidin.
+2. Bu liste, lojistik yöneticilerinin her bir siparişi tek tek açmak zorunda kalmadan geciken paketleri, eksik takip numaralarını veya yolda takılı kalmış kargoları hızlıca tespit etmesine olanak tanır.

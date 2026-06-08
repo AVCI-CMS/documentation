@@ -1,0 +1,49 @@
+---
+sidebar_position: 2
+title: "Siparişler (Orders)"
+description: "Tüm satın alımlar, onaylar ve alt siparişler için ana kontrol merkezi."
+---
+
+# Siparişler (Orders)
+
+**Menü Yolu:** `Finans ve Lojistik > Siparişler` (veya `Finance & Logistics > Orders`)
+
+**Siparişler** modülü, bir satın alma işleminin yaşam döngüsünü yönettiğiniz merkezi merkezdir. Bir kullanıcı ödeme (checkout) işlemini tamamladığında bir Sipariş kaydı oluşturulur.
+
+Bu modül, iş modelinize (E-ticaret veya Pazaryeri) ve rolünüze (Admin veya Satıcı/Merchant) göre dinamik olarak uyum sağlar.
+
+## Bir Siparişi Görüntüleme ve Yönetme
+
+1. **Finans ve Lojistik > Siparişler** sayfasına gidin.
+2. Detaylı Sipariş Görünümünü açmak için herhangi bir Sipariş ID'sine tıklayın.
+3. Detay sayfası, sipariş karşılama (fulfillment) karmaşıklığını yönetmek için yüksek oranda bölümlere ayrılmıştır:
+
+### 1. Sipariş Başlığı ve Onaylar (Header & Approvals)
+- En üstte, genel **Sipariş ID**'sini ve mevcut **Durumu** (Örn: *BEKLİYOR (WAITING)*, *HAZIRLANIYOR (PREPARING)*, *KARGOLANDI (SHIPPED)*, *TESLİM EDİLDİ (DELIVERED)*) göreceksiniz.
+- Bir siparişin hazırlanmaya başlamadan önce manuel müdahale gerektirmesi durumunda bir **"Onayla" (Approve)** butonu göreceksiniz. Buna tıklamak, durumu *BEKLİYOR*'dan *HAZIRLANIYOR*'a geçirir.
+
+### 2. Durum Güncellemeleri (Status Updates)
+- "Durum Değiştir" (Change Status) iletişim kutusunu kullanarak sipariş durumunu manuel olarak değiştirebilirsiniz.
+- *Not:* Durumlar katı bir hiyerarşiyi izler. Genellikle bir siparişi *TESLİM EDİLDİ* durumundan tekrar *HAZIRLANIYOR* durumuna geri alamazsınız. Durum değişikliğini gerçekleştirmek için onay kutusunu açıkça işaretlemeniz gerekir, çünkü bu işlem genellikle müşteriye otomatik e-postalar tetikler.
+
+### 3. Alt Siparişler (Sub-Orders - Pazaryeri Modu)
+- Platformunuz bir Pazaryeri (Marketplace) olarak çalışıyorsa, tek bir müşteri siparişi birden fazla farklı Satıcıya (Merchant) ait ürünler içerebilir.
+- Sistem ana Siparişi otomatik olarak **Alt Siparişlere (Sub-Orders)** böler.
+- Bir Admin olarak, Alt Siparişlerin bir listesini göreceksiniz. Her bir Satıcının siparişin kendi kısmını nasıl hazırladığını görmek için bunların içine tıklayabilirsiniz.
+- *Satıcı (Merchant) Görünümü:* Bir Satıcı giriş yaparsa, müşterinin tüm sepetini değil, *yalnızca* kendisine atanan Alt Siparişi görecektir.
+
+### 4. Ürünler ve Katılımcılar (Items & Attendees)
+- **Fiziksel/Dijital Ürünler:** Ürün adı, varyasyon (Örn: "Kırmızı, Beden M"), miktar ve birim fiyatı gösteren bir tabloda listelenir.
+- **Etkinlikler ve Biletler:** Sipariş etkinlik biletleri içeriyorsa, etkinliğe kayıtlı kişilerin adlarını ve bilet ayrıntılarını listeleyen bir **Katılımcılar (Attendees)** kartı görünecektir.
+
+### 5. Karşılama Yönetimi (Fulfillment Management)
+- **Kargo Yöneticisi (Shipment Manager):** Fiziksel ürünler söz konusuysa, bu kart takip numaraları oluşturmanıza, kargo şirketini seçmenize ve kargo etiketleri (barkodları) yazdırmanıza olanak tanır.
+- **Fatura Yöneticisi (Invoice Manager):** Sipariş için resmi PDF faturasını (E-Fatura) oluşturur ve sisteme ekler.
+
+### 6. Finansal Özet ve Sağlık (Financial Summary & Health)
+- **Finansal Özet:** Ara Toplam, Vergi (KDV), Kargo Ücretleri, uygulanan İndirimler (Kuponlar/Kampanyalar) ve ödenen Son Toplamın dökümü.
+- **Sağlık Kartı (Health Card):** Otomatik bir teşhis aracıdır. "Ödeme uyuşmazlığı", "Eksik kargo adresi" veya "İade talep edildi" gibi sorunları işaretleyerek, acil müdahale gerektiren siparişleri hızla belirlemenize yardımcı olur.
+- **İşlemler (Transactions):** Bu siparişle ilişkili kesin finansal defter hareketlerine (komisyonlar, satıcı hakedişleri) bağlantılar verir.
+
+### 7. Sözleşmeler (Agreements)
+- Kullanıcının ödeme anında tam olarak kabul ettiği Mesafeli Satış Sözleşmesi ve Ön Bilgilendirme Formunun kesin versiyonlarına bağlantılar bulunur.

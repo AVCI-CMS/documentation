@@ -1,36 +1,43 @@
 ---
-sidebar_position: 10
-title: "Routes"
+sidebar_position: 7
+title: "Rotalar (Routes)"
+description: "Harita tabanlı seyahat rotaları, turlar ve etkinlik bağlantıları."
 ---
 
-# Routes (Path Planning)
+# Rotalar (Routes)
 
-**Menu Path:** `Catalog > Routes`
+**Menü Yolu:** `Katalog > Rotalar` (veya `Catalog > Routes`)
 
-The **Routes** module is a highly specialized catalog feature designed for businesses dealing with geography, travel, and logistics. It allows you to construct and sell or display sequential geographic paths.
+**Rotalar** modülü; turizm, seyahat paketleri, rehberli turlar veya çok konumlu etkinlik planlaması için tasarlanmış özel bir coğrafi araçtır. Birden fazla Etkinliği (Events) veya Mekanı (Places) sıralı bir seyahat programında birleştirmenize olanak tanır ve harita görselleştirmeleri ile kapasite sınırlarını içerir.
 
-**Use Cases:**
-- Tourism companies selling multi-day guided tours.
-- Logistics firms defining specific delivery zones or paths.
-- Outdoor brands mapping hiking or cycling trails.
+## Yeni Bir Seyahat Rotası Oluşturma
 
-## Constructing a Route
+Yeni bir tur planlamak için:
 
-Click **"Create"** to open the route builder interface.
+1. **Katalog > Rotalar** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
 
-### 1. Route Overview
-- **Route Name:** E.g., "7-Day Aegean Coast Roadtrip".
-- **Difficulty / Category:** Tag the route (e.g., "Beginner", "Expert", "Scenic").
-- **Technical Specs:** Enter the total distance (km/miles) and estimated duration (hours/days).
+### 1. Temel Bilgiler ve Ayarlar (Basic Info & Settings)
+- **İsim (Name):** Turun veya rotanın başlığı (Örn: "Tarihi Yarımada Yürüyüş Turu").
+- **Açıklama (Description):** Rotanın neleri kapsadığına dair detaylı bir metin.
+- **Durum (Status):** *Taslak (Draft)*, *Yayında (Published)*, *Gizli (Hidden)* veya *Ön Talep (Pre-Request)* (tarihleri kesinleştirmeden önce ilgi toplamak için).
+- **Seyahat Modu (Travel Mode):** Katılımcılar noktalar arasında nasıl hareket edecek? *Yürüyüş (Walking)*, *Sürüş (Driving)* veya *Bisiklet (Bicycling)* seçeneklerinden birini belirleyin. Bu bilgi, harita API'si tarafından gerçekçi geçiş (transit) sürelerini hesaplamak için kullanılır.
+- **Fiyat Tipi (Price Type):** *Kişi Başı (Per Person)* (her birey kendi biletini alır) veya *Paket (Package)* (örn. 4 kişiye kadar olan bir grup için tüm turun satın alınması) seçimi yapın.
+- **Paket Kapasitesi (Package Capacity):** Eğer *Paket* seçilirse, bir pakette izin verilen maksimum kişi sayısını belirtin.
+- **Başlangıç ve Bitiş Tarihi:** Bu rotanın tamamı için genel zaman çerçevesi.
+- **Ara Süre (Buffer Minutes):** Rotadaki ardışık etkinlikler arasında geçmesi gereken zorunlu dinlenme veya ulaşım süresi (dakika cinsinden).
 
-### 2. Waypoint Management (The Map)
-This is the core of the module.
-- **Adding Waypoints:** Add locations sequentially (Point 1, Point 2, Point 3).
-- **Coordinates:** For each waypoint, enter exact Latitude and Longitude data, or use the integrated map search to drop pins.
-- **Waypoint Descriptions:** Add specific text or images for each stop (e.g., "Day 1: Arrival in Izmir and hotel check-in").
+### 2. Etkinlikler ve Zaman Çizelgesi (Events & Timeline)
+Burası Rotalar modülünün kalbidir. Sisteme önceden eklenmiş (ve mekanları belli olan) *Etkinlikleri* ekleyerek seyahat programını oluşturursunuz.
+- **Etkinlik Ekle:** Zaman çizelgesine belirli etkinlikleri arayıp eklemek için "Etkinlik Ekle" butonuna tıklayın.
+- **Sürükle & Bırak Sıralaması:** Eklendikten sonra, etkinlikleri sürükleyip bırakarak turun sırasını değiştirebilirsiniz.
+- **Zaman Çizelgesi Doğrulaması:** Sistem, programınızı otomatik olarak doğrular! Fiziksel mesafenin (seçilen Seyahat Moduna göre) ve "Ara Sürenin" (Buffer Minutes), Etkinlik A'dan Etkinlik B'ye seyahat etmek için yeterli zaman tanıyıp tanımadığını kontrol eder. Yeterli değilse kırmızı bir uyarı çıkar.
+- **Akıllı Öneriler:** "Önerilen Etkinlikler" (Suggest Events) butonuna tıklamak, rotanın zaman aralığı içinde o yakınlarda gerçekleşen ve programa uyabilecek diğer etkinlikleri bulmak için sistemi sorgular.
 
-### 3. Media and KML/GPX Uploads
-- **Cover Visual:** Upload an enticing hero image for the route.
-- **File Uploads:** (Advanced) If your frontend supports interactive mapping, you can upload industry-standard `.gpx` or `.kml` files generated from GPS devices. The system will parse these files to render accurate paths on frontend maps.
+### 3. Harita Önizleme (Map Preview)
+- Siz etkinlikleri ekleyip sıraladıkça, rotanın izleyeceği kesin yolu gösteren dinamik bir Google Maps önizlemesi (harita) oluşur.
 
-Once saved, the Route data becomes accessible via the API, allowing developers to render beautiful, interactive map experiences for your users.
+### 4. Ara Noktalar (Waypoints)
+- **Ara Noktalar:** Sisteminizde resmi bir "Etkinlik" *olmayan* belirli duraklar eklemek isterseniz (Örn: "Parkta Öğle Yemeği", "Köprüde Fotoğraf Molası"), bir başlık ve adres girerek özel Ara Noktalar (Waypoints) ekleyebilirsiniz.
+
+3. Rotayı yayınlamak ve kullanıcıların tur için rezervasyon yapmasına izin vermek için **"Kaydet"** butonuna tıklayın.

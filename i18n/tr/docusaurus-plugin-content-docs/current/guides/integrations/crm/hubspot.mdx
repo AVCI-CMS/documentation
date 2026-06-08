@@ -1,0 +1,33 @@
+---
+sidebar_position: 13
+title: "HubSpot CRM"
+description: "Müşteri ilişkileri yönetimi için HubSpot entegrasyonu"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/hubspot/hubspot-icon-filled-256.webp" alt="HubSpot Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# HubSpot CRM
+
+Müşteri ilişkileri yönetimi için HubSpot entegrasyonu
+
+**Resmi Web Sitesi:** [https://www.hubspot.com](https://www.hubspot.com)
+
+## Özellikler
+
+- Contact yönetimi
+- Lead tracking
+- Deal pipeline
+- Marketing automation
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `password` | ✅ Evet | Örn: HubSpot API Key |
+| `portalId` | Portal ID | `text` | ✅ Evet | Örn: HubSpot Portal ID |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.HUBSPOT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `HubSpot` servislerini kullanmaya başlayacaktır.

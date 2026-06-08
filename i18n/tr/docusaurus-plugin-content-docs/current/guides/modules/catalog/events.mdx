@@ -1,0 +1,56 @@
+---
+sidebar_position: 3
+title: "Etkinlikler (Events)"
+description: "Fiziksel, çevrimiçi ve tekrarlayan etkinliklerin yönetimi."
+---
+
+# Etkinlikler (Events)
+
+**Menü Yolu:** `Katalog > Etkinlikler` (veya `Catalog > Events`)
+
+**Etkinlikler** modülü, kapsamlı bir biletleme ve etkinlik yönetim sistemidir. Tek seferlik bir webinardan, haftalık tekrarlayan bir atölye çalışmasına veya günlerce süren devasa bir fiziksel konsere kadar her şeyi oluşturmanıza olanak tanır.
+
+## Yeni Etkinlik Oluşturma
+
+Yeni bir etkinlik oluşturmak için:
+
+1. **Katalog > Etkinlikler** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
+3. Etkinlik oluşturucu, etkinlik yönetiminin karmaşıklığını basitleştirmek için mantıksal kartlara bölünmüştür:
+
+### 1. Genel Bilgiler (General Info)
+- **Etkinlik Adı (Event Name):** Etkinliğinizin başlığı.
+- **Durum (Status):** *Taslak (Draft)*, *Yayında (Published)*, *Gizli (Hidden)* veya *Silinmiş (Deleted)*.
+- **Kategori (Category):** Etkinliklerinizi gruplandırın (Örn: "Konserler", "Eğitimler").
+- **Etkinlik Tipi (Event Type):** *Fiziksel* (bir Mekan gerektirir) veya *Dijital* (çevrimiçi bağlantı gerektirir) arasında seçim yapın.
+- **Tarih ve Saat:** Ana Başlangıç Tarihini ve Bitiş Tarihini ayarlayın.
+- **Etkinlik Modu (Çok Önemli!):** 
+  - *Tekli (Single):* Tek seferlik bir etkinlik.
+  - *Seri (Serial):* Bireysel oturumları (günleri) manuel olarak tanımladığınız çok bölümlü bir etkinlik.
+  - *Tekrarlayan (Recurring):* Bir kurala göre (Örn: "10 hafta boyunca her Cuma") otomatik oturumlar üretir.
+- **Satıcı/Organizatör:** Etkinliği belirli bir organizatör veya satıcı hesabına bağlayın.
+
+### 2. Medya (Media)
+- **Kapak Görseli (Featured Image):** Etkinlik için ana afiş veya küçük resim (thumbnail).
+- **Arka Plan/Banner Görseli:** Etkinlik detay sayfası başlığında (header) kullanılan yüksek çözünürlüklü görseller.
+- **Galeri (Gallery):** Geçmiş etkinliklerden ek fotoğraflar veya promosyon grafikleri.
+
+### 3. Mekan (Venue / Location)
+- Etkinlik *Fiziksel* ise, onu belirli bir **Mekana** (Place) bağlamanız gerekir. (Mekanlar [İlişkiler > Mekanlar](../relations/places) modülünde yönetilir). Bu işlem, etkinlik için harita koordinatlarını, açık adresi ve oturma düzenini otomatik olarak çeker.
+
+### 4. Oturumlar (Seri/Tekrarlayan Etkinlikler İçin)
+- Seri veya Tekrarlayan mod seçtiyseniz bu kart görünür. Belirli alt oturumlar tanımlayabilir, bunları etiketleyebilir (Örn: "1. Gün: Açılış", "2. Gün: Atölyeler") ve her birinin kesin başlangıç ve bitiş saatlerini belirleyebilirsiniz.
+
+### 5. Fiyatlandırma ve Kapasite (Pricing & Capacity)
+- **Kapasite Sınırları:** Minimum (etkinliğin gerçekleşmesi için gereken), Maksimum (toplam kullanılabilir bilet) ve şu anki Rezerve bilet sayısını tanımlayın.
+- **Taban Fiyat:** Bilet fiyatını, para birimini ve KDV kurallarını ayarlayın.
+
+### 6. Açıklama ve İçerik (Description & Content)
+- **Açıklama:** Tam bir etkinlik programı, konuşmacı biyografileri ve pazarlama içeriği sunmak için zengin metin (Rich Text) editörünü kullanın.
+- **Banner Üretici (Banner Generator):** Bu özel etkinlik için sosyal medya paylaşım banner'larını dinamik olarak oluşturmaya yarayan yerleşik bir araç.
+
+### 7. Notlar ve Kurallar (Notes & Rules)
+- **Notlar (Notes):** Katılımcının bilet satın almadan önce bilmesi gereken önemli bilgiler (Örn: "Lütfen 30 dakika erken gelin").
+- **Kurallar (Rules):** Kesin politikalar (Örn: "18 yaşından küçükler giremez", "Etkinliğe 48 saat kala iade yapılmaz").
+
+4. Ayarlarınızı gözden geçirin ve etkinlik oluşturmayı tamamlamak için **"Kaydet"** butonuna tıklayın.

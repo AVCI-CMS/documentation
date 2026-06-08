@@ -1,37 +1,40 @@
 ---
-sidebar_position: 9
-title: "Coupons"
+sidebar_position: 6
+title: "Kuponlar (Coupons)"
+description: "Kullanıcılar için indirim kodları oluşturma ve yönetimi."
 ---
 
-# Coupons
+# Kuponlar (Coupons)
 
-**Menu Path:** `Catalog > Coupons`
+**Menü Yolu:** `Katalog > Kuponlar` (veya `Catalog > Coupons`)
 
-While Campaigns apply automatically to eligible products, **Coupons** require the customer to actively enter a specific alphanumeric code at the checkout stage. They are essential for influencer marketing, targeted email campaigns, and customer retention strategies.
+**Kuponlar** modülü, kullanıcıların ödeme sırasında indirim almak için girebilecekleri izlenebilir alfanümerik kodlar oluşturmak için kullanılır. Otomatik olarak uygulanan Kampanyaların aksine, kuponlar kullanıcı eylemi gerektirir ve hedefli pazarlama, satış ortaklığı (affiliate) takibi ve müşteri sadakati için mükemmel araçlardır.
 
-## Deep Dive into Coupon Creation
+## Yeni Bir İndirim Kuponu Oluşturma
 
-Navigate to **Catalog > Coupons** and click **"Create"**.
+Yeni bir kupon kodu oluşturmak için:
 
-### 1. Code Generation
-- **Coupon Code:** You can type a custom code (e.g., `WELCOME20`) or click the "Generate Random" button for unique tracking codes.
+1. **Katalog > Kuponlar** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
 
-### 2. Discount Configuration
-- **Discount Type:** Choose between:
-  - *Percentage (%):* Reduces the cart subtotal by a percentage.
-  - *Fixed Amount ($):* A flat monetary deduction.
-  - *Free Shipping:* Eliminates shipping costs regardless of the order size.
-- **Amount:** Enter the specific value of the discount.
+### 1. Temel Bilgiler ve İndirim Değeri (Basic Info & Discount Value)
+- **Kod (Code):** Kullanıcının yazacağı asıl metin (Örn: `HOSGELDIN20`, `YAZINDIRIMI`). Bu alan metni otomatik olarak büyük harfe çevirir.
+- **İndirim Tipi (Discount Type):** İndirimin nasıl uygulanacağını seçin:
+  - *PERCENTAGE (Yüzde):* Sepet toplamını belirli bir yüzde oranında düşürür (Örn: %20).
+  - *FIXED (Sabit Tutar):* Sepet toplamından sabit bir miktar para düşer (Örn: 50 TL).
+  - *FREE_SHIPPING (Ücretsiz Kargo):* Kargo ücretini sıfırlar.
+- **İndirim Değeri (Discount Value):** Seçilen tipe karşılık gelen sayısal değeri girin.
+- **Aktif (Active):** Kuponu anında açıp kapatmak için bu düğmeyi (switch) kullanın.
+- **Otomatik Uygula (Auto Apply):** Açık (aktif) ise, sistem bu kuponu kullanıcının kodu yazmasına gerek kalmadan uygun sepetlere otomatik olarak uygulamaya çalışır.
 
-### 3. Strict Usage Limits
-Protect your margins by applying limits:
-- **Minimum Spend Requirement:** The coupon is only valid if the cart totals at least $50.
-- **Total Usage Limit:** The coupon will expire globally after it has been used X times (e.g., "First 100 customers only!").
-- **Per-User Limit:** Restrict usage so a single logged-in account can only use the code once.
+### 2. Geçerlilik ve Limitler (Validity & Limits)
+- **Geçerlilik Başlangıcı ve Bitişi:** Kuponun aktif olduğu kesin tarih ve saat aralığını ayarlayın.
+- **Minimum Sipariş Tutarı:** Kuponun geçerli olması için sepet ara toplamının ulaşması gereken minimum değer.
+- **Maksimum İndirim Tutarı:** Yüzde bazlı indirimler için çok faydalıdır. (Örn: "%20 indirim, maksimum 100 TL'ye kadar").
+- **Maksimum Kullanım (Max Usage):** Bu kuponun platform genelinde toplamda kaç kez kullanılabileceği sınırı (Örn: "Sadece ilk 100 müşteri").
+- **Müşteri Başına Kullanım:** Tek bir kayıtlı kullanıcının bu kodu kaç kez kullanabileceği sınırı (genellikle `1` olarak ayarlanır).
 
-### 4. Applicability Rules
-Just like Campaigns, you can restrict coupons:
-- Exclude specific products that are already heavily discounted.
-- Limit the coupon to only apply to a specific Category or Brand.
+### 3. Kullanım Şartları (Usage Terms)
+- **Şartlar Listesi:** Bu kuponla ilişkili yasal veya açıklayıcı şartları satır satır ekleyin (Örn: "Diğer kampanyalarla birleştirilemez", "Sadece indirimsiz ürünlerde geçerlidir").
 
-> **Tracking & Analytics:** Once a coupon is live, returning to the Edit screen will show you exactly how many times it has been used and the total revenue generated through that specific code.
+3. Yapılandırdıktan sonra kuponu etkinleştirmek için **"Kaydet"** butonuna tıklayın.

@@ -1,0 +1,30 @@
+---
+sidebar_position: 9
+title: "Cezalar (Penalties)"
+description: "Satıcılara idari para cezaları ve kesintiler uygulayın."
+---
+
+# Cezalar (Penalties)
+
+**Menü Yolu:** `Finans ve Lojistik > Cezalar` (veya `Finance & Logistics > Penalties`)
+
+**Cezalar** modülü, temel olarak Platform Yöneticilerinin kuralları uygulamak ve Satıcılar (Merchants) arasında kalite standartlarını korumak zorunda olduğu Pazaryeri (Marketplace) modellerinde kullanılır.
+
+## Ceza Nedir?
+
+Ceza, platform politikalarını ihlal ettiği için bir satıcıya uygulanan idari bir para cezasıdır. Örnekler şunları içerir:
+- Bir siparişi 3 gün geç kargolamak.
+- Sahte/Kusurlu mal satmak.
+- Yüksek müşteri şikayet (itiraz) oranları.
+
+Bir ceza uygulandığında, Satıcının defterinde özel bir *CEZA (PENALTY)* işlemi oluşturur. Bu tutar otomatik olarak satıcının Cüzdanındaki (Wallet) *Çekilebilir Bakiyesinden* düşülür.
+
+## Bir Ceza Kesmek
+
+1. **Finans ve Lojistik > Cezalar** sayfasına gidin.
+2. Bir ceza kesmek için **"Yeni Ekle"** butonuna tıklayın.
+3. **Satıcı Seçin (Merchant):** Listeden ihlal yapan satıcıyı seçin.
+4. **Tutar (Amount):** Cezanın kesin parasal değerini girin.
+5. **Neden (Reason):** Açık, ayrıntılı bir açıklama yapın. Bu neden, satıcı tarafından kendi Cüzdan panelinde görünür.
+6. **İlgili Sipariş (Opsiyonel):** Ceza hatalı bir teslimatla doğrudan ilgiliyse, referans olması için Sipariş ID'sini buraya bağlayın.
+7. **"Kaydet"** butonuna tıklayın. Sistem derhal satıcının cüzdanından bu tutarı çekecektir (eksi bakiye yazacaktır).

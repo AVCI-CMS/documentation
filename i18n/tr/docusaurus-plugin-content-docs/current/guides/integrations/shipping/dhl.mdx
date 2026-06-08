@@ -1,0 +1,33 @@
+---
+sidebar_position: 22
+title: "DHL "
+description: "DHL Express global gönderim entegrasyonu"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/dhl/dhl-icon-filled-256.webp" alt="DHL Express Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# DHL 
+
+DHL Express global gönderim entegrasyonu
+
+**Resmi Web Sitesi:** [https://www.dhl.com](https://www.dhl.com)
+
+## Özellikler
+
+- Yurtdışı kargo
+- Hızlı teslimat
+- Uluslararası ağ
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `siteId` | Site ID | `text` | ✅ Evet | Örn: DHL Site ID |
+| `password` | Şifre | `password` | ✅ Evet | Örn: DHL Şifresi |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.DHL` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `DHL Express` servislerini kullanmaya başlayacaktır.

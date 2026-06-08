@@ -1,27 +1,44 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: "Dictionary"
+description: "SEO-focused glossary and terminology management."
 ---
 
 # Dictionary
 
 **Menu Path:** `Contents > Dictionary`
 
-The **Dictionary** is the area where you centrally manage the translations and definitions of the static texts (e.g., "Add to Cart", "Login", "Read More" button texts) on the frontend of your application.
+The **Dictionary** module allows you to create a comprehensive glossary of terms relevant to your industry. This is an exceptionally powerful tool for Search Engine Optimization (SEO). It helps you rank for specific industry keywords by providing valuable, easily digestible definitions to your users. 
 
-Thanks to this module, you can easily change button names or warning messages on your site for all languages without needing to know coding or requiring developer support.
+Furthermore, the Dictionary can act as a centralized data source for the [Attributes](../common/attributes) module (e.g., creating a "Fabric Types" dictionary to be used as product variations).
 
-## How to Add and Translate a Dictionary Key?
+## Adding a New Dictionary Term
 
-1. Click on the **Contents > Dictionary** link from the left menu.
-2. Click the **"Add New"** button on the page.
-3. Fill in the following fields in the translation form:
-   - **Key:** The code-side equivalent of the text (e.g., `button.add_to_cart`). It should generally be in a standard format given to you by your developer or predefined.
-   - **Values:** Write the equivalents (e.g., TR: "Sepete Ekle", EN: "Add to Cart") of the relevant key for the active languages on your site (e.g., Turkish, English, German).
-4. Add the dictionary item to the system by pressing the **"Save"** button.
+To add a new word or phrase to your glossary:
 
-## Searching and Updating the Dictionary
+1. Navigate to **Contents > Dictionary**.
+2. Click the **"Add New"** button to open the term creation form.
+3. Fill in the required fields across the different sections.
 
-Over time, hundreds of words can accumulate in your dictionary.
-- Using the search bar, you can search for the text you want to change or the "Key" value.
-- You can update the existing translation by clicking the **Edit** icon next to the word you want to edit. Changes will generally reflect instantly on the frontend of your site (if there is no caching).
+### 1. Basic Info
+- **Name:** The actual word or term you are defining (e.g., "Headless CMS").
+- **Status:** Choose whether the term is *Published* (live on the site), *Draft*, *Hidden*, or *Deleted*.
+- **Category:** Select the appropriate category (from the [Common Categories](../common/categories) module) to group related terms together.
+- **Type:** The grammatical type or category of the term (e.g., Noun, Verb, Adjective, or an industry-specific classification).
+- **Slug:** The URL-friendly identifier (e.g., `headless-cms`). If left blank, it is automatically generated from the Name.
+- **Phonetic:** The phonetic transcription of how the word is pronounced (e.g., `/ˈhedləs/`).
+
+### 2. Media
+- **Featured Image:** A primary image that visually represents the term. This is often used as the thumbnail in glossary lists.
+- **Gallery:** Additional images or diagrams that help explain the term.
+
+### 3. Definition (Rich Text)
+- Provide the core explanation of the term. You can use the Rich Text editor to format the text, add lists, embed links to other terms, and insert inline images to make the definition as clear as possible.
+
+### 4. Etymology
+- A plain text area where you can explain the origin of the word or how the term came into use within your industry.
+
+### 5. Example
+- Provide concrete sentences or use cases showing how the term is applied in real life. This significantly helps users understand abstract concepts.
+
+4. Once all relevant fields are filled, click the **"Save"** button at the top right to create the dictionary term.

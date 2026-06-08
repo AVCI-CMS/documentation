@@ -1,0 +1,35 @@
+---
+sidebar_position: 5
+title: "Cüzdan (Wallet)"
+description: "Satıcı bakiyesi yönetimi ve para çekme talepleri."
+---
+
+# Cüzdan (Wallet)
+
+**Menü Yolu:** `Finans ve Lojistik > Cüzdan` *(Satıcılar için `Finans > Cüzdan`)*
+
+**Cüzdan** modülü, Satıcıların (Merchants) kazançlarını yönettiği ve Platform Yöneticisinin (Admin) finansal yükümlülükleri (satıcılara ödenecek borçları) denetlediği yerdir. Hesapların gerçek zamanlı anlık görüntüsünü sağlamak için *İşlemler (Transactions)* modülündeki tüm verileri toplar.
+
+## Satıcı Cüzdan Paneli
+
+Bir Satıcı Cüzdanına eriştiğinde şunları görür:
+
+### 1. Bakiye Özeti
+- **Çekilebilir Bakiye (Kullanılabilir):** Satıcının derhal banka hesabına aktarabileceği, *TAMAMLANDI* durumundaki işlemlerden gelen para.
+- **Bekleyen Bakiye:** *BEKLİYOR* durumundaki işlemlerden (Örn: müşteriye hala yolda olan ürünler) gelen para. Platformu iadelere karşı korumak için bu para henüz çekilemez.
+- **Toplam Kazanç (Lifetime):** Satıcının tarihsel olarak elde ettiği brüt tutar.
+
+### 2. Hakediş (Para Çekme) Talebi Oluşturma
+1. Satıcılar **"Para Çekme Talebi" (Request Payout)** butonuna tıklar.
+2. Çekmek istedikleri tutarı girerler (maksimum Çekilebilir Bakiyelerine kadar).
+3. Kayıtlı IBAN/Banka Hesaplarını seçerler.
+4. Talep, onay için Yöneticiye (Admin) iletilir.
+
+### 3. Yönetici Görünümü (Talepleri Yönetme)
+Bir Platform Yöneticisi olarak Cüzdan modülünü şu amaçlarla kullanırsınız:
+- Satıcılardan gelen **Para Çekme (Payout) Taleplerini** incelemek.
+- Banka transfer listesini (genellikle kurumsal bankanız için biçimlendirilmiş bir Excel/CSV dosyası) indirmek.
+- Parayı fiziksel olarak bankadan gönderdikten sonra talepleri **"Transfer Edildi" (Transferred)** olarak işaretlemek. Bu eylem, talep edilen tutarı Satıcının çekilebilir bakiyesinden düşer ve bir *PAYOUT (HAKEDİŞ)* işlem kaydı oluşturur.
+
+### 4. Bakiye Yükleme (Kredi Ekleme)
+Bazı B2B modellerinde, satıcıların platform hizmetleri (reklam veya öne çıkan ilanlar gibi) için ödeme yapmak üzere Cüzdanlarına kredi yüklemeleri gerekebilir. Etkinleştirilmişse, satıcılar doğrudan bu modülden Kredi Kartı ile bakiyelerine yükleme (top-up) yapabilirler.

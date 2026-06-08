@@ -1,0 +1,36 @@
+---
+sidebar_position: 8
+title: "QR Code"
+description: "Generate and track dynamic QR codes for marketing and operations."
+---
+
+# QR Code
+
+**Menu Path:** `Tools > QR Code`
+
+The **QR Code** module provides a built-in generator and tracker for Quick Response (QR) codes. It acts as an internal URL shortener and physical-to-digital bridge without needing third-party tools like Bitly.
+
+## Generating a QR Code
+
+1. Navigate to **Tools > QR Code**.
+2. Click **"Generate New"**.
+
+### Configuration
+- **Target URL:** Enter the exact web address the user should be taken to (e.g., `https://yourdomain.com/campaign-page`).
+- **Campaign Name:** A descriptive name for your internal records (e.g., "Summer Magazine Back Cover").
+- **Design Options:** Customize the look of your QR code. You can change the primary color, adjust the pattern style (square vs. rounded dots), and even embed your corporate logo right in the center of the QR code.
+- **Format:** Download the final generated code as a PNG (for web) or an SVG/EPS vector file (for high-quality print).
+
+## Static vs. Dynamic QR Codes
+
+- **Static:** The raw Target URL is hardcoded into the QR graphic. If you change the Target URL later, you must print new QR codes.
+- **Dynamic (Recommended):** The QR graphic contains a short, intermediary AVCI-CMS link. When scanned, the CMS instantly redirects the user to the true Target URL. *Advantage:* You can change the final destination URL at any time without ever having to reprint the physical QR code (e.g., a restaurant menu that changes daily but uses the same table sticker).
+
+## Scan Analytics
+
+For all Dynamic QR codes, the CMS provides detailed analytics:
+- **Total Scans:** How many times the code was successfully read.
+- **Unique Scans:** How many distinct devices scanned it.
+- **Device Breakdown:** iOS vs. Android statistics.
+
+This is highly effective for calculating the Return on Investment (ROI) of physical marketing materials like flyers or billboards.

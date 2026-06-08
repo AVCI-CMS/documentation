@@ -1,32 +1,30 @@
 ---
-sidebar_position: 6
-title: "Tickets"
+sidebar_position: 5
+title: "Destek Talepleri (Tickets)"
+description: "Müşteri destek yardım masası (helpdesk) ve sorun takibi."
 ---
 
-# Tickets (Helpdesk)
+# Destek Talepleri (Tickets)
 
-**Menu Path:** `Communication > Tickets`
+**Menü Yolu:** `İletişim > Destek Talepleri` (veya `Communication > Tickets`)
 
-The **Tickets** module is an integrated helpdesk system. It allows logged-in customers (and your merchants) to open structured support requests regarding their orders, payments, or technical issues.
+**Destek Talepleri** modülü dahili Yardım Masanız (Helpdesk) olarak çalışır. Bir kullanıcı bir sorun yaşadığında (Örn: "İadem nerede?", "Giriş yapamıyorum"), bir Destek Talebi (Ticket) açar. Bu sistem, hiçbir müşteri şikayetinin kaybolmamasını sağlar ve çözüm süresini izler.
 
-## Why Use Tickets Instead of Email?
-Tickets keep communication organized. A ticket is tied directly to a User's profile and, optionally, to a specific Order ID. This gives your support agents immediate context without having to ask the customer for their order number.
+## Destek Taleplerini Yönetme
 
-## The Ticket Workflow
+1. **İletişim > Destek Talepleri** sayfasına gidin.
+2. Genellikle Önceliğe ve Duruma göre sıralanmış bir talep listesi göreceksiniz.
+3. Konuşma akışını (thread) görüntülemek için bir talebe tıklayın.
 
-### 1. Triage and Assignment
-When a customer opens a ticket on the frontend, it appears in this list with an **"Open"** status.
-- **Subject & Category:** E.g., "Where is my order?", Category: "Logistics".
-- **Priority:** High, Medium, or Low.
-- **Assignee:** A manager can assign the ticket to a specific support agent on your team so they take ownership of the issue.
+### Talep Durumları (Ticket Statuses)
+- **AÇIK (OPEN):** Bir kullanıcıdan gelen ve acil ilginizi gerektiren yeni bir talep.
+- **İŞLEMDE (IN PROGRESS):** Talebi gördünüz/aldınız ve aktif olarak bir çözüm üzerinde çalışıyorsunuz.
+- **MÜŞTERİ YANITI BEKLENİYOR (WAITING FOR USER):** Yanıt verdiniz ve müşterinin daha fazla bilgi sağlamasını bekliyorsunuz.
+- **ÇÖZÜLDÜ (RESOLVED):** Sorun giderildi ve talep kapatıldı.
 
-### 2. Conversational Interface
-Clicking into a ticket opens a chat-like thread.
-- **Read the Issue:** See the customer's initial message and any attached photos (e.g., a picture of a damaged product).
-- **Reply:** Type your response in the editor. When you hit send, the customer is notified via email and can reply directly from their "My Account" dashboard on the frontend.
-- **Internal Notes:** You can write private notes (highlighted in yellow) that only other admins can see (e.g., "Waiting on warehouse manager to confirm stock").
+### Bir Talebi Yanıtlamak
+- Talep görünümü, sohbet benzeri (chat-like) bir arayüz sağlar. Yanıtınızı yazabilir ve dosyalar ekleyebilirsiniz (Örn: bir iade makbuzunun ekran görüntüsü).
+- Siz yanıt verdiğinizde kullanıcı bir e-posta bildirimi alacak ve e-posta yoluyla veya doğrudan "Hesabım" sayfası üzerinden size geri dönüş yapabilecektir.
 
-### 3. Resolution
-Once the issue is solved:
-- Change the ticket status to **"Closed"** or **"Resolved"**.
-- This removes it from the active queue, keeping your support team focused on open issues. If the customer replies again, the ticket will automatically reopen.
+## Kurum İçi Görevlendirme (Delegation)
+Büyük bir ekibiniz varsa, talepleri belirli admin (yönetici) kullanıcılarına atayabilirsiniz. Örneğin, "Ödeme Sorunları" ile ilgili tüm talepleri Finans ekibine ve "Kargo Gecikmeleri" ile ilgili olanları Lojistik ekibine atayabilirsiniz.
