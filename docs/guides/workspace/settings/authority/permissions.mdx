@@ -1,8 +1,35 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 title: "Permissions"
 ---
 
-# Permissions Matrix
+# Permissions
 
-The granular control panel. Define exact View, Edit, Create, and Delete rights for every single module in the CMS.
+**Menu Path:** `Workspace > Settings > Authority > Permissions`
+
+:::info Access Info
+This section provides a read-only view of the System Permission Matrix. To edit who holds these permissions, navigate to the **Roles** page.
+:::
+
+The Permissions module provides an in-depth, atomic list of all access rights defined across the entire platform. Every module, feature, and action requires a specific permission.
+
+## Key Features
+
+### 1. System Permission Matrix
+This page lists every single atomic permission available in the system.
+- **Atomic Access:** Permissions are highly granular (e.g., `Product:Create`, `Product:View`, `Settings:Manage`).
+- **Read-Only:** You cannot create new atomic permissions or delete existing ones; they are statically mapped to the platform's codebase.
+
+### 2. Filtering & Organization
+To help you navigate the extensive matrix, permissions are organized logically:
+- **Category Filter:** Filter permissions by their high-level domain (e.g., Catalog, Sales, CRM).
+- **Group Filter:** Filter permissions by their specific functional group.
+- **Status Tag:** Indicates whether a permission is a core system requirement (`SYSTEM`) or a standard operational permission (`CUSTOM`).
+
+> [!TIP]
+> Use this page as a reference manual when designing Custom Roles. By understanding exactly what each permission code (e.g., `WORKSPACE_SETTINGS_VIEW`) does, you can create highly secure, least-privilege roles for your staff.
+
+## Common Issues
+
+- **Issue:** I want to give a user access to only view products, not edit them.
+- **Solution:** Check the matrix here to find the exact permission code for viewing products. Then, go to the **Roles** module, create a new role, assign that specific permission, and assign the user to that role.

@@ -1,27 +1,44 @@
 ---
-sidebar_position: 3
-title: "Dictionary"
+sidebar_position: 4
+title: "Sözlük (Dictionary)"
+description: "SEO odaklı terimler ve sözlük yönetimi."
 ---
 
-# Dictionary
+# Sözlük (Dictionary)
 
-**Menu Path:** `Contents > Dictionary`
+**Menü Yolu:** `İçerikler > Sözlük` (veya `Contents > Dictionary`)
 
-The **Dictionary** is the area where you centrally manage the translations and definitions of the static texts (e.g., "Add to Cart", "Login", "Read More" button texts) on the frontend of your application.
+**Sözlük** modülü, sektörünüzle ilgili terimlerden oluşan kapsamlı bir sözlük oluşturmanızı sağlar. Bu modül Arama Motoru Optimizasyonu (SEO) için son derece güçlü bir araçtır; kullanıcılarınıza değerli ve anlaşılır tanımlar sunarak sektörel anahtar kelimelerde üst sıralara çıkmanıza yardımcı olur.
 
-Thanks to this module, you can easily change button names or warning messages on your site for all languages without needing to know coding or requiring developer support.
+Ayrıca Sözlük, [Ortak Özellikler](../common/attributes.mdx) modülü için merkezi bir veri kaynağı olarak görev yapabilir (Örn: Ürün varyasyonlarında kullanılmak üzere bir "Kumaş Türleri" sözlüğü oluşturmak).
 
-## How to Add and Translate a Dictionary Key?
+## Yeni Bir Sözlük Terimi Eklemek
 
-1. Click on the **Contents > Dictionary** link from the left menu.
-2. Click the **"Add New"** button on the page.
-3. Fill in the following fields in the translation form:
-   - **Key:** The code-side equivalent of the text (e.g., `button.add_to_cart`). It should generally be in a standard format given to you by your developer or predefined.
-   - **Values:** Write the equivalents (e.g., TR: "Sepete Ekle", EN: "Add to Cart") of the relevant key for the active languages on your site (e.g., Turkish, English, German).
-4. Add the dictionary item to the system by pressing the **"Save"** button.
+Sözlüğünüze yeni bir kelime veya kelime öbeği eklemek için:
 
-## Searching and Updating the Dictionary
+1. **İçerikler > Sözlük** sayfasına gidin.
+2. Terim oluşturma formunu açmak için **"Yeni Ekle"** butonuna tıklayın.
+3. Farklı bölümlerdeki gerekli alanları doldurun:
 
-Over time, hundreds of words can accumulate in your dictionary.
-- Using the search bar, you can search for the text you want to change or the "Key" value.
-- You can update the existing translation by clicking the **Edit** icon next to the word you want to edit. Changes will generally reflect instantly on the frontend of your site (if there is no caching).
+### 1. Temel Bilgiler (Basic Info)
+- **İsim (Name):** Tanımladığınız asıl kelime veya terim (Örn: "Headless CMS").
+- **Durum (Status):** Terimin *Yayında (Published)*, *Taslak (Draft)*, *Gizli (Hidden)* veya *Silinmiş (Deleted)* olup olmadığını seçin.
+- **Kategori (Category):** İlgili terimleri gruplamak için uygun kategoriyi seçin (bkz. [Ortak Kategoriler](../common/categories.mdx) modülü).
+- **Tip (Type):** Terimin dilbilgisi türü veya kategorisi (Örn: İsim, Fiil, Sıfat veya sektörel bir sınıflandırma).
+- **Slug:** URL dostu tanımlayıcı (Örn: `headless-cms`). Boş bırakılırsa, İsim alanından otomatik üretilir.
+- **Fonetik (Phonetic):** Kelimenin okunuşunun fonetik transkripsiyonu (Örn: `/ˈhedləs/`).
+
+### 2. Medya (Media)
+- **Kapak Görseli (Featured Image):** Terimi görsel olarak temsil eden ana resim. Genellikle sözlük listelerinde küçük resim (thumbnail) olarak kullanılır.
+- **Galeri (Gallery):** Terimi açıklamaya yardımcı olan ek görseller veya diyagramlar.
+
+### 3. Tanım (Definition - Zengin Metin)
+- Terimin temel açıklamasını yapın. Metni biçimlendirmek, listeler eklemek, diğer terimlere bağlantı vermek ve tanımı olabildiğince netleştirmek için metin içi görseller eklemek amacıyla Zengin Metin (Rich Text) editörünü kullanabilirsiniz.
+
+### 4. Etimoloji (Etymology)
+- Kelimenin kökenini veya terimin sektörünüzde nasıl kullanılmaya başlandığını açıklayabileceğiniz düz metin alanıdır.
+
+### 5. Örnek (Example)
+- Terimin gerçek hayatta nasıl uygulandığını gösteren somut cümleler veya kullanım senaryoları sağlayın. Bu, soyut kavramların kullanıcılar tarafından çok daha rahat anlaşılmasını sağlar.
+
+4. İlgili tüm alanlar doldurulduğunda, sözlük terimini oluşturmak için sağ üst köşedeki **"Kaydet"** butonuna tıklayın.

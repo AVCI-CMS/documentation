@@ -1,35 +1,42 @@
 ---
-sidebar_position: 5
-title: "Menus"
+sidebar_position: 6
+title: "Menüler (Menus)"
+description: "Frontend navigasyon ve menü yapılarının yapılandırılması."
 ---
 
-# Menus
+# Menüler (Menus)
 
-**Menu Path:** `Contents > Menus`
+**Menü Yolu:** `İçerikler > Menüler` (veya `Contents > Menus`)
 
-The **Menus** module is where you configure the navigation areas of your site such as the top navigation bar (Header Nav), footer, mobile menu using the drag-and-drop method.
+**Menüler** modülü, sitenizin üst gezinme çubuğu (Header Nav), alt bilgi (Footer), mobil menü gibi navigasyon alanlarını sürükle-bırak yöntemiyle yapılandırdığınız yerdir. Kullanıcıların sitenizde nasıl gezineceğini bu modül üzerinden tasarlarsınız.
 
-You design how users will navigate your site through this module.
+## Yeni Menü (Menü Grubu) Oluşturma
 
-## Creating a New Menu (Menu Group)
+Genellikle sitenizde önceden tanımlanmış menü alanları ("Ana Menü", "Footer Linkleri") bulunur. Yeni bir menü grubu eklemek için:
 
-Generally, your site has predefined menu areas ("Main Menu", "Footer Links"). To add a new menu group:
+1. **İçerikler > Menüler** ekranına gidin.
+2. **"Yeni Ekle"** (Create Menu Group) butonuna tıklayın.
+3. **Temel Bilgiler (Basic Info)** özelliklerini doldurun:
+   - **İsim (Name):** Menüye açıklayıcı bir ad verin (Örn: "Kurumsal Footer").
+   - **Slug:** Bu menü için sistem tanımlayıcısıdır (Örn: `kurumsal-footer`).
+   - **Konum (Location):** Bu menünün frontend temasında nerede görüneceğini belirten anahtar kelimedir (Örn: `header`, `footer-1`).
+   - **Açıklama (Description):** Menünün ne işe yaradığını anlatan isteğe bağlı bir iç not.
+   - **Aktif (Active):** Menüyü sitede etkinleştirmek için bu kutuyu işaretleyin.
+4. **"Kaydet"** butonuna basın.
 
-1. Go to the **Contents > Menus** screen.
-2. Click the **"Create Menu Group"** option.
-3. Give the menu a name (e.g., "Corporate Footer") and a system identifier (Identifier).
+## Menü İçeriğini (Linkleri) Düzenleme
 
-## Editing Menu Content (Links)
+Bir menü grubu oluşturduktan sonra, tıklanabilir bağlantıları (linkleri) eklemeniz gerekir.
 
-To add a link to an existing menu or change its order:
-
-1. Click on the menu group you want to edit.
-2. Press the **"Add Link"** button on the opened menu tree (Tree) interface.
-3. Select the properties of the link you will add:
-   - **Label:** The text the user will see (e.g., "About Us").
-   - **Link Type:** 
-      - *Page:* You can directly select a Page (Pages) you created in the system.
-      - *Category:* You can redirect to a product or blog category.
-      - *Custom URL:* You can enter a completely different external link (`https://...`).
-4. **Drag & Drop:** You can change the order of menu items by dragging them with your mouse or create a **Submenu (Dropdown)** by sliding an item to the right below another.
-5. Save the changes to update your site's navigation.
+1. Listeden düzenlemek istediğiniz menü grubuna tıklayın.
+2. Sağ üst köşedeki **"Menü Öğeleri" (Menu Items)** butonuna basarak bağlantı yönetimi arayüzünü açın.
+3. Açılan ağaç (Tree) arayüzünde **"Bağlantı Ekle" (Add Link)** butonuna basın.
+4. Ekleyeceğiniz bağlantının özelliklerini seçin:
+   - **Etiket (Label):** Kullanıcının sitede göreceği metin (Örn: "Hakkımızda").
+   - **Bağlantı Türü (Link Type):** 
+      - *Sayfa (Page):* Sistemde oluşturduğunuz bir statik sayfayı doğrudan seçebilirsiniz.
+      - *Kategori (Category):* Bir ürün, blog veya haber kategorisine yönlendirme yapabilirsiniz.
+      - *Özel URL (Custom URL):* Tamamen farklı bir dış bağlantı veya göreceli yol (`https://...` veya `/iletisim`) girebilirsiniz.
+5. **Sürükle & Bırak:** Menü öğelerinin sırasını farenizle sürükleyerek kolayca değiştirebilirsiniz.
+6. **Hiyerarşi (Açılır Menüler):** Bir öğeyi başka bir üst öğenin altına doğru sağa kaydırarak bir alt menü (dropdown) oluşturabilirsiniz.
+7. Sitenizin navigasyonunu anında güncellemek için değişiklikleri kaydedin.

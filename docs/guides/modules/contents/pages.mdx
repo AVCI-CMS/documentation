@@ -1,27 +1,40 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 title: "Pages"
+description: "Manage static and dynamic informational pages."
 ---
 
 # Pages
 
 **Menu Path:** `Contents > Pages`
 
-The **Pages** module is the section where you create permanent and structural contents of your website such as "About Us", "Contact", "Terms of Use", "Privacy Policy".
+The **Pages** module is used to create standalone, often static, informational pages that do not fit into the chronological flow of a blog or news feed. Typical use cases include "About Us", "Privacy Policy", "Terms of Service", and custom landing pages. 
 
-Unlike blogs and news, pages are generally contents that do not have a specific chronological order and form the basic structure of the site.
+Because these pages are critical for trust and user experience, this module includes unique features like attaching dynamic forms or legal agreements directly to a page.
 
-## How to Create a New Page?
+## Creating a New Page
 
-1. Follow the **Contents > Pages** step from the left menu.
-2. Click the **"Create"** button in the upper right of the opened Pages list.
-3. Fill in the following sections on the page detail screen:
-   - **Title:** The visible name of the page (e.g., Who Are We?).
-   - **Slug:** The URL structure of the page (e.g., `/who-are-we`). It is usually generated automatically from the title, but you can edit it as you wish.
-   - **Content:** The rich text editor (or block design tool if you use one) where you will create the page body.
-4. **SEO and Visibility:** Enter the Meta Title and Description parts to determine how the page will appear in search engines.
-5. Make its Status active and press the **Save** button to publish the page.
+To create a new static or landing page:
 
-## Using Page Templates
+1. Go to the **Contents > Pages** screen.
+2. Click the **"Add New"** button to open the page builder interface.
+3. You will see several sections to configure your page:
 
-If you have custom page designs defined in your system (e.g., Template with Contact Form, Full Screen Image Template), you can select the relevant design from the **"Template"** option in the right menu while creating or editing the page. This ensures that your content is rendered with the correct design on the frontend.
+### 1. Basic Info
+This section defines the core identity and behavior of your page.
+- **Title:** The main headline of the page (e.g., "About Our Company").
+- **Status:** Choose the visibility: *Published* (live), *Draft* (hidden, still editing), *Hidden*, or *Deleted*.
+- **Category:** If you have grouped your pages (e.g., "Legal", "Company Info"), select the relevant category.
+- **Slug:** The URL path (e.g., `about-us`). This is crucial for direct linking and SEO. If left blank, it's auto-generated from the Title.
+- **Abstract:** A short summary of the page content.
+- **Form (Custom Form):** *Unique to Pages!* If you want to embed a contact form, survey, or application form directly into this page, select it from the dropdown. (Forms are managed in the Custom Forms module).
+- **Agreement (Terms):** *Unique to Pages!* If this page requires the user to read and accept a specific legal agreement (like a Privacy Policy consent), you can attach the specific Terms contract here.
+
+### 2. Media
+- **Featured Image:** The main banner or hero image for the page.
+- **Gallery:** Additional images that can be utilized within the page layout or slider, depending on your frontend design.
+
+### 3. Content (Rich Text)
+- The main body of your page. Use the rich text editor to write your content, format text with headings, add bullet points, embed links, and insert inline media.
+
+4. Once you have configured the layout and content, click **"Save"** to publish or update the page.

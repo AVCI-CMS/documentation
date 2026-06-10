@@ -1,0 +1,38 @@
+---
+sidebar_position: 6
+title: "Invoices"
+description: "Generate, upload, and manage official tax invoices."
+---
+
+# Invoices
+
+**Menu Path:** `Finance & Logistics > Invoices`
+
+The **Invoices** module manages the official billing documents (like E-Fatura/E-Arşiv) required for tax compliance and accounting. While the *Orders* module shows what a customer bought, the *Invoices* module proves the legal financial transaction.
+
+## Generating or Uploading an Invoice
+
+Invoices are strictly tied to Orders (or Sub-Orders in a Marketplace).
+
+1. Go to **Finance & Logistics > Orders** and open an Order detail page.
+2. Locate the **Invoice Manager** card.
+3. Depending on your system's integration, you have two options:
+
+### Option A: Manual Upload
+If you generate invoices using external accounting software (e.g., Logo, Paraşüt, Xero):
+1. Export the PDF invoice from your external software.
+2. In the Order's Invoice Manager, click **Upload Invoice**.
+3. Select the PDF file. Once uploaded, the customer can instantly download it from their "My Orders" page on the frontend.
+
+### Option B: Automatic Generation (API Integration)
+If your platform is integrated with an E-Fatura provider:
+1. Click the **Generate E-Invoice** button.
+2. The system automatically sends the customer's billing address, tax number, and purchased items to the government tax portal or integrator.
+3. A verified PDF is returned and attached to the order automatically.
+
+## Viewing All Invoices
+
+To see a global list of all invoices issued across the platform:
+1. Navigate to **Finance & Logistics > Invoices**.
+2. Here you can filter invoices by Date, Merchant, or Amount.
+3. This list is highly useful for end-of-month accounting reconciliations. You can bulk download these PDFs to send to your accountant.

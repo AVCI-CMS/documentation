@@ -1,0 +1,34 @@
+---
+sidebar_position: 19
+title: "Kolay Gelsin Kargo "
+description: "Kolay Gelsin kargo servisleri entegrasyonu"
+---
+
+<img src="https://cdn.prod.website-files.com/63a616e6ee5a40d30da8c9c6/67c9896605f0fc86f3da06ff_kolay%20gelsin%20kargo.png" alt="Kolay Gelsin Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Kolay Gelsin Kargo 
+
+Kolay Gelsin kargo servisleri entegrasyonu
+
+**Resmi Web Sitesi:** [https://kolaygelsin.com](https://kolaygelsin.com)
+
+## Özellikler
+
+- Hızlı teslimat
+- Anlık kargo takip
+- Müşteri panelinden iptal/iade
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `musteri` | Müşteri Kodu | `text` | ✅ Evet | Örn: Kolay Gelsin Müşteri Kodu |
+| `sifre` | Şifre | `password` | ✅ Evet | Örn: Kolay Gelsin Şifresi |
+| `deliveryType` | Teslimat Tipi | `number` | ❌ Hayır | - |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.KOLAYGELSIN` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Kolay Gelsin` servislerini kullanmaya başlayacaktır.

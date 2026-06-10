@@ -1,8 +1,37 @@
 ---
-sidebar_position: 4
-title: "Brand Rules"
+sidebar_position: 1
+title: "Brand Relation"
 ---
 
-# Brand Rules
+# Brand Relation Settings
 
-Determine if merchants are allowed to propose new brands to the catalog or if they must only select from existing ones.
+**Menu Path:** `Workspace > Settings > Relations > Brand`
+
+:::info Permission Requirements
+To configure Brand Relation settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Brand Relation settings allow you to define the operational constraints, default behaviors, and limitations for brand entities interacting within your workspace ecosystem.
+
+## Key Features & Configuration
+
+### 1. General Constraints
+- **Maximum Active Brands:** Define the upper limit of brands that can be simultaneously active under a single merchant or organization.
+- **Verification Requirement:** Toggle whether newly registered brands require manual admin verification before their products can be listed.
+
+### 2. Form & Component Settings
+You can customize which fields are visible or mandatory when an administrator or merchant is creating a new brand profile.
+- **Logo & Cover Image:** Enforce the uploading of high-resolution branding assets.
+- **Brand Story / Description:** Make the descriptive text field mandatory to ensure all brands have a complete profile.
+
+### 3. Restriction Settings
+- **Product Listing Limits:** Restrict the maximum number of distinct products a brand can list across the marketplace.
+- **Category Exclusivity:** Optionally limit a brand to publish products only within specific predefined categories.
+
+> [!TIP]
+> Ensure that any changes made to form field requirements (like making a logo mandatory) are communicated to your merchants, as this might block them from creating new brands if they lack the required assets.
+
+## Common Issues
+
+- **Issue:** A merchant is unable to create a new brand.
+- **Solution:** Check the "Maximum Active Brands" restriction. If the merchant has reached the limit defined here, they will be blocked from creating additional brands unless the limit is increased.

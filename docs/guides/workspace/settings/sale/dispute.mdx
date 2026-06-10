@@ -1,8 +1,37 @@
 ---
 sidebar_position: 6
-title: "Dispute Management"
+title: "Dispute"
 ---
 
-# Dispute Management
+# Dispute Settings
 
-Set the allowed timeframe for customers to open a dispute and the required evidence from merchants.
+**Menu Path:** `Workspace > Settings > Sale Settings > Dispute`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **MARKETPLACE** plan.
+:::
+
+Dispute Settings allow you to manage the conflict resolution processes between customers and merchants. You can configure when a dispute can be opened, what evidence is required, and the auto-resolution timelines.
+
+## Key Features & Configuration
+
+### 1. General Dispute Policy
+- **Dispute System (allowDispute):** Enables or disables the global dispute functionality. If disabled, customers must handle issues through standard customer service channels rather than opening a formal platform dispute.
+- **Auto-Resolve Duration (autoResolveDays):** Specifies the number of days the system will wait before automatically resolving a dispute in favor of the customer if the merchant fails to respond.
+- **Evidence Requirement (requiredEvidence):** Mandates customers to upload photo or video evidence when opening a dispute, preventing baseless claims.
+- **Appeals (allowAppeals):** Allows the losing party (merchant or customer) to appeal the final dispute decision to the platform administrators.
+
+### 2. Allowed Dispute Reasons
+You can toggle which specific reasons customers can select when initiating a dispute:
+- **PRODUCT_DEFECT:** The item arrived damaged or broken.
+- **NOT_AS_DESCRIBED:** The item does not match the description or photos.
+- **DELIVERY_DELAY:** The shipping took significantly longer than promised.
+- **FAKE_PRODUCT:** The item is suspected to be a counterfeit or replica.
+
+> [!WARNING]
+> Disabling a specific dispute reason will prevent customers from selecting it moving forward, but it will not affect any ongoing active disputes that were opened under that reason.
+
+## Common Issues
+
+- **Issue:** The dispute automatically resolved in favor of the customer too quickly.
+- **Solution:** Increase the **Auto-Resolve Duration** (e.g., to 7 or 14 days) to give your merchants adequate time to review and respond to the claim.

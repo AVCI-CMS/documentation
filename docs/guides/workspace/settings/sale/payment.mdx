@@ -1,8 +1,40 @@
 ---
 sidebar_position: 2
-title: "Payment Gateways"
+title: "Payment"
 ---
 
-# Payment Gateways
+# Payment Settings
 
-Connect Stripe, iyzico, or PayPal. Configure supported currencies, installments, and 3D secure requirements.
+**Menu Path:** `Workspace > Settings > Sale Settings > Payment`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+The Payment Settings module is the central hub where all financial flows, currencies, and transaction limits in your workspace are managed.
+
+Through this page, you can define the currencies accepted by the system, configure payment methods, and integrate live exchange rates.
+
+## Key Features & Configuration
+
+### 1. Global Payment Configuration
+You can control the status of the global payment service and operational approval processes.
+- **Payment Service (isPaymentEnabled):** Activates or deactivates the global payment service. When deactivated, no new payments can be received through the platform.
+- **Transaction Approval (requireApproval):** Activates a manual approval mechanism. All transactions will fall into the finance department's approval queue.
+- **Accepted Currencies (acceptedCurrencies):** You can determine the currencies you will accept on the platform (e.g., TRY, USD, EUR, GBP, CAD, JPY).
+- **Preferred Payment Methods:** You can enable or disable options like Credit/Debit Card, Wire Transfer/EFT, Cash on Delivery, and Digital Wallet.
+
+### 2. Transaction Limits
+Allows you to configure limits and restrictions on payment transactions.
+- **Maximum Number of Transactions (maxPaymentsPerMerchant):** Determines the total limit of transactions accepted simultaneously or during the day per merchant. This helps prevent potential fraud or abuse.
+
+### 3. Live Exchange Rates
+You can track active exchange rates in the system and trigger manual updates via a Global Provider. Rates are calculated based on your designated base currency (e.g., TRY).
+
+> [!WARNING]
+> **Financial Security Reminder:** Changes made in payment settings are immediately active for all **new transactions**. When the service is turned off, the status of existing pending transactions is not affected.
+
+## Common Issues
+
+- **Issue:** The payment module is active, but the payment screen does not open.
+- **Solution:** Ensure that at least one of the accepted currencies or preferred payment methods is selected.

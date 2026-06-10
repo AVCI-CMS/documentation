@@ -1,8 +1,49 @@
 ---
 sidebar_position: 4
-title: "Penalty Rules"
+title: "Penalty"
 ---
 
-# Penalty Rules
+# Penalty Settings
 
-Configure automated financial penalties for merchants who fail to ship on time or have high return rates.
+**Menu Path:** `Workspace > Settings > Sale Settings > Penalty`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **MARKETPLACE** plan.
+:::
+
+Penalty Settings is the section where you manage the financial restrictions and penalties that the system will automatically apply in the event of rule violations by merchants on your platform.
+
+## Key Features & Configuration
+
+### 1. Enforcement Policy (Hierarchy)
+- **Merchant Penalty System (merchantPenalty):** When you activate the penalty system, restrictions are automatically applied to parties violating rules. When the system is passive, no enforcement is executed.
+
+### 2. Rule and Penalty Configurations
+You can create independent penalty rules for each type of violation. When rules are activated, they take effect with various calculation types (Fixed, Percentage, Progressive).
+
+**Supported Violation Reasons:**
+- LATE_SHIPMENT
+- OUT_OF_STOCK
+- SELLER_CANCELLATION
+- WRONG_ITEM_SENT
+- WRONG_QUANTITY
+- DAMAGED_ITEM
+- FAKE_ITEM
+- WRONG_PRICE
+- OVERCAPACITY
+- VIOLATION_POLICY
+- CUSTOMER_COMPLAINT_UPHELD
+- NO_RESPONSE_SUPPORT
+
+**Penalty Calculation Types:**
+1. **FIXED:** A clear fixed amount (e.g., $50) is deducted per violation.
+2. **PERCENTAGE:** A specific percentage (e.g., 10%) of the order or product amount subject to the violation is deducted. Additionally, a *Minimum Penalty Amount (minAmount)* can be set.
+3. **PROGRESSIVE:** Designed for penalties that increase as delays occur. The penalty amount can be progressively increased for Day 1, Day 2, Day 3, and each subsequent day.
+
+> [!WARNING]
+> When the penalty system is activated, restrictions for violating parties are **automatically** deducted from their payouts (transaction balances). Retroactive penalties are not applied while the system is inactive.
+
+## Common Issues
+
+- **Issue:** The penalty amount is not deducted from the merchant's payout.
+- **Solution:** Check whether the merchant's balance for the relevant order is higher than the penalty amount. Also, ensure the general penalty system (`merchant.isActive`) is enabled.

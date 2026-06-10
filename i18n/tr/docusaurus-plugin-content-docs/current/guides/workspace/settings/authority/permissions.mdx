@@ -1,8 +1,35 @@
 ---
-sidebar_position: 4
-title: "Permissions"
+sidebar_position: 3
+title: "Yetkiler"
 ---
 
-# Permissions Matrix
+# Yetkiler (Permissions)
 
-The granular control panel. Define exact View, Edit, Create, and Delete rights for every single module in the CMS.
+**Menü Yolu:** `Workspace > Settings > Authority > Permissions`
+
+:::info Erişim Bilgisi
+Bu bölüm, Sistem Yetki Matrisi'nin sadece okunabilir (read-only) bir görünümünü sunar. Bu yetkilere kimlerin sahip olacağını düzenlemek için **Roller (Roles)** sayfasına gitmelisiniz.
+:::
+
+Yetkiler (Permissions) modülü, tüm platform genelinde tanımlanmış olan erişim haklarının derinlemesine, atomik bir listesini sunar. Sistemdeki her modül, özellik ve işlem belirli bir yetki koduna bağlıdır.
+
+## Temel Özellikler
+
+### 1. Sistem Yetki Matrisi
+Bu sayfa, sistemdeki her bir atomik yetkiyi listeler.
+- **Atomik Erişim:** Yetkiler son derece ayrıntılı ve küçüktür (Örn: `Product:Create`, `Product:View`, `Settings:Manage`).
+- **Salt Okunur (Read-Only):** Buradan yeni bir atomik yetki oluşturamaz veya mevcut olanları silemezsiniz; yetkiler platformun kaynak kodlarıyla (codebase) statik olarak eşleşmiştir.
+
+### 2. Filtreleme & Organizasyon
+Kapsamlı matris içerisinde kolayca gezinebilmek için yetkiler mantıksal olarak organize edilmiştir:
+- **Kategori Filtresi:** Yetkileri üst düzey alanlarına göre (Örn: Catalog, Sales, CRM) filtreleyebilirsiniz.
+- **Grup Filtresi:** Belirli bir işlevsel gruba (Örn: Ürünler, Etkinlikler, Siparişler) ait yetkileri filtreleyebilirsiniz.
+- **Durum Etiketi (Status Tag):** Yetkinin temel bir sistem gereksinimi (`SYSTEM`) mi yoksa standart bir operasyonel yetki (`CUSTOM`) mi olduğunu gösterir.
+
+> [!TIP]
+> Özel roller (Custom Roles) tasarlarken bu sayfayı bir referans kılavuzu olarak kullanın. Her bir yetki kodunun (Örn: `WORKSPACE_SETTINGS_VIEW`) tam olarak ne işe yaradığını anlayarak, personeliniz için güvenli ve "en az ayrıcalık" (least-privilege) prensibine uygun roller yaratabilirsiniz.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Bir kullanıcıya ürünleri düzenleme yetkisi vermeden, sadece ürünleri görüntüleme yetkisi vermek istiyorum.
+- **Çözüm:** Ürünleri görüntülemek için gereken kesin yetki kodunu bulmak amacıyla buradaki matrisi inceleyin. Ardından **Roller (Roles)** modülüne gidin, yeni bir rol oluşturun, sadece bulduğunuz görüntüleme yetkisini atayın ve son olarak ilgili kullanıcıyı o role atayın.

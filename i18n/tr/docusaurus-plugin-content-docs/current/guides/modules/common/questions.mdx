@@ -1,0 +1,34 @@
+---
+sidebar_position: 4
+title: "Questions"
+description: "Kullanıcıların sorduğu soruları (Soru-Cevap) yönetme arayüzü."
+---
+
+# Sorular (Questions / Soru-Cevap)
+
+Soru-Cevap modülü, kullanıcıların ürünler, satıcılar veya etkinlikler hakkında sordukları soruları yönetmenizi sağlar. Genellikle ana menüdeki **Communication (İletişim)** altında tüm sorular liste halinde görünürken; bir **Ürün (Product)** veya **Satıcı (Merchant)** detayında sadece o içeriğe ait sorular listelenir.
+
+## Soru Listesi ve Filtreleme
+
+Soru listesinde her bir soru için şu bilgiler bulunur:
+- **Kullanıcı (User):** Soruyu soran kişinin adı ve avatarı. Yeni (cevaplanmamış) soruların yanında mavi bir nokta bulunur.
+- **İçerik (Content):** Sorunun metni.
+- **Kategori (Category):** Sorunun türü (Genel, Kargo, Ödeme, Ürün Bilgisi, Garanti, İade, Teknik vb.)
+- **Durum (Status):** Bekliyor (Pending), Cevaplandı (Answered), Kapatıldı (Closed), Gizlendi (Hidden), Silindi (Deleted).
+- **Cevap Durumu (Answered):** Sorunun bir yanıt alıp almadığını (Cevaplandı / Cevaplanmadı) gösterir.
+
+## Soruları Yanıtlama ve Yönetme
+
+### 1. Soru Detayı ve Cevaplama
+Listeden "Görüntüle (View)" butonuna veya satıra tıkladığınızda sorunun detay paneli açılır.
+- Panelin üst kısmında soruyu soran kişinin bilgileri, sorunun kategorisi ve mevcut durumu yer alır.
+- Eğer soru henüz cevaplanmamışsa, en altta bir metin alanı (Textarea) çıkar. Buraya cevabınızı yazıp **Cevap Gönder (Send Answer)** butonuna basarak kullanıcıyı bilgilendirebilirsiniz.
+- Yönetici veya yetkili bir satıcı tarafından verilen cevapların yanında otomatik olarak **Resmi (Official)** etiketi görünür.
+
+### 2. Toplu İşlemler (Bulk Actions)
+Listeden birden fazla soruyu (checkbox ile) seçerek şu toplu işlemleri yapabilirsiniz:
+- **Toplu Sil (Delete):** Seçili soruları sistemden kaldırır.
+- **Toplu Onayla (Moderate):** Soruların onay durumunu günceller ve yayına alır.
+- **Durum Güncelle (Status):** Seçili soruları "Kapatıldı", "Gizlendi" vb. durumlara topluca çeker.
+
+> **İpucu:** Bir soruyu sildiğinizde sağ alt köşede kısa bir süreliğine "Geri Al (Undo)" butonu çıkar. Yanlışlıkla sildiğiniz soruları bu süre içinde geri getirebilirsiniz.

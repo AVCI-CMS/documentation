@@ -1,28 +1,36 @@
 ---
-sidebar_position: 8
-title: "Users"
+sidebar_position: 2
+title: "Kullanıcılar (Users)"
+description: "Son müşterileri, profilleri ve hesap durumlarını yönetin."
 ---
 
-# Users & Customers (CRM)
+# Kullanıcılar (Users)
 
-**Menu Path:** `Relations > Users`
+**Menü Yolu:** `İlişkiler > Kullanıcılar` (veya `Relations > Users`)
 
-The **Users** module is your Customer Relationship Management (CRM) hub. It lists every individual who has registered an account on your platform, whether they are a standard shopper, a merchant, or an administrator.
+**Kullanıcılar** modülü, tüm kayıtlı son müşteriler (B2C) veya alıcılar için birincil rehberinizdir. Bir kullanıcının platformunuzla etkileşiminin kapsamlı bir 360 derece görünümünü sağlar.
 
-## Managing the User Directory
+## Bir Kullanıcı Profilini Görüntüleme
 
-When you open the Users list, you can search for customers by Name, Email, or Phone Number.
+1. **İlişkiler > Kullanıcılar** sayfasına gidin.
+2. Profilini açmak için bir Kullanıcı ID'sine veya isme tıklayın.
 
-### Viewing a Customer Profile
-Clicking on a user's row opens a 360-degree view of their interactions with your platform:
-- **Order History:** See a list of every purchase they've made, their lifetime value (LTV), and average order size.
-- **Saved Addresses:** View or delete their saved shipping and billing addresses.
-- **Wallet Balance:** Check if they have any remaining store credit.
-- **Support Tickets:** See a history of their communications with your support team.
+### 1. Temel Bilgiler (Basic Information)
+- **Kişisel Detaylar:** Ad, Soyad, E-posta ve Telefon Numarası.
+- **Durum (Status):** Bir kullanıcı hizmet şartlarını ihlal ederse, durumunu *AKTİF (ACTIVE)* durumundan *ASKIYA ALINDI (SUSPENDED)* durumuna getirerek onu manuel olarak engelleyebilirsiniz.
+- **Kayıt Tarihi:** Kullanıcının platforma ilk ne zaman üye olduğu.
 
-## Administrative Actions
+### 2. Güvenlik ve Doğrulama (Security & Verification)
+- **E-posta/Telefon Doğrulaması:** Kullanıcının iletişim bilgilerini OTP/Link yoluyla doğrulayıp doğrulamadığını kontrol edin.
+- **Parola Sıfırlama:** Bir Admin olarak kullanıcının parolasını göremezsiniz, ancak kullanıcı hesabına erişemiyorsa "Zorunlu Parola Sıfırlama" e-postası tetikleyebilirsiniz.
 
-As an admin, you can perform several actions on a user's account:
-- **Password Reset:** If a user complains they cannot log in, click the **"Send Password Reset Email"** button to dispatch a secure reset link to their registered email.
-- **Role Assignment:** Elevate a standard shopper to a "Merchant" or "Admin" by changing their assigned Role in the settings tab.
-- **Account Ban:** If a user is engaging in fraudulent behavior, change their status to **"Banned"** or **"Suspended"**. They will immediately lose access to their account, and their active sessions will be terminated.
+### 3. Adresler (Addresses)
+- Kaydedilmiş tüm Fatura ve Kargo adreslerinin bir listesi. Müşteri adresindeki bir yazım hatası için destek talep ederse, bunları kullanıcı adına düzenleyebilirsiniz.
+
+### 4. Etkinlik ve Geçmiş (Activity & History)
+Kullanıcı profili CMS'nin geri kalanıyla derinlemesine entegredir. Profil sayfasından şunlara hızlıca atlayabilirsiniz:
+- **Sipariş Geçmişi:** Yaptıkları tüm satın alımların listesi.
+- **Destek Talepleri:** Açtıkları aktif veya kapatılmış tüm müşteri hizmetleri biletleri.
+- **Değerlendirmeler:** Gönderdikleri ürün veya etkinlik yorumları.
+
+*Oluşturma Üzerine Not:* Genellikle Yönetim Panelinde (Admin Panel) Kullanıcıları manuel olarak oluşturmazsınız; kullanıcılar frontend web siteniz veya mobil uygulamanız üzerinden kendileri kayıt olurlar. Ancak, B2B telesatış operasyonları için manuel oluşturma mevcuttur.

@@ -1,0 +1,24 @@
+---
+sidebar_position: 1
+title: "Finans ve Lojistiğe Genel Bakış"
+description: "Siparişleri, ödemeleri, faturalandırmayı, kargoları ve satıcı cüzdanlarını yönetin."
+---
+
+import DocCardList from '@theme/DocCardList';
+
+# Finans ve Lojistik (Finance & Logistics)
+
+**Finans ve Lojistik** grubu, ticari bir platformu yönetmek için gereken temel operasyonel modülleri içerir. Kataloğunuzdan bir ürün satın alındığında, ilk ödemeden son teslimata kadar olan tüm yaşam döngüsü burada izlenir ve yönetilir.
+
+Pazaryeri (Marketplace) modelleri için bu grup, komisyon hesaplamaları, cüzdan bakiyeleri ve hakediş ödemeleri dahil olmak üzere platform ile Satıcılar (Merchants) arasındaki karmaşık finansal bölünmeyi (splitting) de yönetir.
+
+### Bu Gruptaki Modüller
+
+- **Siparişler (Orders):** Tüm satın alımlar için ana kontrol merkezi. Ürünleri görüntüleyin, durumları güncelleyin, alt siparişleri yönetin ve onayları işleyin.
+- **Ödemeler (Payments):** Ödeme altyapınızdan (örn. Stripe, Iyzico, PayTR) alınan ham işlem kayıtları. İade ve iptalleri buradan yönetirsiniz.
+- **İşlemler ve Cüzdan (Transactions & Wallet):** Ana defter (ledger) sistemi. Para akışını, bekleyen kazançları, komisyonları ve satıcılar için çekilebilir cüzdan bakiyelerini izler.
+- **Faturalar (Invoices):** Vergi ve muhasebe amaçlı resmi fatura belgelerini (e-fatura vb.) oluşturur ve yönetir.
+- **Kargo (Shipment):** Fiziksel teslimatları izler, takip kodları oluşturur ve kargo şirketleriyle entegrasyon sağlar.
+- **İtirazlar ve Cezalar (Disputes & Penalties):** Müşteri şikayetlerini, iade taleplerini ve satıcılara uygulanan idari cezaları yönetir.
+
+<DocCardList />

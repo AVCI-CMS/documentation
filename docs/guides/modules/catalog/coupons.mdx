@@ -1,37 +1,40 @@
 ---
-sidebar_position: 9
+sidebar_position: 6
 title: "Coupons"
+description: "Generate and manage discount codes for users."
 ---
 
 # Coupons
 
 **Menu Path:** `Catalog > Coupons`
 
-While Campaigns apply automatically to eligible products, **Coupons** require the customer to actively enter a specific alphanumeric code at the checkout stage. They are essential for influencer marketing, targeted email campaigns, and customer retention strategies.
+The **Coupons** module is used to create specific, trackable alphanumeric codes that users can enter at checkout to receive a discount. Unlike Campaigns, which apply automatically, coupons require user action and are excellent tools for targeted marketing, affiliate tracking, and customer retention.
 
-## Deep Dive into Coupon Creation
+## Creating a Discount Coupon
 
-Navigate to **Catalog > Coupons** and click **"Create"**.
+To generate a new coupon code:
 
-### 1. Code Generation
-- **Coupon Code:** You can type a custom code (e.g., `WELCOME20`) or click the "Generate Random" button for unique tracking codes.
+1. Navigate to **Catalog > Coupons**.
+2. Click **"Add New"**.
 
-### 2. Discount Configuration
-- **Discount Type:** Choose between:
-  - *Percentage (%):* Reduces the cart subtotal by a percentage.
-  - *Fixed Amount ($):* A flat monetary deduction.
-  - *Free Shipping:* Eliminates shipping costs regardless of the order size.
-- **Amount:** Enter the specific value of the discount.
+### 1. Basic Info & Discount Value
+- **Code:** The actual text the user will type (e.g., `WELCOME20`, `SUMMERSALE`). This field automatically converts text to uppercase.
+- **Discount Type:** Choose how the discount is applied:
+  - *PERCENTAGE:* Reduces the cart total by a percentage (e.g., 20%).
+  - *FIXED:* Reduces the cart total by a flat currency amount (e.g., $15).
+  - *FREE_SHIPPING:* Waives the shipping fees.
+- **Discount Value:** Enter the numeric value corresponding to the chosen type.
+- **Active:** Toggle the coupon on or off instantly.
+- **Auto Apply:** If toggled, the system will attempt to automatically apply this coupon to eligible carts without the user needing to type it.
 
-### 3. Strict Usage Limits
-Protect your margins by applying limits:
-- **Minimum Spend Requirement:** The coupon is only valid if the cart totals at least $50.
-- **Total Usage Limit:** The coupon will expire globally after it has been used X times (e.g., "First 100 customers only!").
-- **Per-User Limit:** Restrict usage so a single logged-in account can only use the code once.
+### 2. Validity & Limits
+- **Valid From & Valid Until:** Set the precise date and time window when the coupon is active.
+- **Min Order Amount:** The cart subtotal must reach this value before the coupon is valid.
+- **Max Discount Amount:** Useful for percentage discounts. (e.g., "20% off, up to a maximum of $50").
+- **Max Usage:** The total number of times this coupon can be used across the entire platform (e.g., "First 100 customers only").
+- **Usage Per Customer:** How many times a single registered user can use this specific code (usually set to `1`).
 
-### 4. Applicability Rules
-Just like Campaigns, you can restrict coupons:
-- Exclude specific products that are already heavily discounted.
-- Limit the coupon to only apply to a specific Category or Brand.
+### 3. Usage Terms
+- **Terms List:** Add line-by-line legal or explanatory terms associated with this coupon (e.g., "Cannot be combined with other offers", "Valid only on full-priced items").
 
-> **Tracking & Analytics:** Once a coupon is live, returning to the Edit screen will show you exactly how many times it has been used and the total revenue generated through that specific code.
+3. Once configured, click **"Save"** to activate the coupon.

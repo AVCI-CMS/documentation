@@ -1,0 +1,36 @@
+---
+sidebar_position: 3
+title: "Rotalar"
+---
+
+# Rota (Tur/Seyahat) Ayarları
+
+**Menü Yolu:** `Workspace > Settings > Catalog > Route`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **BOOKING** (Rezervasyon) planına sahip olmanız gerekmektedir.
+:::
+
+Rota (Route) Ayarları, ulaşım (otobüs, transfer), turizm ve rehberli turlar gibi başlangıç ve bitiş noktaları (güzergahlar) olan hizmetlerin kurallarını belirlediğiniz alandır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Dinamik Fiyatlandırma
+Yolculuk veya turların doluluk oranına göre fiyatının otomatik olarak artıp azalmasını sağlar.
+- **Dinamik Fiyatlandırma Modülü:** Aktif edildiğinde, algoritma kalan koltuk/kontenjan azaldıkça bilet fiyatını yukarı yönlü günceller.
+- **Tavan Fiyat Sınırı:** Dinamik fiyatlandırmanın orijinal fiyatın üzerine çıkabileceği maksimum yüzdeyi belirler (Örn: Maksimum %150).
+
+### 2. Rezervasyon Payı (Buffer Minutes)
+Operasyonel aksaklıkları önlemek için sefere kısa süre kala satışları durdurmanızı sağlar.
+- **Kalkışa Kapanma Süresi (Buffer Minutes):** Seferin veya turun başlamasına kaç dakika kala bilet/rezervasyon satışının durdurulacağını belirler. Örneğin 60 dakika olarak ayarlanırsa, otobüsün kalkmasına 1 saat kala o sefere bilet alınamaz ve yolcu listesi kesinleşir.
+
+### 3. Ara Noktalar (Waypoints)
+- **Maksimum Durak Sayısı:** Bir başlangıç ve bitiş noktası arasında (örn: İstanbul -> Ankara) eklenebilecek maksimum ara durak (İzmit, Bolu vb.) sayısını sınırlar.
+
+> [!TIP]
+> Turistik turlarda "Kalkışa Kapanma Süresini" yüksek (Örn: 1440 dakika / 24 saat) tutarak rehberlerin tura katılacak kişi listesini bir gün önceden net olarak almasını sağlayabilirsiniz.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Seferin başlamasına çok kısa süre kalmasına rağmen hala bilet satılıyor.
+- **Çözüm:** "Kalkışa Kapanma Süresi (Buffer Minutes)" değerinin sıfır (0) olmadığından emin olun. Gerekli süreyi dakika cinsinden (Örn: 120 = 2 Saat) güncelleyin.

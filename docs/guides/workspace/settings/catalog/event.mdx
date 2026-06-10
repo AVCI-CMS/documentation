@@ -1,10 +1,49 @@
 ---
-sidebar_position: 3
-title: "Event Settings"
+sidebar_position: 2
+title: "Event"
 ---
 
 # Event Settings
 
 **Menu Path:** `Workspace > Settings > Catalog Settings > Event`
 
-Global rules for event ticketing, including default cancellation policies, maximum tickets per user, and waiting list behaviors.
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **TICKETING, EVENTS** plan.
+:::
+
+Event Settings govern event sales, organizer approvals, session limits, and commission configurations. This is critical for maintaining the operational structure of ticketed events, tours, or classes on your platform.
+
+## Key Features & Configuration
+
+### 1. General Event Settings
+- **Global Sales Status (isEventSalesEnabled):** Toggles the ability to sell tickets or registrations for events globally.
+- **Organizer Approval (requireApproval):** If enabled, new events created by organizers require admin approval before going live.
+- **Max Events Per Organizer:** Limits the total number of events an organizer can host.
+- **Smart Banner (useBannerAsFeaturedImage):** Automatically uses the event banner as the featured cover image if no specific cover is uploaded.
+- **Recurring Support (allowRecurringEvents):** Allows organizers to create repeating sessions (e.g., every Monday).
+- **Max Sessions (maxSessionsPerCreate):** Limits how many sessions can be generated in a single creation batch (default is usually 52, representing one year of weekly events).
+- **Allowed Event Types (eventTypes):** Restrict event creation to specific formats (PHYSICAL, VIRTUAL, HYBRID).
+
+### 2. Component Management
+Manage the layout and requirements of the event creation form.
+- Toggle visibility and requirement for fields like `Banner Generator`, `Rules`, `Capacity`, `Date`, `Duration`, and `Location`.
+
+### 3. Capacity and Price Limits
+- **Price Limits:** Define the `Minimum Price` and `Maximum Price` for tickets.
+- **Capacity Limits:** Set the `Minimum Capacity` and `Maximum Capacity` to prevent overbooking or non-viable events.
+
+### 4. Financial Configuration (Commission)
+Set standard commission rates for ticket sales.
+- Configurable **Default**, **Minimum**, and **Maximum** rates.
+- **Custom Allowance:** Allows setting specific commission rates per organizer.
+
+### 5. Role-Based Visibility
+Configure which event form fields are visible to different roles, and attach custom help text/descriptions to specific fields for organizers.
+
+> [!TIP]
+> Event settings define the organizational structure. Session limits and organizer approvals are critical for maintaining platform integrity. Infrastructure changes here will not disrupt currently ongoing sessions.
+
+## Common Issues
+
+- **Issue:** Organizers cannot create a weekly event spanning the entire year.
+- **Solution:** Check the **Max Sessions** limit under General Settings. If it's set too low, they won't be able to generate the required number of recurring sessions.

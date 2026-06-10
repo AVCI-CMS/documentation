@@ -1,8 +1,37 @@
 ---
-sidebar_position: 4
-title: "Brand Rules"
+sidebar_position: 1
+title: "Marka (Brand)"
 ---
 
-# Brand Rules
+# Marka İlişkileri (Brand Relation)
 
-Determine if merchants are allowed to propose new brands to the catalog or if they must only select from existing ones.
+**Menü Yolu:** `Workspace > Settings > Relations > Brand`
+
+:::info Yetki Gereksinimleri
+Marka İlişkileri ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Marka İlişkileri ayarları, çalışma alanı ekosisteminizdeki marka varlıklarının (brand entities) uyması gereken operasyonel kısıtlamaları, varsayılan davranışları ve sınırlamaları tanımlamanıza olanak tanır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Genel Kısıtlamalar
+- **Maksimum Aktif Marka Sayısı:** Tek bir satıcı veya organizasyon altında aynı anda aktif olabilecek maksimum marka sayısını tanımlar.
+- **Doğrulama Gereksinimi (Verification):** Yeni kaydedilen markaların, ürünlerini listeleyebilmeden önce manuel bir sistem yöneticisi (admin) onayı gerektirip gerektirmediğini ayarlayabilirsiniz.
+
+### 2. Form ve Bileşen Ayarları
+Yönetici veya satıcılar yeni bir marka profili oluştururken hangi alanların görünür veya zorunlu olacağını özelleştirebilirsiniz.
+- **Logo ve Kapak Fotoğrafı:** Yüksek çözünürlüklü marka görsellerinin yüklenmesini zorunlu kılabilirsiniz.
+- **Marka Hikayesi / Açıklaması:** Tüm markaların eksiksiz bir profile sahip olmasını sağlamak için açıklayıcı metin alanını zorunlu hale getirebilirsiniz.
+
+### 3. Kısıtlama Ayarları (Restriction Settings)
+- **Ürün Listeleme Limitleri:** Bir markanın pazar yeri genelinde listeleyebileceği farklı ürün sayısının üst sınırını kısıtlayabilirsiniz.
+- **Kategori Özelliği (Exclusivity):** İsteğe bağlı olarak, bir markayı ürünlerini sadece önceden tanımlanmış belirli kategorilerde yayınlaması için sınırlandırabilirsiniz.
+
+> [!TIP]
+> Form gereksinimlerinde yapılan değişikliklerin (örneğin logoyu zorunlu hale getirmek gibi) satıcılarınıza bildirildiğinden emin olun; aksi takdirde gerekli materyallere sahip olmayan satıcılar yeni marka oluşturma işleminde takılıp kalabilir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Bir satıcı (merchant) yeni bir marka oluşturamıyor.
+- **Çözüm:** "Maksimum Aktif Marka Sayısı" kısıtlamasını kontrol edin. Eğer satıcı burada tanımlanan limite ulaşmışsa, limit artırılana kadar yeni marka oluşturması sistem tarafından engellenecektir.

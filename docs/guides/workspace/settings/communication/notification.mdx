@@ -1,8 +1,35 @@
 ---
-sidebar_position: 2
-title: "Push Notifications"
+sidebar_position: 3
+title: "Global Notifications"
 ---
 
-# Push Notification Settings
+# Global Notification Settings
 
-Configure Firebase Cloud Messaging (FCM) credentials or Apple Push Notification Service (APNs) keys for mobile app alerts.
+**Menu Path:** `Workspace > Settings > Communication > Notification`
+
+:::info Permission Requirements
+To manage global notification states, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Notification settings act as the master control switch for all outbound communications from your workspace. Here, you can define which channels are active and universally toggle communications on or off.
+
+## Key Features & Configuration
+
+### 1. System Configuration
+- **Global Notification Service:** This master switch controls whether *any* notifications (invoices, security alerts, updates) are sent across the workspace. 
+- **Failsafe:** If this is toggled off, no messages will be sent, overriding all individual channel settings. This is highly useful during major system maintenance or migrations.
+
+### 2. Supported Channels
+Once the global service is active, you can selectively enable or disable specific communication channels:
+- **Email:** Standard transactional emails.
+- **SMS:** Text messages for urgent alerts or OTPs.
+- **In-App:** Notifications displayed inside the user dashboard.
+- **Mobile Push:** Push notifications sent to custom mobile applications.
+
+> [!WARNING]
+> **Integration Prerequisites:** Toggling "Email" or "SMS" on here will only work if you have successfully configured an active provider in the respective Email and SMS settings pages. Similarly, "Mobile Push" requires a valid Firebase configuration.
+
+## Common Issues
+
+- **Issue:** No users are receiving emails, even though the Email Provider is set up correctly.
+- **Solution:** Check this Global Notifications page. If the "Global Notification Service" master switch is disabled, or if the "Email" channel checkbox is unchecked, all outbound emails will be blocked regardless of provider settings.

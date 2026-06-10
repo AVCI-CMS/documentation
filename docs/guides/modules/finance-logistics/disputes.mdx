@@ -1,0 +1,29 @@
+---
+sidebar_position: 8
+title: "Disputes"
+description: "Manage customer return requests and chargebacks."
+---
+
+# Disputes
+
+**Menu Path:** `Finance & Logistics > Disputes`
+
+The **Disputes** module is the central command for handling customer conflicts. A dispute is usually opened when a customer wants to return an item, claims they never received a package, or initiates a chargeback with their credit card company.
+
+## Understanding the Dispute Lifecycle
+
+1. **Initiation:** A customer opens a dispute from their "My Orders" page, stating a reason (e.g., "Item damaged in transit") and optionally uploading photos.
+2. **Review:** The dispute appears in **Finance & Logistics > Disputes** with a status of *OPEN*. 
+3. **Communication:** Both the Customer and the Merchant (or Admin) can leave messages and evidence within the dispute thread.
+4. **Resolution:** 
+   - *Accepted:* The merchant accepts the return. The system instructs the customer to ship the item back. Once received, the Admin processes a *REFUND* via the Payments module.
+   - *Rejected:* The merchant refuses the return (e.g., the return window expired). 
+   - *Admin Escalation:* If the merchant and customer cannot agree, the Platform Admin steps in as an arbitrator to make a final decision.
+
+## Managing a Dispute
+
+1. Go to **Finance & Logistics > Disputes**.
+2. Click on a Dispute ID to open the details.
+3. Review the **Related Order**, the **Customer's Claim**, and the **Uploaded Evidence**.
+4. Use the internal messaging system to ask the customer for more details.
+5. Update the **Dispute Status** to *RESOLVED*, *REFUNDED*, or *REJECTED* based on the outcome.

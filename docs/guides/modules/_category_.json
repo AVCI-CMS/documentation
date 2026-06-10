@@ -4,5 +4,6 @@
   "link": {
     "type": "generated-index",
     "description": "Guides for managing the daily operations of your platform using the core CMS modules."
-  }
+  },
+  "key": "modules"
 }

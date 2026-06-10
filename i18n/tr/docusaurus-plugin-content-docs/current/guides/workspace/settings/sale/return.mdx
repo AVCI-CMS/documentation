@@ -1,0 +1,34 @@
+---
+sidebar_position: 8
+title: "İadeler"
+---
+
+# İade Ayarları
+
+**Menü Yolu:** `Workspace > Settings > Sale > Return`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+İade (Return) modülü, müşterilerin iade taleplerini, cayma hakkı sürelerini ve iade kargo anlaşmalarını yönettiğiniz operasyonel alandır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. İade ve Cayma Hakkı Süreleri
+Tüketicinin ürünü iade edebileceği yasal veya inisiyatif tabanlı süreleri belirlersiniz.
+- **Standart İade Süresi:** Sipariş müşteriye teslim edildikten sonra iade talebi oluşturulabilecek gün sayısıdır (Örn: 14 Gün). Bu süre geçtiğinde sistem otomatik olarak iade butonunu pasifleştirir.
+- **İstisnai Kategoriler:** Elektronik, iç giyim veya gıda gibi bazı ürün grupları için iade süresini tamamen kapatabilir veya farklı bir gün sınırı atayabilirsiniz.
+
+### 2. İade Lojistiği (Kargo Kodu)
+Müşteri iade talebi oluşturduğunda sistemin nasıl davranacağını yönetir.
+- **Otomatik Kargo Kodu Üretimi:** Müşteri iade talebi açtığı anda anlaşmalı kargo firması üzerinden otomatik bir iade barkodu üretilip müşteriye gösterilir.
+- **İade Kargo Ücreti:** İade sürecinde kargo maliyetinin (eğer yasal engel yoksa) iade tutarından kesilip kesilmeyeceği ayarlanır.
+
+> [!WARNING]
+> Tüketici Kanunları gereğince 14 günlük cayma hakkı çoğu e-ticaret modeli için yasal bir zorunluluktur. İade süresini 14 günden daha az olarak yapılandırmak hukuki sonuçlar doğurabilir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteriye iade kargo kodu oluşmuyor.
+- **Çözüm:** Entegrasyonlar sekmesinden kargo firmanızla (Örn: Yurtiçi, MNG) bağlantınızın aktif olup olmadığını ve "Otomatik Kargo Kodu Üretimi" ayarının açık olduğunu kontrol edin.

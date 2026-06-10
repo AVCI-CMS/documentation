@@ -1,0 +1,36 @@
+---
+sidebar_position: 8
+title: "QR Code"
+description: "Pazarlama ve operasyonlar için dinamik QR kodları oluşturun ve izleyin."
+---
+
+# Karekod (QR Code)
+
+**Menü Yolu:** `Araçlar > QR Code` (veya `Tools > QR Code`)
+
+**QR Code** modülü, Karekodlar için yerleşik bir oluşturucu (generator) ve izleyici sağlar. Bitly gibi üçüncü taraf araçlara ihtiyaç duymadan dahili bir URL kısaltıcı ve fizikselden dijitale (physical-to-digital) köprü görevi görür.
+
+## Bir QR Kod Oluşturma
+
+1. **Araçlar > QR Code** sayfasına gidin.
+2. **"Yeni Oluştur" (Generate New)** butonuna tıklayın.
+
+### Yapılandırma
+- **Hedef URL (Target URL):** Kullanıcının yönlendirilmesi gereken tam web adresini girin (Örn: `https://alanadiniz.com/kampanya-sayfasi`).
+- **Kampanya Adı:** Dahili kayıtlarınız için açıklayıcı bir ad (Örn: "Yaz Dergisi Arka Kapak").
+- **Tasarım Seçenekleri:** QR kodunuzun görünümünü özelleştirin. Ana rengi değiştirebilir, desen stilini (kare veya yuvarlak noktalar) ayarlayabilir ve hatta kurumsal logonuzu doğrudan QR kodunun merkezine yerleştirebilirsiniz.
+- **Format:** Oluşturulan nihai kodu PNG (web için) veya SVG/EPS vektör dosyası (yüksek kaliteli baskı için) olarak indirin.
+
+## Statik ve Dinamik QR Kodları
+
+- **Statik:** Ham Hedef URL, QR grafiğine doğrudan kodlanır. Daha sonra Hedef URL'yi değiştirirseniz, yeni QR kodları yazdırmanız/bastırmanız gerekir.
+- **Dinamik (Önerilen):** QR grafiği kısa, aracı bir AVCI-CMS bağlantısı (linki) içerir. Tarandığında CMS, kullanıcıyı anında gerçek Hedef URL'ye yönlendirir. *Avantajı:* Fiziksel QR kodunu yeniden bastırmak zorunda kalmadan nihai hedef URL'sini istediğiniz zaman değiştirebilirsiniz (Örn: her gün değişen ancak aynı masa etiketini kullanan bir restoran menüsü).
+
+## Tarama Analizleri (Scan Analytics)
+
+Tüm Dinamik QR kodları için CMS ayrıntılı analizler sağlar:
+- **Toplam Tarama:** Kodun kaç kez başarıyla okunduğu.
+- **Benzersiz Tarama:** Kodu kaç farklı cihazın taradığı.
+- **Cihaz Dökümü:** iOS ve Android istatistikleri.
+
+Bu, el ilanları (flyer) veya reklam panoları (billboard) gibi fiziksel pazarlama materyallerinin Yatırım Getirisini (ROI) hesaplamak için oldukça etkilidir.

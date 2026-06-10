@@ -1,32 +1,32 @@
 ---
 sidebar_position: 20
-title: "Sürat Kargo "
-description: "Sürat Kargo API entegrasyonu"
+title: "Sürat Kargo"
+description: "Sürat Kargo API integration"
 ---
 
 <img src="https://www.suratkargo.com.tr/assets/images/favicon.png" alt="Sürat Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-# Sürat Kargo 
+# Sürat Kargo
 
-Sürat Kargo API entegrasyonu
+Sürat Kargo API integration
 
-**Resmi Web Sitesi:** [https://www.suratkargo.com.tr](https://www.suratkargo.com.tr)
+**Official Website:** [https://www.suratkargo.com.tr](https://www.suratkargo.com.tr)
 
-## Özellikler
+## Features
 
-- Kargo takip
-- Otomatik gönderi
-- Web servis
+- Cargo tracking
+- Automatic shipping
+- Web service
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `password` | Şifre | `password` | ✅ Evet | Örn: Sürat Kargo Şifresi |
-| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `password` | Password | `password` | ✅ Yes | Ex: Sürat Kargo Password |
+| `testMode` | Test Mode | `boolean` | ❌ No | - |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.SURAT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Sürat Kargo` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.SURAT` enum value. After completing the configuration via the admin panel, the system will automatically start using `Sürat Kargo` services.

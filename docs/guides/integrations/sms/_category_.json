@@ -1,4 +1,5 @@
 {
   "label": "SMS",
-  "position": 2
+  "position": 2,
+  "key": "integrations_sms"
 }

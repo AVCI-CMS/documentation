@@ -1,36 +1,36 @@
 ---
 sidebar_position: 8
 title: "Verimor SMS"
-description: "Türkiye'nin güvenilir SMS gateway hizmeti ile SMS gönderin"
+description: "Send SMS with Turkey's reliable SMS gateway service"
 ---
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtXYswqvmJpc9DspWVSMiDyasypi3H9XEWQ&s" alt="Verimor Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
 # Verimor SMS
 
-Türkiye'nin güvenilir SMS gateway hizmeti ile SMS gönderin
+Send SMS with Turkey's reliable SMS gateway service
 
-**Resmi Web Sitesi:** [https://www.verimor.com.tr](https://www.verimor.com.tr)
+**Official Website:** [https://www.verimor.com.tr](https://www.verimor.com.tr)
 
-## Özellikler
+## Features
 
-- Toplu SMS gönderimi
-- OTP SMS'leri
-- Pazarlama SMS'leri
-- SMS raporlama
-- API entegrasyonu
-- Bakiye sorgulama
+- Bulk SMS delivery
+- OTP SMS
+- Marketing SMS
+- SMS reporting
+- API integration
+- Balance inquiry
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: verimor_kullanici_adi |
-| `password` | Şifre | `password` | ✅ Evet | Örn: verimor_sifresi |
-| `defaultSender` | Varsayılan Gönderici | `text` | ❌ Hayır | Örn: AVCI CMS |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `username` | Username | `text` | ✅ Yes | Ex: verimor_username |
+| `password` | Password | `password` | ✅ Yes | Ex: verimor_password |
+| `defaultSender` | Default Sender | `text` | ❌ No | Ex: AVCI CMS |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.VERIMOR` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Verimor` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.VERIMOR` enum value. After completing the configuration via the admin panel, the system will automatically start using `Verimor` services.

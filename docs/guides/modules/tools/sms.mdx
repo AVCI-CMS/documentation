@@ -1,0 +1,33 @@
+---
+sidebar_position: 6
+title: "SMS"
+description: "Manage SMS gateway configurations and mass text campaigns."
+---
+
+# SMS
+
+**Menu Path:** `Tools > SMS`
+
+The **SMS** module is an essential utility for both transactional communications and marketing. Due to the high open-rates of text messages, SMS is the preferred method for urgent notifications (like OTP verification or delivery updates).
+
+## Configuring the SMS Gateway
+
+Before you can send any messages, you must link the CMS to your external SMS Provider (e.g., Twilio, Netgsm, Mutlucell).
+
+1. Navigate to **Tools > SMS** and open the **Settings** tab.
+2. Enter your **Provider Name**.
+3. Input the **API Key** and **Secret Key** provided by your telecommunications company.
+4. Set the **Sender ID (Header)**. This is the alphanumeric name (up to 11 characters, e.g., "AVCI_CMS") that appears on the user's phone instead of a standard phone number. Note: In many regions, this Sender ID must be officially registered and approved by the government.
+
+## Sending a Mass SMS Campaign
+
+Similar to the [Newsletter](../communication/newsletter) module, you can broadcast marketing texts:
+1. Click **"New SMS Campaign"**.
+2. **Select Audience:** Filter by specific User Groups, active customers, or paste a list of raw phone numbers.
+3. **Message Body:** Type your message. Keep it concise. A standard SMS is 160 characters; exceeding this will cost you 2 or more SMS credits per user.
+4. **Schedule:** Send immediately or pick a future date.
+
+## Managing SMS Templates
+For automated system alerts (like "Your order #123 is shipped"), you can create predefined templates.
+- Go to the **Templates** tab.
+- You can use dynamic variables in your templates, such as `{{USER_NAME}}` or `{{TRACKING_LINK}}`. The CMS will automatically swap these variables with real data before sending.

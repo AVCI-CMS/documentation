@@ -1,0 +1,49 @@
+---
+sidebar_position: 2
+title: "Orders"
+description: "Master control center for all purchases, approvals, and sub-orders."
+---
+
+# Orders
+
+**Menu Path:** `Finance & Logistics > Orders`
+
+The **Orders** module is the central hub where you manage the lifecycle of a purchase. Whenever a user completes a checkout, an Order record is created. 
+
+This module adapts dynamically based on your business model (eCommerce vs. Marketplace) and your role (Admin vs. Merchant).
+
+## Viewing and Managing an Order
+
+1. Go to **Finance & Logistics > Orders**.
+2. Click on any Order ID to open the detailed Order View.
+3. The detail page is highly segmented to handle the complexity of fulfillment:
+
+### 1. Order Header & Approvals
+- At the very top, you will see the overall **Order ID** and the current **Status** (e.g., *WAITING*, *PREPARING*, *SHIPPED*, *DELIVERED*).
+- If an order requires manual intervention before fulfillment begins, you will see an **"Approve"** button. Clicking this changes the status from *WAITING* to *PREPARING*.
+
+### 2. Status Updates
+- You can manually change the order status using the "Change Status" dialog. 
+- *Note:* Statuses follow a strict hierarchy. You generally cannot revert an order from *DELIVERED* back to *PREPARING*. You must explicitly check the confirmation box to execute a status change, as this often triggers automated emails to the customer.
+
+### 3. Sub-Orders (Marketplace Mode)
+- If your platform operates as a Marketplace, a single customer order might contain items from multiple different Merchants.
+- The system automatically splits the main Order into **Sub-Orders**.
+- As an Admin, you will see a list of Sub-Orders. You can click into them to see how each individual Merchant is fulfilling their portion of the order.
+- *Merchant View:* If a Merchant logs in, they will *only* see the Sub-Order assigned to them, not the entire customer basket.
+
+### 4. Items & Attendees
+- **Physical/Digital Goods:** Displayed in a table showing the product name, variant (e.g., "Red, Size M"), quantity, and unit price.
+- **Events & Tickets:** If the order includes event tickets, an **Attendees** card will appear, listing the names and ticket details for the people registered for the event.
+
+### 5. Fulfillment Management
+- **Shipment Manager:** If physical goods are involved, this card allows you to generate tracking numbers, select the courier company, and print shipping labels.
+- **Invoice Manager:** Generates and attaches the official PDF invoice (E-Fatura) for the order.
+
+### 6. Financial Summary & Health
+- **Financial Summary:** A breakdown of the Subtotal, Tax (VAT), Shipping Costs, applied Discounts (Coupons/Campaigns), and the Final Total paid.
+- **Health Card:** An automated diagnostic tool. It flags issues like "Payment mismatch", "Missing shipping address", or "Refund requested", helping you quickly identify orders that need urgent attention.
+- **Transactions:** Links to the exact financial ledger movements (commissions, merchant payouts) associated with this order.
+
+### 7. Agreements
+- Links to the exact versions of the Distance Selling Contract and Preliminary Information Form the user accepted at the exact moment of checkout.

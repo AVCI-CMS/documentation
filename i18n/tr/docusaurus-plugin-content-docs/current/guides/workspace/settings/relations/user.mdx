@@ -1,0 +1,37 @@
+---
+sidebar_position: 5
+title: "Kullanıcı (User)"
+---
+
+# Kullanıcı İlişkileri (User Relation)
+
+**Menü Yolu:** `Workspace > Settings > Relations > User`
+
+:::info Yetki Gereksinimleri
+Kullanıcı İlişkileri ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Kullanıcı İlişkileri modülü, çalışma alanı ekosisteminizdeki son kullanıcılar (müşteriler/alışveriş yapanlar) için sınırları, hesap açma (onboarding) mantığını ve profil gereksinimlerini tanımlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Kimlik Doğrulama & Güvenlik
+- **E-posta Doğrulama (Email Verification):** Tüm yeni kullanıcıların bir satın alma işlemi gerçekleştirmeden veya platformda aktif olmadan önce e-posta adreslerini doğrulamalarını (linke tıklayarak veya kod girerek) zorunlu kılar.
+- **Şifre Politikaları (Password Policies):** Son kullanıcı şifreleri için karmaşıklık kurallarını belirler (Örn: minimum karakter uzunluğu, zorunlu sayısal ve özel karakter gereksinimi).
+
+### 2. Profil Bileşenleri (Component Settings)
+Son kullanıcılarınızın kayıt olma (signup) ve profil düzenleme formlarını özelleştirebilirsiniz.
+- **Doğum Tarihi:** Yaş doğrulamasının toplanıp toplanmayacağını kontrol eder (Özellikle yaş sınırlamalı ürünler satılıyorsa zorunlu tutulmalıdır).
+- **Pazarlama Onayı (Marketing Consent):** Kayıt esnasında bülten aboneliği (newsletter) onay kutusunun varsayılan olarak görünür veya gizli olmasını sağlar.
+
+### 3. Hesap Kısıtlamaları (Account Restrictions)
+- **Cihaz Limitleri (Device Limits):** Tek bir kullanıcı hesabının aynı anda sahip olabileceği aktif oturum (login) veya cihaz sayısını sınırlar. Bu özellik, eğitim platformları gibi yerlerde hesap paylaşımını engellemek için idealdir.
+- **Sipariş Limitleri (Velocity Checks):** Yeni oluşturulan hesapların sahtekarlık (fraud) veya platformu suistimal etme (Örn: indirim kodu avcılığı) riskine karşı hız limitleri (Örn: saatte maksimum 5 sipariş) uygulayabilirsiniz.
+
+> [!TIP]
+> Kullanıcı deneyimi ile veri toplama stratejisi arasındaki denge önemlidir. Kayıt aşamasında müşterilerin formu terk etmesini (drop-off) engellemek için, yalnızca operasyonel süreciniz için kesinlikle gerekli olan alanları "Zorunlu" yapın. 
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Çok yüksek oranda spam (sahte) müşteri hesabı oluşturuluyor.
+- **Çözüm:** Bu sayfadaki "Kimlik Doğrulama & Güvenlik" bölümüne gidin ve "E-posta Doğrulama" (Email Verification) seçeneğini zorunlu hale getirin. Potansiyel suistimalleri hafifletmek için yeni kullanıcılara daha sıkı "Sipariş Limitleri" (Order Limits) uygulayabilirsiniz.

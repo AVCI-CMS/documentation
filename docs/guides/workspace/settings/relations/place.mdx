@@ -1,8 +1,35 @@
 ---
-sidebar_position: 5
-title: "Place Integrations"
+sidebar_position: 4
+title: "Place Relation"
 ---
 
-# Place Integrations
+# Place Relation Settings
 
-Connect Google Maps API keys to auto-complete addresses and calculate distances for delivery zones.
+**Menu Path:** `Workspace > Settings > Relations > Place`
+
+:::info Permission Requirements
+To configure Place Relation settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+Places represent physical locations such as warehouses, physical retail stores, or pickup points. This module allows you to configure how physical locations are mapped and restricted in the system.
+
+## Key Features & Configuration
+
+### 1. Geolocation & Maps
+- **Coordinate Precision:** Define whether exact latitude/longitude coordinates are required when a merchant adds a new Place.
+- **Radius Restrictions:** Set maximum delivery or operational radii for standard places (e.g., maximum 50km delivery zone).
+
+### 2. Component Requirements
+- **Operating Hours:** Make setting daily working hours mandatory to prevent customers from trying to pick up items from closed locations.
+- **Contact Details:** Require a local phone number for the specific physical location, distinct from the main merchant contact.
+
+### 3. Capacity Restrictions
+- **Order Capacity:** Restrict the maximum number of concurrent orders a specific Place can handle if it operates as a fulfillment center.
+
+> [!WARNING]
+> If you enforce geolocation coordinates (Lat/Long), ensure that your frontend/merchant panel has a functional map widget, otherwise merchants will be unable to complete the form.
+
+## Common Issues
+
+- **Issue:** Customers are selecting pickup locations that are currently closed.
+- **Solution:** Ensure that "Operating Hours" is set to "Required" in the Component Settings. This forces the merchant to input their schedule, allowing the system to filter out closed places dynamically during checkout.

@@ -1,0 +1,35 @@
+---
+sidebar_position: 7
+title: "NFC"
+description: "Fiziksel Yakın Alan İletişimi (NFC) etiketlerini ve eylemlerini yönetin."
+---
+
+# NFC (Yakın Alan İletişimi)
+
+**Menü Yolu:** `Araçlar > NFC` (veya `Tools > NFC`)
+
+**NFC (Near Field Communication)** modülü, dijital CMS'niz ile fiziksel dünya arasındaki boşluğu doldurur. Kullanıcıların akıllı telefonlarıyla okutabilecekleri fiziksel NFC etiketlerini (kartlar, bileklikler veya çıkartmalar) programlamanıza, yönetmenize ve izlemenize olanak tanır.
+
+## Yaygın Kullanım Durumları
+
+- **Etkinlik Biletleri:** Kağıt bilet yerine NFC bileklikler verin. Güvenlik personeli bilekliği okuttuğunda, CMS'deki bileti doğrular (check-in yapar).
+- **Akıllı Ürünler:** Lüks fiziksel ürünlerin içine NFC etiketleri yerleştirin. Bir alıcı ürünü okuttuğunda, dijital bir orijinallik sertifikası açılır.
+- **Dijital Kartvizitler:** Kullanıcılara okutulduğunda VCard'larını veya portföy sayfalarını paylaşan kurumsal NFC kartları (dijital kartvizit) verin.
+
+## NFC Etiketlerini Yönetme
+
+1. **Araçlar > NFC** sayfasına gidin.
+2. Fiziksel bir NFC çipini sisteme kaydetmek için **"Yeni Etiket Ekle" (Add New Tag)** butonuna tıklayın.
+
+### 1. Etiket Kaydı (Registration)
+- **UID (Benzersiz Tanımlayıcı):** Her fiziksel NFC çipinin donanımsal, değiştirilemez bir fabrika UID'si (Seri No) vardır. CMS'nin onu tanıması için bu UID'yi girmeli veya okutmalısınız.
+- **Etiket (Label) / İsim:** Etikete tanınabilir bir isim verin (Örn: "VIP Bileklik #001").
+- **Durum:** Etiketi *AKTİF (ACTIVE)* veya (etiket kaybolur veya çalınırsa) *DEVRE DIŞI (DEACTIVATED)* olarak ayarlayın.
+
+### 2. Eylemleri Programlama (Okutulduğunda ne olur?)
+Bir akıllı telefon NFC etiketine dokunduğunda, genellikle bir NDEF kaydı (bir URL gibi) okur. Etiketin hangi URL'yi işaret ettiğini buradan yapılandırırsınız:
+- **Doğrudan Bağlantı (Direct Link):** Etiket anında belirli bir ürün sayfasını veya etkinlik giriş (check-in) URL'sini açar.
+- **Dinamik Bağlantı (Dynamic Link):** Etiket genel bir AVCI-CMS doğrulama URL'sini işaret eder. CMS, UID'yi okur ve ekranda ne gösterileceğine dinamik olarak karar verir (Örn: bir bilet için "Geçerli" veya "Süresi Dolmuş" göstermek).
+
+## Kullanım Logları (İstatistikler)
+NFC modülü ayrıca okutma (tap) analizlerini de izler. Dinamik Bağlantılı bir etiket her okutulduğunda; Zaman Damgasını (Tarih/Saat), genel Coğrafi Konumu ve okutmayı gerçekleştiren Kullanıcı Aracısını (Telefon modeli) görebilirsiniz.

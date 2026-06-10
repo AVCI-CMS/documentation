@@ -1,0 +1,8 @@
+{
+  "label": "Brands",
+  "position": 5,
+  "link": {
+    "type": "generated-index"
+  },
+  "key": "modules_relations_brands"
+}

@@ -1,28 +1,36 @@
 ---
-sidebar_position: 8
+sidebar_position: 2
 title: "Users"
+description: "Manage end-customers, profiles, and account statuses."
 ---
 
-# Users & Customers (CRM)
+# Users
 
 **Menu Path:** `Relations > Users`
 
-The **Users** module is your Customer Relationship Management (CRM) hub. It lists every individual who has registered an account on your platform, whether they are a standard shopper, a merchant, or an administrator.
+The **Users** module is your primary directory for all registered end-customers (B2C) or buyers. It provides a comprehensive 360-degree view of a user's interaction with your platform.
 
-## Managing the User Directory
+## Viewing a User Profile
 
-When you open the Users list, you can search for customers by Name, Email, or Phone Number.
+1. Go to **Relations > Users**.
+2. Click on a User ID or name to open their profile.
 
-### Viewing a Customer Profile
-Clicking on a user's row opens a 360-degree view of their interactions with your platform:
-- **Order History:** See a list of every purchase they've made, their lifetime value (LTV), and average order size.
-- **Saved Addresses:** View or delete their saved shipping and billing addresses.
-- **Wallet Balance:** Check if they have any remaining store credit.
-- **Support Tickets:** See a history of their communications with your support team.
+### 1. Basic Information
+- **Personal Details:** First Name, Last Name, Email, and Phone Number.
+- **Status:** You can manually block a user by changing their status from *ACTIVE* to *SUSPENDED* if they violate terms of service.
+- **Registration Date:** When the user first signed up.
 
-## Administrative Actions
+### 2. Security & Verification
+- **Email/Phone Verification:** Check if the user has verified their contact details via OTP/Link.
+- **Password Reset:** As an Admin, you cannot see a user's password, but you can trigger a "Force Password Reset" email if the user is locked out.
 
-As an admin, you can perform several actions on a user's account:
-- **Password Reset:** If a user complains they cannot log in, click the **"Send Password Reset Email"** button to dispatch a secure reset link to their registered email.
-- **Role Assignment:** Elevate a standard shopper to a "Merchant" or "Admin" by changing their assigned Role in the settings tab.
-- **Account Ban:** If a user is engaging in fraudulent behavior, change their status to **"Banned"** or **"Suspended"**. They will immediately lose access to their account, and their active sessions will be terminated.
+### 3. Addresses
+- A list of all saved Billing and Shipping addresses. You can edit these on behalf of the user if they request customer support for an address typo.
+
+### 4. Activity & History
+The user profile is deeply integrated with the rest of the CMS. From their profile page, you can quickly jump to:
+- **Order History:** A list of all purchases they've made.
+- **Support Tickets:** Any active or closed customer service requests they've opened.
+- **Reviews:** Product or event reviews they've submitted.
+
+*Note on Creation:* Generally, you do not manually create Users in the Admin Panel; users register themselves via your frontend website or mobile app. However, manual creation is available for B2B tele-sales operations.

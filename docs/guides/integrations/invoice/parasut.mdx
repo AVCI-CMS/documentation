@@ -1,37 +1,37 @@
 ---
 sidebar_position: 24
-title: "Paraşüt E-Fatura "
-description: "Paraşüt API üzerinden otomatik e-fatura, e-arşiv ve müşteri yönetimi"
+title: "Paraşüt E-Invoice"
+description: "Automatic e-invoice, e-archive and customer management via Paraşüt API"
 ---
 
 <img src="https://cdn-1.webcatalog.io/catalog/parasut/parasut-icon-filled-256.webp" alt="Paraşüt Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
 
-# Paraşüt E-Fatura 
+# Paraşüt E-Invoice
 
-Paraşüt API üzerinden otomatik e-fatura, e-arşiv ve müşteri yönetimi
+Automatic e-invoice, e-archive and customer management via Paraşüt API
 
-**Resmi Web Sitesi:** [https://www.parasut.com](https://www.parasut.com)
+**Official Website:** [https://www.parasut.com](https://www.parasut.com)
 
-## Özellikler
+## Features
 
-- Otomatik E-Fatura oluşturma
-- E-Arşiv desteği
-- Müşteri otomatik senkronizasyonu
-- Ödeme takibi
+- Automatic E-Invoice generation
+- E-Archive support
+- Automatic customer synchronization
+- Payment tracking
 
-## Konfigürasyon Ayarları
+## Configuration Settings
 
-Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+To activate this integration, you need to provide the following information in the AVCI CMS admin panel:
 
-| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
-|----------|--------|-----|---------|----------|
-| `companyId` | Firma ID | `text` | ✅ Evet | Örn: Paraşüt Firma ID |
-| `clientId` | Client ID (Uygulama ID) | `text` | ✅ Evet | Örn: Paraşüt Uygulama Client ID |
-| `clientSecret` | Client Secret (Uygulama Secret) | `password` | ✅ Evet | Örn: Paraşüt Uygulama Client Secret |
-| `username` | Kullanıcı Adı (Email) | `email` | ✅ Evet | Örn: Paraşüt giriş e-postası |
-| `password` | Şifre | `password` | ✅ Evet | Örn: Paraşüt şifreniz |
-| `testMode` | Sandbox Modu | `boolean` | ❌ Hayır | - |
+| Field Name | Label | Type | Required | Description |
+|------------|-------|------|----------|-------------|
+| `companyId` | Company ID | `text` | ✅ Yes | Ex: Paraşüt Company ID |
+| `clientId` | Client ID (App ID) | `text` | ✅ Yes | Ex: Paraşüt App Client ID |
+| `clientSecret` | Client Secret (App Secret) | `password` | ✅ Yes | Ex: Paraşüt App Client Secret |
+| `username` | Username (Email) | `email` | ✅ Yes | Ex: Paraşüt login email |
+| `password` | Password | `password` | ✅ Yes | Ex: Your Paraşüt password |
+| `testMode` | Sandbox Mode | `boolean` | ❌ No | - |
 
-## Geliştirici & API Entegrasyonu
+## Developer & API Integration
 
-Bu entegrasyon AVCI CMS arka planında `IntegrationType.PARASUT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Paraşüt` servislerini kullanmaya başlayacaktır.
+This integration is managed in the AVCI CMS backend with the `IntegrationType.PARASUT` enum value. After completing the configuration via the admin panel, the system will automatically start using `Paraşüt` services.

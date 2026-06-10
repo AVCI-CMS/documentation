@@ -1,0 +1,32 @@
+---
+sidebar_position: 20
+title: "Sürat Kargo "
+description: "Sürat Kargo API entegrasyonu"
+---
+
+<img src="https://www.suratkargo.com.tr/assets/images/favicon.png" alt="Sürat Kargo Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Sürat Kargo 
+
+Sürat Kargo API entegrasyonu
+
+**Resmi Web Sitesi:** [https://www.suratkargo.com.tr](https://www.suratkargo.com.tr)
+
+## Özellikler
+
+- Kargo takip
+- Otomatik gönderi
+- Web servis
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `password` | Şifre | `password` | ✅ Evet | Örn: Sürat Kargo Şifresi |
+| `testMode` | Test Modu | `boolean` | ❌ Hayır | - |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.SURAT` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Sürat Kargo` servislerini kullanmaya başlayacaktır.

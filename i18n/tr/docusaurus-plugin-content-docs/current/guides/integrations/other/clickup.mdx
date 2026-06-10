@@ -1,0 +1,35 @@
+---
+sidebar_position: 23
+title: "ClickUp Proje Yönetimi"
+description: "Modern proje yönetimi platformu ile görev takibi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/clickup/clickup-icon-filled-256.webp" alt="ClickUp Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# ClickUp Proje Yönetimi
+
+Modern proje yönetimi platformu ile görev takibi
+
+**Resmi Web Sitesi:** [https://clickup.com](https://clickup.com)
+
+## Özellikler
+
+- Görev yönetimi
+- Proje takibi
+- Zaman yönetimi
+- Takım işbirliği
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `apiKey` | API Key | `password` | ✅ Evet | Örn: ClickUp API Key |
+| `teamId` | Team ID | `text` | ✅ Evet | Örn: ClickUp Team ID |
+| `spaceId` | Space ID | `text` | ❌ Hayır | Örn: ClickUp Space ID |
+| `listId` | List ID | `text` | ❌ Hayır | Örn: ClickUp List ID |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.CLICKUP` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `ClickUp` servislerini kullanmaya başlayacaktır.

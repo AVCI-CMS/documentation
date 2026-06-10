@@ -1,10 +1,33 @@
 ---
-sidebar_position: 3
-title: "Event Settings"
+sidebar_position: 2
+title: "Etkinlikler"
 ---
 
-# Event Settings
+# Etkinlik (Event) Ayarları
 
-**Menu Path:** `Workspace > Settings > Catalog Settings > Event`
+**Menü Yolu:** `Workspace > Settings > Catalog > Event`
 
-Global rules for event ticketing, including default cancellation policies, maximum tickets per user, and waiting list behaviors.
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **TICKETING** (Biletleme) planına sahip olmanız gerekmektedir.
+:::
+
+Etkinlik (Event) Ayarları, biletleme, konser, seminer veya dijital etkinlik satışı yapan platformlarda, etkinlik oluşturma formundaki yapılandırmaları ve fiziksel mekan kurallarını yönetir.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Form ve Bileşen Kısıtlamaları (Component Settings)
+Bir etkinlik oluştururken girilmesi gereken kritik bilgileri kontrol eder.
+- **Başlangıç/Bitiş Tarihleri:** Bir etkinliğin tarihinin belirtilmesi zorunludur.
+- **Mekan (Place/Venue):** Fiziksel etkinliklerde, etkinliğin gerçekleşeceği adres/mekan bilgisinin sisteme kaydedilmiş "Mekanlar" (Places) modülünden seçilmesini zorunlu kılabilirsiniz.
+
+### 2. Organizatör Limitleri
+- **Maksimum Etkinlik Sayısı:** Bir organizatörün (veya satıcının) aynı anda satışta tutabileceği maksimum aktif etkinlik sayısını sınırlandırır.
+- **Bilet Kapasite Limiti:** Tek bir etkinlik için oluşturulabilecek maksimum bilet sayısını belirler (Örn: 10,000 bilet). Bu limit, altyapı veya veritabanı şişmelerini önlemek için tasarlanmıştır.
+
+> [!WARNING]
+> Eğer ağırlıklı olarak online/dijital (webinar vb.) etkinlikler düzenliyorsanız, form ayarlarında "Mekan (Place)" alanının zorunluluğunu kaldırın. Aksi takdirde satıcılar fiziksel bir adres girmeden dijital etkinlik oluşturamazlar.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Etkinlik oluşturma ekranında "Bilet Kapasitesi Aşıldı" hatası alınıyor.
+- **Çözüm:** Eklenmeye çalışılan bilet varyantlarının (Örn: VİP, Tam, Öğrenci) toplam stok sayısının, bu sayfada belirlediğiniz "Bilet Kapasite Limiti"ni geçmediğinden emin olun.

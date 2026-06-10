@@ -1,0 +1,38 @@
+---
+sidebar_position: 4
+title: "İşlemler (Transactions)"
+description: "Dahili defter hareketleri, hakedişler ve satıcı bakiyeleri."
+---
+
+# İşlemler (Transactions)
+
+**Menü Yolu:** `Finans ve Lojistik > İşlemler` (veya `Finance & Logistics > Transactions`)
+
+**İşlemler** modülü, platformunuzun dahili finansal defteri (ledger) olarak işlev görür. *Ödemeler (Payments)* müşterinin bankası ile ödeme geçidiniz arasında hareket eden parayı kaydederken, *İşlemler* bu paranın platformunuz içinde dahili olarak nasıl bölündüğünü kaydeder.
+
+Bu, özellikle tek bir ödemenin birden fazla dahili işlem oluşturabildiği (Örn: Satıcı A'nın kazancı, Satıcı B'nin kazancı ve Platformun komisyonu) Pazaryeri (Marketplace) modelleri için kritik öneme sahiptir.
+
+## İşlemleri Anlamak
+
+1. **Finans ve Lojistik > İşlemler** sayfasına gidin.
+2. Ayrıntıları görüntülemek için bir İşlem ID'sine tıklayın.
+
+### 1. İşlem Tipleri (Transaction Types)
+- **KAZANÇ (EARNING):** Başarılı bir satış için Satıcının hesabına (cüzdanına) alacak kaydedilen para.
+- **KOMİSYON (COMMISSION):** Bir satıştan kesilerek Platforma gelir olarak kaydedilen para.
+- **HAKEDİŞ ÖDEMESİ (PAYOUT):** Satıcının dijital cüzdanından gerçek banka hesabına transfer edilen para.
+- **İADE / İTİRAZ (REFUND / CHARGEBACK):** İade edilen bir ürün veya banka itirazı nedeniyle düşülen para.
+- **CEZA (PENALTY):** Satıcının bakiyesinden kesilen idari para cezaları.
+
+### 2. İşlem Durumları ve Hakediş Tarihleri
+- **BEKLİYOR (PENDING):** İşlem kaydedilmiştir, ancak para henüz satıcının kullanımına açık değildir. *Örnek: Sipariş kargolanmış ancak henüz teslim edilmemiştir. Fonlar havuzda (escrow) tutulur.*
+  - *Tahmini Aktarım Tarihi:* Bekliyorsa, sarı bir afiş fonların ne zaman çekilebilir hale geleceğine dair tahmini tarihi gösterir (Örn: "Tahmini Aktarım: 15 Ekim 2026").
+- **TAMAMLANDI (COMPLETED):** Para onaylanmış ve resmi olarak Satıcının çekilebilir Cüzdan (Wallet) bakiyesine eklenmiştir.
+- **İPTAL EDİLDİ (CANCELLED):** İşlem geçersiz kılınmıştır (Örn: sipariş hazırlanmadan önce iptal edildi).
+
+### 3. Finansal Döküm
+- **Tutar:** İşlemin kesin değeri.
+- **Satıcı (Merchant):** Bu işlemin hangi satıcıya ait olduğu.
+- **Açıklama:** Otomatik olarak oluşturulan bir açıklama (Örn: "12345 Numaralı Sipariş için Kazanç").
+
+*Not:* Tüm işlemler değiştirilemez (immutable) kayıtlardır. Bir hatayı düzeltmek için orijinal kaydı düzenlemek yerine yeni bir karşı işlem (iade gibi) düzenlenmelidir.

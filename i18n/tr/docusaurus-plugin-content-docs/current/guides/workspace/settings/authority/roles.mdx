@@ -1,8 +1,36 @@
 ---
-sidebar_position: 3
-title: "Roles"
+sidebar_position: 4
+title: "Roller"
 ---
 
-# Roles
+# Roller (Roles)
 
-Create logical groupings (e.g., "Accountant", "Support") to easily manage permissions for multiple users.
+**Menü Yolu:** `Workspace > Settings > Authority > Roles`
+
+:::info Yetki Gereksinimleri
+Rolleri yönetebilmek için **Workspace:Role:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Roller konfigürasyon sayfası, çalışma alanınızdaki erişim seviyelerini ve yetki gruplarını yönetmenize olanak tanır. Roller oluşturarak, farklı tipteki kullanıcıların (Örn: Editörler, Destek Uzmanları, Yöneticiler) tam olarak hangi eylemleri gerçekleştirebileceğini tanımlarsınız.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Rol Türleri
+- **Sistem Rolleri (System Roles):** Admin veya Owner (Sahip) gibi önceden tanımlanmış, korumalı ve statik rollerdir. Güvenli bir erişim hiyerarşisi sağlamak adına kodları değiştirilemez ve silinemezler.
+- **Özel Roller (Custom Roles):** Kendi organizasyonel ihtiyaçlarınıza tam uyması için sıfırdan oluşturduğunuz rollerdir.
+
+### 2. Rol Oluşturma ve Düzenleme
+- **Rol Adı ve Kodu:** Yeni bir rol oluşturduğunuzda (Örn: "İçerik Editörü"), sistem otomatik olarak benzersiz ve büyük harflerden oluşan bir kod (Örn: `ICERIK_EDITORU`) üretir.
+- **Yetki Ataması:** Rolün sınırlarını belirlemek için, sistemdeki tüm atomik yetkiler (Yetkiler modülünde listelenen) arasından seçim yapabilirsiniz.
+- **Açıklama:** Rolün sorumluluklarını özetleyen kısa bir açıklama eklemek, ileride ekibinizi yönetirken kolaylık sağlar.
+
+### 3. Yetki Matrisini İnceleme
+- **Detayları Görüntüle:** İşlemler menüsünün altındaki 'Izgara (Grid)' ikonuna tıklayarak Rol Matrisi sayfasına gidebilir, o role verilmiş sınırları ve spesifik yetkileri görsel olarak inceleyebilirsiniz.
+
+> [!WARNING]
+> **Güvenlik Hatırlatması:** Özel rollere yeni yetkiler eklerken erişim hiyerarşinizi bozmamaya dikkat edin. Her zaman "En Az Ayrıcalık" (Least Privilege) prensibini uygulayın—kullanıcılara yalnızca işlerini yapmaları için kesinlikle ihtiyaç duydukları yetkileri verin.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Belirli bir rolü silemiyorum.
+- **Çözüm:** Sistem rollerini veya yeni kullanıcılar için "Varsayılan (Default)" olarak işaretlenmiş rolleri silemezsiniz. Ek olarak, özel bir rolü silmeyi denemeden önce o role atanmış aktif bir kullanıcı bulunmadığından emin olun.

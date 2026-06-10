@@ -1,0 +1,29 @@
+---
+sidebar_position: 8
+title: "İtirazlar (Disputes)"
+description: "Müşteri iade taleplerini ve harcama itirazlarını yönetin."
+---
+
+# İtirazlar (Disputes)
+
+**Menü Yolu:** `Finans ve Lojistik > İtirazlar` (veya `Finance & Logistics > Disputes`)
+
+**İtirazlar** modülü, müşteri anlaşmazlıklarını ele almak için merkezi komuta modülüdür. Bir itiraz genellikle bir müşteri bir ürünü iade etmek istediğinde, paketini hiç almadığını iddia ettiğinde veya kredi kartı şirketiyle bir harcama itirazı (chargeback) başlattığında açılır.
+
+## İtiraz Yaşam Döngüsünü Anlamak
+
+1. **Başlatma:** Müşteri, "Siparişlerim" sayfasından bir neden belirterek (Örn: "Ürün kargoda hasar görmüş") ve isteğe bağlı olarak fotoğraf yükleyerek bir itiraz (iade talebi) başlatır.
+2. **İnceleme:** İtiraz, **Finans ve Lojistik > İtirazlar** altında *AÇIK (OPEN)* durumuyla görünür.
+3. **İletişim:** Hem Müşteri hem de Satıcı (veya Admin), itiraz başlığı altında mesajlar ve kanıtlar bırakabilir.
+4. **Çözüm:**
+   - *Kabul Edildi:* Satıcı iadeyi kabul eder. Sistem, müşteriye ürünü geri göndermesi için talimat verir (İade Kargo Kodu). Ürün ulaştığında, Admin Ödemeler modülü üzerinden bir *İADE (REFUND)* işlemi gerçekleştirir.
+   - *Reddedildi:* Satıcı iadeyi reddeder (Örn: iade süresi dolmuşsa).
+   - *Admin Müdahalesi (Escalation):* Satıcı ve müşteri anlaşamazsa, Platform Yöneticisi (Admin) nihai kararı vermek üzere hakem olarak devreye girer.
+
+## Bir İtirazı Yönetmek
+
+1. **Finans ve Lojistik > İtirazlar** sayfasına gidin.
+2. Ayrıntıları açmak için bir İtiraz ID'sine tıklayın.
+3. **İlgili Siparişi**, **Müşterinin İddiasını** ve **Yüklenen Kanıtları (Fotoğrafları)** inceleyin.
+4. Müşteriden daha fazla ayrıntı istemek için dahili mesajlaşma sistemini kullanın.
+5. Sonuca göre **İtiraz Durumunu** *ÇÖZÜLDÜ (RESOLVED)*, *İADE EDİLDİ (REFUNDED)* veya *REDDEDİLDİ (REJECTED)* olarak güncelleyin.

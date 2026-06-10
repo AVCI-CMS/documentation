@@ -1,4 +1,5 @@
 {
   "label": "Payment",
-  "position": 4
+  "position": 4,
+  "key": "integrations_payment"
 }

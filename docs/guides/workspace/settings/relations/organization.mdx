@@ -1,0 +1,35 @@
+---
+sidebar_position: 3
+title: "Organization Relation"
+---
+
+# Organization Relation Settings
+
+**Menu Path:** `Workspace > Settings > Relations > Organization`
+
+:::info Permission Requirements
+To configure Organization Relation settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+Organizations represent the highest-level entity that can manage multiple merchants, brands, or places. This module configures the rules for B2B or parent-company structures.
+
+## Key Features & Configuration
+
+### 1. Structural Limits
+- **Child Entity Limits:** Define how many subsidiary merchants or brands can be attached to a single Organization.
+- **Multi-tenant Control:** Enable or disable the ability for organizations to have siloed data access across their subsidiaries.
+
+### 2. Component Visibility
+- **Corporate Info:** Configure requirements for corporate headquarters address, parent company registration, and executive contact details.
+- **Billing Entity:** Make separate billing address fields mandatory for enterprise invoicing.
+
+### 3. API & Integration Restrictions
+- **API Access Limit:** If your organizations use your API, you can set default rate limits or restrict their API key generation capabilities here.
+
+> [!TIP]
+> Use Organization settings to cater to large franchise clients. By increasing their child entity limits, they can manage dozens of store locations (merchants) under one parent login.
+
+## Common Issues
+
+- **Issue:** An organization cannot link a new merchant to their account.
+- **Solution:** Verify the "Child Entity Limits" restriction. The organization may have reached the maximum allowed number of merchants configured in these settings.

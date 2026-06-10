@@ -1,0 +1,36 @@
+---
+sidebar_position: 14
+title: "Salesforce CRM"
+description: "Dünya lideri CRM platformu ile müşteri yönetimi"
+---
+
+<img src="https://cdn-1.webcatalog.io/catalog/salesforce/salesforce-icon-filled-256.webp" alt="Salesforce Logo" width="120" style={{ marginBottom: '20px', borderRadius: '12px', border: '1px solid #eee', padding: '10px', backgroundColor: '#fff' }} />
+
+# Salesforce CRM
+
+Dünya lideri CRM platformu ile müşteri yönetimi
+
+**Resmi Web Sitesi:** [https://www.salesforce.com](https://www.salesforce.com)
+
+## Özellikler
+
+- Lead yönetimi
+- Opportunity tracking
+- Account management
+- Sales automation
+
+## Konfigürasyon Ayarları
+
+Bu entegrasyonu aktif etmek için AVCI CMS yönetim panelinde aşağıdaki bilgileri sağlamanız gerekmektedir:
+
+| Alan Adı | Etiket | Tür | Zorunlu | Açıklama |
+|----------|--------|-----|---------|----------|
+| `clientId` | Client ID | `text` | ✅ Evet | Örn: Salesforce Client ID |
+| `clientSecret` | Client Secret | `password` | ✅ Evet | Örn: Salesforce Client Secret |
+| `username` | Kullanıcı Adı | `text` | ✅ Evet | Örn: Salesforce kullanıcı adı |
+| `password` | Şifre | `password` | ✅ Evet | Örn: Salesforce şifresi |
+| `securityToken` | Security Token | `password` | ✅ Evet | Örn: Salesforce Security Token |
+
+## Geliştirici & API Entegrasyonu
+
+Bu entegrasyon AVCI CMS arka planında `IntegrationType.SALESFORCE` enum değeri ile yönetilmektedir. Yönetim paneli üzerinden yapılandırmayı tamamladıktan sonra sistem otomatik olarak `Salesforce` servislerini kullanmaya başlayacaktır.

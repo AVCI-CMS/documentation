@@ -1,32 +1,34 @@
 ---
-sidebar_position: 8
-title: "Campaigns"
+sidebar_position: 5
+title: "Kampanyalar (Campaigns)"
+description: "Genel indirim kuralları ve hedefli promosyonların yönetimi."
 ---
 
-# Campaigns & Promotions
+# Kampanyalar (Campaigns)
 
-**Menu Path:** `Catalog > Campaigns`
+**Menü Yolu:** `Katalog > Kampanyalar` (veya `Catalog > Campaigns`)
 
-The **Campaigns** module is a powerful promotional engine that allows you to automate complex discount rules across your entire catalog or specific segments, without needing to manually edit individual product prices.
+**Kampanyalar** modülü, ödeme (checkout) sırasında otomatik olarak uygulanan genel indirim kurallarını yapılandırmanızı sağlar. Statik ürün indirimlerinin aksine, Kampanyalar dinamiktir ve zamana duyarlıdır.
 
-## Advanced Campaign Mechanics
+## Yeni Bir Kampanya Oluşturma
 
-When you click **"Create"**, you enter the campaign builder, which operates on a "Condition -> Action" logic.
+Yeni bir promosyon kampanyası kurmak için:
 
-### Step 1: Definition & Timing
-- **Campaign Name:** An internal and external identifier (e.g., "Summer Clearance 2026").
-- **Schedule:** Set a precise Start Date/Time and End Date/Time. The system will automatically enable and disable the discounts exactly at these moments. No manual intervention required.
+1. **Katalog > Kampanyalar** sayfasına gidin.
+2. **"Yeni Ekle"** butonuna tıklayın.
 
-### Step 2: Setting Conditions (The "If")
-Who or what does this campaign apply to?
-- **Target Selection:** Apply to the "Entire Store", "Specific Categories" (e.g., Only Shoes), "Specific Brands", or "Specific Products".
-- **Cart Thresholds:** (Optional) Apply the campaign only if the user's cart total exceeds $100.
-- **User Groups:** (Optional) Restrict the campaign to specific user roles (e.g., "Wholesale Customers Only" or "VIP Members").
+### 1. Temel Bilgiler ve Tarihler (Basic Info & Dates)
+- **Başlık (Title):** Kampanyanın dahili veya genel adı (Örn: "Efsane Cuma 2026").
+- **Durum (Status):** *Taslak (Draft)*, *Aktif (Active)*, *Pasif (Inactive)*, *Planlanmış (Scheduled)* veya *Tamamlandı (Completed)*.
+- **Açıklama (Description):** Kampanya kurallarının kısa bir açıklaması.
+- **Başlangıç ve Bitiş Tarihi:** Bu kampanyanın geçerli olacağı kesin zaman aralığını ayarlayın.
 
-### Step 3: Setting Actions (The "Then")
-What happens when the conditions are met?
-- **Percentage Discount:** Reduce the price of eligible items by X% (e.g., 20% off all Shoes).
-- **Fixed Amount Discount:** Deduct a flat $X amount.
-- **Buy X Get Y (BOGO):** Complex logic where adding 3 items charges the price of 2.
+### 2. İndirim Değeri (Discount Value)
+- **İndirim Yüzdesi (%):** Örn: %20 indirim için 20 yazın.
+- **İndirim Tutarı (Tutar):** Sabit bir para birimi kesintisi (Örn: 50 TL indirim).
+*(Not: Stratejinize göre Yüzde veya Tutar alanından birini kullanın).*
 
-> **Priority Management:** If a product falls under multiple active campaigns, the system relies on the **Priority Score** you assign. The campaign with the highest priority will override others to prevent accidental double-discounting.
+### 3. Koşullar (Conditions)
+- **Koşullar Listesi:** Kampanyanın tetiklenmesi için gereken özel kriterleri tanımlayın. Bu, belirli ürün kategorilerini, minimum sepet tutarlarını veya kullanıcı gruplarını içerebilir. (Liste arayüzünden satır satır ekleyebilirsiniz).
+
+3. Kampanyayı planlamak veya etkinleştirmek için **"Kaydet"** butonuna tıklayın.

@@ -1,8 +1,35 @@
 ---
-sidebar_position: 5
-title: "Place Integrations"
+sidebar_position: 4
+title: "Mekan (Place)"
 ---
 
-# Place Integrations
+# Mekan İlişkileri (Place Relation)
 
-Connect Google Maps API keys to auto-complete addresses and calculate distances for delivery zones.
+**Menü Yolu:** `Workspace > Settings > Relations > Place`
+
+:::info Yetki Gereksinimleri
+Mekan İlişkileri ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Mekanlar (Places), platformunuzdaki depolar, fiziksel perakende mağazaları veya sipariş teslimat noktaları (pickup points) gibi fiziksel konumları temsil eder. Bu modül, fiziksel alanların sisteme nasıl kaydedileceğini ve hangi kısıtlamalara tabi olacağını yapılandırmanıza olanak tanır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Konum & Haritalar (Geolocation)
+- **Koordinat Kesinliği (Precision):** Bir satıcı (merchant) yeni bir mekan eklediğinde, sistemin ondan harita üzerinde tam enlem/boylam (latitude/longitude) işaretlemesi isteyip istemeyeceğini belirler.
+- **Yarıçap Sınırları (Radius):** Mekanlar (özellikle paket servis veya kurye operasyonları) için maksimum hizmet veya operasyon yarıçapını ayarlayabilirsiniz (Örn: maksimum 50km dağıtım alanı).
+
+### 2. Bileşen Gereksinimleri (Component Requirements)
+- **Çalışma Saatleri:** Müşterilerin kapalı olan konumlardan sipariş teslim almak istemesini veya kapalı mağazaya yönlendirilmesini önlemek için günlük çalışma saatlerinin (Operating Hours) girilmesini zorunlu hale getirebilirsiniz.
+- **İletişim Bilgileri:** Ana satıcının genel numarasından bağımsız olarak, sadece o spesifik şubeye/mekana ait yerel bir telefon numarasını zorunlu tutabilirsiniz.
+
+### 3. Kapasite Kısıtlamaları
+- **Sipariş Kapasitesi (Order Capacity):** Bir mekan sipariş karşılama (fulfillment) merkezi veya mutfak olarak çalışıyorsa, aşırı yoğunluğu önlemek için aynı anda işleyebileceği maksimum eşzamanlı sipariş sayısını kısıtlayabilirsiniz.
+
+> [!WARNING]
+> Eğer "Koordinat Kesinliği"ni (Enlem/Boylam) zorunlu kılarsanız, vitrin (frontend) ve satıcı paneli arayüzlerinizde sorunsuz çalışan bir "Harita" widget'ı olduğundan kesinlikle emin olun, aksi halde satıcılar formu tamamlayamaz ve yeni mekan ekleyemezler.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteriler şu anda kapalı olan mağazaları (mekanları) gel-al noktası olarak seçebiliyor.
+- **Çözüm:** Bileşen Ayarlarında (Component Settings) "Çalışma Saatleri" alanının "Zorunlu" olarak ayarlandığından emin olun. Bu sayede satıcı vardiya saatlerini girmek zorunda kalır ve sistem ödeme (checkout) adımında kapalı mekanları dinamik olarak filtreleyebilir.

@@ -1,4 +1,5 @@
 {
   "label": "Shipping",
-  "position": 5
+  "position": 5,
+  "key": "integrations_shipping"
 }

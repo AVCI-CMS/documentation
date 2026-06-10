@@ -1,0 +1,34 @@
+---
+sidebar_position: 1
+title: "API Keys"
+---
+
+# API Keys
+
+**Menu Path:** `Workspace > Settings > Authority > API Keys`
+
+:::info Permission Requirements
+To view and manage API keys, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The API Keys module allows you to integrate your workspace with external platforms, custom mobile applications, or third-party services securely. By generating and managing your API credentials here, you can programmatically interact with your workspace data.
+
+## Key Features & Configuration
+
+### 1. Client ID
+- **Identifier:** Your `Client ID` is a public-facing identifier for your workspace. It is used in the `x-avci-client` header to route API requests to your specific environment.
+- **Copy & Use:** You can easily copy the Client ID and view a snippet of how to pass it in your HTTP requests.
+
+### 2. Private API Key
+- **Generation:** You can generate a new private API Key to authenticate your requests. If you already have one, generating a new one will invalidate the old one.
+- **Security:** Upon generation, the full API Key is shown **only once**. Please copy and store it securely. Afterwards, it will be masked (e.g., `••••••••••••a1b2`) for security reasons.
+- **Revocation:** If you suspect your API Key has been compromised, you can revoke it immediately to sever all external access.
+- **Usage Tracking:** The system tracks and displays when the key was created and when it was last used.
+
+> [!WARNING]
+> **Security Recommendation:** Never store your private API keys in client-side applications (like mobile apps or frontend websites). Always route your API calls through your own secure backend services.
+
+## Common Issues
+
+- **Issue:** API requests are returning a 401 Unauthorized error.
+- **Solution:** Verify that you are passing both the correct `x-avci-client` header and the `x-avci-api-key` header. If the key was regenerated, ensure your backend is using the latest one.

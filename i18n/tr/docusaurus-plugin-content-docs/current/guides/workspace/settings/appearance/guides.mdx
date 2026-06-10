@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+title: "Guides (Kılavuzlar)"
+---
+
+# Guides (Kılavuzlar) Entegrasyonu
+
+**Menü Yolu:** `Workspace > Settings > Appearance > Guides`
+
+:::info Yetki Gereksinimleri
+Kılavuz (Guides) ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Kılavuz (Guides) konfigürasyon sayfası, çalışma alanınızı (workspace) dışa açık dokümantasyonlarınızın veya kullanım kılavuzlarınızın barındırıldığı bir GitHub deposuna (repository) bağlamanızı sağlar. Bir depo bağladığınızda, sistem Markdown (`.md` veya `.mdx`) dosyalarınızı otomatik olarak senkronize eder ve destek portalınızda sorunsuz bir şekilde yayınlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. GitHub Entegrasyonu Ön Koşulu
+- **Bağlantı Kontrolü:** Bu modül aktif bir GitHub entegrasyonu gerektirir. Eğer GitHub bağlı değilse, sistem size [Entegrasyonlar](../../../integrations/index.mdx) sayfasına giderek uygulamaya yetki vermenizi isteyen bir uyarı (alert) gösterecektir.
+
+### 2. Depo (Repository) Yapılandırması
+GitHub entegrasyonunu tamamladıktan sonra, dokümantasyon dosyalarınızın tam olarak nerede bulunduğunu belirtmelisiniz.
+- **Depo Adı (Repository Name):** Hedef deponuzun tam adını girin (Örn: `AVCI-CMS/guides`).
+- **Dal (Branch):** Dokümantasyonun hangi daldan (branch) çekileceğini belirtin (Örn: `main` veya `master`). Bu sayede taslak dokümantasyonlarınızı ayrı bir branch'te hazırlayıp, sadece `main` branch'i üzerinden yayın (publish) yapabilirsiniz.
+
+> [!TIP]
+> **İş Akışı Önerisi:** Dokümantasyon yazmak ve gözden geçirmek için `drafts` veya `taslak` adında bir branch kullanın. İçerik onaylandıktan sonra bunu `main` branch'ine birleştirin (merge). Çalışma alanınız `main` branch'iyle senkronize olduğu için, yönetim panelinde herhangi bir ayar yapmanıza gerek kalmadan güncellemeleriniz anında yayına alınacaktır.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** GitHub'a gönderilen (push) yeni dokümantasyon güncellemeleri vitrinde görünmüyor.
+- **Çözüm:** Burada yapılandırdığınız "Dal (Branch)" adının, dosyaları gönderdiğiniz branch ile tamamen eşleşip eşleşmediğini kontrol edin. Ayrıca, Entegrasyonlar sayfasından GitHub erişim anahtarınızın (token) süresinin dolup dolmadığını doğrulayın.

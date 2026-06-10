@@ -1,8 +1,36 @@
 ---
-sidebar_position: 3
-title: "Marketplace Commissions"
+sidebar_position: 2
+title: "Pazaryeri"
 ---
 
-# Marketplace Commissions
+# Pazaryeri Komisyon Ayarları
 
-Define the global commission rates the platform takes from vendor sales, and set automated payout schedules.
+**Menü Yolu:** `Workspace > Settings > Sale > Marketplace`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **MARKETPLACE** planına sahip olmanız gerekmektedir.
+:::
+
+Pazaryeri modülü, platformunuzdaki satıcıların (merchant) komisyon oranlarını, hakediş (payout) periyotlarını ve satıcı onay süreçlerini yönettiğiniz ana sayfadır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Global Komisyon Oranı
+Platform genelinde uygulanacak varsayılan komisyon oranını belirler. Özel bir anlaşması olmayan tüm satıcılar için satış üzerinden bu oran kadar kesinti yapılır.
+- **Kesinti Yüzdesi:** Sepet tutarı üzerinden alınacak yüzdelik pay (Örn: %15).
+
+### 2. Hakediş (Payout) Yapılandırması
+Satıcıların kazançlarının hesaplarına aktarılma döngüsünü kontrol eder.
+- **Hakediş Periyodu:** Ödemelerin haftalık, iki haftalık veya aylık olarak mı yapılacağını belirler.
+- **Minimum Hakediş Tutarı:** Bir satıcının ödeme alabilmesi için bakiyesinde bulunması gereken minimum tutar sınırıdır. Bu sınırın altındaki bakiyeler bir sonraki döneme devreder.
+
+### 3. Satıcı Onay Süreçleri
+- **Otomatik Satıcı Onayı:** Yeni kaydolan satıcıların otomatik olarak satışa başlayıp başlayamayacağını belirler. Kapalı olduğunda, tüm yeni kayıtlar bir yönetici tarafından manuel olarak onaylanmak zorundadır (KYC/Onboarding).
+
+> [!TIP]
+> **Komisyon Stratejisi:** Yeni bir pazaryeri başlatıyorsanız, satıcı kazanımını hızlandırmak için başlangıçta düşük bir global komisyon oranı belirlemeyi düşünebilirsiniz. Satıcı bazlı özel oranları daha sonra `Merchant` detay sayfasından geçersiz kılabilirsiniz.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Satıcıların hakedişleri zamanında yatırılmıyor.
+- **Çözüm:** Satıcının bakiyesinin belirlediğiniz "Minimum Hakediş Tutarı"nı geçip geçmediğini ve hakediş periyodunun doğru yapılandırıldığını kontrol edin.

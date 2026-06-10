@@ -1,8 +1,45 @@
 ---
-sidebar_position: 6
-title: "Gmail"
+sidebar_position: 2
+title: "Gmail / Google Workspace"
+description: "Send transactional emails through Google's SMTP servers."
 ---
 
 # Gmail Integration
 
-This page will contain detailed documentation for the Gmail integration.
+**Menu Path:** `Workspace > Settings > Integrations > Email > Gmail`
+
+Integrating Gmail (or a custom domain via Google Workspace) allows your platform to send transactional emails—such as order confirmations, password resets, and OTP codes—directly through Google's reliable SMTP infrastructure.
+
+## Prerequisites
+
+- A standard Gmail account or a Google Workspace account.
+- **Two-Step Verification (2FA)** must be enabled on the Google account you intend to use.
+
+## Configuration Steps
+
+Because Google blocks direct password authentication for third-party apps, you must generate an "App Password" to allow AVCI CMS to send emails on your behalf.
+
+### 1. Generate an App Password
+1. Go to your [Google Account Manage page](https://myaccount.google.com/).
+2. Navigate to the **Security** tab on the left menu.
+3. Under "Signing in to Google," ensure **2-Step Verification** is turned ON.
+4. Click on **App passwords** (you may need to search for it in the top search bar if it's hidden).
+5. In the "Select app" dropdown, choose *Mail*. For the "Select device" dropdown, choose *Other (Custom name)* and type `AVCI CMS`.
+6. Click **Generate**.
+7. Google will display a 16-character password in a yellow box. **Copy this password immediately**; you will not be able to see it again.
+
+### 2. Enter Credentials in CMS
+1. Navigate to the `Integrations > Email > Gmail` page in your AVCI CMS admin panel.
+2. Set the integration status to **Active**.
+3. **SMTP Username:** Enter your full Gmail/Google Workspace email address.
+4. **SMTP Password:** Paste the 16-character App Password you generated in the previous step.
+5. **Sender Email:** Enter the email address you want customers to see in the "From" field (must match the authenticated email).
+6. **Sender Name:** Enter your Store or Platform Name.
+7. Click **Save Settings**.
+
+## Testing the Integration
+
+Once saved, use the **Send Test Email** button located at the bottom of the integration page to verify that the credentials are correct and the SMTP connection is successful.
+
+> [!TIP]
+> **Sending Limits:** Standard Gmail accounts are limited to sending roughly 500 emails per rolling 24 hours. Google Workspace accounts can send up to 2,000. If your platform volume exceeds this, consider integrating a dedicated bulk sender like AWS SES or SendGrid.

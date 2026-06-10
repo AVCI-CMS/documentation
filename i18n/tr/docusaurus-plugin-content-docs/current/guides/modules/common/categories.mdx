@@ -1,0 +1,35 @@
+---
+sidebar_position: 2
+title: "Categories"
+description: "Ağaç yapılı (iç içe) kategori sistemi ve yönetimi."
+---
+
+# Kategoriler (Categories)
+
+Kategori modülü, sistemdeki içeriklerinizi (ürünler, blog yazıları, haberler, mekanlar vb.) hiyerarşik (ağaç) yapıda sınıflandırmanızı sağlar. Kategori sistemi sınırsız derinlikte alt kategori eklenebilir şekilde tasarlanmıştır.
+
+## Kategori Oluşturma / Düzenleme
+
+Bir modüle ait kategoriler sayfasına girdiğinizde "Yeni Ekle" butonu ile kategori oluşturma formuna ulaşırsınız.
+
+### 1. Temel Bilgiler (Basic Info)
+- **Başlık (Title):** Kategorinin görünen adıdır (Zorunlu).
+- **Slug:** URL üzerinde görünecek uzantıdır. Boş bırakırsanız başlıktan otomatik üretilir.
+- **Üst Kategori (Parent Category):** Bu kategori başka bir kategorinin altındaysa buradan üst kategoriyi seçmelisiniz. (Örn: Giyim > *Tişört*)
+- **Sıra (Order):** Kategorilerin listelenme sırasını belirleyen sayısal değer.
+- **Durum (Status):** Aktif (Yayında), Taslak veya Silinmiş durumunu seçebilirsiniz.
+
+### 2. Medya (Media)
+- **Kapak Görseli (Cover Image):** Kategori listelerinde veya kategori detayında görünecek ana görsel. Medya kütüphanesinden seçilebilir.
+- **Galeri (Gallery):** Kategoriye ait birden fazla görsel eklemek isterseniz bu alanı kullanabilirsiniz (Maksimum 10 görsel).
+
+### 3. İçerik (Content)
+Kategoriye ait detaylı açıklamaların girildiği **Zengin Metin (Rich Text)** editörüdür. Arama motorları (SEO) için kategori sayfalarına açıklayıcı metinler girmek önemlidir. Editör üzerinden metin biçimlendirme ve görsel ekleme işlemleri yapılabilir.
+
+### 4. Lojistik Kısıtlamaları (Sadece Ürün Kategorileri)
+Eğer düzenlediğiniz kategori bir **Ürün (Product)** kategorisi ise, kargo entegrasyonlarını etkileyecek özel lojistik kısıtlamaları belirleyebilirsiniz:
+- **Hassas / Kırılabilir:** Özel paketleme gerektiren ürünler.
+- **Sıvı İçerik:** Akıcı madde kısıtlamasına giren ürünler.
+- **Yanıcı / Parlayıcı:** Tehlikeli madde sınıfındaki kargolar.
+- **Özel Taşıma (White-Glove):** Kurulum gerektiren veya sanatsal değeri olan gönderiler.
+- **Sigorta Zorunlu:** Seçilirse **Min. Sigorta Bedeli (TL)** girmeniz istenir ve bu kategorideki ürünlerin gönderilerinde sigorta tutarı kargo firmasına otomatik iletilir.

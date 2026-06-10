@@ -1,0 +1,35 @@
+---
+sidebar_position: 5
+title: "Wallet"
+description: "Merchant balance management and withdrawal requests."
+---
+
+# Wallet
+
+**Menu Path:** `Finance & Logistics > Wallet` *(Or `Finance > Wallet` for Merchants)*
+
+The **Wallet** module is where Merchants manage their earnings and where the Platform Admin oversees financial liabilities. It aggregates all data from the *Transactions* module to provide a real-time snapshot of accounts.
+
+## Merchant Wallet Dashboard
+
+When a Merchant accesses their Wallet, they see:
+
+### 1. Balance Overview
+- **Withdrawable Balance (Available):** Money from *COMPLETED* transactions that the merchant can immediately transfer to their bank account.
+- **Pending Balance:** Money from *PENDING* transactions (e.g., items still in transit to the customer). This money cannot be withdrawn yet to protect the platform against refunds.
+- **Total Lifetime Earnings:** The gross amount the merchant has made historically.
+
+### 2. Requesting a Payout (Withdrawal)
+1. Merchants click the **"Request Payout"** button.
+2. They enter the amount they wish to withdraw (up to their maximum Withdrawable Balance).
+3. They select their registered IBAN/Bank Account.
+4. The request is submitted to the Admin for approval.
+
+### 3. Admin View (Managing Payouts)
+As a Platform Administrator, you use the Wallet module to:
+- Review incoming **Payout Requests** from merchants.
+- Download the bank transfer list (often an Excel/CSV file formatted for your corporate bank).
+- Mark requests as **"Transferred"** once you have physically wired the money. This action deducts the requested amount from the Merchant's withdrawable balance and creates a *PAYOUT* transaction record.
+
+### 4. Adding Funds (Credits)
+In some B2B models, merchants might need to load credits into their Wallet to pay for platform services (like advertising or premium listings). If enabled, merchants can top-up their balance via Credit Card directly from this module.

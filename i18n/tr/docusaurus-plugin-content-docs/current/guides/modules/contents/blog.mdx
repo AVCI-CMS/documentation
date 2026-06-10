@@ -1,29 +1,43 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: "Blog"
+description: "Blog makaleleri yayınlama ve yönetimi."
 ---
 
-# Blog Management
+# Blog
 
-**Menu Path:** `Contents > Blog`
+**Menü Yolu:** `İçerikler > Blog` (veya `Contents > Blog`)
 
-The **Blog** module is the section where you can publish and manage articles, guides, and long-format texts on your platform. Its SEO-friendly structure makes it easier for your content to stand out in search engines.
+**Blog** modülü; makaleler, rehberler, sektörel analizler ve güncellemeler yayınlamak için tasarlanmıştır. Düzenli olarak güncellenen bir blog, içerik pazarlaması (inbound marketing), müşteri etkileşimi ve sitenizin SEO'sunu (Arama Motoru Optimizasyonu) geliştirmek için en etkili yöntemlerden biridir.
 
-## How to Add a New Blog Post?
+## Genel Bakış (Overview)
+`İçerikler > Blog` sayfasına gittiğinizde, tüm makalelerinizin bir listesiyle karşılaşırsınız. Burada her bir yazının yazarını, yayın tarihini, kategorisini ve mevcut durumunu bir bakışta görebilirsiniz. Ayrıca, birden fazla makaleyi aynı anda silme veya durumunu değiştirme gibi toplu işlemler (bulk actions) gerçekleştirebilirsiniz.
 
-1. Navigate to the Blog management screen by following the **Contents > Blog** path from the left menu.
-2. Click the **"Create"** button in the top right corner.
-3. Fill in the following basic information on the screen that appears:
-   - **Title:** The main heading of your post.
-   - **Content:** Format your text, add images or videos using the Rich Text Editor.
-   - **Featured Image:** Upload the main cover photo that will appear in the blog listing.
-   - **Category / Tags:** Assign your post to relevant categories and determine keywords (tags).
-4. Do not forget to fill in the **Meta Title** and **Meta Description** of your post from the SEO settings tab (if any).
-5. When your operations are finished, publish your post by clicking the **"Save"** or **"Publish"** button.
+## Yeni Bir Blog Yazısı Oluşturma
 
-## How to Edit or Delete a Blog Post?
+Yeni bir makale yazmak için:
 
-- **Editing:** On the blog list screen, you can update the content by clicking the **"Edit" (Pen icon)** button to the right of the post you want to change.
-- **Changing Status:** Instead of completely deleting posts, you can unpublish them by changing their status to "Draft" or "Inactive". You can use the "Status" switch on the edit screen to do this.
+1. Blog liste görünümünden **"Yeni Ekle"** butonuna tıklayın.
+2. Makale oluşturma ekranı kapsamlı bölümlere ayrılmıştır:
 
-> **Important Tip:** Regularly checking your SEO metadata (URL slug, Title) greatly contributes to your content ranking better on Google and other search engines.
+### 1. Temel Bilgiler (Basic Info)
+- **Başlık (Title):** Blog yazınızın ana manşeti. Dikkat çekici ve içerikle alakalı olmalıdır.
+- **Durum (Status):** Yazarken makaleyi *Taslak (Draft)* olarak ayarlayın. Yayına hazır olduğunda *Yayında (Published)* olarak değiştirin. Güncelliğini yitirmiş yazıları *Gizli (Hidden)* olarak işaretleyebilirsiniz.
+- **Kategori (Category):** Yazıyı ilgili bir kategoriye atayın. Kategoriler merkezi olarak yönetilir (bkz. [Ortak Kategoriler](../common/categories.mdx)). Bir yazı iç içe geçmiş birden fazla kategoriye (Örn: Teknoloji > Yazılım) yerleştirilebilir.
+- **Slug:** URL uzantısı (Örn: `cms-nasil-kullanilir`). Başlıktan otomatik olarak üretilir, ancak SEO amacıyla üzerine yazıp değiştirebilirsiniz.
+- **Özet (Abstract):** Kısa bir tanıtım metni. Bu genellikle kullanıcı makalenin tamamını okumak için tıklamadan önce blog anasayfasındaki kartta (preview) gösterilir.
+
+### 2. Medya (Media)
+- **Kapak Görseli (Featured Image):** Blog yazısının ana kapak resmi. Sosyal medya paylaşım görseli (OpenGraph) ve makalenin başlık görseli olarak kullanılacağı için kritik bir öneme sahiptir.
+- **Galeri (Gallery):** Makaleniz bir görsel kaydırıcı (carousel) veya sayfa sonunda ek resimlerden oluşan bir koleksiyon gerektiriyorsa, görselleri buraya yükleyin.
+
+### 3. İçerik (Zengin Metin - Content)
+- Ana taslak alanı. Kapsamlı rehberinizi yazmak için zengin metin (Rich Text) editörünü kullanın. Metin akışı içine doğrudan resimler ekleyebilir, alıntıları biçimlendirebilir, tablolar oluşturabilir ve optimum okunabilirlik için makalenizi uygun H2/H3 başlıklarıyla yapılandırabilirsiniz.
+
+### 4. SEO
+- Paylaşılan SEO alanlarını (Başlık, Açıklama) doldurarak makalenizi arama motorları için özel olarak optimize edin. En iyi pratikler için [Ortak SEO](../common/seo) rehberini inceleyebilirsiniz.
+
+3. Makaleniz tamamlandığında, ayarları gözden geçirin ve değişikliklerinizi uygulamak için **"Kaydet"** butonuna tıklayın.
+
+## Yorumlar ve Etkileşim
+Frontend tarafında etkinleştirilmişse, kullanıcılar blog yazılarına yorum bırakabilirler. Bu yorumlar, `İçerikler > Blog > Yorumlar` bölümüne düşer; burada paylaşımlı [Yorumlar](../communication/comments.mdx) arayüzünü kullanarak kullanıcı geri bildirimlerini okuyabilir, onaylayabilir, reddedebilir veya yanıtlayabilirsiniz.

@@ -1,0 +1,39 @@
+---
+sidebar_position: 3
+title: "Satıcılar (Merchants)"
+description: "Satıcı/mağaza profillerini, onayları ve komisyon oranlarını yönetin."
+---
+
+# Satıcılar (Merchants)
+
+**Menü Yolu:** `İlişkiler > Satıcılar` (veya `Relations > Merchants`)
+
+**Satıcılar** modülü kesinlikle Pazaryeri (Marketplace) veya Çoklu Satıcı (Multi-Vendor) operasyonları içindir. Bir "Satıcı" (Merchant), platformunuzda ürün satan veya etkinlikler oluşturan ticari bir varlıktır.
+
+*Not: Bir Satıcı hesabı, bir Kullanıcı hesabından farklıdır. Genellikle bir Kullanıcı (işletme sahibi), bir Satıcı profilinin "Sahibi" olarak bağlanır.*
+
+## Yeni Bir Satıcıyı Onaylama
+
+Pazaryerinize katılmak için yeni bir satıcı (mağaza) başvurduğunda:
+1. **İlişkiler > Satıcılar** sayfasına gidin.
+2. Durumu *BEKLİYOR (PENDING)* veya *ÖN TALEP (PRE_REQUEST)* olan satıcıyı bulun.
+3. Gönderdikleri ayrıntıları (Şirket Adı, Vergi Numarası, İletişim Bilgileri vb.) inceleyin.
+4. Her şey doğru görünüyorsa, durumlarını **AKTİF (ACTIVE)** olarak değiştirin. Bu eylem, Satıcı Panellerinin (Merchant Dashboard) kilidini açarak Kataloğa ürün eklemeye başlamalarını sağlar.
+
+## Satıcı Profillerini Yönetme
+
+Aktif bir Satıcıya tıklandığında tam profili açılır:
+
+### 1. Kurumsal Kimlik (Corporate Identity)
+- **Firma Adı:** İşletmenin yasal adı (Fatura başlığı).
+- **Mağaza Adı (Store Name):** Müşterilere gösterilen genel (vitrin) adı.
+- **Vergi Bilgileri:** Vergi Dairesi ve Vergi Numarası (faturalandırma ve hakediş ödemeleri için kritik öneme sahiptir).
+- **Logo ve Kapak Görseli:** Açık mağaza (store) sayfaları için görsel marka materyalleri.
+
+### 2. Finansal Ayarlar (Kritik)
+- **Komisyon Oranı:** Platformun bu satıcının yaptığı her satıştan kestiği yüzde. Bu, genel olarak ayarlanabileceği gibi, belirli bir "VIP" satıcı için buradan özel olarak da (override) belirlenebilir.
+- **IBAN / Banka Bilgileri:** Platform Yöneticisinin (Admin) Kazançlarını (Hakedişlerini) göndereceği hesap.
+
+### 3. İzinler ve Kısıtlamalar (Permissions & Restrictions)
+- İş modelinize bağlı olarak, bir satıcının belirli kategorilerde satış yapmasını kısıtlayabilir veya yükleyebileceği toplam ürün sayısını sınırlayabilirsiniz.
+- Bir satıcı politikaları ihlal ederse (Örn: sahte mal satmak), durumunu **ASKIYA ALINDI (SUSPENDED)** olarak değiştirebilirsiniz; bu, tüm ürünlerini frontend kataloğundan anında gizler.

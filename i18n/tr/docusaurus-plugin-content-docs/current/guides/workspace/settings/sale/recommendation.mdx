@@ -1,8 +1,36 @@
 ---
-sidebar_position: 8
-title: "AI Recommendations"
+sidebar_position: 7
+title: "Öneriler"
 ---
 
-# AI Recommendations
+# Akıllı Öneri (Recommendation) Ayarları
 
-Enable or disable AI-driven cross-selling and up-selling logic on the checkout page.
+**Menü Yolu:** `Workspace > Settings > Sale > Recommendation`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Akıllı Öneri (Recommendation) modülü, yapay zeka ve kullanıcı geçmişi tabanlı ürün önerme algoritmalarını yapılandırarak sepet ortalamasını (AOV) artırmanızı sağlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Öneri Motoru (Engine) Yapılandırması
+Sistemin kullanıcılara hangi veri modelini kullanarak ürün önereceğini seçersiniz.
+- **Birlikte Sık Alınanlar (Frequently Bought Together):** Önceki sipariş verilerini analiz ederek sepete eklenen ürünle genelde beraber satılan ürünleri gösterir (Çapraz Satış / Cross-sell).
+- **Benzer Ürünler (Similar Products):** Ürün kategorisi, etiketler ve fiyat baz alınarak alternatif ürünleri listeler (Üst Satış / Up-sell).
+- **Kişiselleştirilmiş Geçmiş (User History):** Kullanıcının daha önce görüntülediği ancak satın almadığı ürünlere dayalı öneriler sunar.
+
+### 2. Görünürlük Ayarları
+Öneri modüllerinin vitrinin (storefront) hangi sayfalarında aktif olacağını belirler.
+- Ürün detay sayfasında (PDP)
+- Sepet sayfasında
+- Ödeme başarılı (Thank You) sayfasında
+
+> [!TIP]
+> Cross-sell (Birlikte Sık Alınanlar) widget'ını özellikle sepet sayfasında aktif tutmak, "Ücretsiz Kargo Barajına" yaklaşan müşterilerin sepet tutarını artırmada oldukça etkilidir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Öneri motoru ürün detay sayfasında hiçbir ürün göstermiyor.
+- **Çözüm:** Yeni kurulan platformlarda yeterli "Geçmiş Sipariş Verisi" oluşana kadar "Birlikte Sık Alınanlar" motoru boş dönebilir. Başlangıç aşamasında "Benzer Ürünler" algoritmasını aktif etmeniz önerilir.

@@ -1,8 +1,33 @@
 ---
 sidebar_position: 4
-title: "SMS Configuration"
+title: "SMS Ayarları"
 ---
 
-# SMS Configuration
+# SMS Ayarları
 
-Connect to SMS gateways (e.g., Twilio, Netgsm) and configure your official Sender ID for fast OTPs and delivery alerts.
+**Menü Yolu:** `Workspace > Settings > Communication > SMS`
+
+:::info Yetki Gereksinimleri
+SMS ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+SMS Ayarları sayfası, aktif SMS sağlayıcınızı (Gateway) yapılandırmanıza ve kritik uyarılar, pazarlama mesajları veya İki Faktörlü Doğrulama (2FA) kodları için mesaj şablonlarını (template) eşleştirmenize olanak tanır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Servis Sağlayıcı (Provider)
+- **Sağlayıcı Seçin:** Aktif SMS ağ geçidi sağlayıcınızı seçin (Örn: Verimor, Netgsm).
+- **Ön Koşul:** E-postalarda olduğu gibi, SMS sağlayıcısı da buradan seçilebilmesi için öncelikle [Entegrasyonlar](../../../integrations/index.mdx) (Integrations) modülü üzerinden entegre edilmeli ve kimlik doğrulaması tamamlanmalıdır.
+
+### 2. Mesaj Şablonları (Templates)
+Giden mesajları standartlaştırmak için, sistemdeki etkinlikleri SMS sağlayıcınız tarafından verilen belirli şablon kimliklerine (Template ID) bağlarsınız:
+- **Satıcı Şablonları (Merchant Templates):** Platformdaki satıcılara gönderilen otomatik mesajlar (Örn: yeni sipariş bildirimleri, hakediş transferleri).
+- **Kullanıcı Şablonları (User Templates):** Son kullanıcılara gönderilen otomatik mesajlar (Örn: telefon doğrulama kodları - OTP, kargo ve teslimat güncellemeleri).
+
+> [!TIP]
+> **Maliyet Kontrolü:** SMS mesajları mesaj başına belirli bir ücrete tabidir. Operasyonel giderlerinizi etkili bir şekilde yönetebilmek için SMS şablonlarını yalnızca OTP (Doğrulama) veya Kargo Teslimatı gibi kritik uyarılara atayın. Daha az kritik bildirimler için In-App veya E-posta kanallarını kullanın.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Telefon doğrulama (OTP) kodları kullanıcılara iletilmiyor.
+- **Çözüm:** Öncelikle SMS Servis Sağlayıcısının seçili olup olmadığını kontrol edin. Ardından, "Kullanıcı Şablonları" bölümünde OTP/Doğrulama mesajı için eksiksiz ve doğru Şablon Kimliğinin (Template ID) girildiğinden emin olun. Son olarak, Global Bildirimler ayarlarından SMS kanalının aktif olup olmadığını doğrulayın.

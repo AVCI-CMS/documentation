@@ -1,0 +1,33 @@
+---
+sidebar_position: 6
+title: "SMS"
+description: "SMS entegrasyonu (gateway) yapılandırmalarını ve toplu mesaj kampanyalarını yönetin."
+---
+
+# SMS
+
+**Menü Yolu:** `Araçlar > SMS` (veya `Tools > SMS`)
+
+**SMS** modülü, hem işlemsel (transactional) iletişimler hem de pazarlama için temel bir yardımcı programdır. Kısa mesajların yüksek açılma oranları nedeniyle SMS; OTP (Tek Kullanımlık Şifre) doğrulaması veya kargo güncellemeleri gibi acil bildirimler için tercih edilen yöntemdir.
+
+## SMS Sağlayıcısını (Gateway) Yapılandırma
+
+Herhangi bir mesaj gönderebilmeniz için önce CMS'yi harici SMS Sağlayıcınıza (Örn: Twilio, Netgsm, Mutlucell, İletişim Makinesi) bağlamanız gerekir.
+
+1. **Araçlar > SMS** sayfasına gidin ve **Ayarlar (Settings)** sekmesini açın.
+2. **Sağlayıcı Adınızı (Provider Name)** girin.
+3. Telekomünikasyon şirketiniz tarafından sağlanan **API Anahtarı (API Key)** ve **Gizli Anahtarı (Secret Key)** girin.
+4. **Gönderici Başlığını (Sender ID / Header)** ayarlayın. Bu, standart bir telefon numarası yerine kullanıcının telefonunda görünen alfanümerik addır (en fazla 11 karakter, Örn: "AVCI_CMS"). *Not: Türkiye gibi birçok bölgede (BTK kuralları gereği), bu Gönderici Başlığının resmi olarak kaydedilmesi ve onaylanması gerekir.*
+
+## Toplu SMS Kampanyası Gönderme
+
+[Bülten (Newsletter)](../communication/newsletter) modülüne benzer şekilde, pazarlama mesajları yayınlayabilirsiniz:
+1. **"Yeni SMS Kampanyası"**na tıklayın.
+2. **Hedef Kitle Seçin:** Belirli Kullanıcı Gruplarına, aktif müşterilere göre filtreleyin veya ham telefon numaralarından oluşan bir liste yapıştırın.
+3. **Mesaj İçeriği (Body):** Mesajınızı yazın. Kısa ve öz tutun. Standart bir SMS (Türkçe karakter içermeyen) 160 karakterdir; bunu aşmak size kullanıcı başına 2 veya daha fazla SMS kredisine mal olacaktır (Boy kodları ve İYS iptal linkleri dahil).
+4. **Zamanlama (Schedule):** Hemen gönderin veya gelecekteki bir tarih seçin.
+
+## SMS Şablonlarını (Templates) Yönetme
+Otomatik sistem uyarıları ("123 numaralı siparişiniz kargoya verildi" gibi) için önceden tanımlanmış şablonlar oluşturabilirsiniz.
+- **Şablonlar (Templates)** sekmesine gidin.
+- Şablonlarınızda `{{USER_NAME}}` veya `{{TRACKING_LINK}}` gibi dinamik değişkenler kullanabilirsiniz. CMS, göndermeden önce bu değişkenleri otomatik olarak gerçek verilerle değiştirecektir.
