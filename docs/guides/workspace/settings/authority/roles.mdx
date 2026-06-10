@@ -1,8 +1,36 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: "Roles"
 ---
 
 # Roles
 
-Create logical groupings (e.g., "Accountant", "Support") to easily manage permissions for multiple users.
+**Menu Path:** `Workspace > Settings > Authority > Roles`
+
+:::info Permission Requirements
+To manage roles, you must have the **Workspace:Role:Manage** permission.
+:::
+
+The Roles configuration page allows you to manage access levels and permission groups within your workspace. By creating roles, you define exactly what actions different types of users (e.g., Editors, Support Agents, Managers) can perform.
+
+## Key Features & Configuration
+
+### 1. Role Types
+- **System Roles:** Pre-defined roles (like Admin or Owner) that are protected and static. You cannot modify their underlying code or delete them, ensuring a fail-safe hierarchy.
+- **Custom Roles:** Roles you create from scratch to fit your organizational needs.
+
+### 2. Creating & Editing Roles
+- **Role Name & Code:** When creating a new role (e.g., "Content Editor"), the system automatically generates a unique uppercase code (e.g., `CONTENT_EDITOR`).
+- **Permission Assignment:** You can select from the full list of atomic permissions (viewable in the Permissions module) to attach to the role. 
+- **Description:** Add a brief description outlining the role's responsibilities for easier team management.
+
+### 3. Role Matrix Inspection
+- **View Details:** By clicking the 'Grid' icon under the actions menu, you can navigate to the Role Matrix to visually inspect the boundaries and specific permissions granted to that role.
+
+> [!WARNING]
+> **Security Reminder:** Be careful not to disrupt your access hierarchy when adding new permissions to custom roles. Grant the principle of least privilege—only give the permissions absolutely necessary for the user to perform their job.
+
+## Common Issues
+
+- **Issue:** I cannot delete a specific role.
+- **Solution:** You cannot delete System roles or roles that are marked as the default role for new users. Additionally, ensure no active users are currently assigned to a Custom role before trying to delete it.

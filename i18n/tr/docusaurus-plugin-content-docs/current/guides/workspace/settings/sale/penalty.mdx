@@ -1,8 +1,35 @@
 ---
-sidebar_position: 4
-title: "Penalty Rules"
+sidebar_position: 3
+title: "Cezalar"
 ---
 
-# Penalty Rules
+# Ceza (Cezai İşlem) Ayarları
 
-Configure automated financial penalties for merchants who fail to ship on time or have high return rates.
+**Menü Yolu:** `Workspace > Settings > Sale > Penalty`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **MARKETPLACE** planına sahip olmanız gerekmektedir.
+:::
+
+Ceza (Penalty) modülü, satıcıların platform kurallarına (geç kargolama, müşteri iadeleri, sipariş iptalleri vb.) uymaması durumunda uygulanacak finansal veya operasyonel yaptırımları yapılandırmanızı sağlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Ceza Kuralları ve Limitleri
+Sistemin ihlalleri otomatik olarak tespit edip edemeyeceğini ve uygulanan cezaların üst sınırlarını belirlersiniz.
+- **Otomatik Ceza Uygulaması:** Sipariş SLA (Hizmet Seviyesi Sözleşmesi) süreleri aşıldığında sistemin satıcıya otomatik olarak ceza yansıtmasını sağlar.
+- **Maksimum Ceza Tutarı:** Bir satıcıya tek bir sipariş veya ihlal için kesilebilecek maksimum ceza tutarını (örn. 500 TL) sınırlar.
+
+### 2. Ceza Hesaplama Tipleri (Tolerans Ayarları)
+Hangi tür ihlallerde ceza sisteminin devreye gireceğini seçebilirsiniz:
+- **Tedarik Edememe (Out of Stock):** Satıcının siparişi iptal etmesi durumu.
+- **Geç Kargolama (Late Shipment):** Belirtilen kargoya teslim süresinin aşılması durumu.
+- **Müşteri Şikayeti (Customer Complaint):** Kusurlu veya yanlış ürün gönderimi kaynaklı iadeler.
+
+> [!WARNING]
+> "Otomatik Ceza Uygulaması" özelliğini aktif etmeden önce, kargo entegrasyonlarınızın doğru çalıştığından ve satıcıların kargo durumlarını anlık güncelleyebildiklerinden emin olun. Aksi halde haksız cezalar yansıtılabilir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Satıcılara otomatik ceza yansıtılmıyor.
+- **Çözüm:** Hesaplama tiplerinde ilgili ihlal türünün işaretli olup olmadığını ve global "Otomatik Ceza" anahtarının açık olup olmadığını kontrol edin.

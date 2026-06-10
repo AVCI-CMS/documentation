@@ -1,4 +1,5 @@
 {
   "label": "Email",
-  "position": 1
+  "position": 1,
+  "key": "integrations_email"
 }

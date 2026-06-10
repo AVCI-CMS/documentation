@@ -1,0 +1,37 @@
+---
+sidebar_position: 3
+title: "Route"
+---
+
+# Route Settings
+
+**Menu Path:** `Workspace > Settings > Catalog Settings > Route`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **EVENTS, TICKETING** plan.
+:::
+
+Route Settings define the default time intervals, distance constraints, and capacity calculation modes used by the route planning wizard when organizing multi-stop tours or events.
+
+## Key Features & Configuration
+
+### 1. Route Configuration
+Parameters governing the creation of a physical route.
+- **Default Buffer Minutes (defaultBufferMinutes):** The default extra time added between two points on a route to account for traffic or minor delays.
+- **Default Break Minutes (defaultBreakMinutes):** The default static rest or break period assigned between sessions or stops.
+- **Max Distance (maxDistanceBetweenEventsKm):** The maximum allowed physical distance (in kilometers) between two consecutive points on a single route.
+
+### 2. Waypoints and Capacity
+- **Waypoint Support (allowWaypoints):** Allows adding non-event stops to a route, such as a lunch break, meeting point, or transfer hub.
+- **Capacity Calculation Mode (capacityMode):** Determines how the overall capacity of a route is calculated for OTA (Online Travel Agency) and ticket control.
+  - **OTA (Events Min):** The route capacity is limited by the smallest capacity of any individual event on that route.
+  - **Route Only:** The overall route capacity overrides individual event capacities.
+  - **Route + Events:** Considers both the overarching route capacity and individual event capacities.
+
+> [!TIP]
+> **Route Planning Operations:** The defaults determined here are automatically loaded when the route wizard is launched. For operational flexibility, these can still be overridden instantly during the specific route creation process.
+
+## Common Issues
+
+- **Issue:** The system prevents adding the next location to the tour route.
+- **Solution:** Check the **Max Distance** setting. The location you are trying to add may be further away than the allowed limit from the previous stop.

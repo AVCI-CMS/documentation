@@ -1,0 +1,21 @@
+---
+sidebar_position: 6
+title: "Ekip Yönetimi"
+---
+
+# Kurumsal Ekip Yönetimi
+
+**Rota:** `(organization) > /organization/team`
+
+Kurumsal personeli, bölge direktörlerini ve finans yöneticilerini Organizasyon Paneline davet edin.
+
+## Roller ve Kurumlar Arası (Cross-Entity) Erişim
+
+Organizasyon paneline davet edilen kullanıcılar, doğal olarak belirli bir Satıcı (Merchant) paneline davet edilenlerden çok daha geniş bir erişim kapsamına sahiptir.
+
+- **Organizasyon Yöneticisi (Organization Admin):** Tüm kurumsal ayarları, belgeleri yönetebilir ve bağlı tüm satıcılardan gelen toplu (konsolide) verileri görüntüleyebilir.
+- **Finansal Kontrolör (Financial Controller):** Konsolide satış raporlarını, hakedişleri ve ana faturaları görüntüleyebilir, ancak operasyonel ayarları değiştiremez veya yeni satıcılar oluşturamaz.
+- **Bölge Müdürü (Regional Manager):** İzlemesi (raporlaması) için kendisine bir alt satıcılar grubu (subset of merchants) atanabilir ve bu sayede yerelleştirilmiş bir yönetim katmanı sağlanır.
+
+> [!TIP]
+> Mağaza düzeyindeki çalışanları (kasiyerler veya depo personeli gibi) Organizasyon Paneline davet **etmeyin**. Onları `(merchant) > /merchant/team` aracılığıyla doğrudan çalıştıkları belirli Satıcı Paneline (Merchant Portal) davet edin.

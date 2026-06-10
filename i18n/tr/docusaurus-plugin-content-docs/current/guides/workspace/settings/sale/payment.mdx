@@ -1,8 +1,40 @@
 ---
-sidebar_position: 2
-title: "Payment Gateways"
+sidebar_position: 1
+title: "Ödeme"
 ---
 
-# Payment Gateways
+# Ödeme Ayarları
 
-Connect Stripe, iyzico, or PayPal. Configure supported currencies, installments, and 3D secure requirements.
+**Menü Yolu:** `Workspace > Settings > Sale > Payment`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Ödeme Ayarları modülü, çalışma alanınızdaki tüm finansal akışların, para birimlerinin ve işlem limitlerinin yönetildiği merkezi alandır. 
+
+Bu sayfa üzerinden sistem tarafından kabul edilen para birimlerini tanımlayabilir, ödeme yöntemlerini yapılandırabilir ve anlık döviz kurlarını entegre edebilirsiniz.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Global Ödeme Yapılandırması
+Global ödeme servisinin durumunu ve operasyonel onay süreçlerini kontrol edebilirsiniz.
+- **Ödeme Servisi (isPaymentEnabled):** Global ödeme servisini etkinleştirir veya devre dışı bırakır. Devre dışı bırakıldığında platform üzerinden yeni bir ödeme alınamaz.
+- **İşlem Onayı (requireApproval):** Manuel onay mekanizmasını devreye alır. Tüm işlemler finans departmanının onay kuyruğuna düşer.
+- **Kabul Edilen Para Birimleri (acceptedCurrencies):** Platformda kabul edeceğiniz para birimlerini (örn. TRY, USD, EUR, GBP, CAD, JPY) belirleyebilirsiniz.
+- **Tercih Edilen Ödeme Yöntemleri:** Kredi/Banka Kartı, Havale/EFT, Kapıda Ödeme ve Dijital Cüzdan gibi seçenekleri aktif veya pasif hale getirebilirsiniz.
+
+### 2. İşlem Limitleri
+Ödeme işlemleri üzerindeki limit ve kısıtlamaları yapılandırmanıza olanak tanır.
+- **Maksimum İşlem Sayısı (maxPaymentsPerMerchant):** Satıcı başına eşzamanlı veya gün içi kabul edilen toplam işlem sınırını belirler. Olası dolandırıcılık (fraud) veya suiistimalleri engellemeye yardımcı olur.
+
+### 3. Anlık Döviz Kurları
+Sistemdeki aktif döviz kurlarını takip edebilir ve Global Sağlayıcı üzerinden manuel güncellemeleri tetikleyebilirsiniz. Kurlar, belirlediğiniz temel para birimine (örn. TRY) göre hesaplanır.
+
+> [!WARNING]
+> **Finansal Güvenlik Hatırlatması:** Ödeme ayarlarında yapılan değişiklikler tüm **yeni işlemler** için anında aktif olur. Servis kapatıldığında mevcut bekleyen işlemlerin durumu etkilenmez.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Ödeme modülü aktif görünmesine rağmen ödeme ekranı açılmıyor.
+- **Çözüm:** Kabul edilen para birimlerinden veya tercih edilen ödeme yöntemlerinden en az birinin seçili olduğundan emin olun.

@@ -1,0 +1,37 @@
+---
+sidebar_position: 5
+title: "User Relation"
+---
+
+# User Relation Settings
+
+**Menu Path:** `Workspace > Settings > Relations > User`
+
+:::info Permission Requirements
+To configure User Relation settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The User Relation module defines the boundaries, onboarding logic, and profile requirements for the end-users (customers/shoppers) in your workspace ecosystem.
+
+## Key Features & Configuration
+
+### 1. Authentication & Security
+- **Email Verification:** Mandate that all new users verify their email addresses before making a purchase or interacting with the platform.
+- **Password Policies:** Set the complexity requirements for end-user passwords (e.g., minimum length, numeric characters).
+
+### 2. Profile Components
+Customize the signup and profile management forms for your end-users.
+- **Date of Birth:** Toggle whether age verification/Date of Birth is collected (useful for age-restricted products).
+- **Marketing Consent:** Make the newsletter subscription checkbox visible or hidden by default during registration.
+
+### 3. Account Restrictions
+- **Device Limits:** Restrict the maximum number of active sessions or devices a single user account can have simultaneously.
+- **Order Limits:** Implement velocity checks (e.g., max 5 orders per hour) to prevent fraud or abuse by newly created accounts.
+
+> [!TIP]
+> Balancing user experience with data collection is key. Only make fields "Required" if they are absolutely necessary for your operational flow to avoid high drop-off rates during user registration.
+
+## Common Issues
+
+- **Issue:** High rate of spam accounts being created.
+- **Solution:** Navigate to the "Authentication & Security" section here and toggle "Email Verification" to mandatory. You can also implement tighter "Order Limits" to mitigate potential abuse.

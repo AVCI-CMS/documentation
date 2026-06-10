@@ -1,0 +1,37 @@
+---
+sidebar_position: 2
+title: "Domains"
+---
+
+# Domains
+
+**Menu Path:** `Workspace > Settings > Authority > Domains`
+
+:::info Permission Requirements
+To manage custom domains, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Domains settings allow you to link custom web addresses (e.g., `shop.yourbrand.com`) to your workspace's storefront. This provides a white-label experience for your customers.
+
+## Key Features & Configuration
+
+### 1. Adding a Domain
+- **Add Domain:** You can define a new domain without the protocol (e.g., just `shop.domain.com`, not `https://shop.domain.com`).
+- **SSL Certificates:** Once verified, the platform automatically provisions and manages an SSL certificate for your custom domain.
+
+### 2. Domain Verification
+To prove ownership of the domain you added, you must verify it via DNS records.
+- **TXT Record:** The system provides a specific `TXT` record value. You need to log into your domain registrar (e.g., GoDaddy, Cloudflare) and add this record to your DNS settings.
+- **Verification Check:** After adding the DNS record, click "Check Record" (Verify Now). Note that DNS propagation can sometimes take up to 24-48 hours.
+
+### 3. Managing Domains
+- **Set Primary:** You can have multiple verified domains. Setting one as "Primary" ensures that all canonical links and main storefront routes default to this domain.
+- **Remove Domain:** If you no longer want a domain connected to your workspace, you can easily delete it.
+
+> [!TIP]
+> **DNS Propagation Tip:** If the verification fails immediately after adding the TXT record, wait 15-30 minutes and try again. Global DNS caches need time to update.
+
+## Common Issues
+
+- **Issue:** The domain status is stuck on "Pending".
+- **Solution:** Ensure the TXT record was added correctly to the `@` host (or the specific subdomain host) in your DNS provider without any typos, and then click the verification button again.

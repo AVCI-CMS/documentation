@@ -1,0 +1,33 @@
+---
+sidebar_position: 6
+title: "Sepet"
+---
+
+# Sepet Ayarları
+
+**Menü Yolu:** `Workspace > Settings > Sale > Cart`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Sepet (Cart) modülü, müşterilerin alışveriş sepeti davranışlarını kontrol eden sınırlandırmalar ve sepet içi kuralların yapılandırıldığı alandır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Sepet Sınırlandırmaları (Kapasite)
+Tek bir siparişte müşterinin satın alabileceği maksimum ürün hacmini belirler.
+- **Maksimum Ürün Çeşidi (Max Unique Items):** Bir sepete eklenebilecek farklı ürün (SKU) sayısını sınırlar. Çok yüksek olması kargo hesaplamalarında zorluk yaratabilir.
+- **Maksimum Toplam Adet (Max Total Items):** Sepetteki ürünlerin toplam adet sınırıdır. Toptan (B2B) alımları engellemek veya stok manipülasyonunu önlemek için kullanılır.
+
+### 2. Stok Rezervasyon Kuralları
+Müşteri bir ürünü sepete eklediğinde stokun nasıl davranacağını belirler.
+- **Sepet Rezervasyon Süresi:** Ürün sepete eklendiğinde o ürünün başka müşterilere satılmaması için stoktan düşüldüğü geçici süredir (Örn: 15 Dakika). Süre bitiminde müşteri satın alım yapmamışsa stok tekrar genel satışa açılır.
+
+> [!TIP]
+> **Stok Rezervasyonu Stratejisi:** Flash-sale (anlık indirim) kampanyalarında sepet rezervasyon süresini çok kısa (örn: 5 dakika) tutmak, aynı ürünü almak isteyen diğer müşterilerin sepette bekleyen stoklar yüzünden mağdur olmasını engeller.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteri sepete daha fazla ürün ekleyemiyor.
+- **Çözüm:** Maksimum ürün çeşidi (SKU) veya maksimum toplam adet limitlerinden birine takılmış olabilir. B2B satış yapıyorsanız bu limitleri yüksek tutmalısınız.

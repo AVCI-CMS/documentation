@@ -1,4 +1,5 @@
 {
   "label": "Invoice",
-  "position": 7
+  "position": 7,
+  "key": "integrations_invoice"
 }

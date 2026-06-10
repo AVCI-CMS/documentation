@@ -1,8 +1,51 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 title: "Stripe"
+description: "Process global credit card payments securely with Stripe."
 ---
 
 # Stripe Integration
 
-This page will contain detailed documentation for the Stripe integration.
+**Menu Path:** `Workspace > Settings > Integrations > Payment > Stripe`
+
+Stripe is a globally recognized payment gateway that allows your platform to accept credit cards, debit cards, and alternative payment methods like Apple Pay and Google Pay securely.
+
+## Prerequisites
+
+Before integrating Stripe into your AVCI CMS workspace, you must:
+1. Create a verified [Stripe Account](https://dashboard.stripe.com/register).
+2. Complete your business identity verification (KYC) within the Stripe Dashboard.
+3. Ensure your storefront is served over HTTPS (SSL).
+
+## Configuration Steps
+
+To enable Stripe on your platform, follow these steps:
+
+### 1. Retrieve API Keys
+1. Log in to your Stripe Dashboard.
+2. Navigate to **Developers > API keys**.
+3. Locate your **Publishable key** and **Secret key**. (Use test keys if you are setting up a development/staging environment).
+
+### 2. Enter Credentials in CMS
+1. In the AVCI CMS admin panel, go to `Integrations > Payment > Stripe`.
+2. Toggle the integration status to **Active**.
+3. Enter your **Publishable Key** and **Secret Key** into the respective fields.
+4. Click **Save Settings**.
+
+### 3. Webhook Setup (Crucial)
+Webhooks are required so that Stripe can inform the CMS when a payment succeeds asynchronously.
+1. In the CMS Stripe integration page, copy the **Webhook Endpoint URL**.
+2. Go back to your Stripe Dashboard > **Developers > Webhooks**.
+3. Click **Add an endpoint**, paste the URL, and select the following events:
+   - `payment_intent.succeeded`
+   - `payment_intent.payment_failed`
+   - `charge.refunded`
+4. Copy the generated **Webhook Signing Secret** from Stripe and paste it into the `Webhook Secret` field in the CMS.
+5. Save settings again.
+
+## Testing the Integration
+
+We highly recommend testing the checkout flow using Stripe's mock credit card numbers (e.g., `4242 4242 4242 4242`) before switching your integration to "Live Mode".
+
+> [!WARNING]
+> Never enter your live Stripe Secret Key into a staging or development environment. Always use the test keys provided by Stripe to prevent accidental real-world charges.

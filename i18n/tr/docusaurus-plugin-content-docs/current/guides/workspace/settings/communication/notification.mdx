@@ -1,8 +1,35 @@
 ---
-sidebar_position: 2
-title: "Push Notifications"
+sidebar_position: 3
+title: "Global Bildirimler"
 ---
 
-# Push Notification Settings
+# Global Bildirim Ayarları
 
-Configure Firebase Cloud Messaging (FCM) credentials or Apple Push Notification Service (APNs) keys for mobile app alerts.
+**Menü Yolu:** `Workspace > Settings > Communication > Notification`
+
+:::info Yetki Gereksinimleri
+Global bildirim durumlarını yönetmek için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Bildirim (Notification) ayarları, çalışma alanınızdan çıkan tüm dışa dönük iletişimler için bir ana şalter (master switch) görevi görür. Buradan hangi iletişim kanallarının aktif olacağını belirleyebilir veya iletişimi evrensel olarak tamamen açıp kapatabilirsiniz.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Sistem Yapılandırması
+- **Global Bildirim Servisi (Master Switch):** Bu ana anahtar, çalışma alanı genelinde *hiçbir* bildirimin (faturalar, güvenlik uyarıları, sipariş güncellemeleri) gönderilip gönderilmeyeceğini kontrol eder.
+- **Güvenlik Anahtarı (Failsafe):** Bu seçenek kapatıldığında, tekil kanal ayarlarına (E-posta, SMS vb.) bakılmaksızın tüm mesaj gönderimleri durdurulur. Özellikle büyük sistem bakımları veya altyapı geçişleri sırasında (migration) çok kullanışlıdır.
+
+### 2. Desteklenen Kanallar
+Global servis aktif edildikten sonra, iletişim kanallarını tek tek (seçmeli olarak) açıp kapatabilirsiniz:
+- **E-posta (Email):** Standart işlemsel e-postalar.
+- **SMS:** Acil uyarılar veya OTP (Doğrulama kodları) için kısa mesajlar.
+- **Uygulama İçi (In-App):** Kullanıcı kontrol panelinde (dashboard) görüntülenen bildirimler.
+- **Mobil Push (Mobile Push):** Özel mobil uygulamalarınıza gönderilen push bildirimleri.
+
+> [!WARNING]
+> **Entegrasyon Ön Koşulları:** Buradan "E-posta" veya "SMS" kanallarını aktif etmek, yalnızca ilgili E-posta ve SMS ayarları sayfalarında sağlayıcılarınızı (provider) doğru bir şekilde yapılandırdıysanız işe yarar. Benzer şekilde, "Mobil Push" kanalı geçerli bir Firebase yapılandırması gerektirir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** E-posta sağlayıcısı doğru yapılandırılmış olmasına rağmen hiçbir kullanıcı e-posta almıyor.
+- **Çözüm:** Bu Global Bildirimler sayfasını kontrol edin. "Global Bildirim Servisi" kapalıysa veya "E-posta" (Email) kanalı işaretli değilse, sağlayıcı ayarları ne kadar doğru olursa olsun giden tüm e-postalar sistem tarafından engellenir.

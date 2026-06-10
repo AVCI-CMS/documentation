@@ -1,0 +1,37 @@
+---
+sidebar_position: 2
+title: "Alan Adları (Domains)"
+---
+
+# Alan Adları (Domains)
+
+**Menü Yolu:** `Workspace > Settings > Authority > Domains`
+
+:::info Yetki Gereksinimleri
+Özel alan adlarını yönetmek için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Alan Adları (Domains) ayarları, çalışma alanınızın vitrinine (storefront) özel web adresleri (örn. `shop.markaniz.com`) bağlamanıza olanak tanır. Bu sayede müşterilerinize kendi markanız altında white-label bir deneyim sunabilirsiniz.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Alan Adı Ekleme
+- **Alan Adı Ekle:** Yeni bir alan adını protokol (`http/https`) olmadan, yalın halde tanımlayabilirsiniz (Örn: `https://shop.domain.com` yerine sadece `shop.domain.com`).
+- **SSL Sertifikaları:** Alan adı doğrulandıktan sonra, platform otomatik olarak özel alan adınız için bir SSL sertifikası (HTTPS) tanımlar ve yönetimini üstlenir.
+
+### 2. Alan Adı Doğrulama
+Eklediğiniz alan adının size ait olduğunu kanıtlamak için DNS kayıtları aracılığıyla doğrulama yapmanız gerekir.
+- **TXT Kaydı:** Sistem size özel bir `TXT` kayıt değeri sunar. Alan adı sağlayıcınıza (örn. GoDaddy, Cloudflare, Natro) giriş yaparak bu kaydı DNS ayarlarınıza eklemelisiniz.
+- **Doğrulama Kontrolü:** DNS kaydını ekledikten sonra "Kaydı Kontrol Et" (Verify Now) butonuna tıklayın. Unutmayın, DNS yönlendirmelerinin (propagation) dünya genelinde güncellenmesi bazen 24 ila 48 saat sürebilir.
+
+### 3. Alan Adlarını Yönetme
+- **Birincil (Primary) Yap:** Doğrulanmış birden fazla alan adınız olabilir. Birini "Birincil" olarak ayarlamak, tüm standart bağlantıların ve ana vitrin (storefront) rotalarının varsayılan olarak bu alan adına yönlendirilmesini sağlar.
+- **Kaldır (Remove):** Çalışma alanınıza bağlı olmasını istemediğiniz bir alan adını istediğiniz zaman silebilirsiniz.
+
+> [!TIP]
+> **DNS Yönlendirme İpucu:** TXT kaydını ekledikten hemen sonra doğrulama başarısız olursa, 15-30 dakika bekleyip tekrar deneyin. Global DNS önbelleklerinin güncellenmesi biraz zaman alır.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Alan adının durumu sürekli "Bekliyor" (Pending) olarak kalıyor.
+- **Çözüm:** TXT kaydının DNS sağlayıcınızda `@` ana bilgisayarına (host) veya ilgili alt alan adına yazım hatası olmadan doğru eklendiğinden emin olun ve doğrulama butonuna tekrar tıklayın.

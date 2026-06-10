@@ -1,0 +1,35 @@
+---
+sidebar_position: 7
+title: "Cart"
+---
+
+# Cart Settings
+
+**Menu Path:** `Workspace > Settings > Sale Settings > Cart`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+Cart Settings provide control over the shopping cart behavior, operational limits, and checkout flexibility on your storefront.
+
+## Key Features & Configuration
+
+### 1. General Cart Behavior
+- **Cart Status (isActive):** Toggles the shopping cart feature on or off globally.
+- **Guest Checkout (allowGuestCheckout):** Allows users to complete purchases without registering an account. Disabling this enforces a login requirement prior to checkout.
+- **Order Notes (allowNotes):** Enables a text area in the cart for customers to leave special instructions for the merchant.
+
+### 2. Operational Limits
+- **Inactivity Duration (expirationMinutes):** Determines how long items are reserved in the cart before the cart is considered abandoned and cleared (freeing up the stock).
+- **Minimum Order Amount (minOrderAmount):** Sets a financial threshold that the cart total must reach before the user is allowed to proceed to checkout.
+- **Maximum Items Per Cart (maxItemsPerCart):** Limits the total number of distinct items a user can have in their cart at any given time.
+- **Maximum Quantity Per Item (maxQuantityPerItem):** Prevents bulk hoarding by limiting how many units of a single specific item a user can add.
+
+> [!TIP]
+> Setting a reasonable **Inactivity Duration** is crucial for inventory management, especially for high-demand flash sales or limited-stock events, as it prevents stock from being tied up in abandoned carts indefinitely.
+
+## Common Issues
+
+- **Issue:** Customers are complaining they cannot checkout.
+- **Solution:** Verify if the **Minimum Order Amount** is set too high, or if **Guest Checkout** is disabled without clear messaging prompting the user to log in.

@@ -1,8 +1,39 @@
 ---
 sidebar_position: 2
-title: "Theme"
+title: "Tema & Markalaşma"
 ---
 
-# Theme Settings
+# Tema ve Markalaşma Ayarları
 
-Upload your company logo, favicon, and define the primary brand colors used in the dashboard and automated emails.
+**Menü Yolu:** `Workspace > Settings > Appearance > Theme > Branding`
+
+:::info Yetki Gereksinimleri
+Tema ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Tema ve Markalaşma (Theme and Branding) modülü, çalışma alanınızın ve vitrininizin (storefront) görsel kimliğini tanımladığınız yerdir. Bu sayfa üzerinden logolarınızı, favicon'unuzu ve genel kurumsal renk paletinizi yapılandırabilirsiniz.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Görsel Varlıklar (Logolar & Favicon)
+- **Koyu Arka Plan Logosu (Dark Background Logo):** Logonuzun koyu veya siyah arka planlar üzerinde sergilenmek üzere tasarlanmış versiyonunu yükleyin (Önerilen boyut: 400x120px).
+- **Açık Arka Plan Logosu (Light Background Logo):** Logonuzun açık veya beyaz arka planlar için tasarlanmış versiyonunu yükleyin. Şeffaflığı (transparanlığı) korumak adına sadece `.png` ve `.svg` formatları desteklenmektedir.
+- **Tarayıcı İkonu (Favicon):** Tarayıcı sekmesinde görünen küçük simgedir. Favicon'lar için kare (1:1) en-boy oranı kullanılması şiddetle tavsiye edilir.
+
+### 2. Kurumsal Renk Paleti (Color Palette)
+Tüm uygulama arayüzünün görünümünü ve hissini belirleyecek olan onaltılık (hex) renk kodlarını tanımlayın.
+- **Birincil Renk (Primary):** Ana eylem butonları (Call-to-action), aktif bağlantılar ve temel vurgular için kullanılır.
+- **İkincil ve Üçüncül Renkler (Secondary & Tertiary):** Panel başlıkları, yan sütunlar (sidebar), kenarlıklar ve ikincil butonlar için kullanılır.
+- **Dördüncül ve Beşincil Renkler (Quaternary & Quinary):** Hafif derinlik hissi, arka plan varyasyonları veya spesifik durum (status) göstergeleri için kullanılır.
+- **Arka Plan Rengi (Background Color):** Genel sayfa düzeninin ve uygulamanın ana arka plan rengidir.
+
+### 3. Dinamik Adlandırma (Labelling)
+- İş modelinize bağlı olarak platformunuzdaki satıcıları "Mağazalar", "Satıcılar", "Tedarikçiler" veya "Partnerler" olarak adlandırmak isteyebilirsiniz. Tema ayarları içindeki dinamik adlandırma (Labelling) modülü, sistem terminolojisinin işletmenizin modeline tam olarak uyması için evrensel metin geçersiz kılmalarına (override) olanak tanır.
+
+> [!WARNING]
+> **Kontrast Kontrolü:** Renk paletinizi belirlerken Birincil (Primary) renginiz ile Arka Plan renginiz arasında yeterli yüksek kontrastın olduğuna emin olun. Zayıf kontrast, vitrininizi erişilemez (inaccessible) hale getirecek ve kullanıcıların sitede gezinmesini zorlaştıracaktır.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Yüklenen logo, yüksek çözünürlüklü ekranlarda (retina ekranlar gibi) bulanık ve pikselli görünüyor.
+- **Çözüm:** Mümkünse logolarınız için daima `.svg` (Ölçeklenebilir Vektör Grafikleri) formatını tercih edin. SVG dosyaları, ekranda ne kadar büyük veya küçük görüntülenirse görüntülensin asla kalite kaybı yaşamazlar.

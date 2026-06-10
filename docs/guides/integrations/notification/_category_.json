@@ -1,4 +1,5 @@
 {
   "label": "Notification",
-  "position": 3
+  "position": 3,
+  "key": "integrations_notification"
 }

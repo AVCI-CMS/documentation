@@ -1,10 +1,34 @@
 ---
-sidebar_position: 2
-title: "Product Settings"
+sidebar_position: 1
+title: "Ürünler"
 ---
 
-# Product Settings
+# Ürün Ayarları
 
-**Menu Path:** `Workspace > Settings > Catalog Settings > Product`
+**Menü Yolu:** `Workspace > Settings > Catalog > Product`
 
-Detailed configurations for physical and digital products, including global tax rates, low stock alerts, and image watermarking.
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Ürün Ayarları modülü, satıcıların (veya yöneticilerin) yeni bir ürün oluştururken hangi alanları doldurmak zorunda olduğunu ve genel listeleme kurallarını belirlediğiniz alandır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Form ve Bileşen Kısıtlamaları (Component Settings)
+Ürün oluşturma formundaki alanların görünürlüğünü ve zorunluluk durumlarını kontrol edebilirsiniz.
+- **Barkod (Barcode):** Özellikle fiziksel perakende veya depo yönetimi yapıyorsanız ürünü kaydederken global bir barkod girilmesini "Zorunlu" kılabilirsiniz.
+- **Marka (Brand):** Ürünlerin bir marka altında toplanması için zorunlu tutulabilir.
+- **Vergi Sınıfı (Tax Rate):** Finansal raporlamaların doğru çalışması için vergi oranının (KDV) her üründe zorunlu olarak girilmesi tavsiye edilir.
+
+### 2. Medya (Görsel/Video) Kısıtlamaları
+- **Maksimum Görsel Sayısı:** Bir ürün ilanına yüklenebilecek maksimum fotoğraf sayısını belirler (Örn: 8). Sınırı aşan yüklemeler engellenir, bu da depolama maliyetlerinizi optimize eder.
+- **Video Yükleme İzni:** Satıcıların ürün tanıtım videoları yükleyip yükleyemeyeceğini açıp kapatabilirsiniz.
+
+> [!TIP]
+> **SEO ve Zengin İçerik:** Arama motoru optimizasyonunu (SEO) güçlendirmek için satıcılarınıza "Kısa Açıklama" (Short Description) ve "Uzun Açıklama" (Rich Text) alanlarını zorunlu tutun.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Satıcılar yeni ürün eklerken "Barkod eksik" hatası alıyor ama formda barkod alanı gözükmüyor.
+- **Çözüm:** Bu sayfadaki "Component Settings" tablosunda "Barkod" alanının hem "Required" (Zorunlu) hem de "Visible" (Görünür) olarak işaretlendiğinden emin olun. Görünürlüğü kapalı ama zorunlu olan alanlar formun gönderilmesini engeller.

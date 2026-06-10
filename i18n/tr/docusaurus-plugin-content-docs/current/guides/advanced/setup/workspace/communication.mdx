@@ -1,0 +1,19 @@
+---
+sidebar_position: 4
+title: "3. İletişim Sağlayıcı"
+---
+
+# 3. İletişim Sağlayıcı
+
+**Rota:** `(setup) > Setup > Workspace > Step 3`
+
+Platformunuz, satıcılara ve kullanıcılara (şifre sıfırlama, sipariş onayları gibi) otomatik bildirimler gönderecektir. Bu bildirilerin sizin adınıza gönderilebilmesi için bir E-posta Sağlayıcısı (SMTP/API) bağlamanız gerekir.
+
+## Entegrasyon
+
+- **Sağlayıcı (Provider) Seçimi:** AWS SES, SendGrid veya Resend gibi desteklenen bir sağlayıcı seçin.
+- **API Anahtarları:** Seçtiğiniz servis sağlayıcıdan aldığınız API anahtarlarını (Key) girin.
+
+:::info Daha Sonra Geç
+Bu adımı isterseniz atlayıp daha sonra `Workspace > Settings > Integrations` menüsünden de yapılandırabilirsiniz. Ancak kurulumu atlamak, alt satıcılarınızın doğrulama (OTP) e-postalarını alamamasına neden olur.
+:::

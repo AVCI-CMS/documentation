@@ -1,0 +1,40 @@
+---
+sidebar_position: 9
+title: "Return"
+---
+
+# Return Settings
+
+**Menu Path:** `Workspace > Settings > Sale Settings > Return`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+Return Settings govern the policies and automated workflows for product returns, refunds, and exchanges, ensuring a standardized process across all merchants on your platform.
+
+## Key Features & Configuration
+
+### 1. Return Policy
+- **Return System (allowReturns):** Enables or disables the ability for customers to request a return through the platform interface.
+- **Return Window (returnWindowDays):** Specifies the number of days after delivery within which a customer can initiate a return (e.g., 14 or 30 days).
+- **Require Reason (requireReturnReason):** Forces the customer to select a reason before a return request can be submitted.
+- **Require Images (requireImages):** Mandates image uploads for specific return reasons (e.g., if claiming the item is defective or damaged).
+
+### 2. Automation & Thresholds
+- **Auto-Approve Low Value (autoApproveLowValue):** Automatically approves return requests if the item's value is below a certain threshold, saving operational overhead on cheap items.
+- **Low Value Threshold (lowValueThreshold):** The monetary value (in the base currency) below which returns are auto-approved.
+
+### 3. Allowed Return Reasons
+You can define acceptable reasons for a return:
+- **DEFECTIVE:** The product is faulty or broken.
+- **WRONG_ITEM:** A different item was shipped.
+- **CHANGED_MIND:** The customer simply no longer wants the item (buyer's remorse).
+
+> [!WARNING]
+> Be cautious when enabling **autoApproveLowValue**. While it saves customer service time, it can be abused if the threshold is set too high or if fraud monitoring is not in place.
+
+## Common Issues
+
+- **Issue:** Customers cannot initiate a return for a delivered order.
+- **Solution:** Check if the order's delivery date exceeds the **Return Window (returnWindowDays)** configured here. Once the window expires, the system automatically blocks return requests.

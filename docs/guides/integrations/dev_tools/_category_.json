@@ -1,4 +1,5 @@
 {
   "label": "Developer Tools",
-  "position": 9
+  "position": 9,
+  "key": "integrations_dev_tools"
 }

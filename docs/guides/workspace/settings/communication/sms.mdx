@@ -1,8 +1,33 @@
 ---
 sidebar_position: 4
-title: "SMS Configuration"
+title: "SMS Settings"
 ---
 
-# SMS Configuration
+# SMS Settings
 
-Connect to SMS gateways (e.g., Twilio, Netgsm) and configure your official Sender ID for fast OTPs and delivery alerts.
+**Menu Path:** `Workspace > Settings > Communication > SMS`
+
+:::info Permission Requirements
+To configure SMS settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The SMS Settings page allows you to configure your SMS provider and map message templates for critical alerts, marketing, or Two-Factor Authentication (2FA) codes.
+
+## Key Features & Configuration
+
+### 1. Service Provider
+- **Select Provider:** Choose your active SMS gateway provider (e.g., Verimor). 
+- **Prerequisite:** Just like email, the SMS provider must first be integrated and authenticated via the [Integrations](../../../integrations/index.mdx) module before it can be selected here.
+
+### 2. Message Templates
+To standardize outgoing messages, you link system events to specific template IDs provided by your SMS gateway:
+- **Merchant Templates:** Automated texts sent to sellers (e.g., new order alerts, payout notifications).
+- **User Templates:** Automated texts sent to end-users (e.g., phone verification codes, delivery updates).
+
+> [!TIP]
+> **Cost Control:** SMS messaging carries a per-message cost. Only assign templates to critical alerts (like OTPs or shipping dispatches) to manage your operational expenses effectively.
+
+## Common Issues
+
+- **Issue:** Phone verification codes are not being delivered.
+- **Solution:** First, verify that the SMS Service Provider is selected. Second, ensure that the exact Template ID for the OTP/Verification message is correctly inputted under the "User Templates" section. Finally, check the Global Notification settings to ensure the SMS channel is active.

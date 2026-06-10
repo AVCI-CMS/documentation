@@ -1,0 +1,70 @@
+{
+  "link.title.Guides": {
+    "message": "Rehberler",
+    "description": "The title of the footer links column with title=Guides in the footer"
+  },
+  "link.title.Developers": {
+    "message": "Geliştiriciler",
+    "description": "The title of the footer links column with title=Developers in the footer"
+  },
+  "link.title.Community & Legal": {
+    "message": "Topluluk & Yasal",
+    "description": "The title of the footer links column with title=Community & Legal in the footer"
+  },
+  "link.item.label.Setup Guide": {
+    "message": "Kurulum Rehberi",
+    "description": "The label of footer link with label=Setup Guide linking to /guides/advanced/setup"
+  },
+  "link.item.label.Workspace Settings": {
+    "message": "Çalışma Alanı Ayarları",
+    "description": "The label of footer link with label=Workspace Settings linking to /guides/workspace/settings"
+  },
+  "link.item.label.Integrations": {
+    "message": "Entegrasyonlar",
+    "description": "The label of footer link with label=Integrations linking to /guides/integrations"
+  },
+  "link.item.label.API Reference": {
+    "message": "API Referansı",
+    "description": "The label of footer link with label=API Reference linking to /api"
+  },
+  "link.item.label.SDK Usage": {
+    "message": "SDK Kullanımı",
+    "description": "The label of footer link with label=SDK Usage linking to /sdk"
+  },
+  "link.item.label.Webhooks": {
+    "message": "Webhook'lar",
+    "description": "The label of footer link with label=Webhooks linking to /guides/workspace/advanced/webhooks"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/avcicms"
+  },
+  "link.item.label.Help Center": {
+    "message": "Yardım Merkezi",
+    "description": "The label of footer link with label=Help Center linking to https://avcicms.com/resources/help-center"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "Gizlilik Politikası",
+    "description": "The label of footer link with label=Privacy Policy linking to https://avcicms.com/legal/gizlilik-politikasi-ve-kvkk-aydinlatma-metni"
+  },
+  "copyright": {
+    "message": "\n        <div class=\"footer-bottom\">\n          <div class=\"footer-copyright\">Copyright © 2026 AVCI CMS. Built with Docusaurus.</div>\n          <div class=\"footer-socials\">\n            <a href=\"https://instagram.com/avcicms\" target=\"_blank\" aria-label=\"Instagram\">\n              <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"20\" x=\"2\" y=\"2\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" x2=\"17.51\" y1=\"6.5\" y2=\"6.5\"/></svg>\n            </a>\n            <a href=\"https://x.com/avcicms\" target=\"_blank\" aria-label=\"X\">\n              <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"/></svg>\n            </a>\n            <a href=\"https://linkedin.com/company/avcicms\" target=\"_blank\" aria-label=\"LinkedIn\">\n              <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"/><rect width=\"4\" height=\"12\" x=\"2\" y=\"9\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>\n            </a>\n            <a href=\"https://youtube.com/avcicms\" target=\"_blank\" aria-label=\"YouTube\">\n              <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z\"/><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"/></svg>\n            </a>\n          </div>\n        </div>\n      ",
+    "description": "The footer copyright"
+  },
+  "logo.alt": {
+    "message": "AVCI CMS Logo",
+    "description": "The alt text of footer logo"
+  },
+  "link.title.Company": {
+    "message": "Şirket"
+  },
+  "link.item.label.About Us": {
+    "message": "Hakkımızda"
+  },
+  "link.item.label.Careers": {
+    "message": "Kariyer"
+  },
+  "link.item.label.Contact Us": {
+    "message": "İletişim"
+  }
+}

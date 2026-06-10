@@ -47,6 +47,7 @@ const config: Config = {
         hashed: true,
         language: ["en", "tr"],
         docsRouteBasePath: "/",
+        indexBlog: false,
       },
     ],
   ],
@@ -110,7 +111,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'light',
+      style: 'dark',
       logo: {
         alt: 'AVCI CMS Logo',
         src: 'img/logo.svg',
@@ -119,59 +120,41 @@ const config: Config = {
       },
       links: [
         {
-          title: 'Şirket',
+          title: 'Guides',
           items: [
-            { label: 'Hakkımızda', href: 'https://avcicms.com/company/about-us' },
-            { label: 'Kariyer', href: 'https://avcicms.com/company/careers' },
-            { label: 'Basın', href: 'https://avcicms.com/company/press' },
-            { label: 'İş Ortakları', href: 'https://avcicms.com/company/partners' },
-            { label: 'İletişim', href: 'https://avcicms.com/company/contact-us' },
+            { label: 'Setup Guide', to: '/guides/advanced/setup' },
+            { label: 'Workspace Settings', to: '/guides/workspace/settings' },
+            { label: 'Integrations', to: '/guides/integrations' },
           ],
         },
         {
-          title: 'Özellikler',
+          title: 'Developers',
           items: [
-            { label: 'Pazarlama', href: 'https://avcicms.com/features/marketing' },
-            { label: 'White Label', href: 'https://avcicms.com/features/white-label' },
-            { label: 'Analitik', href: 'https://avcicms.com/features/analytics' },
-            { label: 'SEO & LLM Optimizasyonu', href: 'https://avcicms.com/features/seo-llm-optimization' },
-            { label: 'Görsel Optimizasyonu', href: 'https://avcicms.com/features/image-optimization' },
-            { label: 'Üye Yönetimi', href: 'https://avcicms.com/features/member-management' },
+            { label: 'API Reference', to: '/api' },
+            { label: 'SDK Usage', to: '/sdk' },
+            { label: 'Webhooks', to: '/guides/workspace/advanced/webhooks' },
           ],
         },
         {
-          title: 'Kaynaklar',
+          title: 'Company',
           items: [
-            { label: 'Blog', href: 'https://avcicms.com/resources/blog' },
-            { label: 'Yardım Merkezi', href: 'https://avcicms.com/resources/help-center' },
-            { label: 'Eğitimler', href: 'https://avcicms.com/resources/tutorials' },
-            { label: 'Müşteri Hikayeleri', href: 'https://avcicms.com/resources/client-stories' },
+            { label: 'About Us', href: 'https://avcicms.com/company/about-us' },
+            { label: 'Careers', href: 'https://avcicms.com/company/careers' },
+            { label: 'Contact Us', href: 'https://avcicms.com/company/contact-us' },
           ],
         },
         {
-          title: 'Geliştiriciler',
+          title: 'Community & Legal',
           items: [
-            { label: 'Dokümantasyon', to: '/' },
-            { label: 'API', to: '/api' },
-            { label: 'SDK', to: '/sdk' },
-            { label: 'Topluluk', href: 'https://avcicms.com/developers/community' },
             { label: 'GitHub', href: 'https://github.com/avcicms' },
-          ],
-        },
-        {
-          title: 'Yasal',
-          items: [
-            { label: 'Çerez Politikası', href: 'https://avcicms.com/legal/cerez-politikasi' },
-            { label: 'Gizlilik ve KVKK', href: 'https://avcicms.com/legal/gizlilik-politikasi-ve-kvkk-aydinlatma-metni' },
-            { label: 'İptal ve İade Koşulları', href: 'https://avcicms.com/legal/iptal-ve-iade-kosullari' },
-            { label: 'Kullanım Koşulları', href: 'https://avcicms.com/legal/kullanim-kosullari' },
-            { label: 'Mesafeli Satış Sözleşmesi', href: 'https://avcicms.com/legal/mesafeli-satis-sozlesmesi' },
+            { label: 'Help Center', href: 'https://avcicms.com/resources/help-center' },
+            { label: 'Privacy Policy', href: 'https://avcicms.com/legal/gizlilik-politikasi-ve-kvkk-aydinlatma-metni' },
           ],
         },
       ],
       copyright: `
         <div class="footer-bottom">
-          <div class="footer-copyright">Copyright © ${new Date().getFullYear()} AVCI CMS. Built with Docusaurus.</div>
+          <div class="footer-copyright">Copyright © ${new Date().getFullYear()} AVCI CMS.</div>
           <div class="footer-socials">
             <a href="https://instagram.com/avcicms" target="_blank" aria-label="Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>

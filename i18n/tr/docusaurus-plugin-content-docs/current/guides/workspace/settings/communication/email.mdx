@@ -1,8 +1,35 @@
 ---
-sidebar_position: 3
-title: "Email Configuration"
+sidebar_position: 1
+title: "E-posta Ayarları"
 ---
 
-# Email Configuration
+# E-posta Ayarları
 
-Connect your SMTP server or API keys for services like Amazon SES, SendGrid, or Mailgun to ensure high deliverability of transactional emails.
+**Menü Yolu:** `Workspace > Settings > Communication > Email`
+
+:::info Yetki Gereksinimleri
+E-posta ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+E-posta Ayarları (Email Settings) sayfası, aktif e-posta servis sağlayıcınızı seçmenize ve sistem içindeki çeşitli roller için önceden tanımlanmış bildirim şablonlarını (template) eşleştirmenize olanak tanır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Sağlayıcı (Provider) Yapılandırması
+- **E-posta Sağlayıcısı:** Giden tüm sistem e-postalarını işlemek için önceden entegre ettiğiniz aktif e-posta sağlayıcısını (örn. SMTP, AWS SES, Resend) seçin. Hiçbir sağlayıcı seçilmezse otomatik e-postalar gönderilmez.
+- **Ön Koşul:** Burada bir sağlayıcıyı aktif hale getirmeden önce, kimlik bilgilerini (API anahtarı vb.) [Entegrasyonlar](../../../integrations/index.mdx) (Integrations) bölümünden yapılandırmanız gerekir.
+
+### 2. E-posta Şablonları (Templates)
+Sistemdeki belirli işlemleri (operasyonel tetikleyicileri), e-posta sağlayıcınızın panelinde oluşturduğunuz şablon kimlikleriyle (Template ID) eşleştirebilirsiniz. Şablonlar, hedef kitleye (kapsama) göre sınıflandırılmıştır:
+- **Kullanıcı (User):** Son kullanıcılara gönderilen e-postalar (örn: şifre sıfırlama, sipariş onayları).
+- **Satıcı (Merchant):** Platformdaki satıcılara/mağazalara gönderilen e-postalar.
+- **Çalışma Alanı (Workspace):** Çalışma alanı yöneticilerine gönderilen dâhili uyarılar.
+- **Organizasyon & Marka:** Belirli organizasyonel veya marka yönetim katmanları için tasarlanmış bildirimler.
+
+> [!TIP]
+> Girdiğiniz Şablon Kimliklerinin (Template IDs), seçtiğiniz e-posta sağlayıcısı tarafından verilen kimliklerle tam olarak eşleştiğinden emin olun. Yanlış veya eksik bir kimlik girilmesi, e-posta gönderim sürecinin sessizce (hata vermeden) başarısız olmasına neden olur.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Kullanıcılar şifre sıfırlama e-postalarını alamıyor.
+- **Çözüm:** Öncelikle aktif bir E-posta Sağlayıcısı seçildiğini doğrulayın. Ardından "Kullanıcı" (User) şablonları bölümüne ilerleyip `AUTH_RESET_PASSWORD` veya benzeri bir anahtar için geçerli bir şablon kimliği (Template ID) girildiğinden emin olun.

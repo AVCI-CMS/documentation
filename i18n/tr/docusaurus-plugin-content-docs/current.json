@@ -1,0 +1,214 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.guidesSidebar.category.interface": {
+    "message": "Interface & UX",
+    "description": "The label for category 'Interface & UX' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.interface.link.generated-index.description": {
+    "message": "Learn the basics of navigating and using the AVCI CMS interface.",
+    "description": "The generated-index page description for category 'Interface & UX' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules": {
+    "message": "Core Modules",
+    "description": "The label for category 'Core Modules' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules.link.generated-index.description": {
+    "message": "Guides for managing the daily operations of your platform using the core CMS modules.",
+    "description": "The generated-index page description for category 'Core Modules' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_catalog": {
+    "message": "Catalog",
+    "description": "The label for category 'Catalog' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_catalog_events": {
+    "message": "Events",
+    "description": "The label for category 'Events' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_catalog_products": {
+    "message": "Products",
+    "description": "The label for category 'Products' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_common": {
+    "message": "Common",
+    "description": "The label for category 'Common' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_communication": {
+    "message": "Communication",
+    "description": "The label for category 'Communication' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_contents": {
+    "message": "Contents",
+    "description": "The label for category 'Contents' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_finance-logistics": {
+    "message": "Finance Logistics",
+    "description": "The label for category 'Finance Logistics' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_relations": {
+    "message": "Relations",
+    "description": "The label for category 'Relations' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_relations_brands": {
+    "message": "Brands",
+    "description": "The label for category 'Brands' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_relations_merchants": {
+    "message": "Merchants",
+    "description": "The label for category 'Merchants' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.modules_tools": {
+    "message": "Tools",
+    "description": "The label for category 'Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced": {
+    "message": "Advanced",
+    "description": "The label for category 'Advanced' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup": {
+    "message": "Onboarding & Setup",
+    "description": "The label for category 'Onboarding & Setup' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup.link.generated-index.description": {
+    "message": "Learn how to complete the onboarding wizard for your specific account type.",
+    "description": "The generated-index page description for category 'Onboarding & Setup' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup_brand": {
+    "message": "Brand",
+    "description": "The label for category 'Brand' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup_merchant": {
+    "message": "Merchant",
+    "description": "The label for category 'Merchant' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup_organization": {
+    "message": "Organization",
+    "description": "The label for category 'Organization' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_setup_workspace": {
+    "message": "Workspace",
+    "description": "The label for category 'Workspace' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_brand": {
+    "message": "Brand",
+    "description": "The label for category 'Brand' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_merchant": {
+    "message": "Merchant",
+    "description": "The label for category 'Merchant' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.advanced_organization": {
+    "message": "Organization",
+    "description": "The label for category 'Organization' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.tools": {
+    "message": "Tools",
+    "description": "The label for category 'Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.tools_mail": {
+    "message": "Mail",
+    "description": "The label for category 'Mail' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.tools_sms": {
+    "message": "Sms",
+    "description": "The label for category 'Sms' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace": {
+    "message": "Workspace",
+    "description": "The label for category 'Workspace' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_advanced": {
+    "message": "Advanced",
+    "description": "The label for category 'Advanced' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings": {
+    "message": "Settings",
+    "description": "The label for category 'Settings' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_appearance": {
+    "message": "Appearance",
+    "description": "The label for category 'Appearance' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_authority": {
+    "message": "Authority",
+    "description": "The label for category 'Authority' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_catalog": {
+    "message": "Catalog",
+    "description": "The label for category 'Catalog' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_communication": {
+    "message": "Communication",
+    "description": "The label for category 'Communication' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_relations": {
+    "message": "Relations",
+    "description": "The label for category 'Relations' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_settings_sale": {
+    "message": "Sale",
+    "description": "The label for category 'Sale' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_system": {
+    "message": "System",
+    "description": "The label for category 'System' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.workspace_integrations": {
+    "message": "Workspace Integrations",
+    "description": "The label for category 'Workspace Integrations' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations": {
+    "message": "Integrations",
+    "description": "The label for category 'Integrations' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations.link.generated-index.description": {
+    "message": "Learn how to connect AVCI CMS to third-party tools, payment gateways, and ERP systems.",
+    "description": "The generated-index page description for category 'Integrations' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_email": {
+    "message": "Email",
+    "description": "The label for category 'Email' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_sms": {
+    "message": "SMS",
+    "description": "The label for category 'SMS' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_notification": {
+    "message": "Notification",
+    "description": "The label for category 'Notification' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_payment": {
+    "message": "Payment",
+    "description": "The label for category 'Payment' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_shipping": {
+    "message": "Shipping",
+    "description": "The label for category 'Shipping' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_crm": {
+    "message": "CRM",
+    "description": "The label for category 'CRM' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_invoice": {
+    "message": "Invoice",
+    "description": "The label for category 'Invoice' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_other": {
+    "message": "Other",
+    "description": "The label for category 'Other' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.guidesSidebar.category.integrations_dev_tools": {
+    "message": "Developer Tools",
+    "description": "The label for category 'Developer Tools' in sidebar 'guidesSidebar'"
+  },
+  "sidebar.apiSidebar.category.relations": {
+    "message": "relations",
+    "description": "The label for category 'relations' in sidebar 'apiSidebar'"
+  },
+  "sidebar.sdkSidebar.category.relations": {
+    "message": "relations",
+    "description": "The label for category 'relations' in sidebar 'sdkSidebar'"
+  }
+}

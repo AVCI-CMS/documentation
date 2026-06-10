@@ -1,8 +1,34 @@
 ---
-sidebar_position: 6
-title: "Dispute Management"
+sidebar_position: 5
+title: "İtirazlar"
 ---
 
-# Dispute Management
+# İtiraz (Dispute) Ayarları
 
-Set the allowed timeframe for customers to open a dispute and the required evidence from merchants.
+**Menü Yolu:** `Workspace > Settings > Sale > Dispute`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **MARKETPLACE** planına sahip olmanız gerekmektedir.
+:::
+
+İtiraz (Dispute) modülü, alıcılar ve satıcılar arasında oluşabilecek uyuşmazlıkların çözüm süreçlerini ve bu süreçlerde geçerli olan SLA (Hizmet Seviyesi Sözleşmesi) sürelerini yapılandırmanızı sağlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. İtiraz Kabul Kuralları
+Müşterilerin hangi durumlarda sistem üzerinden itiraz veya şikayet kaydı oluşturabileceğini belirler.
+- **İtiraz Süresi (Dispute Window):** Sipariş teslim edildikten sonra müşterinin itiraz açabilmesi için sahip olduğu maksimum süreyi (Örn: 14 Gün) tanımlar.
+- **Geçerli Nedenler:** "Ürün hasarlı geldi", "Yanlış ürün gönderildi", "Orijinal değil" gibi itiraz sebeplerini aktif/pasif hale getirebilirsiniz.
+
+### 2. İtiraz Çözüm (SLA) Süreleri
+Satıcıların itirazlara yanıt vermesi gereken zaman sınırlarını yönetir.
+- **Satıcı Yanıt Süresi (Merchant SLA):** Bir itiraz açıldığında satıcının savunmasını yapması için verilen maksimum süredir (Örn: 48 Saat).
+- **Otomatik Karar (Auto-Resolution):** Eğer satıcı belirtilen süre içerisinde yanıt vermezse, sistemin itirazı otomatik olarak müşteri lehine (para iadesi) sonuçlandırmasını sağlar.
+
+> [!WARNING]
+> İtiraz süresi yapılandırmanızın yasal tüketici hakları (örn. 14 günlük cayma hakkı) ile uyumlu olduğundan emin olun. Sürelerin çok kısa tutulması yasal sorunlara yol açabilir.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteri ürünü teslim almasına rağmen itiraz butonu çıkmıyor.
+- **Çözüm:** İtiraz Süresi (Dispute Window) değerinin dolup dolmadığını kontrol edin. Teslimat tarihi üzerinden belirtilen gün sayısı geçmişse sistem butonu otomatik olarak gizler.

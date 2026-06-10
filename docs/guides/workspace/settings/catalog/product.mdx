@@ -1,10 +1,52 @@
 ---
-sidebar_position: 2
-title: "Product Settings"
+sidebar_position: 1
+title: "Product"
 ---
 
 # Product Settings
 
 **Menu Path:** `Workspace > Settings > Catalog Settings > Product`
 
-Detailed configurations for physical and digital products, including global tax rates, low stock alerts, and image watermarking.
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+Product Settings manage the workspace-wide configuration for product sales, approval mechanisms, component visibility, data restrictions, and financial commissions associated with physical, digital, or service products.
+
+## Key Features & Configuration
+
+### 1. General Product Settings
+Manage product sales activity, approval processes, and base limits.
+- **Global Sales Status (isProductSalesEnabled):** Toggles the ability to sell products on the platform.
+- **Publish Approval (requireApproval):** When enabled, newly created or updated products remain in a "Draft" status until an administrator approves them.
+- **Max Products Per Merchant:** Restricts the total number of products a single merchant can list.
+- **Product Variants (allowProductVariants):** Enables size, color, or other variant selections for products.
+- **Image Support (allowProductImages & maxImagesPerProduct):** Controls whether merchants can upload images and limits the number of images per product.
+- **Allowed Product Types (productTypes):** Select which types of products are permitted on your platform (e.g., PHYSICAL, DIGITAL, SERVICE).
+
+### 2. Component Management
+Customize the visibility and mandatory status of fields within the product creation form.
+- You can toggle whether fields like `Gallery`, `Featured Image`, `Description`, `Stock`, `Price`, and `Category` are shown to users and whether they are required.
+
+### 3. Data Restrictions
+Set limits on the data that can be entered for products.
+- **Price Limits:** Define the `Minimum Price` and `Maximum Price`.
+- **Stock Limits:** Define the `Minimum Stock` and `Maximum Stock`.
+- **Text Lengths:** Control the maximum character limits for the Title, Description, and Specifications to ensure consistent UI formatting across your storefront.
+
+### 4. Financial Configuration (Commission)
+Set the default and limit commission rates for product sales.
+- **Default Rate:** The global commission percentage applied to product sales.
+- **Min/Max Rates:** The lower and upper bounds for commission rates.
+- **Custom Allowance:** Activating this allows assigning specific, custom commission rates on a per-merchant basis.
+
+### 5. Role-Based Visibility
+Fine-tune which specific fields and components are visible to different team members or merchants based on their assigned roles.
+
+> [!WARNING]
+> Changes made to the product settings do not retroactively affect existing products; they only apply to newly created or updated products. 
+
+## Common Issues
+
+- **Issue:** Merchants cannot upload product images.
+- **Solution:** Verify that **Image Support** is enabled and the **Max Images** limit is greater than 0 in the General Settings tab.

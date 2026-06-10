@@ -2,5 +2,6 @@
   "label": "Workspace Integrations",
   "link": {
     "type": "generated-index"
-  }
+  },
+  "key": "workspace_integrations"
 }

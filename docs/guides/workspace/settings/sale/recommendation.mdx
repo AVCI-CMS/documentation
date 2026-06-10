@@ -1,8 +1,35 @@
 ---
 sidebar_position: 8
-title: "AI Recommendations"
+title: "Recommendation"
 ---
 
-# AI Recommendations
+# Recommendation Settings
 
-Enable or disable AI-driven cross-selling and up-selling logic on the checkout page.
+**Menu Path:** `Workspace > Settings > Sale Settings > Recommendation`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+Recommendation Settings manage the logic and display of product suggestions across your platform, helping to drive upselling and cross-selling through automated algorithms.
+
+## Key Features & Configuration
+
+### 1. Recommendation Modules
+Enable or disable specific types of product suggestions:
+- **Cross-Sell (allowCrossSell):** Suggests complementary items (e.g., suggesting a phone case when viewing a phone).
+- **Up-Sell (allowUpSell):** Suggests premium or higher-tier alternatives to the currently viewed item.
+- **Related Products (allowRelatedProducts):** Displays items from the same category or brand.
+- **Recently Viewed (allowRecentlyViewed):** Shows the user a personalized history of items they've interacted with.
+
+### 2. Display Limits & Algorithms
+- **Maximum Recommendations (maxRecommendations):** Limits the number of items displayed in a single recommendation carousel or block (e.g., max 10 items) to prevent UI clutter.
+- **Algorithm Preference (algorithm):** Determines the underlying logic used to fetch related items, such as Category-based matching or Tag-based semantic matching.
+
+> [!TIP]
+> Effectively utilizing the **Cross-Sell** and **Up-Sell** modules has a direct impact on increasing the Average Order Value (AOV). Ensure your product catalog has accurate tags and categories to fuel the recommendation algorithms properly.
+
+## Common Issues
+
+- **Issue:** The Related Products section is empty for certain items.
+- **Solution:** The item might not share a category or any tags with other active products in the catalog. Check the selected **Algorithm Preference** and verify the product's metadata.

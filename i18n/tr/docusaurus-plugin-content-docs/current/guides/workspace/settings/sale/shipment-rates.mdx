@@ -1,8 +1,36 @@
 ---
-sidebar_position: 5
-title: "Shipment Rates"
+sidebar_position: 4
+title: "Kargo Ücretleri"
 ---
 
-# Shipment Rates
+# Kargo Ücretleri
 
-Define shipping zones, flat-rate fees, and free-shipping thresholds for your customers.
+**Menü Yolu:** `Workspace > Settings > Sale > Shipment Rates`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Kargo Ücretleri modülü, platformunuzdaki nakliye ve lojistik masraflarının desi/hacim, ağırlık veya sabit oranlar bazında yapılandırılmasını sağlar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Kargo Ücretlendirme Stratejisi
+Müşterilerden tahsil edilecek kargo ücretinin nasıl hesaplanacağını belirlersiniz.
+- **Sabit Fiyatlandırma (Flat Rate):** Tüm siparişler için boyut veya ağırlığa bakılmaksızın sabit bir kargo ücreti (Örn: 39.99 TL) alınır.
+- **Desi/Ağırlık Bazlı Fiyatlandırma (Dynamic):** Kargo ücreti, ürünlerin toplam hacimsel ağırlığına (desi) göre kargo firmalarının matrisleri kullanılarak dinamik hesaplanır.
+
+### 2. Ücretsiz Kargo Kampanyası (Promosyonlar)
+Müşteri sepet ortalamasını artırmak için ücretsiz kargo barajı oluşturabilirsiniz.
+- **Ücretsiz Kargo Barajı (Free Shipping Threshold):** Sipariş tutarı bu limiti (Örn: 500 TL) aştığında kargo ücreti sıfırlanır.
+
+### 3. Kargo Şablonları (Templates)
+Farklı bölgeler, hızlı teslimat (express) seçenekleri veya soğuk zincir gibi özel taşımacılık gerektiren durumlar için özel kargo şablonları oluşturup yönetebilirsiniz.
+
+> [!TIP]
+> Desi tabanlı fiyatlandırmayı kullanıyorsanız, Katalog yönetiminde tüm ürünlerinizin ağırlık ve ebat bilgilerinin doğru girildiğinden emin olun. Eksik desi bilgisi olan ürünlerde kargo ücreti yanlış hesaplanacaktır.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteri 500 TL üzerinde alışveriş yaptı ancak hala kargo ücreti çıkıyor.
+- **Çözüm:** "Ücretsiz Kargo Barajı" ayarının doğru rakamda yapılandırıldığından ve sepetteki indirim kuponlarının sipariş genel toplamını barajın altına düşürmediğinden emin olun.

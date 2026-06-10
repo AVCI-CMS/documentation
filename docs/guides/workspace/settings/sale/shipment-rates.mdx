@@ -3,6 +3,34 @@ sidebar_position: 5
 title: "Shipment Rates"
 ---
 
-# Shipment Rates
+# Shipment Rates Settings
 
-Define shipping zones, flat-rate fees, and free-shipping thresholds for your customers.
+**Menu Path:** `Workspace > Settings > Sale Settings > Shipment Rates`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
+:::
+
+The Shipment Rates page is the module where you manage the agreements made with shipping companies (e.g., Aras, Yurtiçi, PTT, UPS, FedEx) that your merchants or your platform works with, along with volumetric weight/weight-based pricing segments.
+
+## Key Features & Configuration
+
+### 1. Shipping Providers and Filtering
+You can select from the active shipping companies in the system and examine their Domestic (LOCAL) or International (INTERNATIONAL) agreement lists.
+
+- **Shipping Provider (Provider):** Logistics providers defined in the system.
+- **Shipment Type (Type):** LOCAL (Domestic Shipping) or INTERNATIONAL (International Shipping).
+
+### 2. Shipping Agreements and Segments
+You view the contracts belonging to the selected shipping company and shipment type as a dynamic list.
+- **Segment Management:** Each agreement is divided into different "Segments" (Volumetric Weight ranges). For instance, between 1-5 Volumetric Weight, 6-10 Volumetric Weight, etc.
+- Shipping costs are reflected to the merchants based on these segments, or the limits of free shipping campaigns are determined.
+- By clicking the "Edit" button on the list, you can change the current prices of the relevant volumetric weight ranges or add new ranges.
+
+> [!TIP]
+> The prices you change are saved instantly and become valid for the shipping codes created in new orders placed from that moment on. The costs of past shipping codes are not affected.
+
+## Common Issues
+
+- **Issue:** The shipping cost is calculated incorrectly in the cart.
+- **Solution:** Make sure that the total volumetric weight/weight value of the products in the cart matches one of the segment ranges in your shipping agreement and that the price of the relevant segment is entered correctly.

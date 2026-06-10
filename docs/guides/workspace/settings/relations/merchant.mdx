@@ -1,8 +1,37 @@
 ---
 sidebar_position: 2
-title: "Merchant Rules"
+title: "Merchant Relation"
 ---
 
-# Merchant Rules
+# Merchant Relation Settings
 
-Set auto-approval policies and define which corporate documents are mandatory during vendor registration.
+**Menu Path:** `Workspace > Settings > Relations > Merchant`
+
+:::info Permission Requirements
+To configure Merchant Relation settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Merchant Relation module is the core configuration area for defining how merchants (sellers) operate within your marketplace. It encompasses onboarding rules, commission defaults, and operational limitations.
+
+## Key Features & Configuration
+
+### 1. Onboarding & Registration
+- **Auto-Approval:** Determine if new merchant registrations are automatically approved or if they require manual KYC (Know Your Customer) review.
+- **Default Commission Rate:** Set the baseline percentage commission that the workspace takes from this merchant's sales. This can be overridden on a per-merchant basis later.
+
+### 2. Component Settings
+Control the visibility and requirement status of fields on the Merchant Profile form.
+- **Tax & Legal Information:** Make Tax ID and Company Registration fields strictly mandatory to comply with local regulations.
+- **Contact Info:** Enforce phone number and support email requirements for customer service purposes.
+
+### 3. Operational Restrictions
+- **Payout Threshold:** Set the minimum balance a merchant must accumulate before a payout is triggered.
+- **Staff Limits:** Restrict the number of sub-users/staff a single merchant can invite to their own dashboard.
+
+> [!WARNING]
+> Changing the "Default Commission Rate" only applies to newly registered merchants. Existing merchants will retain their historical commission rates unless manually updated.
+
+## Common Issues
+
+- **Issue:** New merchants are bypassing the document upload step during registration.
+- **Solution:** In the Component Settings table on this page, ensure that the "Legal Documents" field is toggled as "Required".

@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+title: "Guides Integration"
+---
+
+# Guides Integration Settings
+
+**Menu Path:** `Workspace > Settings > Appearance > Guides`
+
+:::info Permission Requirements
+To configure Guides settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Guides configuration page allows you to link your workspace to a GitHub repository where your public documentation or user guides are hosted. By connecting a repository, the system can automatically sync your Markdown (`.md` or `.mdx`) files and display them seamlessly on your storefront or support portal.
+
+## Key Features & Configuration
+
+### 1. GitHub Integration Prerequisite
+- **Connection Check:** This module requires an active GitHub integration. If GitHub is not connected, the system will display an alert prompting you to navigate to the [Integrations](../../../integrations/index.mdx) page to authenticate the app.
+
+### 2. Repository Configuration
+Once GitHub is connected, you must specify the exact location of your documentation files.
+- **Repository Name:** Enter the full name of your target repository (e.g., `AVCI-CMS/guides`).
+- **Branch:** Specify which branch to pull the documentation from (e.g., `main` or `master`). This allows you to draft documentation on a separate branch and only publish from `main`.
+
+> [!TIP]
+> **Workflow Suggestion:** Use the `drafts` branch for writing and reviewing documentation. Once approved, merge it into your `main` branch. Since your workspace syncs with `main`, the updates will go live automatically without touching the backend settings again.
+
+## Common Issues
+
+- **Issue:** Documentation updates pushed to GitHub are not appearing on the storefront.
+- **Solution:** Verify that the "Branch" configured here exactly matches the branch you pushed your changes to. Also, check the Integrations page to ensure your GitHub access token hasn't expired.

@@ -1,8 +1,41 @@
 ---
 sidebar_position: 3
-title: "Marketplace Commissions"
+title: "Marketplace"
 ---
 
-# Marketplace Commissions
+# Marketplace (Commission) Settings
 
-Define the global commission rates the platform takes from vendor sales, and set automated payout schedules.
+**Menu Path:** `Workspace > Settings > Sale Settings > Marketplace`
+
+:::info Permission and Plan Requirements
+To use this feature, you must have the **Workspace:Settings:View** permission and the **MARKETPLACE** plan.
+:::
+
+Marketplace (Commission) settings are where you define the platform's primary financial operational model and the global commissions to be deducted from sub-merchants.
+
+## Key Features & Configuration
+
+### 1. Global Configuration
+Determines the fundamental sales structure of the platform.
+- **Main Seller Type (mainSellerType):** Defines the primary entity type (Organization, Merchant, or Brand) that will conduct sales in the system.
+
+### 2. Default Commission Rates
+These are the standard percentage-based deductions applied according to entity types (Organization, Merchant, Brand).
+- **Organization Commission Rate:** The standard `%` commission deducted from sales made by organizations.
+- **Merchant Commission Rate:** The standard `%` commission deducted from sales made by merchants.
+- **Brand Commission Rate:** The standard `%` commission deducted from sales made by brands.
+
+### 3. Global Deductions and Fees
+Represents the standard operational costs deducted from every transaction. They can be set as Fixed (FIXED) or Percentage-based (PERCENTAGE).
+- **Service Fee:** The fee charged in exchange for the service provided by the system.
+- **Advertising Fee:** Costs arising from in-marketplace advertisements.
+- **Transaction Fee:** Reflecting the amount deducted by the payment infrastructure (virtual POS, etc.) provider to the merchant.
+- **Other Fee:** Custom deductions that you can name optionally.
+
+> [!TIP]
+> **Marketplace Financial Configuration:** The established rates are considered **default** for all sub-merchants. If you wish to apply a special rate for an individual merchant, you can define this setting separately on the Merchant Card.
+
+## Common Issues
+
+- **Issue:** The custom commission rate is not being applied.
+- **Solution:** Make sure that the custom commission rate on the merchant card is activated and overrides these global rates.

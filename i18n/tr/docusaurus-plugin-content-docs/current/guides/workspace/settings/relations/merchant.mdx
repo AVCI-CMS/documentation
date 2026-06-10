@@ -1,8 +1,37 @@
 ---
 sidebar_position: 2
-title: "Merchant Rules"
+title: "Satıcı (Merchant)"
 ---
 
-# Merchant Rules
+# Satıcı İlişkileri (Merchant Relation)
 
-Set auto-approval policies and define which corporate documents are mandatory during vendor registration.
+**Menü Yolu:** `Workspace > Settings > Relations > Merchant`
+
+:::info Yetki Gereksinimleri
+Satıcı İlişkileri ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Satıcı İlişkileri modülü, satıcıların platformunuzda nasıl işleyeceğini tanımlayan temel yapılandırma alanıdır. Satıcı kayıt (onboarding) kurallarını, varsayılan komisyon oranlarını ve operasyonel limitleri kapsar.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Kayıt (Onboarding)
+- **Otomatik Onay:** Yeni satıcı kayıtlarının otomatik olarak onaylanıp onaylanmadığını ya da manuel bir KYC (Müşterini Tanı) incelemesi gerektirip gerektirmediğini belirler.
+- **Varsayılan Komisyon Oranı:** Platformun bu satıcının satışlarından alacağı taban (varsayılan) yüzdelik komisyonu belirler. Bu oran daha sonra her satıcı için özel olarak değiştirilebilir.
+
+### 2. Bileşen Ayarları (Component Settings)
+Satıcı Profili formundaki alanların görünürlük ve zorunluluk durumunu kontrol eder.
+- **Vergi ve Yasal Bilgiler:** Yerel mevzuatlara (örneğin e-fatura veya VKN gerekliliği) uyum sağlamak için Vergi Kimlik Numarası (Tax ID) ve Şirket Kayıt alanlarını "Zorunlu" yapabilirsiniz.
+- **İletişim Bilgileri:** Müşteri hizmetleri operasyonlarının düzgün yürüyebilmesi için telefon numarası ve destek e-posta adresini zorunlu kılabilirsiniz.
+
+### 3. Operasyonel Kısıtlamalar
+- **Hakediş (Payout) Eşiği:** Bir satıcının ödeme (hakediş) talep edebilmesi veya ödemenin tetiklenmesi için biriktirmesi gereken minimum bakiye sınırını belirler.
+- **Personel Sınırları:** Tek bir satıcının kendi mağaza paneline (satıcı paneli) davet edebileceği alt kullanıcı/personel sayısını sınırlandırır.
+
+> [!WARNING]
+> "Varsayılan Komisyon Oranı" ayarını değiştirmek yalnızca **yeni kaydolan satıcıları** etkiler. Mevcut satıcılar, siz onların oranlarını özel olarak güncellemediğiniz sürece eski komisyon oranlarında kalmaya devam eder.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Yeni satıcılar kayıt sırasında yasal belge yükleme adımını atlıyor.
+- **Çözüm:** Bu sayfadaki Bileşen Ayarları (Component Settings) tablosuna gidin ve "Yasal Belgeler" (Legal Documents) alanının "Zorunlu" (Required) olarak işaretlendiğinden emin olun.

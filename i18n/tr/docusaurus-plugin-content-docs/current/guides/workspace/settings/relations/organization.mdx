@@ -1,0 +1,35 @@
+---
+sidebar_position: 3
+title: "Organizasyon"
+---
+
+# Organizasyon İlişkileri
+
+**Menü Yolu:** `Workspace > Settings > Relations > Organization`
+
+:::info Yetki Gereksinimleri
+Organizasyon İlişkileri ayarlarını yapılandırmak için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+Organizasyonlar (Organizations), kendi altında birden fazla satıcı (merchant), marka (brand) veya mekanı (place) yönetebilen en üst düzey (parent) varlığı temsil eder. Bu modül, B2B yapıların veya "ana şirket (holding)" iş modellerinin kurallarını yapılandırmak için kullanılır.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Yapısal Limitler
+- **Alt Varlık Limitleri (Child Entity Limits):** Tek bir Organizasyona kaç tane bağlı satıcı (merchant) veya marka (brand) eklenebileceğini tanımlar.
+- **Çoklu Kiracı Kontrolü (Multi-tenant):** Organizasyonların, bağlı iştirakleri/mağazaları arasında tamamen izole veri erişimine (silo) sahip olup olmayacağını etkinleştirir.
+
+### 2. Bileşen Görünürlüğü (Component Visibility)
+- **Kurumsal Bilgiler:** Kurumsal merkez adresi, ana şirket kayıt numarası ve genel müdür/yönetici iletişim bilgileri için zorunluluk kurallarını yapılandırır.
+- **Faturalandırma Kurumu:** Kurumsal/Enterprise faturalandırmaları ayırmak için ayrı "fatura adresi" alanlarını zorunlu hale getirebilirsiniz.
+
+### 3. API ve Entegrasyon Kısıtlamaları
+- **API Erişim Limiti:** Organizasyonlarınız sizin altyapınızın (API'nizin) dışa açık servislerini kullanıyorsa, varsayılan istek oranlarını (rate limit) belirleyebilir veya onların bağımsız API anahtarı üretme özelliklerini buradan kısıtlayabilirsiniz.
+
+> [!TIP]
+> Organizasyon ayarlarını, dev perakende zincirlerine veya franchise müşterilerine hizmet sunarken kullanın. Alt varlık limitlerini artırarak, bu tür büyük yapıların tek bir yönetici (parent) girişi altından onlarca mağaza (satıcı) yönetmesine olanak tanıyabilirsiniz.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Bir organizasyon hesabına yeni bir satıcı (merchant) bağlayamıyor.
+- **Çözüm:** "Alt Varlık Limitleri" (Child Entity Limits) kısıtlamasını kontrol edin. İlgili organizasyon, burada yapılandırdığınız izin verilen maksimum satıcı (merchant) sayısına ulaşmış olabilir.

@@ -1,8 +1,35 @@
 ---
-sidebar_position: 3
-title: "Email Configuration"
+sidebar_position: 1
+title: "Email Settings"
 ---
 
-# Email Configuration
+# Email Settings
 
-Connect your SMTP server or API keys for services like Amazon SES, SendGrid, or Mailgun to ensure high deliverability of transactional emails.
+**Menu Path:** `Workspace > Settings > Communication > Email`
+
+:::info Permission Requirements
+To configure email settings, you must have the **Workspace:Settings:Manage** permission.
+:::
+
+The Email Settings page allows you to select your active email service provider and map predefined notification templates for various roles within the system.
+
+## Key Features & Configuration
+
+### 1. Provider Configuration
+- **Email Provider:** Select the active email provider you have already integrated (e.g., SMTP, AWS SES, Resend) to handle all outgoing system emails. If no provider is selected, automated emails will not be sent.
+- **Prerequisite:** Before activating a provider here, you must configure its credentials in the [Integrations](../../../integrations/index.mdx) section.
+
+### 2. Email Templates
+You can assign specific template IDs (created within your email provider platform) to different operational triggers. Templates are categorized by their target audience (scope):
+- **User:** Emails sent to end-users (e.g., password resets, order confirmations).
+- **Merchant:** Emails sent to merchants/sellers on the platform.
+- **Workspace:** Internal alerts sent to workspace administrators.
+- **Organization & Brand:** Specific notifications tailored for organizational or brand management layers.
+
+> [!TIP]
+> Ensure the template IDs you enter exactly match the IDs provided by your chosen email provider. An incorrect ID will cause the email sending process to fail silently.
+
+## Common Issues
+
+- **Issue:** Users are not receiving password reset emails.
+- **Solution:** Verify that an Email Provider is selected and active. Then, scroll down to the **User** templates section and ensure a valid template ID is entered for the `AUTH_RESET_PASSWORD` or similar key.

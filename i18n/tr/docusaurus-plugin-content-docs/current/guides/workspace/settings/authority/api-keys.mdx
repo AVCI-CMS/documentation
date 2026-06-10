@@ -1,0 +1,34 @@
+---
+sidebar_position: 1
+title: "API Anahtarları"
+---
+
+# API Anahtarları
+
+**Menü Yolu:** `Workspace > Settings > Authority > API Keys`
+
+:::info Yetki Gereksinimleri
+API anahtarlarını görüntülemek ve yönetmek için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+:::
+
+API Anahtarları (API Keys) modülü, çalışma alanınızı harici platformlarla, özel mobil uygulamalarla veya üçüncü parti servislerle güvenli bir şekilde entegre etmenizi sağlar. Kimlik bilgilerinizi buradan oluşturup yöneterek çalışma alanı verilerinize programatik olarak (API üzerinden) erişebilirsiniz.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Client ID (İstemci Kimliği)
+- **Tanımlayıcı:** `Client ID`, çalışma alanınızın dışa açık (public) kimliğidir. API isteklerini doğru çalışma alanına yönlendirmek için `x-avci-client` HTTP başlığında (header) kullanılır.
+- **Kullanım:** Client ID'nizi kopyalayabilir ve HTTP isteklerinizde nasıl göndereceğinizi gösteren kod örneğini inceleyebilirsiniz.
+
+### 2. Gizli API Anahtarı (Private API Key)
+- **Oluşturma:** İsteklerinizi doğrulamak için yeni bir gizli API anahtarı üretebilirsiniz. Eğer zaten bir anahtarınız varsa, yenisini üretmek eskini anında geçersiz kılacaktır (invalidate).
+- **Güvenlik:** Oluşturulan yeni API anahtarı tam metin olarak **yalnızca bir kez** gösterilir. Lütfen güvenli bir yere kopyaladığınızdan emin olun. Daha sonrasında güvenlik sebebiyle maskelenmiş olarak (örn: `••••••••••••a1b2`) gösterilecektir.
+- **İptal Etme (Revoke):** API anahtarınızın ele geçirildiğinden (çalındığından) şüpheleniyorsanız, dış erişimi tamamen kesmek için anahtarı anında iptal edebilirsiniz.
+- **Kullanım Takibi:** Sistem, anahtarın ne zaman oluşturulduğunu ve en son ne zaman kullanıldığını takip eder ve ekranda gösterir.
+
+> [!WARNING]
+> **Güvenlik Önerisi:** Gizli API anahtarlarınızı asla istemci tarafı (client-side) uygulamalarda (mobil uygulamalar veya frontend web siteleri gibi) saklamayın. API çağrılarınızı her zaman kendi güvenli arka uç (backend) servisleriniz üzerinden yönlendirin.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** API istekleri 401 Yetkisiz (Unauthorized) hatası döndürüyor.
+- **Çözüm:** İsteklerinizde hem `x-avci-client` hem de `x-avci-api-key` başlıklarının (header) doğru değerlerle gönderildiğinden emin olun. Eğer anahtar yakın zamanda yenilendiyse, backend sunucunuzun yeni anahtarı kullandığını doğrulayın.
