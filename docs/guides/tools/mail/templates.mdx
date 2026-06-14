@@ -101,6 +101,7 @@ Templates are dynamically filtered at the frontend and backend levels based on t
 | `NEW_SALE` | New Sale Notification | `orderNo`, `fullname`, `amount`, `items` | Congratulatory notification sent to a Merchant when they sell a new product. |
 | `SHIPPING_CONFIRMATION_REQUIRED` | Shipping Confirmation Required | `orderNo`, `fullname`, `deadlineDate` | Warning reminding the seller of the deadline to ship the order. |
 | `SHIPPING_CONFIRMATION` | Shipping Confirmation | `orderNo`, `fullname`, `trackingNo`, `cargoCompany` | Confirmation that the shipping dispatch has been registered in the system. |
+| `SHIPMENT_UPCOMING` | Upcoming Shipment Reminder | `orderNo`, `fullname`, `deadlineDate` | Automated reminder to the seller that the estimated shipping deadline is approaching. |
 | `BUYER_INQUIRY` | Buyer Inquiry / Request | `fullname`, `email`, `message`, `itemTitle` | Customer question forwarded to the seller regarding a product or order. |
 | `INQUIRY_RESPONSE` | Inquiry Response | `fullname`, `email`, `response`, `itemTitle` | Forwarding the seller's response to the customer's question. |
 | `PRODUCT_APPROVED` | Product Approved | `fullname`, `email`, `productName`, `publishedUrl` | Notification that a new product uploaded by the seller passed editor approval and is live. |
@@ -144,6 +145,8 @@ Templates are dynamically filtered at the frontend and backend levels based on t
 | `EVENT_APPROVED` | Event Approved | `fullname`, `email`, `eventName`, `approvalDate` | Admin approval of an event created by the organizer. |
 | `EVENT_PUBLISHED` | Event Published | `fullname`, `email`, `eventName`, `eventUrl` | Announcement to followers that the event is open for ticket sales or reservations. |
 | `INVITATION_TO_EVENT` | Invitation to Event | `fullname`, `email`, `eventName`, `eventLink` | Event participation invitation sent to special guests or members. |
+| `EVENT_CAPACITY_FULL` | Event Capacity Full | `eventName`, `eventUrl` | Alert to organizers that an event has reached its maximum ticket capacity. |
+| `EVENT_UPCOMING` | Upcoming Event Reminder | `fullname`, `email`, `eventName`, `eventDate`, `eventUrl` | Automated reminder sent to attendees or organizers before the event begins. |
 
 ---
 

@@ -101,6 +101,7 @@ sidebar_key: "tools-mail-templates"
 | `NEW_SALE` | Yeni Satış Bildirimi | `orderNo`, `fullname`, `amount`, `items` | Satıcıya (Merchant) yeni bir ürün sattığında gönderilen tebrik bildirimi. |
 | `SHIPPING_CONFIRMATION_REQUIRED` | Kargo Gönderim Onayı Gerekli | `orderNo`, `fullname`, `deadlineDate` | Satıcının siparişi kargolaması için son teslim tarihini hatırlatan uyarı. |
 | `SHIPPING_CONFIRMATION` | Kargo Onayı | `orderNo`, `fullname`, `trackingNo`, `cargoCompany` | Kargo çıkışının sistemde tescillendiğini bildiren teyit. |
+| `SHIPMENT_UPCOMING` | Kargo Tarihi Yaklaşıyor | `orderNo`, `fullname`, `deadlineDate` | Tahmini kargolama süresinin dolmak üzere olduğunu satıcıya bildiren otomatik hatırlatma. |
 | `BUYER_INQUIRY` | Müşteri Sorusu / Talebi | `fullname`, `email`, `message`, `itemTitle` | Bir ürün veya sipariş hakkında satıcıya iletilen müşteri sorusu. |
 | `INQUIRY_RESPONSE` | Müşteri Sorusu Cevabı | `fullname`, `email`, `response`, `itemTitle` | Satıcının, müşterinin sorusuna verdiği yanıtın iletilmesi. |
 | `PRODUCT_APPROVED` | Ürün Onaylandı | `fullname`, `email`, `productName`, `publishedUrl` | Satıcının yüklediği yeni ürünün editör onayından geçip yayına girmesi. |
@@ -144,6 +145,8 @@ sidebar_key: "tools-mail-templates"
 | `EVENT_APPROVED` | Etkinlik Onaylandı | `fullname`, `email`, `eventName`, `approvalDate` | Organizatörün oluşturduğu etkinliğin yönetici onayından geçmesi. |
 | `EVENT_PUBLISHED` | Etkinlik Yayınlandı | `fullname`, `email`, `eventName`, `eventUrl` | Etkinliğin bilet satışına veya rezervasyona açıldığının takipçilere duyurulması. |
 | `INVITATION_TO_EVENT` | Etkinliğe Davet | `fullname`, `email`, `eventName`, `eventLink` | Özel davetlilere veya üyelere gönderilen etkinlik katılım davetiyesi. |
+| `EVENT_CAPACITY_FULL` | Etkinlik Kapasitesi Doldu | `eventName`, `eventUrl` | Bir etkinliğin maksimum bilet kapasitesine ulaştığını organizatöre bildiren uyarı. |
+| `EVENT_UPCOMING` | Yaklaşan Etkinlik Hatırlatması | `fullname`, `email`, `eventName`, `eventDate`, `eventUrl` | Etkinlik başlamadan önce katılımcılara veya organizatörlere gönderilen otomatik hatırlatma. |
 
 ---
 

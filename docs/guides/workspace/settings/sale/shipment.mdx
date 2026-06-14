@@ -1,27 +1,31 @@
 ---
 sidebar_position: 5
-title: "Shipment Rates"
+title: "Shipment Settings"
 ---
 
-# Shipment Rates Settings
+# Shipment Settings
 
-**Menu Path:** `Workspace > Settings > Sale Settings > Shipment Rates`
+**Menu Path:** `Workspace > Settings > Sale > Shipment`
 
 :::info Permission and Plan Requirements
 To use this feature, you must have the **Workspace:Settings:View** permission and the **ECOMMERCE, MARKETPLACE** plan.
 :::
 
-The Shipment Rates page is the module where you manage the agreements made with shipping companies (e.g., Aras, Yurtiçi, PTT, UPS, FedEx) that your merchants or your platform works with, along with volumetric weight/weight-based pricing segments.
+The Shipment Settings page is the module where you manage the general shipment rules and agreements made with shipping companies (e.g., Aras, Yurtiçi, PTT, UPS, FedEx) that your merchants or your platform works with, along with volumetric weight/weight-based pricing segments.
 
 ## Key Features & Configuration
 
-### 1. Shipping Providers and Filtering
+### 1. General Settings
+- **Allow Manual Code Entry:** Determines if tracking numbers can be entered manually by the merchant/operator for orders. If disabled, orders must use the automatically generated tracking codes via active provider integrations.
+- **Estimated Shipping Date Reminder:** Set the number of hours before the estimated shipping deadline to send an automatic notification (SHIPMENT_UPCOMING) to the merchant. Setting this to 0 disables the reminder.
+
+### 2. Shipping Providers and Filtering
 You can select from the active shipping companies in the system and examine their Domestic (LOCAL) or International (INTERNATIONAL) agreement lists.
 
 - **Shipping Provider (Provider):** Logistics providers defined in the system.
 - **Shipment Type (Type):** LOCAL (Domestic Shipping) or INTERNATIONAL (International Shipping).
 
-### 2. Shipping Agreements and Segments
+### 3. Shipping Agreements and Segments
 You view the contracts belonging to the selected shipping company and shipment type as a dynamic list.
 - **Segment Management:** Each agreement is divided into different "Segments" (Volumetric Weight ranges). For instance, between 1-5 Volumetric Weight, 6-10 Volumetric Weight, etc.
 - Shipping costs are reflected to the merchants based on these segments, or the limits of free shipping campaigns are determined.
