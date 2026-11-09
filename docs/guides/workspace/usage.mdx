@@ -1,24 +1,40 @@
 ---
 sidebar_position: 3
-title: "Usage"
+title: "Resource Usage & Quotas"
 ---
 
-# Usage
+# Resource Usage & Quotas
 
 **Menu Path:** `Workspace > Usage`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Workspace:View** permission.
+:::info Permission Requirements
+Viewing resource usage requires the **Workspace:View** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+The **Usage & Quotas** module gives you real-time visibility into your workspace's computational and storage consumption. Tracking these metrics ensures that your storefront and background operations run smoothly without hitting rate limits or storage ceilings.
 
-## Key Features & Configuration
+---
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+## Tracked Metrics
 
-## Common Issues
+### 1. API Requests (Storefront & Management)
+*   **Metric:** Cumulative HTTP requests across all public storefront routes (`/api/v1/*`) and management endpoints within the current billing cycle.
+*   **Alert Thresholds:** The system triggers an alert banner at 80% and 95% quota utilization.
+*   **Over-Limit Policy:** If your plan exceeds 100% of the allocated API quota, public requests are throttled with `429 Too Many Requests` responses unless auto-scaling is enabled.
 
-- **Issue:** ...
-- **Solution:** ...
+### 2. Media Asset Storage
+*   **Metric:** Total disk space occupied by uploaded product images, videos, marketing banners, and customer documents in the Media Library.
+*   **Optimization:** AVCI CMS automatically converts uploaded JPEG/PNG images to modern WebP format and generates responsive thumbnails to minimize disk usage.
+
+### 3. Outbound Bandwidth
+*   **Metric:** Network egress generated when storefront visitors, mobile app users, or third-party integrators download media assets, API responses, or documents.
+
+### 4. Active Team Seats
+*   **Metric:** The number of invited staff accounts with active login credentials versus the maximum seats allowed by your current plan tier.
+
+---
+
+## Managing Quotas & Auto-Scaling
+
+*   **Enabling Auto-Scale:** If your workspace anticipates traffic spikes (e.g., Black Friday campaigns, ticket drops), enable **Auto-Scaling** under `Workspace > Settings > Advanced`. This allows bursts beyond plan limits at predictable overage rates rather than throttling customer traffic.
+*   **Exporting Usage Logs:** You can export daily and hourly usage charts in CSV format for billing reconciliation or capacity planning.

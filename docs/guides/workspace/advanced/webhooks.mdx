@@ -1,24 +1,24 @@
 ---
-sidebar_position: 4
-title: "Webhooks"
+sidebar_position: 5
+title: "Webhook Subscriptions"
 ---
 
-# Webhooks
+# Webhook Subscriptions
 
 **Menu Path:** `Workspace > Advanced > Webhooks`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Workspace:Settings:View** permission.
+:::info Permission Requirements
+Managing webhooks requires the **Workspace:Manage** or **Developer:Access** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+Webhooks provide real-time HTTP event streaming from AVCI CMS directly to your external systems, such as custom order processing services, warehouse management systems (WMS), or customer relationship tools (CRM).
 
-## Key Features & Configuration
+## Managing Endpoints in the Control Panel
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+1. Go to **Workspace > Advanced > Webhooks**.
+2. Click **"Add New Webhook"**.
+3. **Endpoint URL:** Enter your HTTPS destination URL (e.g. `https://api.yourstore.com/webhooks`).
+4. **Subscribed Events:** Choose specific events (e.g. `order.created`, `order.paid`, `stock.depleted`) or select `*` to subscribe to all workspace events.
+5. **Signing Secret:** Note the secret generated for cryptographic signature verification (`x-avci-signature`).
 
-## Common Issues
-
-- **Issue:** ...
-- **Solution:** ...
+For developer payload formats, signature checking code, and retry policies, see the [Developer Webhooks Guide](/sdk/webhooks).

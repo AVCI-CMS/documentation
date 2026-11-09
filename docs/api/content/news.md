@@ -1,6 +1,6 @@
 ---
 id: news
-title: News / Announcements
+title: News & Announcements
 sidebar_position: 3
 ---
 

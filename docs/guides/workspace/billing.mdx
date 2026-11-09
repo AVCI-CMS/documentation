@@ -1,24 +1,45 @@
 ---
 sidebar_position: 4
-title: "Billing"
+title: "Billing & Invoices"
 ---
 
-# Billing
+# Billing & Invoices
 
 **Menu Path:** `Workspace > Billing`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Workspace:View** permission.
+:::info Permission Requirements
+Managing payment methods and downloading invoices requires the **Workspace Owner** role or **Workspace:Billing:Manage** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+The **Billing & Invoices** module handles all subscription payments, stored credit cards, corporate tax information, and official billing receipts for your AVCI CMS account.
 
-## Key Features & Configuration
+---
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+## Managing Payment Methods
 
-## Common Issues
+You can store multiple payment cards on file, designating one as the default for recurring subscription renewals.
 
-- **Issue:** ...
-- **Solution:** ...
+### Adding a Credit or Debit Card
+1. Go to **Workspace > Billing**.
+2. In the **Payment Methods** section, click **"Add Payment Method"**.
+3. Enter the cardholder name, 16-digit card number, expiry date (MM/YY), and CVV/CVC code.
+4. (Optional) Check **"Set as default payment method"**.
+5. Click **"Save Card"**. 
+
+:::note Security & Compliance
+AVCI CMS does not store complete card numbers on its servers. All card details are tokenized and processed via certified PCI-DSS Level 1 compliant payment partners (e.g. Stripe).
+:::
+
+### Updating or Removing Cards
+*   To set an alternate card as primary, click the three-dots menu (`...`) next to the card and select **"Set as Default"**.
+*   To remove an expired or unused card, select **"Remove"**. Note: You cannot remove the default payment method if an active paid plan is in place; assign a new default card first.
+
+---
+
+## Invoices & Receipts
+
+Whenever your subscription renews or plan adjustments are processed, an official tax invoice is generated automatically.
+
+*   **Invoice History Table:** Displays invoice number, billing date, amount charged, currency, payment status, and a direct download link.
+*   **Downloading PDF:** Click the PDF icon next to any invoice to download an e-archive compliant tax invoice for your accounting records.
+*   **Billing Contact Details:** Ensure your legal company name, Tax Office (*Vergi Dairesi*), Tax Identification Number (*VKN / TCKN*), and registered corporate address are up to date under **Billing Information** to ensure valid invoice generation.

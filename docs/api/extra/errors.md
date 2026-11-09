@@ -1,64 +1,106 @@
 ---
 id: errors
-title: Common Error Codes
+title: Error Codes & Handling
 sidebar_position: 2
 ---
 
-# API Error Codes and Management
+# API Error Codes & Handling
 
-When a request you make to the AVCI CMS Public APIs fails, the server returns a standardized JSON error format along with an HTTP status code. This page explains the common errors you might encounter and how to interpret them.
+When an API request to AVCI CMS Public Storefront endpoints fails, the server responds with a standardized JSON error envelope accompanied by an appropriate HTTP status code. 
 
-## Standard Error Response (JSON)
+All error codes follow a structured, predictable 3-part nomenclature that enables client applications to programmatically handle failures and display localized error feedback.
 
-The following JSON structure is returned for all failed requests:
+---
+
+## Standard Error Response Structure
+
+Failed requests always return HTTP status codes in the `4xx` or `5xx` range with the following standard JSON structure:
 
 ```json
 {
   "status": "error",
   "error": {
-    "code": "VALIDATION_FAILED",
-    "message": "There are missing fields in the submitted data.",
-    "details": [
-      {
-        "field": "email",
-        "issue": "Not a valid email address"
-      }
-    ]
+    "code": "ERR_CATALOG_PRODUCT_1001",
+    "module": "catalog",
+    "entity": "product",
+    "codeNumber": 1001,
+    "message": "The requested product was not found in this catalog.",
+    "statusCode": 404
   }
 }
 ```
 
-*   `status`: Always returns `"error"`.
-*   `code`: A standard string constant that the system can programmatically catch (can be checked with if-else in frontend code).
-*   `message`: A descriptive message that can be shown to the end-user (or developer).
-*   `details`: (Optional) An array indicating exactly where the error occurred in cases like Validation errors.
+### Response Fields
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `status` | String | Always returns `"error"`. |
+| `error.code` | String | The unified 3-part machine-readable error code (`ERR_[MODULE]_[ENTITY]_[CODE]`). |
+| `error.module` | String | The business module that produced the error (e.g., `catalog`, `relation`, `common`, `finance`). |
+| `error.entity` | String | The specific entity within the module (e.g., `product`, `merchant`, `category`, `cart`). |
+| `error.codeNumber` | Number | Numeric subcode indicating the exact failure reason (e.g., `1001`, `1002`, `2001`). |
+| `error.message` | String | Localized human-readable error explanation resolved using the request's `Accept-Language` or workspace default language. |
+| `error.statusCode` | Number | Matching HTTP status code (400, 401, 403, 404, 429, 500). |
+
+---
+
+## Standard Code Number Ranges
+
+The `codeNumber` field follows standard category allocations across all modules:
+
+| Code Range | Meaning | Typical HTTP Status | Example |
+| :--- | :--- | :---: | :--- |
+| `1001 - 1008` | **Resource State & Retrieval**<br/>(Not found, duplicate slug, inactive entity) | `404` / `409` | `ERR_CATALOG_PRODUCT_1001`<br/>*(Product not found)* |
+| `2001 - 2004` | **Validation & Payload Errors**<br/>(Missing required parameters, invalid format, out of bounds) | `400` | `ERR_FINANCE_BASKET_2001`<br/>*(Insufficient inventory for item)* |
+| `3001 - 3004` | **Authentication & Permissions**<br/>(Missing client ID, expired token, role forbidden) | `401` / `403` | `ERR_RELATION_MERCHANT_3001`<br/>*(Access denied to private merchant data)* |
+
+---
+
+## Handling Errors in Client Applications
+
+### Example: TypeScript / JavaScript SDK Error Handling
+
+When using `@avci/sdk` or standard `fetch`, catch errors and inspect the structured `code` or `codeNumber`:
+
+```typescript
+import { AvciClient } from '@avci/sdk';
+
+const client = new AvciClient({
+  clientId: process.env.NEXT_PUBLIC_AVCI_CLIENT_ID!,
+});
+
+try {
+  const product = await client.catalog.getProductBySlug('limited-edition-sneaker');
+  console.log(product);
+} catch (error: any) {
+  if (error.code === 'ERR_CATALOG_PRODUCT_1001') {
+    // Gracefully handle 404 Not Found in your storefront UI
+    console.warn('Product does not exist or has been archived.');
+  } else if (error.statusCode === 429) {
+    // Rate limit hit
+    console.error('Too many requests. Please throttle calls.');
+  } else {
+    // Generic fallback
+    console.error('API Error:', error.message);
+  }
+}
+```
+
+---
 
 ## Common HTTP Status Codes
 
-### 400 Bad Request
-The parameters sent in the request are missing, incorrect, or in a format the system cannot accept.
-*   Example Error Code: `VALIDATION_FAILED`, `INVALID_PARAMETER`
-*   Solution: Check the required fields and types in the endpoint documentation.
+### `400 Bad Request`
+The request body or query parameters failed validation. Ensure required fields are present and follow documented types.
 
-### 401 Unauthorized
-You do not have permission to access. This can be caused by one of the following:
-*   The `x-avci-client` header was not sent or contains an invalid ID.
-*   The `Authorization` header (JWT Token) is missing or has expired.
-*   Example Error Code: `TENANT_NOT_FOUND`, `TOKEN_EXPIRED`, `UNAUTHORIZED`
+### `401 Unauthorized`
+The mandatory `x-avci-client` header is either missing or contains an invalid Tenant Client ID. Verify your credentials in **Workspace > Settings > General**.
 
-### 403 Forbidden
-You have logged into the system, but you do not have the required role or permission for the resource or action you want to call.
-*   Example Error Code: `PERMISSION_DENIED`
+### `403 Forbidden`
+The client ID does not have permission to access the requested resource, or an unauthorized cross-tenant request was attempted.
 
-### 404 Not Found
-The resource you requested (product, page, member, etc.) could not be found in the database or has been deleted. Or, the endpoint URL was typed incorrectly.
-*   Example Error Code: `RESOURCE_NOT_FOUND`
+### `404 Not Found`
+The target record (product, category, merchant, article) could not be located or is marked as `draft`/`archived`.
 
-### 429 Too Many Requests (Rate Limit)
-You made requests to the server much faster and more frequently than the set limits. Your IP address or Client ID might be temporarily blocked on endpoints with active protection.
-*   Example Error Code: `RATE_LIMIT_EXCEEDED`
-*   Solution: Slow down your operations by checking the `Retry-After` time in the response (or Header).
-
-### 500 Internal Server Error
-An unexpected error occurred on the AVCI CMS servers. These situations are immediately reported to the system administrators.
-*   Example Error Code: `INTERNAL_ERROR`
+### `429 Too Many Requests`
+The workspace has reached its plan rate limit. Respect the `Retry-After` HTTP header before issuing subsequent calls.

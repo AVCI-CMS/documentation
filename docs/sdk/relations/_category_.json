@@ -1,0 +1,9 @@
+{
+  "label": "Entity Operations",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "description": "SDK methods for managing merchants, brands, and organizations."
+  }
+}
+

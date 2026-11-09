@@ -1,6 +1,6 @@
 ---
 id: merchant
-title: Merchants / Stores
+title: Merchants
 sidebar_position: 1
 ---
 

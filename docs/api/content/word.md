@@ -1,6 +1,6 @@
 ---
 id: word
-title: Dictionary / Words
+title: Dictionary & Translations
 sidebar_position: 4
 ---
 

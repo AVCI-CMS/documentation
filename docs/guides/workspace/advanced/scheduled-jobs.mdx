@@ -1,24 +1,24 @@
 ---
-sidebar_position: 5
-title: "Scheduled Jobs"
+sidebar_position: 3
+title: "Scheduled Background Jobs"
 ---
 
-# Scheduled Jobs
+# Scheduled Background Jobs
 
 **Menu Path:** `Workspace > Advanced > Scheduled Jobs`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Workspace:View** permission.
+:::info Permission Requirements
+Viewing scheduled jobs requires the **Workspace:Manage** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+The **Scheduled Jobs** interface provides real-time visibility into the automated background processes (cron jobs) running for your workspace. These background workers ensure automated tasks execute reliably without degrading storefront response times.
 
-## Key Features & Configuration
+## Core Automated Tasks
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+* **Exchange Rate Synchronization:** Automatically refreshes multi-currency foreign exchange rates twice daily.
+* **Abandoned Cart Reminders:** Dispatches reminder emails to customers who left items in their checkout baskets after a configured inactivity window.
+* **Inventory Depletion Sweeps:** Automatically marks out-of-stock products as hidden or triggers restocking notifications.
+* **Settlement Calculations:** Aggregates merchant commission balances at the end of each billing cycle.
 
-## Common Issues
-
-- **Issue:** ...
-- **Solution:** ...
+## Manual Execution
+If you urgently need updated currency rates or need to trigger an inventory re-indexing ahead of a flash sale, click **"Run Now"** next to the corresponding job.

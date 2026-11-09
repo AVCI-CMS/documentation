@@ -1,24 +1,24 @@
 ---
 sidebar_position: 6
-title: "Migration"
+title: "Data Migration & Bulk Import"
 ---
 
-# Migration
+# Data Migration & Bulk Import
 
-**Menu Path:** `Workspace > Advanced > Migration`
+**Menu Path:** `Workspace > Advanced > Data Migration`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Migration:View** permission.
+:::info Permission Requirements
+To run bulk migrations or export records, you must have the **Workspace:Manage** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+When transferring existing business records from legacy e-commerce platforms (such as Shopify, WooCommerce, or Magento) into AVCI CMS, the **Data Migration** module simplifies bulk ingestion and backup exports.
 
-## Key Features & Configuration
+## Bulk Import via CSV / Excel
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+1. **Download Sample Template:** Always download the official CSV template from the screen before uploading your file to ensure column headers match system fields (e.g. `title`, `sku`, `price`, `stock`, `category_slug`).
+2. **Upload & Map Columns:** Upload your `.csv` or `.xlsx` file. The interface presents an interactive column mapping tool to reconcile any custom column titles.
+3. **Dry-Run Validation:** The system pre-scans all rows and reports missing fields, duplicate SKUs, or malformed prices before writing changes to your live catalog.
+4. **Execution & Rollback:** Run the import. If errors occur mid-way, an error log is generated detailing the exact rows that failed so you can correct them.
 
-## Common Issues
-
-- **Issue:** ...
-- **Solution:** ...
+## Data Export
+You can export full or filtered datasets in CSV or JSON format for offline backups, third-party ERP syncing, or financial audits.

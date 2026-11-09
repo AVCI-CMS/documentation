@@ -1,6 +1,6 @@
 ---
 id: comment
-title: Comments and Ratings
+title: Comments & Reviews
 sidebar_position: 6
 ---
 

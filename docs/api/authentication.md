@@ -1,6 +1,6 @@
 ---
 id: authentication
-title: User Authentication (Auth)
+title: Authentication & Security
 sidebar_position: 3
 ---
 

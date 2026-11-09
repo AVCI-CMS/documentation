@@ -1,6 +1,6 @@
 ---
 id: purchase
-title: Purchase
+title: Orders & Checkout
 sidebar_position: 4
 ---
 

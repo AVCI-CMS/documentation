@@ -1,6 +1,6 @@
 ---
 id: follow
-title: Follow Operations
+title: Following & Subscriptions
 sidebar_position: 5
 ---
 

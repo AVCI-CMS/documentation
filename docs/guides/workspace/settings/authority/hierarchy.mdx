@@ -1,24 +1,37 @@
 ---
 sidebar_position: 5
-title: "Authority Hierarchy"
+title: "Authority Hierarchy & Delegation"
 ---
 
-# Authority Hierarchy
+# Authority Hierarchy & Delegation
 
-**Menu Path:** `Workspace > Settings > Authority > Authority Hierarchy`
+**Menu Path:** `Workspace > Settings > Authority > Hierarchy`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Permission:View** permission.
+:::info Permission Requirements
+To view and manage the authority hierarchy, you must have the **Workspace Owner** or **Role:Manage** permission.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+The **Authority Hierarchy** visualizes and enforces how managerial responsibilities flow across your organization. It ensures that sub-administrators can only assign permissions equal to or below their own authorization level.
 
-## Key Features & Configuration
+---
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+## The Role Hierarchy Structure
 
-## Common Issues
+```mermaid
+graph TD
+    WO["Workspace Owner (Full Control)"] --> WA["Workspace Administrator"]
+    WA --> MM["Merchant Manager"]
+    WA --> BM["Brand Manager"]
+    WA --> OM["Organization & Venue Manager"]
+    WA --> CM["Content & Marketing Editor"]
+    
+    MM --> MO["Merchant Staff / Order Fulfillment"]
+    BM --> BA["Brand Asset Editor"]
+    OM --> ET["Event Ticket Usher / Gatekeeper"]
+```
 
-- **Issue:** ...
-- **Solution:** ...
+## Key Principles
+
+1. **Principle of Least Privilege:** Team members should only receive the minimum permissions necessary for their specific job functions.
+2. **Boundary Protection:** A Merchant Manager can only oversee merchants within their assigned scope and cannot view or alter platform-wide billing or other sellers' finances.
+3. **Audit Trails:** All permission changes, role assignments, and token creations are logged with timestamps, IP addresses, and the issuing user's identifier.

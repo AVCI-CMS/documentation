@@ -1,6 +1,6 @@
 ---
 id: blog
-title: Blog / Articles
+title: Blog Posts
 sidebar_position: 2
 ---
 

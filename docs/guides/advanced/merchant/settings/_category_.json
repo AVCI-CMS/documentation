@@ -1,0 +1,8 @@
+{
+  "label": "Merchant Settings",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "guides/advanced/merchant/settings/index"
+  }
+}

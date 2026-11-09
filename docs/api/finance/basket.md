@@ -1,6 +1,6 @@
 ---
 id: basket
-title: Basket / Cart
+title: Shopping Cart
 sidebar_position: 1
 ---
 
