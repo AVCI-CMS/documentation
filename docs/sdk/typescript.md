@@ -83,6 +83,23 @@ await cms.content.create('contact-form', {
 });
 ```
 
+### 4. Headless Müşteri İadesi (RMA) & Kargo Takibi
+
+Storefront müşterileri sipariş iadelerini headless olarak başlatabilir ve anlaşmalı kargo kodunu sorgulayabilir:
+
+```typescript
+// İade talebi oluşturma
+const returnRequest = await cms.shipment.requestReturn({
+  subOrderId: 'SUB-2026-98124',
+  reason: 'Beden uymadı',
+  note: 'Paket hiç açılmadı.',
+});
+
+// İade durumu ve kargo iade kodunu sorgulama
+const returnStatus = await cms.shipment.getReturnStatus('SUB-2026-98124');
+console.log(returnStatus.data.returnTrackingNumber);
+```
+
 ---
 
 ## Framework Integration (Next.js 15 App Router)
