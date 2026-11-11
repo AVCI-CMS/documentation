@@ -11,7 +11,7 @@ title: "Guides Integration"
 To configure Guides settings, you must have the **Workspace:Settings:Manage** permission.
 :::
 
-The Guides configuration page allows you to link your workspace to a GitHub repository where your public documentation or user guides are hosted. By connecting a repository, the system can automatically sync your Markdown (`.md` or `.mdx`) files and display them seamlessly on your storefront or support portal.
+The Guides configuration page allows you to link your workspace to a GitHub repository where your contextual in-panel guides are hosted. By connecting a repository, the system automatically syncs your Markdown (`.md`) files and displays them inside the slide-over **Right Toolbar** for contextual Help and API documentation.
 
 ## Key Features & Configuration
 
@@ -19,14 +19,20 @@ The Guides configuration page allows you to link your workspace to a GitHub repo
 - **Connection Check:** This module requires an active GitHub integration. If GitHub is not connected, the system will display an alert prompting you to navigate to the [Integrations](../../../integrations/index.mdx) page to authenticate the app.
 
 ### 2. Repository Configuration
-Once GitHub is connected, you must specify the exact location of your documentation files.
-- **Repository Name:** Enter the full name of your target repository (e.g., `AVCI-CMS/guides`).
-- **Branch:** Specify which branch to pull the documentation from (e.g., `main` or `master`). This allows you to draft documentation on a separate branch and only publish from `main`.
+Once GitHub is connected, you can configure your in-app guides repository:
+- **Repository Name:** Enter the full name of your target repository (e.g., `AVCI-CMS/in-app-guides` for the official guides, or your custom fork `your-org/custom-guides`).
+- **Branch:** Specify which branch to pull the documentation from (e.g., `main`). This allows you to draft changes on a separate branch and publish them by merging into `main`.
+
+:::tip Official In-App Guides Repository
+AVCI CMS provides a ready-to-use, comprehensive repository containing contextual API references and operational guides for all platform modules:  
+👉 **[https://github.com/AVCI-CMS/in-app-guides](https://github.com/AVCI-CMS/in-app-guides)**  
+For more information on how the drawer operates, see [In-App Contextual Guides](../../../interface/in-app-guides.mdx).
+:::
 
 > [!TIP]
-> **Workflow Suggestion:** Use the `drafts` branch for writing and reviewing documentation. Once approved, merge it into your `main` branch. Since your workspace syncs with `main`, the updates will go live automatically without touching the backend settings again.
+> **Workflow Suggestion:** Use a `drafts` or `staging` branch for writing and reviewing internal SOPs. Once approved, merge it into your `main` branch. Since your workspace syncs with `main`, the updates will appear in the Right Toolbar automatically without touching the backend settings again.
 
 ## Common Issues
 
-- **Issue:** Documentation updates pushed to GitHub are not appearing on the storefront.
-- **Solution:** Verify that the "Branch" configured here exactly matches the branch you pushed your changes to. Also, check the Integrations page to ensure your GitHub access token hasn't expired.
+- **Issue:** Documentation updates pushed to GitHub are not appearing in the Right Toolbar.
+- **Solution:** Verify that the "Branch" configured here matches the branch you pushed your changes to. Also, check the Integrations page to ensure your GitHub access token is active and valid.
