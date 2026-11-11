@@ -3,36 +3,49 @@ sidebar_position: 4
 title: "Custom Forms"
 ---
 
-# Custom Forms (Form Builder)
+# Custom Forms & Application Workflows
 
 **Menu Path:** `Communication > Custom Forms`
 
-The **Custom Forms** module is a powerful, no-code tool that allows you to build dynamic data collection forms. You can use it for job applications, customer satisfaction surveys, event RSVPs, or specialized B2B quote requests.
+The **Custom Forms** module is a comprehensive form-building and application-processing engine. Beyond basic surveys and feedback collection, it serves as the operational gateway for **Vendor Onboarding**, **Brand Registration**, and **Organization Applications**.
 
-## How to Build a Custom Form
+---
 
-Click **"Create"** to enter the Form Builder interface.
+## 1. Defining Form Purpose & Actions
 
-### 1. Form Settings
-- **Form Name:** Give it an internal name (e.g., "2026 Developer Job Application").
-- **Success Message:** Define what the user sees after clicking submit (e.g., "Thank you, HR will contact you shortly.").
+When creating a new form, select its functional **Purpose**:
 
-### 2. Drag-and-Drop Builder
-Build the structure of your form by adding fields:
-- **Text Inputs:** For short answers like "Name" or "Company".
-- **Textareas:** For long-form answers like "Cover Letter".
-- **Dropdowns / Radio Buttons:** Force the user to select from pre-defined choices (e.g., "Years of Experience: 1-3, 3-5, 5+").
-- **File Uploads:** Allow users to attach PDFs or images (e.g., "Upload Resume").
-- **Required Checkbox:** Mark essential fields as "Required" to prevent incomplete submissions.
+* **Standard / General (`STANDARD`):** Ideal for customer feedback, contact inquiries, and lead generation.
+* **Merchant Onboarding (`MERCHANT_APPLICATION`):** Enables prospective vendors to apply for storefront seller accounts. Upon approval, automatically creates a `Merchant` record, binds the applicant user, and triggers `MERCHANT_ONBOARDING_SETUP`.
+* **Brand Registration (`BRAND_APPLICATION`):** Collects trademark and manufacturer data. Upon approval, automatically provisions the `Brand` and triggers `BRAND_SETUP`.
+* **Organization Application (`ORGANIZATION_APPLICATION`):** Designed for cooperative, chamber, and association applications, provisioning an `Organization` upon approval.
+* **Survey / Research (`SURVEY`):** Tracks submission metrics, response frequencies, and conversion statistics.
 
-### 3. Publishing the Form
-Once saved, the system generates a unique **Shortcode** or **Embed code**.
-- Copy this code.
-- Go to the [Pages](../contents/pages.mdx) module, create a new page (e.g., "Careers"), and paste the code into the Rich Text Editor. The frontend will dynamically render the form.
+---
 
-## Analyzing Submissions
-When users submit the form, their data does not just disappear into an email.
-1. Click on the Form name in the Custom Forms list.
-2. Navigate to the **"Submissions"** tab.
-3. You will see a data table of every response.
-4. **Export to CSV:** Click the export button to download the data into Excel for deeper analysis or to share with other departments.
+## 2. Dynamic Field Builder & Smart Attribute Mapping
+
+Build your form schema by adding dynamic input fields:
+* **Standard Inputs:** Single-line text, number, email, phone, textarea, date picker, file upload.
+* **Option Selectors:** Dropdown select, radio buttons, multi-select checkboxes.
+* **Nested Groups (`OBJECT`):** Group related fields into reusable sub-objects (e.g., Authorized Representative, Company Address).
+
+### Smart Entity Attribute Mapping (`mappedAttributeId`)
+When a form purpose is linked to an entity (e.g., `MERCHANT_APPLICATION`), each form field can be mapped directly to an existing attribute from the Common Attribute catalog.
+* Selecting an attribute automatically binds its slug and data type.
+* When the application is approved, responses for mapped fields automatically transfer into the entity's normalized EAV `attributes` array.
+
+---
+
+## 3. Submissions & Application Review Workspace
+
+Submissions do not simply generate emails; they enter a structured review pipeline:
+
+1. **Submission Queue:** View incoming entries filtered by state (`PENDING`, `UNDER_REVIEW`, `APPROVED`, `REJECTED`, `CANCELLED`).
+2. **2-Column Review Workspace:**
+   * **Left Column:** Displays all submitted answers, structured sections, file downloads, and mapped attribute previews.
+   * **Right Column:** Contains the submission lifecycle status changer, internal team comments, and immutable audit logs.
+3. **One-Click Approval:**
+   * Approving an application triggers the automated entity creation engine.
+   * The new entity (Merchant, Brand, or Organization) is immediately created, the applicant's role is updated, and onboarding setup tasks are assigned.
+4. **Data Export:** Export submission logs and responses to CSV or Excel for compliance audits.
