@@ -103,3 +103,83 @@ submission = client.custom_form.submit("contact-form-id", {
     "message": "Interested in partnership opportunities."
 })
 ```
+
+### 4. User Address Management & Primary Address
+
+```python
+# 1. List user addresses
+addresses = client.user.list_addresses()
+
+# 2. Add address with primary status
+new_address = client.user.add_address({
+    "title": "Home",
+    "firstName": "Ahmet",
+    "lastName": "Yılmaz",
+    "phone": "+905551234567",
+    "city": "İstanbul",
+    "district": "Kadıköy",
+    "addressLine1": "Moda Cad. No: 15",
+    "isPrimary": True # Automatically unsets other addresses as primary
+})
+
+# 3. Update existing address (supports addressId, id, or _id)
+client.user.update_address("addr_6735be91a12e", {
+    "title": "Home (Updated)",
+    "isPrimary": True
+})
+
+# 4. Set primary address via dedicated method
+client.user.set_primary_address("addr_6735be91a12e")
+
+# 5. Delete address
+client.user.delete_address("addr_6735be91a12e")
+```
+
+### 5. Entity Showcase Self-Profiles (Artisan, Brand, Organization)
+
+```python
+# Fetch and update Artisan / Merchant profile
+artisan_profile = client.merchant.get_me()
+client.merchant.update_me({
+    "logo": "https://cdn.example.com/logo.png",
+    "coverImage": "https://cdn.example.com/cover.jpg",
+    "description": "Master woodcarver crafting bespoke furniture.",
+    "attributes": {"specialty": "Oak & Walnut Carving", "yearsActive": 25}
+})
+
+# Fetch and update Brand profile
+brand_profile = client.brand.get_me()
+client.brand.update_me({"description": "Artisan luxury lifestyle brand."})
+
+# Fetch and update Organization profile
+org_profile = client.organization.get_me()
+client.organization.update_me({"description": "Craftspeople and Guilds Cooperative."})
+```
+
+### 6. Geographic Directory & Tax Offices
+
+```python
+# List Turkish cities
+cities = client.static.list_cities()
+
+# List districts in Istanbul (cityId: 34)
+districts = client.static.list_districts(34)
+
+# List neighborhoods in Kadikoy (districtId: 450)
+neighborhoods = client.static.list_neighborhoods(450)
+
+# List tax offices in Istanbul, filtered by district
+# Automatically normalizes city codes: 1, 01, 34, 034
+tax_offices = client.static.list_tax_offices(34, district="Kadıköy")
+```
+
+### 7. Corporate Team Directory
+
+```python
+# List public team members
+team = client.team.list(limit=20, department="Executive")
+
+# Get team member by slug
+member = client.team.get_by_slug("jane-doe")
+```
+

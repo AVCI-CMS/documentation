@@ -79,3 +79,47 @@ Returns an optimized list containing the location information (latitude, longitu
   ]
 }
 ```
+
+---
+
+## 5. Artisan / Merchant Showcase Self-Profile
+
+Authenticated sellers and artisans can inspect and update their public-facing storefront showcase profile directly (e.g., from their account page at `/profil/sayfam`).
+
+*   **Endpoints:**
+    *   `GET /v1/merchant/me`: Fetch currently logged-in vendor's profile.
+    *   `PUT /v1/merchant/me` or `PATCH /v1/merchant/me`: Update storefront showcase details.
+*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <vendor_token>`
+
+### Editable Showcase Fields
+Vendors can update presentation and branding properties:
+*   `logo` / `image`: Storefront avatar / brand logo.
+*   `coverImage` / `cover`: Profile banner image.
+*   `biography` / `description`: Artisan story and workshop background.
+*   `attributes`: Custom showcase attributes (e.g., craft techniques, specialties, awards).
+*   `gallery`: Workshop / studio photo gallery.
+*   `socialMedia`: Links to Instagram, LinkedIn, website.
+*   `address`: Public studio or workshop address.
+
+> **Security Note:** Sensitive fields such as `status`, `commitionRate`, `isVerified`, and payment/banking settings are strictly isolated and cannot be modified via this endpoint.
+
+### Example Update Request
+```bash
+curl -X PUT "https://api.avcicms.com/v1/merchant/me" \
+  -H "x-avci-client: <tenant_id>" \
+  -H "Authorization: Bearer <vendor_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "logo": "https://cdn.avcicms.com/uploads/artisan-logo.png",
+    "coverImage": "https://cdn.avcicms.com/uploads/artisan-cover.jpg",
+    "description": "Master artisan crafting traditional copper and brass homeware.",
+    "socialMedia": {
+      "instagram": "artisan_crafts"
+    },
+    "attributes": {
+      "technique": "Hand hammered",
+      "establishedYear": 1994
+    }
+  }'
+```
+

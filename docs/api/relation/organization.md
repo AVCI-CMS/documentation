@@ -55,3 +55,42 @@ Fetches only the summary (name, logo, brief description) info of the organizatio
 
 *   **Endpoint:** `GET /organization/short/:slug`
 *   **Auth Requirement:** `x-avci-client`
+
+---
+
+## 5. Organization Showcase Self-Profile
+
+Authenticated organization managers (cooperatives, chambers of commerce, foundations, trade unions) can inspect and update their public-facing corporate showcase profile directly from their account portal.
+
+*   **Endpoints:**
+    *   `GET /v1/organization/me`: Fetch currently logged-in organization profile.
+    *   `PUT /v1/organization/me` or `PATCH /v1/organization/me`: Update organization showcase details.
+*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <org_token>`
+
+### Editable Showcase Fields
+*   `logo` / `image`: Official organization emblem or coat of arms.
+*   `coverImage` / `cover`: Banner image for the organization directory.
+*   `biography` / `description`: Mission statement, governance overview, and bylaws summary.
+*   `attributes`: Member registry counts, regional affiliations, accreditation codes.
+*   `gallery`: Institutional events, regional projects, or member showcases.
+*   `socialMedia`: Official social links and organizational web portal.
+*   `address`: Headquarters / secretariat contact address.
+
+> **Security Note:** Umbrella membership statuses, sub-merchant authorisations, and system roles cannot be modified via self-service.
+
+### Example Update Request
+```bash
+curl -X PUT "https://api.avcicms.com/v1/organization/me" \
+  -H "x-avci-client: <tenant_id>" \
+  -H "Authorization: Bearer <org_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "logo": "https://cdn.avcicms.com/orgs/union-logo.svg",
+    "description": "Federation of Mediterranean Ceramic & Pottery Cooperatives.",
+    "attributes": {
+      "memberCount": 240,
+      "region": "Mediterranean"
+    }
+  }'
+```
+

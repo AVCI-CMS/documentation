@@ -25,7 +25,8 @@ The **Users** module is your primary directory for all registered end-customers 
 - **Password Reset:** As an Admin, you cannot see a user's password, but you can trigger a "Force Password Reset" email if the user is locked out.
 
 ### 3. Addresses
-- A list of all saved Billing and Shipping addresses. You can edit these on behalf of the user if they request customer support for an address typo.
+- A list of all saved Billing and Shipping addresses. You can inspect or edit these on behalf of the user if they request customer support for an address typo.
+- **Default/Primary Address:** Each customer maintains one active default address (`isPrimary: true`). When a user designates a new address as primary (via frontend `/v1/user/address/:id/primary` or `isPrimary: true`), the platform automatically unsets primary status from all their previous addresses.
 
 ### 4. Activity & History
 The user profile is deeply integrated with the rest of the CMS. From their profile page, you can quickly jump to:

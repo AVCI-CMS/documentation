@@ -139,6 +139,88 @@ const { data: order } = await cms.order.create({
 console.log('Order successfully placed:', order?.orderId);
 ```
 
+### 4. User Address Book & Primary Address
+
+```typescript
+// 1. List user addresses
+const addresses = await cms.user.listAddresses();
+
+// 2. Add new address (can be set as default immediately)
+const newAddress = await cms.user.addAddress({
+  title: 'Home',
+  firstName: 'Ahmet',
+  lastName: 'Yılmaz',
+  phone: '+905551234567',
+  city: 'İstanbul',
+  district: 'Kadıköy',
+  neighborhood: 'Caferağa Mah.',
+  addressLine1: 'Moda Cad. No: 15 D: 4',
+  isPrimary: true // Automatically unsets primary on all other addresses
+});
+
+// 3. Update an existing address (supports addressId, id, or _id)
+await cms.user.updateAddress('addr_6735be91a12e', {
+  title: 'Home (Renovated)',
+  isPrimary: true
+});
+
+// 4. Or switch primary address via dedicated endpoint
+await cms.user.setPrimaryAddress('addr_6735be91a12e');
+
+// 5. Delete address
+await cms.user.deleteAddress('addr_6735be91a12e');
+```
+
+### 5. Artisan, Brand & Organization Self-Service Showcase Profiles
+
+```typescript
+// Fetch logged-in artisan profile (e.g., in /profil/sayfam)
+const artisan = await cms.merchant.getMe();
+
+// Update public visual branding and biography
+await cms.merchant.updateMe({
+  logo: 'https://cdn.example.com/logo.png',
+  coverImage: 'https://cdn.example.com/cover.jpg',
+  description: 'Master leather craftsman producing bespoke artisanal bags.',
+  socialMedia: { instagram: 'artisan_leather' },
+  attributes: { craftTechnique: 'Hand-stitched', experience: '20 years' }
+});
+
+// Similar self-profile endpoints exist for Brands and Organizations:
+const brand = await cms.brand.getMe();
+await cms.brand.updateMe({ description: 'Sustainable athletic apparel brand.' });
+
+const org = await cms.organization.getMe();
+await cms.organization.updateMe({ description: 'Regional Artisan Guild Federation.' });
+```
+
+### 6. Geographic Directory & Tax Administrations
+
+```typescript
+// List all 81 Turkish cities
+const cities = await cms.static.listCities();
+
+// List districts for Istanbul (cityId: 34)
+const districts = await cms.static.listDistricts(34);
+
+// List neighborhoods for Kadikoy (districtId: 450)
+const neighborhoods = await cms.static.listNeighborhoods(450);
+
+// Get tax offices for Istanbul, filtered by Kadikoy district
+// Automatically normalizes city codes (1, 01, 34, 034)
+const taxOffices = await cms.static.listTaxOffices(34, 'Kadıköy');
+```
+
+### 7. Corporate Team Directory
+
+```typescript
+// List public team members for the "Our Team" page
+const team = await cms.team.list({ limit: 20, department: 'Executive' });
+
+// Get team member details by slug
+const member = await cms.team.getBySlug('jane-doe');
+```
+
 ---
 
 ## Framework Integration (Next.js 15 App Router)

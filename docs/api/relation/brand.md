@@ -62,3 +62,42 @@ If physical stores/dealers of the brands are defined in the system, returns a li
 
 *   **Endpoint:** `GET /brand/location`
 *   **Auth Requirement:** `x-avci-client`
+
+---
+
+## 6. Brand Showcase Self-Profile
+
+Authenticated brand owners can view and update their public-facing brand showcase profile directly from their account portal.
+
+*   **Endpoints:**
+    *   `GET /v1/brand/me`: Fetch currently logged-in brand owner's profile.
+    *   `PUT /v1/brand/me` or `PATCH /v1/brand/me`: Update brand showcase presentation details.
+*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <brand_token>`
+
+### Editable Showcase Fields
+*   `logo` / `image`: Official brand emblem or logo.
+*   `coverImage` / `cover`: Public header visual.
+*   `biography` / `description`: Brand manifesto, heritage, and story.
+*   `attributes`: Industry attributes, sustainability badges, certifications.
+*   `gallery`: Campaign and product imagery.
+*   `socialMedia`: Official social media handles and website.
+*   `address`: Brand showroom or headquarters address.
+
+> **Security Note:** Platform verification status, GTIN/EAN authorizations, and commercial terms are restricted from self-service alteration.
+
+### Example Update Request
+```bash
+curl -X PUT "https://api.avcicms.com/v1/brand/me" \
+  -H "x-avci-client: <tenant_id>" \
+  -H "Authorization: Bearer <brand_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "logo": "https://cdn.avcicms.com/brands/acme-logo.svg",
+    "description": "Pioneering sustainable activewear engineered from recycled ocean plastics.",
+    "attributes": {
+      "certifiedOrganic": true,
+      "foundingYear": 2018
+    }
+  }'
+```
+
