@@ -221,6 +221,20 @@ const team = await cms.team.list({ limit: 20, department: 'Executive' });
 const member = await cms.team.getBySlug('jane-doe');
 ```
 
+### 8. Physical Venues & Places Directory
+
+```typescript
+// List active physical venues filtered by region/area
+const places = await cms.place.list({ area: '6735c03a9f1a2b3c4d5e6f70', limit: 10 });
+
+// Fetch full venue profile (capacity, working hours, pricing, coordinates)
+const venue = await cms.place.getBySlug('kucukciftlik-park');
+console.log(venue.data.capacity?.max, venue.data.pricing?.amount);
+
+// Fetch lightweight card for map pin or mobile preview
+const pinCard = await cms.place.getShortBySlug('kucukciftlik-park');
+```
+
 ---
 
 ## Framework Integration (Next.js 15 App Router)

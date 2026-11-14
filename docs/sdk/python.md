@@ -183,3 +183,18 @@ team = client.team.list(limit=20, department="Executive")
 member = client.team.get_by_slug("jane-doe")
 ```
 
+### 8. Physical Venues & Places Directory
+
+```python
+# List active physical venues filtered by area
+places = client.place.list(area="6735c03a9f1a2b3c4d5e6f70", limit=10)
+
+# Get full venue profile by slug
+venue = client.place.get_by_slug("kucukciftlik-park")
+print(venue.name, venue.capacity.max, venue.pricing.amount)
+
+# Get lightweight summary card for map pin
+pin_card = client.place.get_short_by_slug("kucukciftlik-park")
+```
+
+
