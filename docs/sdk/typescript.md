@@ -100,6 +100,45 @@ const returnStatus = await cms.shipment.getReturnStatus('SUB-2026-98124');
 console.log(returnStatus.data.returnTrackingNumber);
 ```
 
+### 5. Shopping Basket & Ticket Checkout Flow
+
+```typescript
+// 1. Create a shopping basket
+const { data: basket } = await cms.basket.create({ currency: 'TRY' });
+
+// 2. Add product and event tickets (with 10-minute capacity reservation)
+await cms.basket.addItems(basket!.basketId, [
+  { id: 'prod_123', quantity: 1, itemType: 'product' },
+  { id: 'event_456', quantity: 2, itemType: 'event' }
+]);
+
+// 3. Prepare legal contracts (Distance Sale & Preliminary Info)
+const { data: terms } = await cms.basket.prepareTerms(basket!.basketId);
+
+// 4. Complete checkout with ticket attendee details
+const { data: order } = await cms.order.create({
+  basketId: basket!.basketId,
+  paymentMethod: 'CREDIT_CARD',
+  addresses: {
+    shipmentAddressId: 'addr_ship_789',
+    billingAddressId: 'addr_bill_789'
+  },
+  card: {
+    cardHolderName: 'Ahmet Yılmaz',
+    cardNumber: '5406670000000000',
+    expireMonth: '12',
+    expireYear: '2028',
+    cvc: '123'
+  },
+  participants: [
+    { basketItemId: 'item_event_slot_1', name: 'Ahmet Yılmaz', email: 'ahmet@example.com' },
+    { basketItemId: 'item_event_slot_2', name: 'Zeynep Kaya', email: 'zeynep@example.com' }
+  ]
+});
+
+console.log('Order successfully placed:', order?.orderId);
+```
+
 ---
 
 ## Framework Integration (Next.js 15 App Router)

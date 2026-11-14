@@ -1,49 +1,95 @@
 ---
 sidebar_position: 2
-title: "Orders"
-description: "Master control center for all purchases, approvals, and sub-orders."
+title: "Orders & Fulfillment Guide"
+description: "Comprehensive guide for order management, multi-merchant fulfillment, tickets, and RMA returns across all workspace roles."
 ---
 
-# Orders
+# Orders & Fulfillment Guide
 
 **Menu Path:** `Finance & Logistics > Orders`
 
-The **Orders** module is the central hub where you manage the lifecycle of a purchase. Whenever a user completes a checkout, an Order record is created. 
+The **Orders** module is the central operational engine of the AVCI CMS ecosystem. It adapts dynamically based on your business model (**Single-Vendor eCommerce** vs. **Multi-Vendor Marketplace**) and the active user's permissions.
 
-This module adapts dynamically based on your business model (eCommerce vs. Marketplace) and your role (Admin vs. Merchant).
+---
 
-## Viewing and Managing an Order
+## 1. Persona & Profile Workflows
 
-1. Go to **Finance & Logistics > Orders**.
-2. Click on any Order ID to open the detailed Order View.
-3. The detail page is highly segmented to handle the complexity of fulfillment:
+AVCI CMS strictly isolates user roles. Each profile interacts with orders and fulfillment through customized interfaces and security boundaries:
 
-### 1. Order Header & Approvals
-- At the very top, you will see the overall **Order ID** and the current **Status** (e.g., *WAITING*, *PREPARING*, *SHIPPED*, *DELIVERED*).
-- If an order requires manual intervention before fulfillment begins, you will see an **"Approve"** button. Clicking this changes the status from *WAITING* to *PREPARING*.
+```mermaid
+flowchart TD
+    Customer["Customer (USER)<br>Storefront Only"] -->|Places Order| Basket["Basket & Checkout"]
+    Basket --> OrdersEngine["Orders Engine"]
+    OrdersEngine -->|Direct Sale| AdminView["Admin (WORKSPACE_ADMIN)<br>Full Platform Oversight"]
+    OrdersEngine -->|Split Sub-Orders| MerchantView["Vendor (WORKSPACE_MERCHANT)<br>Isolated Sub-Order View"]
+    OrdersEngine -->|Ledger Entries| FinanceView["Finance (WORKSPACE_FINANCE)<br>Payouts & Settlements"]
+    OrdersEngine -->|Royalty / Catalog| BrandView["Brand (WORKSPACE_BRAND)<br>GTIN & Precedence"]
+    Customer -.->|Cancel / Return Request| TicketModule["Ticket Module<br>(CANCELLATION / RETURN)"]
+    TicketModule ==>|Urgent Alert Banner| AdminView
+    TicketModule ==>|Urgent Alert Banner| MerchantView
+```
 
-### 2. Status Updates
-- You can manually change the order status using the "Change Status" dialog. 
-- *Note:* Statuses follow a strict hierarchy. You generally cannot revert an order from *DELIVERED* back to *PREPARING*. You must explicitly check the confirmation box to execute a status change, as this often triggers automated emails to the customer.
+### Profile 1: Platform Super Admin & Operations Manager (`WORKSPACE_ADMIN` / `WORKSPACE_OWNER`)
+* **Approval Queue:** Orders requiring manual verification appear in `WAITING` status with a prominent **"Approve"** button that advances the status to `PREPARING`.
+* **Active Cancellation / Return Alert Banner:** If a customer submits a cancellation or return ticket via the Storefront, a red alert banner appears at the top of the order details:
+  > *"Active Customer Cancellation / Return Ticket Found! Review the ticket before dispatching courier packages."*
+* **Marketplace Sub-Order Supervision:** In Marketplace mode, admins inspect the master order and all individual sub-orders, verifying that each vendor fulfills their assigned items.
+* **Financial Ledger Oversight:** In eCommerce mode, admins see store gross revenue, VAT, and shipping collected. In Marketplace mode, admins monitor commission splits and platform clearing.
 
-### 3. Sub-Orders (Marketplace Mode)
-- If your platform operates as a Marketplace, a single customer order might contain items from multiple different Merchants.
-- The system automatically splits the main Order into **Sub-Orders**.
-- As an Admin, you will see a list of Sub-Orders. You can click into them to see how each individual Merchant is fulfilling their portion of the order.
-- *Merchant View:* If a Merchant logs in, they will *only* see the Sub-Order assigned to them, not the entire customer basket.
+### Profile 2: Marketplace Vendor (`WORKSPACE_MERCHANT`)
+* **Isolated Sub-Order View:** When a vendor logs in, they only see their assigned sub-order (`/orders/[subOrderId]`). Vendors **never** have access to the master basket, other vendors' items, or global customer data.
+* **Shipment Management (`OrderShipmentManager`):**
+  - **Automatic Barcode:** Generates an integrated courier tracking number and printable shipping barcode with a single click.
+  - **Manual Entry:** If permitted by workspace settings, allows manual entry of carrier and tracking codes.
+* **Invoice Upload (`OrderInvoiceManager`):** Vendors upload the official PDF e-invoice (Sales Invoice, Return Invoice, or Cancel Invoice) and trigger automated email delivery to the customer.
+* **RMA Return Approval:** When a return request is submitted, the vendor reviews the request and generates a reverse-logistics courier return code.
 
-### 4. Items & Attendees
-- **Physical/Digital Goods:** Displayed in a table showing the product name, variant (e.g., "Red, Size M"), quantity, and unit price.
-- **Events & Tickets:** If the order includes event tickets, an **Attendees** card will appear, listing the names and ticket details for the people registered for the event.
+### Profile 3: Brand Owner (`WORKSPACE_BRAND`)
+* **GTIN / Master Catalog Oversight:** Brands monitor which authorized merchants are selling their catalog items.
+* **Shipping Precedence:** If a brand sets up custom courier contracts, the basket engine automatically gives precedence to the brand's shipping rules over the merchant's rules.
 
-### 5. Fulfillment Management
-- **Shipment Manager:** If physical goods are involved, this card allows you to generate tracking numbers automatically, select the courier company, and print shipping labels. Note: Manual entry of tracking numbers is only possible if the *Allow Manual Code Entry* setting is enabled in the Workspace Shipment Settings.
-- **Invoice Manager:** Generates and attaches the official PDF invoice (E-Fatura) for the order.
+### Profile 4: Finance Specialist (`WORKSPACE_FINANCE`)
+* **Payout Reconciliation:** Finance specialists monitor seller payout statuses (`PENDING`, `READY`, `PAID`, `CANCELED`).
+* **Withholding & Commission Deductions:** Inspects withholding taxes (stopaj) and net payouts calculated per line item.
+* **Master Wallet Overview:** Tracks platform transaction volume and automated clearing cycles (`/finance`).
 
-### 6. Financial Summary & Health
-- **Financial Summary:** A breakdown of the Subtotal, Tax (VAT), Shipping Costs, applied Discounts (Coupons/Campaigns), and the Final Total paid.
-- **Health Card:** An automated diagnostic tool. It flags issues like "Payment mismatch", "Missing shipping address", or "Refund requested", helping you quickly identify orders that need urgent attention.
-- **Transactions:** Links to the exact financial ledger movements (commissions, merchant payouts) associated with this order.
+### Profile 5: End User / Customer (`USER` - Storefront)
+* **Zero Management Panel Access:** Customers **never** have access to the AVCI CMS management console.
+* **Storefront Account Portal:** Customers track order statuses, view courier tracking links, and download event ticket PDFs / QR passes directly in the Storefront customer account.
+* **Cancellation & Return Process (RMA via Tickets):**
+  1. The customer selects an order item and clicks "Cancel Order" or "Request Return" on the Storefront.
+  2. The system automatically creates a support ticket in the `ticket` module with category `CANCELLATION` or `RETURN`.
+  3. The management panel displays the urgent alert banner, enabling the merchant or admin to approve the return and issue the reverse courier barcode.
 
-### 7. Agreements
-- Links to the exact versions of the Distance Selling Contract and Preliminary Information Form the user accepted at the exact moment of checkout.
+### Profile 6: Storefront Integrator (`DEVELOPER`)
+* Integrators use `@avci/sdk` or the Python SDK to interact with public endpoints (`/v1/basket` and `/v1/order`).
+* **Management endpoints (`/management/*`) are strictly excluded from SDKs** and are reserved solely for the management frontend application.
+
+---
+
+## 2. Order Fulfillment Workflow
+
+### Step 1: Order Intake & Verification
+1. Order arrives in `WAITING` (if review required) or `PREPARING` status.
+2. Operator or merchant reviews the **Summary Card**, customer notes, and the **Order Health Card** for automated diagnostic flags (e.g. payment mismatches or address discrepancies).
+
+### Step 2: Attendees & Ticketed Items (Events & Routes)
+- If the order contains ticketed items, the **Attendees Card** lists the full name, email, phone, and unique QR hash for every registered ticket holder.
+- Route tickets register participants for all sequenced events within the tour automatically.
+
+### Step 3: Courier Shipment Dispatch
+1. Open the **Shipment Management** card.
+2. Click **Generate Shipment Code** to create an automated barcode with the selected courier (e.g. Aras, Yurtiçi, MNG).
+3. Print the courier shipping label and hand the package to the carrier.
+4. The order status automatically updates to `ON_SHIPMENT`, and the customer receives an automated SMS and email tracking notification.
+
+### Step 4: Invoice Upload & Customer Delivery
+1. Open the **Invoice Management** card.
+2. Select the invoice type (Sales Invoice, Return Invoice, or Cancel Invoice).
+3. Upload the PDF file and click **Send to Customer** to deliver the invoice via transactional email.
+
+### Step 5: Handling Cancellations & RMA Returns
+1. When a customer initiates a return, the red **Cancellation Alert Banner** appears on the order.
+2. Clicking **View Ticket** opens the associated support ticket in `/tickets/[id]`.
+3. If approved, the merchant generates a **Return Courier Code** in the Shipment Manager so the customer can ship the package back free of charge.
+4. Once goods are received, the operator completes the return, automatically canceling the seller payout in the financial ledger.

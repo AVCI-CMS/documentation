@@ -1,136 +1,168 @@
 ---
 id: basket
-title: Shopping Cart
+title: Shopping Basket API
 sidebar_position: 1
 ---
 
-# Basket Management
+# Shopping Basket API
 
-Basket operations, which form the core module of e-commerce and order processes, allow a user or guest visitor to collect products, update quantities, and assign shipping.
+The Basket API manages the customer cart lifecycle, supporting physical goods, digital products, and ticketed catalog items (events and routes). It automatically performs real-time stock and capacity checks, calculates multi-merchant sub-totals, and applies discounts and shipping costs.
 
-These endpoints automatically handle background stock (reservation) checks and dynamic price calculations. The `x-avci-client` header is mandatory in all requests.
+All public Storefront endpoints require the standard `x-avci-client` header (and optional `Authorization: Bearer <token>` for authenticated customers).
 
 ---
 
-## 1. Create Basket
+## Architecture & Calculation Rules
 
-Used to create a new, empty basket (usually when a guest user first visits the site). Upon success, it returns a `basketId`. All subsequent operations are carried out using this ID.
+### 1. Multi-Item Support
+A basket can simultaneously hold items across different catalog domains:
+- **`product`:** Physical or digital catalog goods with optional variants.
+- **`event`:** Event tickets. Adding an event ticket to the basket creates a **temporary capacity reservation (cart lock)** for 10 minutes in Redis, ensuring the seat is protected while the customer completes checkout.
+- **`route`:** Tour / route tickets covering multiple sequenced events.
 
-*   **Endpoint:** `POST /basket`
-*   **Auth Requirement:** `x-avci-client`
+### 2. Multi-Merchant Grouping & Shipment Precedence
+In Marketplace mode, items from multiple merchants can coexist in a single basket:
+- At checkout, the order is automatically partitioned into **Sub-Orders** per merchant.
+- **Shipment Fee Precedence:** Shipping costs are determined by checking configurations in the following order:
+  1. **Brand Settings:** If the product's brand has designated custom carrier and fee rules.
+  2. **Merchant Settings:** If the merchant has defined dedicated courier rules.
+  3. **Workspace Default:** Fallback to workspace-level default shipping parameters.
 
-**Example JSON Response:**
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "bskt_123456",
-    "status": "active",
-    "totalPrice": 0,
-    "items": []
+---
+
+## Endpoints Reference
+
+### 1. Create Basket
+Creates a new shopping basket for a guest visitor or customer session.
+
+* **Endpoint:** `POST /v1/basket`
+* **Headers:** `x-avci-client: <client_key>`
+* **Body:**
+  ```json
+  {
+    "currency": "TRY"
   }
-}
-```
+  ```
+* **Response (`data`):**
+  ```json
+  {
+    "_id": "6735e1234567890abcdef123",
+    "basketId": "bskt_987654321",
+    "items": [],
+    "price": {
+      "subtotal": 0,
+      "discount": 0,
+      "shipping": 0,
+      "total": 0,
+      "currency": "TRY"
+    }
+  }
+  ```
 
 ---
 
-## 2. Get Basket
+### 2. Get Basket
+Retrieves the current state, active items, applied coupons, and calculated totals of an existing basket.
 
-Fetches the current state of an existing basket, the items inside it, and its calculated total amounts.
-
-*   **Endpoint:** `GET /basket/:basketId`
-*   **Auth Requirement:** `x-avci-client`
-
----
-
-## 3. Add Items to Basket
-
-Adds a new product/variant to an existing basket. If the product is already in the basket, it increases its quantity.
-
-*   **Endpoint:** `POST /basket/:basketId/items`
-*   **Auth Requirement:** `x-avci-client`
-
-**Example Body:**
-```json
-{
-  "productId": "prod_123",
-  "variantId": "var_456",
-  "quantity": 2
-}
-```
+* **Endpoint:** `GET /v1/basket/:basketId`
+* **Headers:** `x-avci-client: <client_key>`
 
 ---
 
-## 4. Update Item Quantity
+### 3. Add Items to Basket
+Adds one or more products, event tickets, or route tickets to the basket.
 
-Changes the quantity of an item that was previously added to the basket. If stock is insufficient, it returns a `400 Bad Request` or `INSUFFICIENT_STOCK` error.
+* **Endpoint:** `POST /v1/basket/add/:basketId`
+* **Headers:** `x-avci-client: <client_key>`
+* **Body:**
+  ```json
+  {
+    "items": [
+      {
+        "id": "6735a1112223334445556667",
+        "quantity": 2,
+        "itemType": "product",
+        "variantId": "var_red_xl"
+      },
+      {
+        "id": "6735b9998887776665554443",
+        "quantity": 1,
+        "itemType": "event"
+      }
+    ]
+  }
+  ```
 
-*   **Endpoint:** `PUT /basket/:basketId/items/:itemId`
-*   **Auth Requirement:** `x-avci-client`
-
-**Example Body:**
-```json
-{
-  "quantity": 5
-}
-```
-
----
-
-## 5. Remove Item from Basket
-
-Completely removes a specific item from the basket.
-
-*   **Endpoint:** `DELETE /basket/:basketId/items/:itemId`
-*   **Auth Requirement:** `x-avci-client`
-
----
-
-## 6. Clear / Delete Basket
-
-Completely deletes the basket or empties all items inside it.
-
-*   **Endpoint:** `DELETE /basket/:basketId`
-*   **Auth Requirement:** `x-avci-client`
+> [!IMPORTANT]
+> When adding **event** or **route** items, capacity is temporarily reserved. You must collect attendee details for these items before final checkout (see [Order API](order.md)).
 
 ---
 
-## 7. Assign Carrier (Shipping)
+### 4. Update Item Quantity
+Modifies the quantity of an item or removes it.
 
-Assigns which shipping company or shipping rules will apply to the items in the basket. This step is critical for calculating shipping fees before proceeding to the checkout stage.
-
-*   **Endpoint:** `POST /basket/:basketId/carriers`
-*   **Auth Requirement:** `x-avci-client`
-
-**Example Body:**
-```json
-{
-  "carrierId": "crr_789"
-}
-```
+* **Endpoint:** `PUT /v1/basket/update/:basketId/:itemId/:action`
+* **URL Parameters:**
+  - `basketId`: Basket ID
+  - `itemId`: The item `_id` inside the basket
+  - `action`: `increase` | `decrease` | `delete`
+* **Headers:** `x-avci-client: <client_key>`
 
 ---
 
-## 8. Set Basket Notes
+### 5. Change Basket Currency
+Dynamically recalibrates all line items and shipping costs to the specified currency.
 
-Saves the order notes to the basket that the user wants to pass on to the seller or the team preparing the order.
-
-*   **Endpoint:** `POST /basket/:basketId/notes`
-*   **Auth Requirement:** `x-avci-client`
-
-**Example Body:**
-```json
-{
-  "note": "Please gift wrap."
-}
-```
+* **Endpoint:** `PUT /v1/basket/currency/:basketId`
+* **Headers:** `x-avci-client: <client_key>`
+* **Body:**
+  ```json
+  {
+    "currency": "USD"
+  }
+  ```
 
 ---
 
-## 9. Prepare Terms (Contracts)
+### 6. Update Basket Metadata & Coupons
+Applies coupons or binds delivery and billing address IDs to the basket.
 
-Dynamically generates drafts of legal documents such as the Distance Selling Contract and Preliminary Information Form, which the user must accept before proceeding to Checkout, based on the current products and prices in the basket.
+* **Endpoint:** `PUT /v1/basket/:basketId`
+* **Headers:** `x-avci-client: <client_key>`
+* **Body:**
+  ```json
+  {
+    "coupon": "SUMMER2026",
+    "shippingAddressId": "6735c0001112223334445556",
+    "billingAddressId": "6735c0001112223334445556"
+  }
+  ```
 
-*   **Endpoint:** `POST /basket/terms`
-*   **Auth Requirement:** `x-avci-client`
-*   **Note:** Contextual data such as `basketId` or payment methods might be requested in the request body. (Review the SDK reference for parameters).
+---
+
+### 7. Prepare Legal Terms (Agreements)
+Generates the legal documents (Distance Selling Contract and Preliminary Information Form) tailored to the items and prices currently in the basket.
+
+* **Endpoint:** `POST /v1/basket/terms/`
+* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <token>`
+* **Body:**
+  ```json
+  {
+    "basketId": "bskt_987654321"
+  }
+  ```
+* **Response (`data`):**
+  ```json
+  {
+    "distanceSaleAgreement": "HTML or markdown contract text...",
+    "preliminaryInformationForm": "HTML or markdown preliminary form text..."
+  }
+  ```
+
+---
+
+### 8. Clear Basket
+Empties all items from the basket and releases any temporary ticket capacity locks.
+
+* **Endpoint:** `DELETE /v1/basket/:basketId`
+* **Headers:** `x-avci-client: <client_key>`
