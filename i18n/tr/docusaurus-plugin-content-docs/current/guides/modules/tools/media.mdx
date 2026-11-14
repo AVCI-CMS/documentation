@@ -1,27 +1,80 @@
 ---
 sidebar_position: 3
-title: "Medya (Media)"
-description: "Görseller, PDF'ler ve videolar için merkezi medya deposu."
+title: "Medya ve Görsel Yönetimi"
+description: "Merkezi medya deposu, görsel düzenleyici, sürükle-bırak galeriler ve anlık boyutlandırma (resizeonfly)."
 ---
 
-# Medya (Media)
+# Medya ve Görsel Yönetimi
 
-**Menü Yolu:** `Araçlar > Medya` (veya `Tools > Media`)
+**Menü Yolu:** `Araçlar > Medya`
 
-**Medya** modülü, platforma yüklenen her dijital dosyanın merkezi deposudur. İster bir ürün küçük resmi (thumbnail), ister bir blog afişi veya indirilebilir bir PDF kılavuzu yükleyin, fiziksel olarak burada barındırılır.
+**Medya** modülü, kiracınız genelindeki tüm dijital varlıkların (görseller, dokümanlar, PDF'ler, videolar) merkezi ana deposudur. İster bir zanaatkar logosu, ister 21:9 kapak afişi, ister çoklu ürün galerisi veya PDF sertifikası yükleyin, tüm dosyalar burada barındırılır ve anlık görsel optimizasyon motoru (`resizeonfly`) üzerinden istemcilere ulaştırılır.
 
-## Medyayı Yönetme
+---
 
-1. **Araçlar > Medya** sayfasına gidin.
-2. Yüklenen tüm dosyaların bir ızgarasını (grid) veya listesini göreceksiniz.
+## 📂 Medya Yöneticisi & Kütüphane
 
-### 1. Dosya Yükleme
-- Daha sonra Zengin Metin (Rich Text) editörlerinde, slider'larda veya sayfa oluşturucularda (page builder) kullanmak üzere dosyaları doğrudan buraya yükleyebilirsiniz.
-- Sistem, web sitenizin hızlı yüklenmesini sağlamak ve performansı optimize etmek için otomatik olarak görüntü sıkıştırmasını yönetir ve birden çok boyut (Örn: küçük resim, büyük afiş) oluşturur.
+Medya Yöneticisi (`/media`), masaüstü dosya yöneticisi konforunda bir deneyim sunar:
 
-### 2. Düzenleme / Klasörleme
-- Medyanızı düzenli tutmak için klasörleri kullanın (Örn: `2026_Kampanyalari`, `Urun_Kilavuzlari_PDF`).
+1. **Hiyerarşik Klasörleme:**
+   * **"Yeni Klasör"** butonuyla kategorik alt klasörler oluşturun (örn: `/urunler/yaz-2026/`, `/etkinlikler/sahne-fotograflari/`).
+   * Üst kısımdaki ekmek kırıntısı (breadcrumb) navigasyonuyla ana dizine veya üst klasörlere tek tıkla geri dönün.
+2. **Canlı Arama & Filtreleme:**
+   * Dosya adına veya başlığa göre binlerce medya öğesi arasında anlık filtreleme yapın.
+3. **Detaylı İnceleme ve Hızlı Aksiyonlar:**
+   * **Önizleme:** Herhangi bir küçük resme tıklayarak yüksek çözünürlüklü detay modalını açın.
+   * **CDN Bağlantısını Kopyala:** Görselin public dağıtım URL'ini tek tıkla panoya kopyalayın.
+   * **Güvenli Silme:** Yanlışlıkla silmeleri önleyen onay penceresiyle güvenli temizlik yapın.
 
-### 3. Temizlik (Silme İşlemleri)
-- Bir ürünü veya blog yazısını silseniz bile, o içeriğe ait görseller başka sayfalarda da kullanılabileceği ihtimaline karşı kırık linkler oluşmasını önlemek için Medya kütüphanesinde kalmaya devam edebilir.
-- Sunucu depolama alanından (disk alanından) tasarruf etmek için eski, kullanılmayan dosyaları silmek amacıyla Medya modülünü güvenle kullanabilirsiniz. *Uyarı: Bir dosyayı buradan silmek, onu hala kullanan herhangi bir frontend sayfasındaki resmi anında kıracaktır (bozacaktır).*
+---
+
+## 🎨 Dahili Görsel Düzenleyici (`ImageEditor`)
+
+AVCI CMS, medya seçici ve varlık inceleme ekranlarına doğrudan entegre çalışan bir görsel düzenleyici barındırır. Standart kırpma ve açı düzeltmeleri için harici programlara (Photoshop, Figma vb.) ihtiyaç duymazsınız:
+
+* **Hazır En-Boy Oranları (Aspect Ratios):**
+  * `Serbest (Free)`: Özel serbest seçim çerçevesi.
+  * `Kare (1:1)`: Kare format (logolar, kullanıcı avatarları ve rozetler için ideal).
+  * `Yatay (16:9)`: Standart vitrin formatı (öne çıkan görseller, blog başlıkları ve video kapakları).
+  * `Kapak Banner (21:9)`: Sinematik geniş kapak formatı (sayfa başlıkları ve profil banner'ları).
+  * `Standart (4:3)`: Geleneksel fotoğraf formatı.
+* **Açı ve Döndürme:**
+  * Saat yönünde veya tersinde hızlı 90° çevirme.
+  * Eğik çekilmiş fotoğrafları düzeltmek için -45° ile +45° arası hassas açı kaydırma cetveli.
+* **Yakınlaştırma ve Kaydırma:** 0.1x ile 3.0x arası akıcı zoom ve tuval üzerinde serbest kaydırma.
+* **Kaydetme Seçenekleri:**
+  * **Kaydet:** Mevcut görselin üzerine doğrudan güncellenmiş versiyonu yazar.
+  * **Farklı Kaydet:** Orijinal görseli koruyarak yeni bir düzenlenmiş kopya üretir.
+
+---
+
+## 🧩 Form İçi Medya Mimarisi (`MediaManager`)
+
+Tüm katalog ve içerik sayfaları (Ürünler, Mekanlar, Etkinlikler, Blog, Organizasyonlar, Markalar) standart `MediaManager` bileşeni üzerinden yönetilir:
+
+* **Dinamik 2 Sütunlu Grid:** Hem Logo hem Öne Çıkan Görsel açık olduğunda, form genişliğini bozan 600px kare kutular yerine yan yana dengeli bir düzende konumlanır (Sol: Kompakt `max-w-[200px]` 1:1 Logo, Sağ: 16:9 Vitrin Görseli).
+* **Sinematik Kapak Banner'ı:** 21:9 oranında tam genişlikli yatay başlık konteyneri.
+* **Sürükle-Bırak Galeri (`GalleryInput`):**
+  * `@dnd-kit` dokunmatik ve klavye destekli sıralama sensörleri.
+  * Tutamaktan tutarak görselleri istediğiniz vitrin sırasına sürükleyin.
+  * Toplu dosya yükleme veya Medya Kütüphanesinden çoklu seçim desteği.
+
+---
+
+## ⚡ Dinamik Anlık Boyutlandırma (`resizeonfly`)
+
+AVCI CMS, yükleme anında onlarca statik boyut üretmek yerine, görselleri istemcinin ekranına ve bant genişliğine göre anlık olarak işler:
+
+```http
+GET /v1/:tenant/images/:type/:filename?w=400&f=webp&fit=inside
+```
+
+* **Otomatik WebP/AVIF Dönüşümü:** Tarayıcının desteklediği en verimli formatı otomatik sunar.
+* **Değişmez CDN Önbelleklemesi:** `Cache-Control: public, max-age=31536000, immutable` başlığı ile 50ms altı küresel edge teslimatı sağlar.
+* **Frontend Yardımcısı:**
+  ```typescript
+  import { getImageUrl } from '@/lib/utils/image';
+
+  // Otomatik olarak ?w=300 parametreli CDN adresini üretir
+  const thumbnailUrl = getImageUrl(product.logo, 300);
+  ```

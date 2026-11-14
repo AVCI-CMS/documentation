@@ -1,33 +1,60 @@
 ---
 sidebar_position: 2
-title: "Media"
+title: "Media & Asset Management"
+description: "Global media repository, image editor, drag-and-drop galleries, and on-the-fly resizing."
 ---
 
-# Media Library
+# Media & Asset Management
 
 **Menu Path:** `Tools > Media`
 
-The **Media** module is the central repository for all digital assets (images, documents, PDFs, and videos) uploaded across the entire AVCI CMS platform.
+The **Media** module is the centralized digital asset repository for your entire tenant. Whether you upload an artisan logo, a 21:9 event banner, a multi-image product gallery, or a PDF certificate, every file physically resides here and is delivered via an automated on-the-fly image optimization pipeline (`resizeonfly`).
 
-## Why Use the Media Library?
-Instead of uploading the same "Free Shipping" icon multiple times on different product pages, you upload it once to the Media Library and reuse it. This saves server space and improves site performance.
+---
 
-## Organizing Your Assets
+## 📂 Media Explorer & Library
 
-When you open the Media module, you are presented with a file explorer interface.
+The Media Explorer (`/media`) provides a desktop-class asset management interface:
 
-### 1. Folder Management
-To keep your assets organized (especially if you have thousands of products):
-- Click **"New Folder"**.
-- Create logical structures like `/products/shoes/2026` or `/blog-images/august`.
-- You can drag and drop existing files into these folders.
+1. **Folder Organization:**
+   * Create structured nested folders (e.g., `/products/summer-2026/`, `/events/stage-photos/`) using the **"New Folder"** button.
+   * Breadcrumb navigation at the top provides one-click traversal back to root or parent directories.
+2. **Instant Live Search:**
+   * Filter through thousands of media files instantly by file title or directory name.
+3. **Asset Details & Quick Actions:**
+   * **Preview:** Click any thumbnail to inspect high-resolution details in an overlay modal.
+   * **Copy CDN URL:** One-click copy of the public asset URL for use in external channels or markdown.
+   * **Safe Deletion:** Permanent deletion with safety confirmation modal.
 
-### 2. Image Optimization
-The CMS automatically processes images to ensure fast loading times on the frontend.
-- When you click on an image, you can see its dimensions (e.g., 800x800px) and file size.
-- If a file is unnecessarily large (e.g., a 5MB raw photo), you can use the built-in crop and compress tools to reduce it before assigning it to a product.
+---
 
-### 3. Deleting Unused Media
-Over time, your server can fill up with old promotional banners.
-- Look for files that have `0` in the "Attached To" column. This means the image is not currently used on any product, blog, or page.
-- You can safely delete these files to free up storage space.
+## 🎨 Built-in Visual Editor (`ImageEditor`)
+
+AVCI CMS includes a canvas-grade image editor directly inside the media picker and asset inspector. You do not need third-party tools for standard crop and alignment adjustments:
+
+* **Preset Aspect Ratios:**
+  * `Free`: Custom free-form bounding box.
+  * `1:1`: Square (optimal for logos, user avatars, and merchant badges).
+  * `16:9`: Landscape (standard for featured thumbnails, blog headers, and video covers).
+  * `21:9`: Ultra-wide Cover (perfect for cinematic hero banners and profile headers).
+  * `4:3`: Standard photo aspect ratio.
+* **Rotation & Leveling:**
+  * Quick 90° flip counter-clockwise and clockwise.
+  * Fine angle adjustment slider (-45° to +45°) to straighten tilted photos.
+* **Zoom & Pan:** Smooth scaling from 0.1x to 3.0x with canvas center drag.
+* **Saving Workflow:**
+  * **Save:** Replaces the current image with the cropped/edited version in place.
+  * **Save as New:** Preserves the original file and creates a new transformed asset.
+
+---
+
+## ⚡ Dynamic On-The-Fly Resizing (`resizeonfly`)
+
+Instead of wasting storage by generating dozens of static thumbnails on upload, AVCI CMS transforms images on-the-fly:
+
+```http
+GET /v1/:tenant/images/:type/:filename?w=400&f=webp&fit=inside
+```
+
+* **Automatic WebP/AVIF Conversion:** Serves next-generation lightweight formats based on browser capabilities.
+* **Immutable CDN Caching:** Served with `Cache-Control: public, max-age=31536000, immutable` for maximum Lighthouse performance and sub-50ms edge delivery.
