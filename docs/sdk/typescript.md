@@ -137,6 +137,24 @@ const { data: order } = await cms.order.create({
 });
 
 console.log('Order successfully placed:', order?.orderId);
+
+// 5. Cancel order before shipment (if customer changes their mind)
+const { data: cancelResult } = await cms.order.cancelOrder(order!.orderId, {
+  reason: 'Selected wrong size',
+  reasonCode: 'BUYER_CANCELLED'
+});
+
+// 6. Manage stored credit cards & set primary card (PCI-DSS compliant)
+const { data: cards } = await cms.order.getSavedCards();
+// cards[0].isPrimary === true (primary card is always sorted first)
+
+// Designate a specific card as primary / default for 1-click checkouts
+await cms.order.setPrimarySavedCard('ct_987654321');
+
+// 7. For vendors / sellers: Cancel an unfulfilled assigned sub-order
+await cms.order.cancelSubOrder('sub_ord_456', {
+  reason: 'Out of stock'
+});
 ```
 
 ### 4. User Address Book & Primary Address
