@@ -10,7 +10,7 @@ AVCI CMS empowers developers and content creators by completely separating the c
 
 ## Key Features
 
-*   **API-First Approach:** Deliver content to any platform or device using our comprehensive RESTful and GraphQL APIs.
+*   **API-First Approach:** Deliver content to any platform or device using our comprehensive RESTful APIs.
 *   **Performance Focused:** Built for speed with a modern architecture to ensure lightning-fast response times.
 *   **Advanced SEO Capabilities:** Built-in tools and configurations to maximize search engine visibility and LLM (Large Language Model) optimizations.
 *   **Image Optimization:** Automatic scaling, format conversion, and caching for all your media assets.

@@ -1,6 +1,6 @@
 ---
 id: like
-title: Likes / Favorites
+title: Likes & Favorites
 sidebar_position: 7
 ---
 

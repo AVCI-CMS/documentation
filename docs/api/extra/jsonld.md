@@ -1,6 +1,6 @@
 ---
 id: jsonld
-title: JSON-LD Operations (SEO)
+title: JSON-LD Structured Data
 sidebar_position: 3
 ---
 

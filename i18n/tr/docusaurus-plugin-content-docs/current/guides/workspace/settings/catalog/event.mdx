@@ -24,6 +24,10 @@ Bir etkinlik oluştururken girilmesi gereken kritik bilgileri kontrol eder.
 - **Maksimum Etkinlik Sayısı:** Bir organizatörün (veya satıcının) aynı anda satışta tutabileceği maksimum aktif etkinlik sayısını sınırlandırır.
 - **Bilet Kapasite Limiti:** Tek bir etkinlik için oluşturulabilecek maksimum bilet sayısını belirler (Örn: 10,000 bilet). Bu limit, altyapı veya veritabanı şişmelerini önlemek için tasarlanmıştır.
 
+### 3. Hatırlatmalar ve Bildirimler
+- **Katılımcı Hatırlatma:** Etkinlik başlangıcına kaç saat kala katılımcılara otomatik bir bildirim (EVENT_UPCOMING) gönderileceğini belirler. (Devre dışı bırakmak için 0 yapın)
+- **Organizatör Hatırlatma:** Etkinlik başlangıcına kaç saat kala organizatöre otomatik bir bildirim (EVENT_UPCOMING) gönderileceğini belirler. (Devre dışı bırakmak için 0 yapın)
+
 > [!WARNING]
 > Eğer ağırlıklı olarak online/dijital (webinar vb.) etkinlikler düzenliyorsanız, form ayarlarında "Mekan (Place)" alanının zorunluluğunu kaldırın. Aksi takdirde satıcılar fiziksel bir adres girmeden dijital etkinlik oluşturamazlar.
 

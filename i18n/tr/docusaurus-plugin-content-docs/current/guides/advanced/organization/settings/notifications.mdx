@@ -1,0 +1,43 @@
+---
+sidebar_position: 1
+title: "Bildirimler"
+---
+
+# Bildirim Tercihleri
+
+**Rota:** `(organization) > /organization/settings/notification`
+
+Bildirim Ayarları sayfası, organizasyonların hangi bildirimleri hangi kanallar aracılığıyla (E-posta, SMS, Push, Uygulama İçi) alacaklarını yönetmelerine olanak tanır.
+
+## Kanal Yapılandırması
+
+Mağaza operasyonlarınızla ilgili çeşitli etkinlikler için bildirim kanalları üzerinde tam kontrole sahipsiniz. Belirli bir etkinlik için bir kanalı devre dışı bırakırsanız, artık o ortam üzerinden bildirim almazsınız.
+
+- **E-posta:** Önemli sipariş özetleri ve günlük raporlar.
+- **SMS:** Acil düşük stok uyarıları veya ödeme (hakediş) başarısızlıkları gibi zamana duyarlı uyarılar.
+- **Uygulama İçi:** Doğrudan AVCI CMS paneli içinden iletilen uyarılar.
+- **Push:** Mobil uygulama bildirimleri (yapılandırılmışsa).
+
+### Kategorileri Yönetme
+
+Bildirimler, daha kolay yönetim için farklı kategorilere ayrılmıştır:
+
+- **Sipariş Bildirimleri:** Yeni bir sipariş verildiğinde, yerine getirildiğinde veya iptal edildiğinde uyarılar alın.
+- **Finansal Bildirimler:** Hakediş ödemeleri, erken para çekme onayları ve faturalandırma ile ilgili güncellemeler alın.
+- **Genel Bildirimler:** Platform güncellemeleri veya sistem durumu hakkında genel uyarılar.
+- **Yorum Bildirimleri:** Bir kullanıcı ürününüz veya marka profiliniz hakkında yorum yaptığında uyarılar.
+- **Destek Talepleri:** Açık destek taleplerinizin durumuyla ilgili bildirimler.
+
+## Üst Düzey Geçersiz Kılmalar (Overrides) ve Global Politikalar
+
+:::info Yönetici İzinleri
+Varsayılan olarak, Workspace Yöneticisi bildirim kanallarının global kullanılabilirliğini belirler. Yalnızca workspace düzeyinde açıkça etkinleştirilmiş kanalları yapılandırabilirsiniz. Bir kanal (örneğin SMS) yönetici tarafından global olarak devre dışı bırakılırsa, bildirim tercihlerinizde bir seçenek olarak görünmez.
+:::
+
+## Bir Kanal Nasıl Devre Dışı Bırakılır?
+
+1. Organizasyon Panelinizden **Ayarlar > Bildirimler** sayfasına gidin.
+2. İlgili kategori sekmesini (örneğin *Sipariş Bildirimleri*) seçin.
+3. Değiştirmek istediğiniz belirli bildirim etkinliğini bulun.
+4. Devre dışı bırakmak istediğiniz kanalın (E-posta, SMS vb.) kutucuğundaki işareti kaldırın.
+5. Değişikliklerinizi uygulamak için **Kaydet** düğmesine tıklayın.

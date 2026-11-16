@@ -1,6 +1,6 @@
 ---
 id: route
-title: Routes / Tours
+title: Routes & Tours
 sidebar_position: 9
 ---
 

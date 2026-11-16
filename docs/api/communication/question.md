@@ -1,6 +1,6 @@
 ---
 id: question
-title: Questions & Answers (Q&A)
+title: Questions & Answers
 sidebar_position: 7
 ---
 

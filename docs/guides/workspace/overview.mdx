@@ -1,24 +1,38 @@
 ---
 sidebar_position: 1
-title: "Overview"
+title: "Workspace Overview"
 ---
 
-# Overview
+# Workspace Overview
 
 **Menu Path:** `Workspace > Overview`
 
-:::info Permission and Plan Requirements
-To use this feature, you must have the **Workspace:View** permission.
+:::info Permission Requirements
+To view workspace information, you must have the **Workspace:View** permission. To modify workspace settings or billing, you must be a **Workspace Owner** or have **Workspace:Manage** permissions.
 :::
 
-[A general description of this module goes here. Explain the purpose of the module and its benefits to the business.]
+The **Workspace Overview** dashboard is the primary mission control center for your organization on AVCI CMS. It provides an immediate summary of your tenant account health, active subscription tier, resource consumption, and quick access to administrative sub-modules.
 
-## Key Features & Configuration
+---
 
-1. **Feature 1:** Description of the feature...
-2. **Feature 2:** Description of the feature...
+## Dashboard Highlights
 
-## Common Issues
+### 1. Account Summary & Status
+*   **Workspace Name & Code:** Your unique organizational identifier across the platform.
+*   **Account Status:** Indicates whether your workspace is *Active*, *Trial*, *Suspended*, or *Pending Verification*.
+*   **Default Currency & Locale:** Displays the primary transaction currency and language configured for your workspace.
 
-- **Issue:** ...
-- **Solution:** ...
+### 2. Quick Navigation Shortcuts
+The overview provides one-click navigation to essential administrative areas:
+*   **Plan & Subscription:** View your current tier, compare features, and upgrade or scale your subscription.
+*   **Resource Usage:** Real-time metrics on API traffic, storage capacity, and active team seats.
+*   **Billing & Payments:** Manage credit cards, billing contact details, and download tax invoices.
+*   **Workspace Settings:** Configure domains, security rules, sales channels, and notifications.
+
+---
+
+## Best Practices for Workspace Owners
+
+1.  **Configure Custom Domains Early:** Connect your storefront domain under `Workspace > Settings > General` before launching campaigns.
+2.  **Assign Principle of Least Privilege:** When adding team members, assign granular roles (e.g. *Catalog Editor*, *Support Agent*) rather than granting full Workspace Admin rights.
+3.  **Monitor Usage Quotas:** Keep an eye on your monthly API request quota and media storage limits in the Usage tab to avoid automated rate-limiting.

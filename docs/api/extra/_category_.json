@@ -1,0 +1,9 @@
+{
+  "label": "Standards & Errors",
+  "position": 11,
+  "link": {
+    "type": "generated-index",
+    "description": "API architectural standards, pagination and filtering syntax, and standard error handling."
+  }
+}
+

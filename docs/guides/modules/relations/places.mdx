@@ -1,33 +1,91 @@
 ---
 sidebar_position: 5
 title: "Places"
-description: "Manage physical venues, stores, and map coordinates."
+description: "Manage physical venues, stores, rental spaces, and map coordinates."
 ---
 
-# Places
+# Places (Venues & Physical Locations)
 
 **Menu Path:** `Relations > Places`
 
-The **Places** module acts as a global directory for physical locations. Instead of typing the same address details every time you create an Event or a Route, you create the "Place" once here and link it. This ensures absolute consistency across the platform.
+The **Places** module serves as the centralized master directory for all physical spaces, event venues, concert arenas, pop-up studios, workshop locations, and store branches across your tenant. Instead of typing redundant address details every time an Event or Route is created, venues are defined once and linked everywhere.
 
-## Creating a Place
+---
+
+## 🏗️ Creating and Configuring a Place
 
 1. Navigate to **Relations > Places**.
-2. Click **"Add New"**.
+2. Click **"Add Place"** (or use keyboard shortcut `N`).
 
-### 1. Basic Info
-- **Name:** The name of the venue or store (e.g., "Grand Stadium", "Downtown Branch").
-- **Slug:** Auto-generated URL identifier for the place.
-- **Status:** Set to *PUBLISHED* to make it available for linking.
+### 1. General Profile & Branding
+- **Name:** Official name of the venue (e.g., *"KüçükÇiftlik Park"*, *"Moda Sahnesi"*).
+- **Slug:** URL-friendly unique identifier automatically generated from the title.
+- **Abstract & Description:** Brief hook for card previews, followed by a rich description of acoustic qualities, amenities, and technical infrastructure.
+- **Brand Color:** Custom accent color used in map pins and mobile headers.
+- **Status:** Choose between `DRAFT` (in preparation) and `PUBLISHED` (active for storefront vitrine and event binding).
 
-### 2. Location & Map (Critical)
-- **Address:** Enter the full physical address.
-- **Coordinates (Latitude & Longitude):** You can enter these manually, or use the integrated Google Maps (or similar map provider) widget. Dragging the pin on the map will automatically update the coordinates.
-- *Why is this important?* Modules like [Routes](../catalog/routes) rely heavily on these exact coordinates to calculate distances, transit times, and generate map previews.
+### 2. Location & Precise Map Geocoding
+- **Physical Address:** Street name, building/door number, neighborhood, district, city, and postal code.
+- **Map Coordinates (`Latitude` & `Longitude`):** Point coordinates on the map (`GeoJSON Point [lng, lat]`).
+- **Area / Regional Categorization:** Link to regional categories (e.g., *"Kadıköy / Anadolu Yakası"* or *"Tarihi Yarımada"*).
+> **Tip:** Accurate coordinates are critical for route waypoint sequencing, proximity search ("Places near me"), and driving directions on the storefront.
 
-### 3. Media & Details
-- **Images:** Upload photos of the venue (exterior, interior).
-- **Capacity:** The maximum number of people the place can hold. This acts as an upper limit when selling tickets for an Event at this location.
-- **Description:** Facilities available (e.g., "Wheelchair accessible, Parking available").
+### 3. Capacity & Daily Schedule
+- **Capacity Limits (`min` / `max`):** Defines attendee boundaries. The maximum capacity acts as an upper ceiling for ticketing engines and seating planners.
+- **Operating Schedule:** Define weekly operating hours for each day (e.g., Monday through Sunday with distinct opening and closing times).
 
-3. Click **"Save"**. You can now select this venue from a dropdown when creating Events or Routes.
+### 4. Pricing & Rental Models
+Venues can operate as free open spaces or commercial rental areas:
+- **Free vs. Paid Venue:** Toggle whether the venue is available for paid rental/booking.
+- **Billing Type:**
+  - `HOURLY`: Workshop rooms, rehearsal studios, photo studios.
+  - `DAILY`: Conference halls, exhibition centers.
+  - `PER_EVENT`: Festival grounds, concert stadiums.
+  - `FIXED`: Flat contract rate.
+- **Base Rate & Currency:** Standard rate (e.g., `250,000 TRY`).
+
+### 5. Media Assets
+- **Logo & Featured Image:** High-resolution icons and showcase banners.
+- **Cover Image & Gallery:** Multiple interior and exterior photos, stage angles, and seating plan previews.
+
+### 6. Ownership, Public Pools & Event Authorization
+Venues have explicit multi-tenant ownership models:
+- **Owner Types:**
+  - `WORKSPACE`: Global venue managed by the tenant operators.
+  - `ORGANIZATION`: Master guild, chamber, or cooperative venue.
+  - `MERCHANT`: Privately owned venue by a marketplace vendor.
+  - `BRAND`: Registered venue owned by a brand manufacturer.
+- **Access Scopes:**
+  - **Public Pool (`isPublicPool: true`):** When enabled, all verified merchants and brands in the workspace can select this venue when organizing events.
+  - **Affiliate Inheritance (`inheritToAffiliates: true`):** When owned by an Organization, all member artisans/merchants can host events at this venue.
+  - **Direct Authorization (`authorizedMerchants`):** Specific sellers granted exclusive hosting privileges.
+  - **Lease / Rentals (`rentals`):** Time-bound contracts allowing third-party entities to host events during specified periods.
+
+> 🛡️ **Enforcement:** When a merchant or brand creates an event, the backend automatically validates if they own, rent, or have delegated permission to host at the selected venue. Unauthorized attempts trigger `403 Forbidden`.
+
+---
+
+## 🔒 Soft Delete & Relational Integrity
+
+To protect historical ticket sales, past event logs, and active reservations:
+* Deleting a venue performs a **soft-delete** (`deletedAt: Date`).
+* Venues with upcoming active ticketed events cannot be permanently purged without reassigning or cancelling those events first.
+
+---
+
+## 💻 Developer SDK Integration
+
+Query venues from your storefront frontend with `@avci/sdk` or Python SDK:
+
+```typescript
+import { AvciCMS } from '@avci/sdk';
+
+const cms = new AvciCMS({ apiKey: 'YOUR_KEY', clientId: 'your-tenant-id' });
+
+// List venues filtered by regional area
+const { data: places } = await cms.place.list({ area: '6735c03a9f1a2b3c4d5e6f70', limit: 12 });
+
+// Fetch full venue details by slug
+const { data: venue } = await cms.place.getBySlug('kucukciftlik-park');
+console.log(venue.capacity.max, venue.pricing?.amount);
+```

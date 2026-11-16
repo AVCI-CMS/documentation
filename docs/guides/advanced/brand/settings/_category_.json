@@ -1,0 +1,8 @@
+{
+  "label": "Brand Settings",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "guides/advanced/brand/settings/index"
+  }
+}

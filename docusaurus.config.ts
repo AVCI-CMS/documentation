@@ -37,15 +37,19 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['tr', 'en'],
+    locales: ['en'],
   },
+
+  clientModules: [
+    require.resolve('./src/client-modules/gtag-fallback.ts'),
+  ],
 
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         hashed: true,
-        language: ["en", "tr"],
+        language: ["en"],
         docsRouteBasePath: "/",
         indexBlog: false,
       },
@@ -65,10 +69,10 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        gtag: {
+        gtag: process.env.NODE_ENV === 'production' ? {
           trackingID: 'G-CY9EJ960LB',
           anonymizeIP: false,
-        },
+        } : undefined,
       } satisfies Preset.Options,
     ],
   ],
@@ -103,10 +107,6 @@ const config: Config = {
           sidebarId: 'sdkSidebar',
           position: 'left',
           label: 'SDK',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right',
         },
       ],
     },

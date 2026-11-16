@@ -1,33 +1,60 @@
 ---
 sidebar_position: 2
-title: "Media"
+title: "Medya ve Görsel Yönetimi"
+description: "Merkezi medya deposu, görsel düzenleyici, sürükle-bırak galeriler ve anlık boyutlandırma (resizeonfly)."
 ---
 
-# Media Library
+# Medya ve Görsel Yönetimi
 
-**Menu Path:** `Tools > Media`
+**Menü Yolu:** `Araçlar > Medya`
 
-The **Media** module is the central repository for all digital assets (images, documents, PDFs, and videos) uploaded across the entire AVCI CMS platform.
+**Medya** modülü, kiracınız genelindeki tüm dijital varlıkların (görseller, dokümanlar, PDF'ler, videolar) merkezi ana deposudur. İster bir zanaatkar logosu, ister 21:9 kapak afişi, ister çoklu ürün galerisi veya PDF sertifikası yükleyin, tüm dosyalar burada barındırılır ve anlık görsel optimizasyon motoru (`resizeonfly`) üzerinden istemcilere ulaştırılır.
 
-## Why Use the Media Library?
-Instead of uploading the same "Free Shipping" icon multiple times on different product pages, you upload it once to the Media Library and reuse it. This saves server space and improves site performance.
+---
 
-## Organizing Your Assets
+## 📂 Medya Yöneticisi & Kütüphane
 
-When you open the Media module, you are presented with a file explorer interface.
+Medya Yöneticisi (`/media`), masaüstü dosya yöneticisi konforunda bir deneyim sunar:
 
-### 1. Folder Management
-To keep your assets organized (especially if you have thousands of products):
-- Click **"New Folder"**.
-- Create logical structures like `/products/shoes/2026` or `/blog-images/august`.
-- You can drag and drop existing files into these folders.
+1. **Hiyerarşik Klasörleme:**
+   * **"Yeni Klasör"** butonuyla kategorik alt klasörler oluşturun (örn: `/urunler/yaz-2026/`, `/etkinlikler/sahne-fotograflari/`).
+   * Üst kısımdaki ekmek kırıntısı (breadcrumb) navigasyonuyla ana dizine veya üst klasörlere tek tıkla geri dönün.
+2. **Canlı Arama & Filtreleme:**
+   * Dosya adına veya başlığa göre binlerce medya öğesi arasında anlık filtreleme yapın.
+3. **Detaylı İnceleme ve Hızlı Aksiyonlar:**
+   * **Önizleme:** Herhangi bir küçük resme tıklayarak yüksek çözünürlüklü detay modalını açın.
+   * **CDN Bağlantısını Kopyala:** Görselin public dağıtım URL'ini tek tıkla panoya kopyalayın.
+   * **Güvenli Silme:** Yanlışlıkla silmeleri önleyen onay penceresiyle güvenli temizlik yapın.
 
-### 2. Image Optimization
-The CMS automatically processes images to ensure fast loading times on the frontend.
-- When you click on an image, you can see its dimensions (e.g., 800x800px) and file size.
-- If a file is unnecessarily large (e.g., a 5MB raw photo), you can use the built-in crop and compress tools to reduce it before assigning it to a product.
+---
 
-### 3. Deleting Unused Media
-Over time, your server can fill up with old promotional banners.
-- Look for files that have `0` in the "Attached To" column. This means the image is not currently used on any product, blog, or page.
-- You can safely delete these files to free up storage space.
+## 🎨 Dahili Görsel Düzenleyici (`ImageEditor`)
+
+AVCI CMS, medya seçici ve varlık inceleme ekranlarına doğrudan entegre çalışan bir görsel düzenleyici barındırır. Standart kırpma ve açı düzeltmeleri için harici programlara (Photoshop, Figma vb.) ihtiyaç duymazsınız:
+
+* **Hazır En-Boy Oranları (Aspect Ratios):**
+  * `Serbest (Free)`: Özel serbest seçim çerçevesi.
+  * `Kare (1:1)`: Kare format (logolar, kullanıcı avatarları ve rozetler için ideal).
+  * `Yatay (16:9)`: Standart vitrin formatı (öne çıkan görseller, blog başlıkları ve video kapakları).
+  * `Kapak Banner (21:9)`: Sinematik geniş kapak formatı (sayfa başlıkları ve profil banner'ları).
+  * `Standart (4:3)`: Geleneksel fotoğraf formatı.
+* **Açı ve Döndürme:**
+  * Saat yönünde veya tersinde hızlı 90° çevirme.
+  * Eğik çekilmiş fotoğrafları düzeltmek için -45° ile +45° arası hassas açı kaydırma cetveli.
+* **Yakınlaştırma ve Kaydırma:** 0.1x ile 3.0x arası akıcı zoom ve tuval üzerinde serbest kaydırma.
+* **Kaydetme Seçenekleri:**
+  * **Kaydet:** Mevcut görselin üzerine doğrudan güncellenmiş versiyonu yazar.
+  * **Farklı Kaydet:** Orijinal görseli koruyarak yeni bir düzenlenmiş kopya üretir.
+
+---
+
+## ⚡ Dinamik Anlık Boyutlandırma (`resizeonfly`)
+
+AVCI CMS, yükleme anında onlarca statik boyut üretmek yerine, görselleri istemcinin ekranına ve bant genişliğine göre anlık olarak işler:
+
+```http
+GET /v1/:tenant/images/:type/:filename?w=400&f=webp&fit=inside
+```
+
+* **Otomatik WebP/AVIF Dönüşümü:** Tarayıcının desteklediği en verimli formatı otomatik sunar.
+* **Değişmez CDN Önbelleklemesi:** `Cache-Control: public, max-age=31536000, immutable` başlığı ile 50ms altı küresel edge teslimatı sağlar.

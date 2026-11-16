@@ -1,33 +1,91 @@
 ---
 sidebar_position: 5
-title: "Mekanlar (Places)"
-description: "Fiziksel mekanları, mağazaları ve harita koordinatlarını yönetin."
+title: "Mekanlar"
+description: "Fiziksel mekanları, salonları, kiralık alanları ve harita konumlarını yönetin."
 ---
 
-# Mekanlar (Places)
+# Mekanlar (Places & Fiziksel Lokasyonlar)
 
-**Menü Yolu:** `İlişkiler > Mekanlar` (veya `Relations > Places`)
+**Menü Yolu:** `İlişkiler > Mekanlar`
 
-**Mekanlar** modülü, fiziksel konumlar için global bir rehber görevi görür. Her Etkinlik (Event) veya Rota (Route) oluşturduğunuzda aynı adres ayrıntılarını tekrar tekrar yazmak yerine, "Mekanı" burada bir kez oluşturur ve bağlarsınız. Bu, platform genelinde mutlak tutarlılık sağlar.
+**Mekanlar (Places)** modülü, kiracınız genelindeki tüm fiziksel alanlar, etkinlik merkezleri, konser alanları, prova stüdyoları, atölyeler ve mağaza şubeleri için merkezi ana dizin işlevi görür. Bir Etkinlik veya Rota oluştururken her seferinde adres bilgilerini tekrar girmek yerine, mekan bir kez tanımlanır ve tüm sistemde referans olarak bağlanır.
 
-## Bir Mekan Oluşturma
+---
+
+## 🏗️ Mekan Oluşturma ve Yapılandırma
 
 1. **İlişkiler > Mekanlar** sayfasına gidin.
-2. **"Yeni Ekle"** butonuna tıklayın.
+2. **"Mekan Ekle"** butonuna tıklayın (veya `N` kısayolunu kullanın).
 
-### 1. Temel Bilgiler (Basic Info)
-- **İsim (Name):** Mekanın veya mağazanın adı (Örn: "Vodafone Park", "Kadıköy Şubesi").
-- **Slug:** Mekan için otomatik olarak oluşturulan URL tanımlayıcısı.
-- **Durum (Status):** Bağlantı kurmak (diğer modüllerde seçebilmek) için durumu *YAYINDA (PUBLISHED)* olarak ayarlayın.
+### 1. Genel Profil ve Markalama
+- **Mekan Adı:** Mekanın resmi adı (örn: *"KüçükÇiftlik Park"*, *"Moda Sahnesi"*).
+- **Slug:** Başlıktan otomatik türetilen, URL dostu benzersiz kimlik.
+- **Özet ve Açıklama:** Kart önizlemeleri için kısa özet ve mekanın akustik, teknik donanım ve fiziksel imkanlarını anlatan detaylı açıklama.
+- **Vurgu Rengi:** Harita pinlerinde ve mobil başlıklarda kullanılan kurumsal tema rengi.
+- **Durum:** `DRAFT` (Taslak - hazırlık aşamasında) veya `PUBLISHED` (Yayında - vitrinde ve etkinlik bağlamada aktif).
 
-### 2. Konum ve Harita (Kritik)
-- **Adres (Address):** Tam fiziksel adresi girin.
-- **Koordinatlar (Enlem ve Boylam):** Bunları manuel olarak girebilir veya entegre Google Haritalar (veya benzeri bir harita sağlayıcısı) widget'ını kullanabilirsiniz. Haritadaki pini sürüklemek koordinatları otomatik olarak güncelleyecektir.
-- *Bu neden önemlidir?* [Rotalar (Routes)](../catalog/routes) gibi modüller; mesafeleri, transit sürelerini hesaplamak ve harita önizlemeleri oluşturmak için büyük ölçüde bu kesin koordinatlara güvenir.
+### 2. Konum ve Hassas Harita Koordinatları
+- **Fiziksel Adres:** Sokak, bina/kapı numarası, mahalle, ilçe, il ve posta kodu.
+- **Harita Koordinatları (`Enlem` & `Boylam`):** Harita üzerindeki tam nokta (`GeoJSON Point [lng, lat]`).
+- **Bölge / Kategori Eşleştirmesi:** Mekanın bağlı olduğu bölgesel kategori (örn: *"Kadıköy / Moda"* veya *"Tarihi Yarımada"*).
+> **İpucu:** Hassas koordinatlar; rotalarda durak mesafesi hesaplama, "Bana En Yakın Mekanlar" araması ve vitrinde yol tarifi sağlama açısından kritiktir.
 
-### 3. Medya ve Detaylar
-- **Görseller (Images):** Mekanın (dış cephe, iç mekan) fotoğraflarını yükleyin.
-- **Kapasite (Capacity):** Mekanın alabileceği maksimum kişi sayısı. Bu, bu lokasyondaki bir Etkinlik (Event) için bilet satarken bir üst sınır (limit) görevi görür.
-- **Açıklama (Description):** Mevcut olanaklar (Örn: "Tekerlekli sandalyeye uygun, Otopark mevcut").
+### 3. Kapasite ve Haftalık Çalışma Takvimi
+- **Kapasite Limitleri (`min` / `max`):** Katılımcı sınırları. Maksimum kapasite, biletleme ve oturma planlarında üst tavan sınırı oluşturur.
+- **Haftalık Çalışma Düzeni:** Pazartesi'den Pazar'a haftanın günlerine göre açılış ve kapanış saatleri tanımlanabilir.
 
-3. **"Kaydet"** butonuna tıklayın. Artık Etkinlikler veya Rotalar oluştururken bu mekanı açılır listeden (dropdown) doğrudan seçebilirsiniz.
+### 4. Fiyatlandırma ve Kiralama Modelleri
+Mekanlar ücretsiz açık alanlar veya ticari kiralık alanlar olarak yapılandırılabilir:
+- **Ücretli Kiralama:** Mekanın kiralama/rezervasyona açık olup olmadığını belirler.
+- **Fiyatlandırma Tipi:**
+  - `HOURLY`: Saatlik kiralama (atölyeler, prova odaları, fotoğraf stüdyoları).
+  - `DAILY`: Günlük kiralama (konferans salonları, fuar merkezleri).
+  - `PER_EVENT`: Etkinlik başına kiralama (festivaller, stadyum konserleri).
+  - `FIXED`: Sabit sözleşme bedeli.
+- **Tutar ve Para Birimi:** Standart bedel (örn: `250,000 TRY`).
+
+### 5. Medya ve Görsel Varlıklar
+- **Logo ve Öne Çıkan Görsel:** Yüksek çözünürlüklü mekan simgesi ve vitrin banner'ı.
+- **Kapak Görseli ve Galeri:** Sahne açıları, oturma planları, iç ve dış mekan fotoğrafları.
+
+### 6. Mekan Sahipliği, Genel Havuz ve Etkinlik Yetkilendirmesi
+Mekanlar, çok kiracılı ve çok satıcılı pazar yeri mimarisinde açık sahiplik kurallarına bağlıdır:
+- **Sahiplik Türleri (`ownerType`):**
+  - `WORKSPACE`: Tenant yöneticileri tarafından yönetilen platform mekanı.
+  - `ORGANIZATION`: Çatı oda, esnaf birliği veya kooperatife ait mekan.
+  - `MERCHANT`: Pazar yeri satıcısının kendi tescilli mekanı.
+  - `BRAND`: Marka üreticisine ait mekan.
+- **Kullanım Kapsamları:**
+  - **Genel Kullanım Havuzu (`isPublicPool: true`):** Platformdaki tüm yetkili satıcı ve markalar etkinlik oluştururken mekanı kullanabilir.
+  - **Bağlı Satıcılara Miras (`inheritToAffiliates: true`):** Çatı organizasyona bağlı tüm üretici ve satıcılar mekanı etkinlik alanı olarak seçebilir.
+  - **Doğrudan Yetkilendirme (`authorizedMerchants`):** Mekanı kullanma izni verilen özel satıcı listesi.
+  - **Kiralama / Tahsis (`rentals`):** Belirli tarih aralıkları için üçüncü taraf aktörlere tahsis edilen sözleşmeli kiralama periyotları.
+
+> 🛡️ **Katı Yetki Kontrolü:** Satıcı, marka veya organizasyonlar etkinlik oluştururken veya güncellerken yalnızca hak sahibi oldukları veya kullanım izni verilmiş mekanları seçebilirler. Yetkisiz seçimlerde sistem `403 Forbidden` (`FORBIDDEN_ACCESS`) hatası fırlatır.
+
+---
+
+## 🔒 Silme Koruması (Soft-Delete) ve Veri Güvenliği
+
+Geçmiş bilet satışlarını, etkinlik arşivlerini ve rezervasyon mutabakatlarını korumak amacıyla:
+* Mekan silme işlemi **yumuşak silme (soft-delete)** mantığıyla (`deletedAt`) çalışır.
+* Gelecekte planlanmış aktif biletli etkinliklere bağlı olan mekanlar, etkinlikler yeniden atanmadan veya iptal edilmeden sistemden kaldırılamaz.
+
+---
+
+## 💻 Geliştirici SDK Entegrasyonu
+
+Storefront vitrin uygulamanızda `@avci/sdk` veya Python SDK kullanarak mekan verilerini sorgulayabilirsiniz:
+
+```typescript
+import { AvciCMS } from '@avci/sdk';
+
+const cms = new AvciCMS({ apiKey: 'API_KEYINIZ', clientId: 'tenant-id' });
+
+// Bölgeye göre filtrelenmiş mekan listesi
+const { data: places } = await cms.place.list({ area: '6735c03a9f1a2b3c4d5e6f70', limit: 12 });
+
+// Slug ile tam mekan profili
+const { data: venue } = await cms.place.getBySlug('kucukciftlik-park');
+console.log(venue.capacity.max, venue.pricing?.amount);
+```

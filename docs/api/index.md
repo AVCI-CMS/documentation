@@ -1,6 +1,6 @@
 ---
 id: index
-title: Public API Reference
+title: Overview
 slug: /api
 sidebar_position: 1
 ---

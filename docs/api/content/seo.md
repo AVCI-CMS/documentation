@@ -1,6 +1,6 @@
 ---
 id: seo
-title: SEO Management (Global SEO)
+title: Global SEO
 sidebar_position: 6
 ---
 

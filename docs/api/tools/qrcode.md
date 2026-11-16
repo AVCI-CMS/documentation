@@ -1,6 +1,6 @@
 ---
 id: qrcode
-title: QR Code
+title: QR Codes
 sidebar_position: 3
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: nfc
-title: NFC Operations
+title: NFC Tags
 sidebar_position: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: share
-title: Share / Referral
+title: Referrals & Sharing
 sidebar_position: 5
 ---
 

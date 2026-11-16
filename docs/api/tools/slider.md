@@ -1,6 +1,6 @@
 ---
 id: slider
-title: Slider
+title: Sliders & Banners
 sidebar_position: 2
 ---
 

@@ -1,0 +1,40 @@
+---
+sidebar_position: 4
+title: "Kargo Ayarları"
+---
+
+# Kargo Ayarları
+
+**Menü Yolu:** `Workspace > Settings > Sale > Shipment`
+
+:::info Yetki ve Plan Gereksinimleri
+Bu özelliği kullanabilmek için **Workspace:Settings:View** yetkisine ve **ECOMMERCE, MARKETPLACE** planlarından birine sahip olmanız gerekmektedir.
+:::
+
+Kargo Ayarları sayfası, satıcılarınızın veya platformunuzun çalıştığı kargo firmalarıyla (örn. Aras, Yurtiçi, PTT, UPS, FedEx) yapılan genel kargo kurallarını ve sözleşmelerini, desi/hacim tabanlı fiyatlandırma segmentleriyle birlikte yönettiğiniz modüldür.
+
+## Temel Özellikler & Yapılandırma
+
+### 1. Genel Ayarlar
+- **Manuel Kargo Kodu Girişine İzin Ver:** Siparişler için takip numaralarının satıcı/operatör tarafından manuel olarak girilip girilemeyeceğini belirler. Devre dışı bırakılırsa, siparişlerde aktif sağlayıcı entegrasyonları aracılığıyla otomatik olarak oluşturulan takip kodları kullanılmalıdır.
+- **Tahmini Kargo Tarihi Hatırlatması:** Siparişin kargoya verilmesi gereken tahmini tarihe kaç saat kala satıcıya otomatik bir hatırlatma bildirimi (SHIPMENT_UPCOMING) gönderileceğini ayarlamanızı sağlar. 0 olarak ayarlamak hatırlatmaları devre dışı bırakır.
+
+### 2. Kargo Firmaları ve Filtreleme
+Sistemdeki aktif kargo şirketlerinden seçim yapabilir ve Yurt İçi (LOCAL) veya Yurt Dışı (INTERNATIONAL) anlaşma listelerini inceleyebilirsiniz.
+
+- **Kargo Firması (Provider):** Sistemde tanımlı olan lojistik sağlayıcıları.
+- **Gönderi Tipi (Type):** LOCAL (Yurt İçi Kargo) veya INTERNATIONAL (Yurt Dışı Kargo).
+
+### 3. Kargo Anlaşmaları ve Segmentler
+Seçili kargo firmasına ve gönderi tipine ait sözleşmeleri dinamik bir liste olarak görüntülersiniz.
+- **Segment Yönetimi:** Her anlaşma farklı "Segmentlere" (Desi aralıklarına) bölünmüştür. Örneğin 1-5 Desi arası, 6-10 Desi arası vb.
+- Satıcılara yansıtılacak kargo maliyetleri bu segmentler üzerinden hesaplanır veya ücretsiz kargo kampanyalarının limitleri belirlenir.
+- Listeden "Düzenle" butonuna basarak ilgili desi aralıklarının güncel fiyatlarını değiştirebilir veya yeni aralıklar ekleyebilirsiniz.
+
+> [!TIP]
+> Değiştirdiğiniz fiyatlar anında kaydedilir ve o andan itibaren verilen yeni siparişlerde oluşturulan kargo kodları için geçerli olur. Geçmiş kargo kodlarının maliyetleri etkilenmez.
+
+## Sık Karşılaşılan Sorunlar
+
+- **Sorun:** Müşteri 500 TL üzerinde alışveriş yaptı ancak hala kargo ücreti çıkıyor.
+- **Çözüm:** "Ücretsiz Kargo Barajı" ayarının doğru rakamda yapılandırıldığından ve sepetteki indirim kuponlarının sipariş genel toplamını barajın altına düşürmediğinden emin olun.
