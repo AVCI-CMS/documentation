@@ -48,6 +48,21 @@ Mekanlar ücretsiz açık alanlar veya ticari kiralık alanlar olarak yapıland�
 - **Logo ve Öne Çıkan Görsel:** Yüksek çözünürlüklü mekan simgesi ve vitrin banner'ı.
 - **Kapak Görseli ve Galeri:** Sahne açıları, oturma planları, iç ve dış mekan fotoğrafları.
 
+### 6. Mekan Sahipliği, Genel Havuz ve Etkinlik Yetkilendirmesi
+Mekanlar, çok kiracılı ve çok satıcılı pazar yeri mimarisinde açık sahiplik kurallarına bağlıdır:
+- **Sahiplik Türleri (`ownerType`):**
+  - `WORKSPACE`: Tenant yöneticileri tarafından yönetilen platform mekanı.
+  - `ORGANIZATION`: Çatı oda, esnaf birliği veya kooperatife ait mekan.
+  - `MERCHANT`: Pazar yeri satıcısının kendi tescilli mekanı.
+  - `BRAND`: Marka üreticisine ait mekan.
+- **Kullanım Kapsamları:**
+  - **Genel Kullanım Havuzu (`isPublicPool: true`):** Platformdaki tüm yetkili satıcı ve markalar etkinlik oluştururken mekanı kullanabilir.
+  - **Bağlı Satıcılara Miras (`inheritToAffiliates: true`):** Çatı organizasyona bağlı tüm üretici ve satıcılar mekanı etkinlik alanı olarak seçebilir.
+  - **Doğrudan Yetkilendirme (`authorizedMerchants`):** Mekanı kullanma izni verilen özel satıcı listesi.
+  - **Kiralama / Tahsis (`rentals`):** Belirli tarih aralıkları için üçüncü taraf aktörlere tahsis edilen sözleşmeli kiralama periyotları.
+
+> 🛡️ **Katı Yetki Kontrolü:** Satıcı, marka veya organizasyonlar etkinlik oluştururken veya güncellerken yalnızca hak sahibi oldukları veya kullanım izni verilmiş mekanları seçebilirler. Yetkisiz seçimlerde sistem `403 Forbidden` (`FORBIDDEN_ACCESS`) hatası fırlatır.
+
 ---
 
 ## 🔒 Silme Koruması (Soft-Delete) ve Veri Güvenliği

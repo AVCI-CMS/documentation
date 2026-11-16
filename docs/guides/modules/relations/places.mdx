@@ -48,6 +48,21 @@ Venues can operate as free open spaces or commercial rental areas:
 - **Logo & Featured Image:** High-resolution icons and showcase banners.
 - **Cover Image & Gallery:** Multiple interior and exterior photos, stage angles, and seating plan previews.
 
+### 6. Ownership, Public Pools & Event Authorization
+Venues have explicit multi-tenant ownership models:
+- **Owner Types:**
+  - `WORKSPACE`: Global venue managed by the tenant operators.
+  - `ORGANIZATION`: Master guild, chamber, or cooperative venue.
+  - `MERCHANT`: Privately owned venue by a marketplace vendor.
+  - `BRAND`: Registered venue owned by a brand manufacturer.
+- **Access Scopes:**
+  - **Public Pool (`isPublicPool: true`):** When enabled, all verified merchants and brands in the workspace can select this venue when organizing events.
+  - **Affiliate Inheritance (`inheritToAffiliates: true`):** When owned by an Organization, all member artisans/merchants can host events at this venue.
+  - **Direct Authorization (`authorizedMerchants`):** Specific sellers granted exclusive hosting privileges.
+  - **Lease / Rentals (`rentals`):** Time-bound contracts allowing third-party entities to host events during specified periods.
+
+> 🛡️ **Enforcement:** When a merchant or brand creates an event, the backend automatically validates if they own, rent, or have delegated permission to host at the selected venue. Unauthorized attempts trigger `403 Forbidden`.
+
 ---
 
 ## 🔒 Soft Delete & Relational Integrity
