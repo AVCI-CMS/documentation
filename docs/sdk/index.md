@@ -107,3 +107,13 @@ Deliver instantaneous HTTP push notifications directly to your external servers 
 *   `customer.registered`
 
 All webhook payloads are cryptographically signed using HMAC SHA-256 (`x-avci-signature`) to guarantee authenticity.
+
+---
+
+## 5. [Storefront Cache & ISR Revalidation](/sdk/cache-revalidation)
+
+Automatically purge and revalidate edge caches and static pages (Next.js App Router, Nuxt 3, Astro) when content or catalog data changes:
+*   **Cryptographic HMAC-SHA256 Signatures:** Verified easily using `verifyCacheSignature` from `@avci/sdk`.
+*   **Granular Revalidation:** Purge specific paths (`/product/slug`) and cache tags (`product:slug`).
+*   **Automated & Resilient:** Runs asynchronously without slowing down CMS editor workflows.
+
