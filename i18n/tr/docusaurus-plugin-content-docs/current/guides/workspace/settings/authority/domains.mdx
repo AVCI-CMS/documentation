@@ -3,7 +3,7 @@ sidebar_position: 2
 title: "Alan Adları (Domains)"
 ---
 
-# Alan Adları (Domains)
+# Alan Adları (Custom Storefront, CDN, API & Yönetim Paneli)
 
 **Menü Yolu:** `Workspace > Settings > Authority > Domains`
 
@@ -11,27 +11,32 @@ title: "Alan Adları (Domains)"
 Özel alan adlarını yönetmek için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
 :::
 
-Alan Adları (Domains) ayarları, çalışma alanınızın vitrinine (storefront) özel web adresleri (örn. `shop.markaniz.com`) bağlamanıza olanak tanır. Bu sayede müşterilerinize kendi markanız altında white-label bir deneyim sunabilirsiniz.
+**Alan Adları (Domains)** modülü, **Cloudflare for SaaS (Custom Hostnames API)** altyapısını kullanarak markanıza ait özel alt alan adlarını (subdomain) otomatik SSL/TLS sertifikası üretimi ve kenar (edge) yönlendirmesiyle AVCI CMS servislerine bağlar.
+
+## Desteklenen Hedef Servis Tipleri
+
+| Servis Tipi | Örnek Alan Adı | Eklenecek CNAME Hedefi | Güncellenen Workspace Adresi |
+| :--- | :--- | :--- | :--- |
+| **`STOREFRONT`** | `shop.markaniz.com` | `cname.avcicms.com` | `workspace.url.landing` |
+| **`CDN`** | `cdn.markaniz.com` | `cdn.avcicms.com` | `workspace.url.cdn` & `url.image` |
+| **`API`** | `api.markaniz.com` | `api.avcicms.com` | `workspace.url.backend` |
+| **`MANAGEMENT`** | `admin.markaniz.com` | `app.avcicms.com` | `workspace.url.management` |
 
 ## Temel Özellikler & Yapılandırma
 
-### 1. Alan Adı Ekleme
-- **Alan Adı Ekle:** Yeni bir alan adını protokol (`http/https`) olmadan, yalın halde tanımlayabilirsiniz (Örn: `https://shop.domain.com` yerine sadece `shop.domain.com`).
-- **SSL Sertifikaları:** Alan adı doğrulandıktan sonra, platform otomatik olarak özel alan adınız için bir SSL sertifikası (HTTPS) tanımlar ve yönetimini üstlenir.
+### 1. Yeni Alan Adı Tanımlama
+1. **"Alan Adı Ekle"** butonuna tıklayın ve **Hedef Servis Tipi** (`STOREFRONT`, `CDN`, `API` veya `MANAGEMENT`) seçin.
+2. Alan adını protokol (`http/https`) olmadan girin (Örn: `cdn.markaniz.com`).
+3. Kayıt oluşturulduğunda sistem Cloudflare üzerinde bir Custom Hostname başlatır ve size özel **CNAME** (trafik yönlendirme) ile **TXT** (sahiplik ve DV SSL doğrulama) kayıtlarını listeler.
 
-### 2. Alan Adı Doğrulama
-Eklediğiniz alan adının size ait olduğunu kanıtlamak için DNS kayıtları aracılığıyla doğrulama yapmanız gerekir.
-- **TXT Kaydı:** Sistem size özel bir `TXT` kayıt değeri sunar. Alan adı sağlayıcınıza (örn. GoDaddy, Cloudflare, Natro) giriş yaparak bu kaydı DNS ayarlarınıza eklemelisiniz.
-- **Doğrulama Kontrolü:** DNS kaydını ekledikten sonra "Kaydı Kontrol Et" (Verify Now) butonuna tıklayın. Unutmayın, DNS yönlendirmelerinin (propagation) dünya genelinde güncellenmesi bazen 24 ila 48 saat sürebilir.
+### 2. DNS Doğrulama ve Otomatik SSL Sertifikası
+- Ekranda gösterilen **CNAME** ve **TXT** kayıtlarını DNS sağlayıcınıza (Cloudflare, GoDaddy, Natro, Route53 vb.) ekleyin.
+- **"Şimdi Doğrula"** butonuna tıklayın veya her 5 dakikada bir çalışan otomatik arka plan doğrulama servisinin (`domain-verification-monitor`) kaydı onaylamasını bekleyin.
+- Doğrulama tamamlandığında:
+  - Cloudflare otomatik olarak SSL sertifikasını üretir ve ömür boyu yeniler (`SSL Aktif`).
+  - `CDN` tipindeki alan adları doğrulandığında Go CDN mikroservisi (`/internal/domains/reload`) anında bilgilendirilir ve görselleriniz `https://cdn.markaniz.com` üzerinden kesintisiz sunulmaya başlar.
+  - `API` tipindeki alan adları doğrulandığında `https://api.markaniz.com/v1/*` adresine gelen istekler `Host` başlığından otomatik olarak çalışma alanınıza çözümlenir.
 
 ### 3. Alan Adlarını Yönetme
-- **Birincil (Primary) Yap:** Doğrulanmış birden fazla alan adınız olabilir. Birini "Birincil" olarak ayarlamak, tüm standart bağlantıların ve ana vitrin (storefront) rotalarının varsayılan olarak bu alan adına yönlendirilmesini sağlar.
-- **Kaldır (Remove):** Çalışma alanınıza bağlı olmasını istemediğiniz bir alan adını istediğiniz zaman silebilirsiniz.
-
-> [!TIP]
-> **DNS Yönlendirme İpucu:** TXT kaydını ekledikten hemen sonra doğrulama başarısız olursa, 15-30 dakika bekleyip tekrar deneyin. Global DNS önbelleklerinin güncellenmesi biraz zaman alır.
-
-## Sık Karşılaşılan Sorunlar
-
-- **Sorun:** Alan adının durumu sürekli "Bekliyor" (Pending) olarak kalıyor.
-- **Çözüm:** TXT kaydının DNS sağlayıcınızda `@` ana bilgisayarına (host) veya ilgili alt alan adına yazım hatası olmadan doğru eklendiğinden emin olun ve doğrulama butonuna tekrar tıklayın.
+- **Birincil (Primary) Yap:** Her servis tipi için birincil alan adını belirleyebilirsiniz. Birincil yapılan alan adı, çalışma alanının ilgili URL (`url.cdn`, `url.backend`, `url.landing`, `url.management`) bilgisini otomatik günceller.
+- **Kaldır (Remove):** Bir alan adını sildiğinizde Cloudflare üzerindeki Custom Hostname ve SSL yapılandırması da otomatik olarak temizlenir.
