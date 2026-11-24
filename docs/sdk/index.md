@@ -38,7 +38,7 @@ graph LR
 The official client library for modern web and mobile applications:
 *   **100% Type-Safe:** Automatically generated TypeScript interfaces for products, categories, orders, variants, and cart operations.
 *   **Lightweight & Universal:** Built on native `fetch` with zero heavy dependencies; runs seamlessly on Node.js, Cloudflare Workers, Vercel Edge, and browser runtimes.
-*   **Automatic Tenant Resolution:** Bundles your Workspace Client ID (`x-avci-client`) into every outgoing request automatically.
+*   **Automatic Tenant & Language Headers:** Bundles your Workspace Client ID (`x-avci-client`) and optional default content language (`x-avci-language`) into every outgoing request automatically.
 
 ```bash
 npm install avcicms
@@ -51,6 +51,7 @@ import { AvciCMS } from 'avcicms';
 const cms = new AvciCMS({
   apiKey: process.env.AVCI_API_KEY!,
   projectId: process.env.AVCI_PROJECT_ID!,
+  language: 'en', // Optional: sets `x-avci-language`
 });
 
 // Fetch active products with full type safety

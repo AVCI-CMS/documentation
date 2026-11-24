@@ -45,6 +45,24 @@ Authorization: Bearer <user_token>
 
 *(Kullanıcıların nasıl giriş yapacağı ve bu token'ı nasıl alacağınızla ilgili detaylı bilgi için [User Authentication](/api/authentication) sayfasını inceleyin).*
 
+### `x-avci-language`
+
+Çok dilli katalog, içerik ve ilişki uç noktaları için **içerik dilini** belirler. Hem ISO-2 (`tr`, `en`) hem BCP-47 (`tr-TR`, `en-US`) formatlarını kabul eder. CDN arkasındaki Public GET isteklerinde alternatif olarak URL'de `?language=en` veya `?lang=en` kullanılabilir.
+
+```http
+x-avci-language: tr
+```
+
+### `Accept-Language`
+
+Backend `i18next` hata ve doğrulama mesajlarının dilini (`tr` veya `en`) belirler. `x-avci-language` başlığından tamamen ayrıdır ve içerik dilini etkilemez.
+
+```http
+Accept-Language: tr
+```
+
+*(Öncelik sırası ve SDK kullanımı için [Çoklu Dil ve Yerelleştirme](/api/extra/localization) rehberine göz atın).*
+
 ## Standart cURL İsteği Örneği
 
 Tüm bu bilgiler ışığında, AVCI CMS sunucusuna yapılacak başarılı bir API isteği örneği (Örneğin: Ürünleri listeleme) aşağıdaki gibidir:
@@ -52,7 +70,9 @@ Tüm bu bilgiler ışığında, AVCI CMS sunucusuna yapılacak başarılı bir A
 ```bash
 curl -X GET "https://api.avcicms.com/v1/catalog/product" \
   -H "Content-Type: application/json" \
-  -H "x-avci-client: d9c8b7a6-1234-5678-abcd-ef0987654321"
+  -H "x-avci-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
+  -H "x-avci-language: tr" \
+  -H "Accept-Language: tr"
 ```
 
 ## CORS ve Domain İzinleri (Whitelisting)
