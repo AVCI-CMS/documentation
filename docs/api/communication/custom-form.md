@@ -13,7 +13,7 @@ Beyond standard surveys, Custom Forms power **Platform Application Workflows** (
 > **Architecture Note:**  
 > Custom Forms are distinct from **Contact Forms**. Contact Forms manage basic inquiries and support messages, while Custom Forms manage structured entity-mapped applications and lifecycle approval workflows.
 
-The `x-avci-client` header is **mandatory** for all requests.
+The `x-avcicms-client` header is **mandatory** for all requests.
 
 ---
 
@@ -56,7 +56,7 @@ Fields inside a Custom Form can be linked directly to an entity attribute via `m
 Retrieves the form title, description, and list of input fields for dynamic frontend rendering.
 
 * **Endpoint:** `GET /customForm/:formId`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 **Example Response:**
 ```json
@@ -90,7 +90,7 @@ Retrieves the form title, description, and list of input fields for dynamic fron
 Submits the user's answers against the dynamic schema.
 
 * **Endpoint:** `POST /customForm/submit/:formId`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 **Request Body:**
 ```json
@@ -115,7 +115,7 @@ Submits the user's answers against the dynamic schema.
 ### 1.3 Check Prior Submission
 Verifies if the authenticated user has already submitted a form limited to one entry:
 * **Endpoint:** `GET /customForm/has-submission/:formId`
-* **Auth Requirement:** `x-avci-client` + `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client` + `Authorization: Bearer <token>`
 
 ---
 

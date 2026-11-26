@@ -8,7 +8,7 @@ sidebar_position: 1
 
 AVCI CMS'de dinamik içerik sayfaları (Örn: Hakkımızda, Gizlilik Politikası, İletişim, İade Şartları) oluşturabilir ve bunları bu API uç noktaları aracılığıyla uygulamanızda (Frontend, Mobil) çizebilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemde yayınlanmış (Published) durumdaki tüm sayfaları sayfalama destekli olarak listeler.
 
 *   **Endpoint:** `GET /page`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -49,7 +49,7 @@ Sistemde yayınlanmış (Published) durumdaki tüm sayfaları sayfalama destekli
 Slug değeri üzerinden belirli bir sayfanın HTML veya zengin metin formatındaki tam içeriğini (body), başlığını ve meta verilerini getirir.
 
 *   **Endpoint:** `GET /page/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/page/gizlilik-politikasi`
 

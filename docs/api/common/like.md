@@ -8,7 +8,7 @@ sidebar_position: 7
 
 This is the function to "Add to Favorites (Wishlist)" products on an e-commerce site or "Leave a heart" on blog posts.
 
-The `x-avci-client` identity header and `Authorization` are **mandatory** in all requests.
+The `x-avcicms-client` identity header and `Authorization` are **mandatory** in all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header and `Authorization` are **mandatory** in all
 Lists all products/contents previously hearted (added to favorites) by the user.
 
 *   **Endpoint:** `GET /like`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 *   **Query Parameters:**
     *   `type`: (Optional) `?type=product` to fetch only favorite products.
 
@@ -28,4 +28,4 @@ Lists all products/contents previously hearted (added to favorites) by the user.
 Taking the `_id` of the content, if the user has previously liked it, it unlikes it; if not, it adds it to favorites.
 
 *   **Endpoint:** `POST /like/:type/:id`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`

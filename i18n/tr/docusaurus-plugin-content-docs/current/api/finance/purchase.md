@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Ödeme (Payment) adımından sonra, sepetin onaya dönüşmesi, siparişin (Order) veya aboneliğin (Subscription) kesinleştirilip satıcılara (Merchant) bildirilmesi süreçlerini yürüten Orkestratör (Orchestrator) modülüdür.
 
-Payment modülüyle sıkı bir uyum içinde çalışır. Tüm isteklerde `x-avci-client` zorunludur.
+Payment modülüyle sıkı bir uyum içinde çalışır. Tüm isteklerde `x-avcicms-client` zorunludur.
 
 ---
 
@@ -17,7 +17,7 @@ Payment modülüyle sıkı bir uyum içinde çalışır. Tüm isteklerde `x-avci
 Hazırlanmış bir sepetin (Basket) veya 3D Secure gerektirmeyen standart bir kredi kartı / ön ödemeli bakiyenin satın alma işlemini doğrudan sonlandırarak sipariş kaydını (Order Record) oluşturur.
 
 *   **Endpoint:** `POST /purchase`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -35,7 +35,7 @@ Hazırlanmış bir sepetin (Basket) veya 3D Secure gerektirmeyen standart bir kr
 Ürünlerden farklı olarak, aylık veya yıllık yenilenebilir abonelik (Subscription) paketlerinin ilk tahsilatını yapıp planı başlatır.
 
 *   **Endpoint:** `POST /purchase/subscription`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 

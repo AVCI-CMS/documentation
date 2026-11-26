@@ -8,7 +8,7 @@ sidebar_position: 2
 
 E-ticaret sistemindeki varyasyonlu ürünlerin (Örn: Renk, Beden, Hafıza Seçeneği) özellik tiplerini ve bu tiplere ait seçenekleri (Mavi, Kırmızı, S, M, L) listeler.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Katalog ekranının yan tarafında (Sidebar) filtre olarak kullanılacak olan tüm aktif ürün özellikleri listesini (Seçenekleriyle birlikte) döner.
 
 *   **Endpoint:** `GET /attribute`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -53,4 +53,4 @@ Katalog ekranının yan tarafında (Sidebar) filtre olarak kullanılacak olan t�
 Sadece "Beden" veya sadece "Renk" gibi spesifik bir özellik setinin detaylarını döner.
 
 *   **Endpoint:** `GET /attribute/:id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

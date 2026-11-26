@@ -8,7 +8,7 @@ sidebar_position: 8
 
 Müşterilerin en çok sorduğu soruları gruplar halinde (Kargo Süreçleri, İadeler, Ödeme Yöntemleri vb.) Frontend tarafında göstermek için kullanılır. 
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki aktif sıkça sorulan soruları, arama kelimesine göre filtreleyerek veya sayfalayarak listeler.
 
 *   **Endpoint:** `GET /faq`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -49,7 +49,7 @@ export type FAQ = {
 Belirli bir gruba (Örn: `iade-kosullari`) ait sıkça sorulan soruları, grup detaylarıyla birlikte getirir. Akordeon (Accordion) bileşenleri çizerken sıkça kullanılır.
 
 *   **Endpoint:** `GET /faq/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

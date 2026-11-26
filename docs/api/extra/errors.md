@@ -94,7 +94,7 @@ try {
 The request body or query parameters failed validation. Ensure required fields are present and follow documented types.
 
 ### `401 Unauthorized`
-The mandatory `x-avci-client` header is either missing or contains an invalid Tenant Client ID. Verify your credentials in **Workspace > Settings > General**.
+The mandatory `x-avcicms-client` header is either missing or contains an invalid Tenant Client ID. Verify your credentials in **Workspace > Settings > General**.
 
 ### `403 Forbidden`
 The client ID does not have permission to access the requested resource, or an unauthorized cross-tenant request was attempted.

@@ -8,7 +8,7 @@ sidebar_position: 3
 
 This is the service that outputs the content on the page (Product, Event, Organization, etc.) as Structured Data in order to generate rich snippets (Rich Results) for search engines (Google, Bing).
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 By providing the slug value and type of a specific content, it returns the JSON-LD object that can be directly injected into the page (as a Script tag).
 
 *   **Endpoint:** `GET /jsonld/:type/:slug`
-*   **Auth Requirement:** Only `x-avci-client`
+*   **Auth Requirement:** Only `x-avcicms-client`
 *   **Supported Types (`type`):** `product`, `event`, `blog`, `merchant`, `organization`
 
 **Example JSON Response:**

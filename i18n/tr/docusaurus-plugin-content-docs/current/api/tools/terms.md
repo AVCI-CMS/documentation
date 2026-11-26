@@ -10,7 +10,7 @@ sidebar_position: 6
 
 Handlebars değişkenleriyle (`{{customerName}}`, `{{planName}}`, `{{amount}}`) her işlemde dinamik sözleşmeler üretin, kullanıcıya gösterilen tam metni **SHA-256** (`contentHash` + `proofHash`) ile kilitleyin ve dilediğiniz zaman REST API, `@avci/sdk` veya yönetim panelindeki **Araçlar → Sözleşmeler → Onay Kayıtları** ekranından bütünlüğünü doğrulayın.
 
-> **Zorunlu Başlık:** Tüm public/storefront isteklerinde `x-avci-client` başlığı zorunludur. Sözleşme dilini seçmek için `x-avci-language` (`tr`, `en` vb.) başlığını kullanın.
+> **Zorunlu Başlık:** Tüm public/storefront isteklerinde `x-avcicms-client` başlığı zorunludur. Sözleşme dilini seçmek için `x-avcicms-language` (`tr`, `en` vb.) başlığını kullanın.
 
 ---
 
@@ -25,7 +25,7 @@ Handlebars değişkenleriyle (`{{customerName}}`, `{{planName}}`, `{{amount}}`) 
 ## 1. Yayındaki Sözleşme Şablonlarını Listele
 
 * **Uç Nokta:** `GET /v1/terms`
-* **Başlıklar:** `x-avci-client`, `x-avci-language` (opsiyonel)
+* **Başlıklar:** `x-avcicms-client`, `x-avcicms-language` (opsiyonel)
 
 ---
 
@@ -34,7 +34,7 @@ Handlebars değişkenleriyle (`{{customerName}}`, `{{planName}}`, `{{amount}}`) 
 Şablonu gönderdiğiniz özel değişkenlerle derler ve SHA-256 içerik özetini döner.
 
 * **Uç Nokta:** `POST /v1/terms/:slug/render`
-* **Başlıklar:** `x-avci-client`, `x-avci-language` (opsiyonel)
+* **Başlıklar:** `x-avcicms-client`, `x-avcicms-language` (opsiyonel)
 
 ```json title="İstek Gövdesi"
 {
@@ -73,7 +73,7 @@ Handlebars değişkenleriyle (`{{customerName}}`, `{{planName}}`, `{{amount}}`) 
 Onay Defteri'ne değiştirilemez (append-only) bir onay kaydı ekler. Aynı `(subject.externalId, termSlug)` için önceki aktif kayıtlar silinmeden `SUPERSEDED` olarak işaretlenir.
 
 * **Uç Nokta:** `POST /v1/terms/:slug/consents`
-* **Başlıklar:** `x-avci-client`
+* **Başlıklar:** `x-avcicms-client`
 
 ```json title="İstek Gövdesi"
 {
@@ -103,7 +103,7 @@ Onay Defteri'ne değiştirilemez (append-only) bir onay kaydı ekler. Aynı `(su
 Bir kullanıcının bir veya birden fazla sözleşmenin güncel sürümünü onaylayıp onaylamadığını kontrol eder — giriş veya ödeme öncesi kontroller için idealdir.
 
 * **Uç Nokta:** `GET /v1/terms/consents/status?externalId=usr_987654&slugs=kvkk,saas-hizmet-sozlesmesi`
-* **Başlıklar:** `x-avci-client`
+* **Başlıklar:** `x-avcicms-client`
 
 ---
 

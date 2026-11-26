@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Arama motorları (Google, Bing) için zengin sonuç (Rich Snippet) üretmek amacıyla, sayfadaki içeriğin (Ürün, Etkinlik, Kurum vb.) yapılandırılmış veri (Structured Data) olarak çıktısını veren servistir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Belirli bir içeriğin slug değeri ve tipini vererek, doğrudan sayfaya (Script etiketi olarak) eklenebilecek JSON-LD objesini döner.
 
 *   **Endpoint:** `GET /jsonld/:type/:slug`
-*   **Auth Gereksinimi:** Sadece `x-avci-client`
+*   **Auth Gereksinimi:** Sadece `x-avcicms-client`
 *   **Desteklenen Tipler (type):** `product`, `event`, `blog`, `merchant`, `organization`
 
 **Örnek JSON Yanıtı:**

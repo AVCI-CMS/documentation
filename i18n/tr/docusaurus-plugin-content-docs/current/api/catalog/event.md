@@ -8,7 +8,7 @@ sidebar_position: 5
 
 AVCI CMS, sadece e-ticaret (ürün satışı) değil; biletli etkinlikler, webinarlar, atölyeler ve konserler gibi zamana bağlı etkinliklerin de satışını ve yönetimini destekler. 
 
-Bu uç noktalar aracılığıyla platformdaki etkinlikleri listeleyebilir, bilet satışına açık olanları çekebilir ve müşterinin biletlerini görüntüleyebilirsiniz. Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi zorunludur.
+Bu uç noktalar aracılığıyla platformdaki etkinlikleri listeleyebilir, bilet satışına açık olanları çekebilir ve müşterinin biletlerini görüntüleyebilirsiniz. Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi zorunludur.
 
 ---
 
@@ -17,7 +17,7 @@ Bu uç noktalar aracılığıyla platformdaki etkinlikleri listeleyebilir, bilet
 Platformdaki tüm etkinlikleri (konser, tiyatro vb.) filtreleyerek listeler.
 
 *   **Endpoint:** `GET /event`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -81,7 +81,7 @@ export interface EventListResponse {
 Slug değeri üzerinden belirli bir etkinliğin tüm bilgilerini (mekan, tarih, bilet tipleri, açıklama) getirir.
 
 *   **Endpoint:** `GET /event/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **TypeScript Yanıt Şeması (Response Interface):**
 ```typescript
@@ -141,7 +141,7 @@ export interface EventDetailsResponse {
 Tarihi henüz geçmemiş, gelecekte yapılacak olan güncel etkinlikleri listeler.
 
 *   **Endpoint:** `GET /event/upcoming`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -150,7 +150,7 @@ Tarihi henüz geçmemiş, gelecekte yapılacak olan güncel etkinlikleri listele
 Tarihi geçmiş (tamamlanmış) etkinlikleri listeler. Genellikle arşiv görünümleri için kullanılır.
 
 *   **Endpoint:** `GET /event/passed`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -159,7 +159,7 @@ Tarihi geçmiş (tamamlanmış) etkinlikleri listeler. Genellikle arşiv görün
 Sisteme yakın zamanda eklenmiş ve duyurulmuş en yeni etkinlikleri getirir.
 
 *   **Endpoint:** `GET /event/new`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -168,7 +168,7 @@ Sisteme yakın zamanda eklenmiş ve duyurulmuş en yeni etkinlikleri getirir.
 Etkinlik arama ekranlarında kullanılabilecek dinamik filtre seçeneklerini (Aktif mekanlar, kategoriler vb.) döner.
 
 *   **Endpoint:** `GET /event/filters`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -177,7 +177,7 @@ Etkinlik arama ekranlarında kullanılabilecek dinamik filtre seçeneklerini (Ak
 Görüntülenen bir etkinliğe benzeyen (aynı mekanda olan veya aynı kategoriye ait) diğer etkinlikleri önerir.
 
 *   **Endpoint:** `GET /event/:slug/similar`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -197,4 +197,4 @@ Görüntülenen bir etkinliğe benzeyen (aynı mekanda olan veya aynı kategoriy
 Etkinlik detay sayfasını oluştururken arama motorları ve sosyal medya paylaşımları (OpenGraph, Twitter Cards) için gerekli olan meta title, description ve og:image gibi verileri getirir.
 
 *   **Endpoint:** `GET /event/:slug/seo`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

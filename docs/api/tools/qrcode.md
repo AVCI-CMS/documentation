@@ -8,7 +8,7 @@ sidebar_position: 3
 
 These are the backend operations for QR codes, especially used for validating event tickets at the door entrance (Check-in) or for in-store physical directions.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 When the ticket reader (Attendant) scans the QR code at the door, this endpoint is triggered. It checks the barcode hash, and if the ticket is valid, it returns a "Check-in Successful" response.
 
 *   **Endpoint:** `POST /qrcode/scan`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>` (Requires attendant authorization)
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>` (Requires attendant authorization)
 *   **Body Parameters:**
     *   `hash`: The string value inside the scanned QR code.
 
@@ -28,4 +28,4 @@ When the ticket reader (Attendant) scans the QR code at the door, this endpoint 
 Used to instantly generate a QR Code image in Base64 or SVG format for a content or ticket.
 
 *   **Endpoint:** `GET /qrcode/generate/:type/:id`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

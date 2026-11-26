@@ -8,7 +8,7 @@ sidebar_position: 4
 
 You can use these endpoints to manage and list physical spaces, event venues, concert halls, workshop studios, or store branches (Places). This module is critical for map, event, booking, and location-based applications.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all venues and physical spaces on the platform with pagination and filtering support.
 
 *   **Endpoint:** `GET /v1/place`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -78,7 +78,7 @@ Lists all venues and physical spaces on the platform with pagination and filteri
 Fetches full profile details of a specific venue (photos, capacity, working hours, pricing model, map coordinates) via its slug value.
 
 *   **Endpoint:** `GET /v1/place/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json
@@ -139,7 +139,7 @@ Fetches full profile details of a specific venue (photos, capacity, working hour
 Fetches the complete profile details of a venue using its MongoDB `_id` identifier.
 
 *   **Endpoint:** `GET /v1/place/id/:_id`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -148,7 +148,7 @@ Fetches the complete profile details of a venue using its MongoDB `_id` identifi
 Returns lightweight preview data optimized for map pin popups, mobile preview cards, and listing grids.
 
 *   **Endpoint:** `GET /v1/place/short/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

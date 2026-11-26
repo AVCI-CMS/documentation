@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Used to manage the large rotating campaign images (Slider / Carousel) located on the homepage of the website or mobile application.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists the slide images marked as "Published" from the admin panel, sorted by their order.
 
 *   **Endpoint:** `GET /slider`
-*   **Auth Requirement:** Only `x-avci-client`
+*   **Auth Requirement:** Only `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Fiziksel alanları, konser salonlarını, etkinlik merkezlerini, atölyeleri veya mağaza şubelerini (Place) listelemek ve vitrin detaylarına erişmek için bu uç noktaları kullanabilirsiniz. Harita, rezervasyon ve etkinlik tabanlı uygulamalar için temel modüllerden biridir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığı **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığı **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığı **zorunludur**.
 Platformdaki tüm mekanları ve fiziksel alanları sayfalama ve filtreleme desteğiyle listeler.
 
 *   **Endpoint:** `GET /v1/place`
-*   **Yetki Gereksinimi:** `x-avci-client`
+*   **Yetki Gereksinimi:** `x-avcicms-client`
 
 ### Sorgu Parametreleri
 
@@ -78,7 +78,7 @@ Platformdaki tüm mekanları ve fiziksel alanları sayfalama ve filtreleme deste
 Mekanın slug değeri üzerinden tüm profil verilerini (fotoğraflar, kapasite, çalışma saatleri, fiyatlandırma modeli, harita koordinatları) getirir.
 
 *   **Endpoint:** `GET /v1/place/:slug`
-*   **Yetki Gereksinimi:** `x-avci-client`
+*   **Yetki Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -139,7 +139,7 @@ Mekanın slug değeri üzerinden tüm profil verilerini (fotoğraflar, kapasite,
 Mekanın MongoDB `_id` kimliği üzerinden detay profilini getirir.
 
 *   **Endpoint:** `GET /v1/place/id/:_id`
-*   **Yetki Gereksinimi:** `x-avci-client`
+*   **Yetki Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -148,7 +148,7 @@ Mekanın MongoDB `_id` kimliği üzerinden detay profilini getirir.
 Harita pin pencereleri, mobil kart listeleri ve ızgara görünümleri için optimize edilmiş hafif özet profil döndürür.
 
 *   **Endpoint:** `GET /v1/place/short/:slug`
-*   **Yetki Gereksinimi:** `x-avci-client`
+*   **Yetki Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

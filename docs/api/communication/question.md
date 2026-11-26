@@ -8,7 +8,7 @@ sidebar_position: 7
 
 This is the "Question and Answer (Q&A)" infrastructure often seen on marketplaces as "Ask the Seller" or enabling users to ask questions they are curious about regarding a specific product.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -30,7 +30,7 @@ It's for only those with the relevant authorization (Product owner store, etc.) 
 
 *   **Provide Answer:** `POST /question/:type/question/:questionId/answer`
 *   **Update Answer:** `PUT /question/:type/question/:questionId/answer` (Usually, editing is allowed within 1 hour).
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 
 ---
 

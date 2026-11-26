@@ -16,7 +16,7 @@ API Anahtarları (API Keys) modülü, çalışma alanınızı harici platformlar
 ## Temel Özellikler & Yapılandırma
 
 ### 1. Client ID (İstemci Kimliği)
-- **Tanımlayıcı:** `Client ID`, çalışma alanınızın dışa açık (public) kimliğidir. API isteklerini doğru çalışma alanına yönlendirmek için `x-avci-client` HTTP başlığında (header) kullanılır.
+- **Tanımlayıcı:** `Client ID`, çalışma alanınızın dışa açık (public) kimliğidir. API isteklerini doğru çalışma alanına yönlendirmek için `x-avcicms-client` HTTP başlığında (header) kullanılır.
 - **Kullanım:** Client ID'nizi kopyalayabilir ve HTTP isteklerinizde nasıl göndereceğinizi gösteren kod örneğini inceleyebilirsiniz.
 
 ### 2. Gizli API Anahtarı (Private API Key)
@@ -31,4 +31,4 @@ API Anahtarları (API Keys) modülü, çalışma alanınızı harici platformlar
 ## Sık Karşılaşılan Sorunlar
 
 - **Sorun:** API istekleri 401 Yetkisiz (Unauthorized) hatası döndürüyor.
-- **Çözüm:** İsteklerinizde hem `x-avci-client` hem de `x-avci-api-key` başlıklarının (header) doğru değerlerle gönderildiğinden emin olun. Eğer anahtar yakın zamanda yenilendiyse, backend sunucunuzun yeni anahtarı kullandığını doğrulayın.
+- **Çözüm:** İsteklerinizde hem `x-avcicms-client` hem de `x-avcicms-api-key` başlıklarının (header) doğru değerlerle gönderildiğinden emin olun. Eğer anahtar yakın zamanda yenilendiyse, backend sunucunuzun yeni anahtarı kullandığını doğrulayın.

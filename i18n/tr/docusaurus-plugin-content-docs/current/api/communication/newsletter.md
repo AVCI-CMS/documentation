@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Kullanıcıların veya ziyaretçilerin e-posta pazarlama listelerine (Kampanya habercisi vb.) kayıt olmasını veya listeden çıkmasını sağlar.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Bir kullanıcının e-posta adresini, AVCI CMS'deki e-Bülten veritabanına ekler. Eğer adres zaten kayıtlıysa veya sistemde kullanıcı (User) kaydı varsa onu da ilişkilendirir.
 
 *   **Endpoint:** `POST /newsletter/subscribe`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Body:**
 ```json
@@ -33,7 +33,7 @@ Bir kullanıcının e-posta adresini, AVCI CMS'deki e-Bülten veritabanına ekle
 Kullanıcının e-posta adresini pazarlama listesinden çıkartır veya abonelik durumunu pasife çeker.
 
 *   **Endpoint:** `POST /newsletter/unsubscribe`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Body:**
 ```json

@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Şirketler, dernekler, etkinlik düzenleyiciler veya büyük kurumlar gibi çatı yapıları (Organization) listelemek ve profillerini çekmek için bu uç noktaları kullanabilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki tüm organizasyonları sayfalama ve filtreleme parametreleriyle birlikte listeler.
 
 *   **Endpoint:** `GET /organization`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -34,7 +34,7 @@ Sistemdeki tüm organizasyonları sayfalama ve filtreleme parametreleriyle birli
 Slug değeri üzerinden belirli bir organizasyonun tüm detaylarını (hakkında yazısı, logo, iletişim vb.) getirir.
 
 *   **Endpoint:** `GET /organization/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/organization/acme-corp`
 
@@ -45,7 +45,7 @@ Slug değeri üzerinden belirli bir organizasyonun tüm detaylarını (hakkında
 MongoDB `_id` değeri kullanılarak organizasyonun detaylarını döner.
 
 *   **Endpoint:** `GET /organization/id/:_id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -54,4 +54,4 @@ MongoDB `_id` değeri kullanılarak organizasyonun detaylarını döner.
 Kısa önizlemeler ve kart görünümleri için organizasyonun sadece özet (isim, logo, kısa tanım) bilgilerini getirir.
 
 *   **Endpoint:** `GET /organization/short/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

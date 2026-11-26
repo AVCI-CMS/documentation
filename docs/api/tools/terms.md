@@ -10,7 +10,7 @@ The **Terms Tool** turns AVCI CMS into a standalone **Dynamic Contract & Cryptog
 
 Generate personalized legal texts on the fly with Handlebars variables (`{{customerName}}`, `{{planName}}`, `{{amount}}`), lock the exact rendered text with **SHA-256** (`contentHash` + `proofHash`), and verify tamper-proof integrity at any time via REST API, `@avci/sdk`, or the **Tools → Agreements → Consent Ledger** panel.
 
-> **Required Header:** `x-avci-client` is mandatory for all public/storefront API calls. Use `x-avci-language` (`tr`, `en`, etc.) to select the agreement language.
+> **Required Header:** `x-avcicms-client` is mandatory for all public/storefront API calls. Use `x-avcicms-language` (`tr`, `en`, etc.) to select the agreement language.
 
 ---
 
@@ -25,7 +25,7 @@ Generate personalized legal texts on the fly with Handlebars variables (`{{custo
 ## 1. List Published Agreement Templates
 
 * **Endpoint:** `GET /v1/terms`
-* **Headers:** `x-avci-client`, `x-avci-language` (optional)
+* **Headers:** `x-avcicms-client`, `x-avcicms-language` (optional)
 
 ---
 
@@ -34,7 +34,7 @@ Generate personalized legal texts on the fly with Handlebars variables (`{{custo
 Compiles a template with your custom Handlebars variables and returns the rendered content with its SHA-256 digest.
 
 * **Endpoint:** `POST /v1/terms/:slug/render`
-* **Headers:** `x-avci-client`, `x-avci-language` (optional)
+* **Headers:** `x-avcicms-client`, `x-avcicms-language` (optional)
 
 ```json title="Request Body"
 {
@@ -73,7 +73,7 @@ Compiles a template with your custom Handlebars variables and returns the render
 Creates an immutable, append-only consent record in the Consent Ledger. Previous active consents for the same `(subject.externalId, termSlug)` are automatically marked `SUPERSEDED` without deleting history.
 
 * **Endpoint:** `POST /v1/terms/:slug/consents`
-* **Headers:** `x-avci-client`
+* **Headers:** `x-avcicms-client`
 
 ```json title="Request Body"
 {
@@ -103,7 +103,7 @@ Creates an immutable, append-only consent record in the Consent Ledger. Previous
 Check whether a user has accepted the latest versions of one or more agreements—ideal for login gates or checkout flows.
 
 * **Endpoint:** `GET /v1/terms/consents/status?externalId=usr_987654&slugs=kvkk,saas-master-agreement`
-* **Headers:** `x-avci-client`
+* **Headers:** `x-avcicms-client`
 
 ```json title="Response (200 OK)"
 {

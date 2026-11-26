@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Web sitesinin veya mobil uygulamanın ana sayfasında yer alan büyük dönen kampanya görsellerini (Slider / Carousel) yönetmek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Yönetim panelinden "Yayında" olarak işaretlenmiş slayt görsellerini, sırasına (order) göre listeler.
 
 *   **Endpoint:** `GET /slider`
-*   **Auth Gereksinimi:** Sadece `x-avci-client`
+*   **Auth Gereksinimi:** Sadece `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

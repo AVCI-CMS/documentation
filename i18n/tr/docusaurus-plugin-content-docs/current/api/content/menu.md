@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Frontend uygulamanızın Header (Üst), Footer (Alt) veya Sidebar (Yan) navigasyon bağlantılarını AVCI CMS panelinden dinamik olarak çekmenizi sağlar. Böylece yazılımcıya ihtiyaç duymadan sitenizin link yapısını değiştirebilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemde tanımlı olan ana menü gruplarını (Örn: "Header Menüsü", "Footer Menüsü") listeler.
 
 *   **Endpoint:** `GET /menu`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -26,7 +26,7 @@ Sistemde tanımlı olan ana menü gruplarını (Örn: "Header Menüsü", "Footer
 Platformdaki tüm menü linklerini (Items) ağaç yapısı veya düz liste olarak getirir.
 
 *   **Endpoint:** `GET /menu/items`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -35,7 +35,7 @@ Platformdaki tüm menü linklerini (Items) ağaç yapısı veya düz liste olara
 Menünün "slug" değerine (Örn: `header-menu`) göre o menüye ait tüm bağlantıları ağaç (hiyerarşik) yapısında getirir. Header çizerken en sık bu uç nokta kullanılır.
 
 *   **Endpoint:** `GET /menu/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

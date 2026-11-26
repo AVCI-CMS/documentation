@@ -20,7 +20,7 @@ Sayfalama işlemleri için Query URL içerisine genellikle iki temel parametre g
 **Örnek cURL İsteği:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/catalog/product?page=2&limit=15" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Standart API Yanıt Yapısı (Meta Veri)
@@ -55,7 +55,7 @@ Verilerinizi belirli bir alana göre (Örneğin fiyata veya oluşturulma tarihin
 **Örnek: Ürünleri fiyata göre yüksekten düşüğe sıralama**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/catalog/product?sortBy=price&order=desc" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ## 3. Arama ve Filtreleme

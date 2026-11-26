@@ -16,7 +16,7 @@ The API Keys module allows you to integrate your workspace with external platfor
 ## Key Features & Configuration
 
 ### 1. Client ID
-- **Identifier:** Your `Client ID` is a public-facing identifier for your workspace. It is used in the `x-avci-client` header to route API requests to your specific environment.
+- **Identifier:** Your `Client ID` is a public-facing identifier for your workspace. It is used in the `x-avcicms-client` header to route API requests to your specific environment.
 - **Copy & Use:** You can easily copy the Client ID and view a snippet of how to pass it in your HTTP requests.
 
 ### 2. Private API Key
@@ -31,4 +31,4 @@ The API Keys module allows you to integrate your workspace with external platfor
 ## Common Issues
 
 - **Issue:** API requests are returning a 401 Unauthorized error.
-- **Solution:** Verify that you are passing both the correct `x-avci-client` header and the `x-avci-api-key` header. If the key was regenerated, ensure your backend is using the latest one.
+- **Solution:** Verify that you are passing both the correct `x-avcicms-client` header and the `x-avcicms-api-key` header. If the key was regenerated, ensure your backend is using the latest one.

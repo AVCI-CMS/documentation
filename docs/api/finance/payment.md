@@ -10,7 +10,7 @@ AVCI CMS offers a secure and modular payment infrastructure so your customers ca
 
 These endpoints are used on your Checkout page to communicate with virtual POS providers and wallet systems.
 
-The `x-avci-client` identity header is mandatory for all requests.
+The `x-avcicms-client` identity header is mandatory for all requests.
 
 ---
 
@@ -19,7 +19,7 @@ The `x-avci-client` identity header is mandatory for all requests.
 On the checkout screen, it fetches the installment rates and commissions of the active virtual POS based on the total amount in the cart and the credit card BIN number (first 6 or 8 digits) entered by the customer.
 
 *   **Endpoint:** `POST /payment/installment`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -28,7 +28,7 @@ On the checkout screen, it fetches the installment rates and commissions of the 
 Initiates the 3D Secure safe payment process with a credit card and returns the HTML form to redirect to the bank's verification screen.
 
 *   **Endpoint:** `POST /payment/3ds`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -49,7 +49,7 @@ After the user enters the SMS code from the bank, the bank reports the result to
 ### 3D Secure Complete
 Called to finalize the Order after the transaction concludes successfully.
 *   **Endpoint:** `POST /payment/3ds/complete`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 

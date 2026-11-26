@@ -8,7 +8,7 @@ sidebar_position: 8
 
 Used to display the most frequently asked questions by customers on the Frontend, grouped into categories (Shipping Processes, Returns, Payment Methods, etc.).
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists the active frequently asked questions in the system, either paginated or filtered by search term.
 
 *   **Endpoint:** `GET /faq`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -49,7 +49,7 @@ export type FAQ = {
 Fetches the frequently asked questions belonging to a specific group (e.g., `return-conditions`) along with the group details. Often used when rendering Accordion components.
 
 *   **Endpoint:** `GET /faq/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

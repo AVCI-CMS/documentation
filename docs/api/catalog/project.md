@@ -8,7 +8,7 @@ sidebar_position: 8
 
 These are endpoints that expose data belonging to the "Projects" module for B2B architectural firms, real estate sites, or institutions showcasing portfolios using AVCI CMS.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists completed or ongoing projects with pagination, category, and filtering capabilities.
 
 *   **Endpoint:** `GET /project`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -35,7 +35,7 @@ Lists completed or ongoing projects with pagination, category, and filtering cap
 Fetches all details of a specific project (delivery date, photo gallery, location, etc.) via its slug value.
 
 *   **Endpoint:** `GET /project/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

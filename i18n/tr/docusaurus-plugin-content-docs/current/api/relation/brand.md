@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Sistemdeki ürün ve mağazalarla ilişkilendirilen Markaları (Brands) listelemek ve profillerini çekmek için bu uç noktaları kullanabilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Platformdaki tüm markaları sayfalama ve arama destekli olarak listeler.
 
 *   **Endpoint:** `GET /brand`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -34,7 +34,7 @@ Platformdaki tüm markaları sayfalama ve arama destekli olarak listeler.
 Slug değeri üzerinden belirli bir markanın tüm profil detaylarını (logo, açıklama vb.) getirir.
 
 *   **Endpoint:** `GET /brand/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -43,7 +43,7 @@ Slug değeri üzerinden belirli bir markanın tüm profil detaylarını (logo, a
 MongoDB `_id` değeri kullanılarak belirli bir markanın detaylarını döner.
 
 *   **Endpoint:** `GET /brand/id/:_id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -52,7 +52,7 @@ MongoDB `_id` değeri kullanılarak belirli bir markanın detaylarını döner.
 Performans odaklı senaryolar (örn: ürün listeleme sayfalarındaki marka filtreleri veya logo carousel bileşenleri) için markanın sadece temel özet verilerini getirir.
 
 *   **Endpoint:** `GET /brand/card/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -61,4 +61,4 @@ Performans odaklı senaryolar (örn: ürün listeleme sayfalarındaki marka filt
 Eğer markaların fiziki mağazaları/bayileri sisteme tanımlanmışsa, harita görünümleri (Store Locator) için konum bilgilerini içeren bir liste döner.
 
 *   **Endpoint:** `GET /brand/location`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

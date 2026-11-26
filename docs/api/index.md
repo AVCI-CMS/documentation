@@ -33,4 +33,4 @@ Our API reference is categorized into the following massive modules and services
 
 ## Next Steps
 
-To get started with the AVCI CMS API, set up the necessary HTTP Header configurations (e.g., using `x-avci-client`), and send your first request, check out our **[Getting Started](/api/getting-started)** page.
+To get started with the AVCI CMS API, set up the necessary HTTP Header configurations (e.g., using `x-avcicms-client`), and send your first request, check out our **[Getting Started](/api/getting-started)** page.

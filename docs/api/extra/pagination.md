@@ -20,7 +20,7 @@ For pagination operations, two basic parameters are typically sent within the Qu
 **Example cURL Request:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/product?page=2&limit=15" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Standard API Response Structure (Metadata)
@@ -55,7 +55,7 @@ To sort your data by a specific field (for example, by price or creation date), 
 **Example: Sorting products by price from highest to lowest**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/product?sortBy=price&order=desc" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ## 3. Searching and Filtering

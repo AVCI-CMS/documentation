@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Bilgi bankası, teknik terimler sözlüğü veya platforma özel lügat alanları oluşturmak için kullanılan modüldür. "SEO odaklı sözlük (Dictionary)" projeleri için tasarlanmıştır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sözlükteki tüm kelimeleri sayfalama veya baş harflerine göre (A-Z) filtreleme mantığıyla listeler.
 
 *   **Endpoint:** `GET /dictionary`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -34,7 +34,7 @@ Sözlükteki tüm kelimeleri sayfalama veya baş harflerine göre (A-Z) filtrele
 Slug değeri üzerinden belirli bir kelimenin, terimin veya kısaltmanın kapsamlı ansiklopedik/sözlük açıklamasını getirir.
 
 *   **Endpoint:** `GET /dictionary/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

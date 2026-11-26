@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Through the AVCI CMS Public API, you can list, filter, fetch details, and retrieve SEO data for active products in your store.
 
-The `x-avci-client` identity header is **mandatory** for all requests. *See the [Getting Started](/api/getting-started) page for details.*
+The `x-avcicms-client` identity header is **mandatory** for all requests. *See the [Getting Started](/api/getting-started) page for details.*
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests. *See the 
 Lists products in the catalog with pagination and rich filtering options.
 
 *   **Endpoint:** `GET /product`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -41,7 +41,7 @@ Pagination and sorting rules apply (See: [Pagination & Filtering](/api/extra/pag
 **Example cURL Request:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/product?category=cat_123&minPrice=100&maxPrice=500" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 **Example JSON Response:**
@@ -116,7 +116,7 @@ export interface ProductListResponse {
 Fetches all details of a specific product using its slug value.
 
 *   **Endpoint:** `GET /product/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json
@@ -197,7 +197,7 @@ export interface ProductDetailsResponse {
 Lists newly added products in the system with pagination.
 
 *   **Endpoint:** `GET /product/new?page=1&limit=10`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -206,7 +206,7 @@ Lists newly added products in the system with pagination.
 Lists the best-selling or most visited popular products.
 
 *   **Endpoint:** `GET /product/popular?page=1&limit=10`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -215,7 +215,7 @@ Lists the best-selling or most visited popular products.
 Fetches a specified amount of random products (e.g., for homepage discovery sections).
 
 *   **Endpoint:** `GET /product/random/:amount`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/product/random/5`
 
@@ -226,7 +226,7 @@ Fetches a specified amount of random products (e.g., for homepage discovery sect
 Returns active filters (price range, brands, categories) that can be shown in the sidebar based on current search/category criteria.
 
 *   **Endpoint:** `GET /product/filters`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 *   **Parameters:** Accepts the same query parameters (`category`, `search`, `brand`) as the list operation.
 
 ---
@@ -236,4 +236,4 @@ Returns active filters (price range, brands, categories) that can be shown in th
 Suggests alternative products (in the same category, etc.) similar to a viewed product.
 
 *   **Endpoint:** `GET /product/:slug/similar?limit=4`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

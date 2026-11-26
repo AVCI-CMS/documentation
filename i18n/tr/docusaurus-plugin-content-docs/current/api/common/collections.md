@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Bir mağazanın veya sistemin özel olarak grupladığı ürün vitrinleridir (Örn: "Yaza Merhaba Koleksiyonu", "Sevgililer Günü Hediyeleri"). Kampanyalarla birlikte kullanılarak özel sayfa (Landing page) oluşturmak için harikadır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki tüm yayında olan (aktif) koleksiyonları sayfalamalı olarak listeler. Koleksiyonların kendi vitrin görselleri ve açıklamaları bulunur.
 
 *   **Endpoint:** `GET /collections`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -26,7 +26,7 @@ Sistemdeki tüm yayında olan (aktif) koleksiyonları sayfalamalı olarak listel
 Belirli bir koleksiyonun hem banner detaylarını hem de o koleksiyonun **içine dahil edilmiş ürünleri (products)** liste olarak döner.
 
 *   **Endpoint:** `GET /collections/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

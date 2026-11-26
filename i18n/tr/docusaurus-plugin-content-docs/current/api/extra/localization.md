@@ -14,11 +14,11 @@ AVCI CMS, **içerik dilini** (çok dilli katalog, CMS içerikleri ve ilişki kay
 
 | Kavram | Amaç | Taşıyıcı | Örnek Değerler |
 | :--- | :--- | :--- | :--- |
-| **İçerik Dili** | Katalog, CMS içeriği veya ilişki kayıtlarının hangi dildeki çevirisinin okunacağını / yazılacağını belirler | `x-avci-language` header (veya `?language=` / `?lang=` query parametresi) | `tr`, `en`, `tr-TR`, `en-US` |
+| **İçerik Dili** | Katalog, CMS içeriği veya ilişki kayıtlarının hangi dildeki çevirisinin okunacağını / yazılacağını belirler | `x-avcicms-language` header (veya `?language=` / `?lang=` query parametresi) | `tr`, `en`, `tr-TR`, `en-US` |
 | **UI / Hata Dili** | Backend `i18next` hata ve doğrulama mesajlarının dilini belirler | `Accept-Language` HTTP header | `tr`, `en` |
 
 :::info Önemli Ayrım
-`Accept-Language` başlığı **asla** içerik dili olarak kullanılmaz. Çok dilli içerik okurken veya güncellerken her zaman `x-avci-language` header'ını (veya `?language=` / `?lang=` parametresini) kullanın.
+`Accept-Language` başlığı **asla** içerik dili olarak kullanılmaz. Çok dilli içerik okurken veya güncellerken her zaman `x-avcicms-language` header'ını (veya `?language=` / `?lang=` parametresini) kullanın.
 :::
 
 ---
@@ -28,8 +28,8 @@ AVCI CMS, **içerik dilini** (çok dilli katalog, CMS içerikleri ve ilişki kay
 Gelen her API isteği merkezi `contentLanguageResolver` middleware'inden aşağıdaki öncelik sırasıyla geçer:
 
 1. **Query Parametresi (`?language=` veya `?lang=`)** — CDN veya edge cache arkasındaki **Public GET** istekleri için önerilir; dil bilgisi doğrudan URL cache anahtarına dahil olur.
-2. **Resmi Header (`x-avci-language`)** — Yönetim (Management) API'leri, SDK istekleri ve yazma işlemleri (`POST`, `PUT`, `PATCH`) için tek resmi standarttır.
-3. **Workspace Varsayılan Dili** — Query parametresi veya `x-avci-language` header'ı gönderilmediğinde otomatik kullanılır.
+2. **Resmi Header (`x-avcicms-language`)** — Yönetim (Management) API'leri, SDK istekleri ve yazma işlemleri (`POST`, `PUT`, `PATCH`) için tek resmi standarttır.
+3. **Workspace Varsayılan Dili** — Query parametresi veya `x-avcicms-language` header'ı gönderilmediğinde otomatik kullanılır.
 
 ---
 
@@ -48,16 +48,16 @@ AVCI CMS hem **ISO-2** (`tr`, `en`, `de`) hem **BCP-47** (`tr-TR`, `en-US`, `de-
 
 ```bash
 curl -X GET "https://api.avcicms.com/v1/catalog/product?language=en" \
-  -H "x-avci-client: <Workspace-Client-ID>" \
+  -H "x-avcicms-client: <Workspace-Client-ID>" \
   -H "Accept-Language: tr"
 ```
 
-### 2. Resmi Header (`x-avci-language`)
+### 2. Resmi Header (`x-avcicms-language`)
 
 ```bash
 curl -X GET "https://api.avcicms.com/v1/blog" \
-  -H "x-avci-client: <Workspace-Client-ID>" \
-  -H "x-avci-language: en-US" \
+  -H "x-avcicms-client: <Workspace-Client-ID>" \
+  -H "x-avcicms-language: en-US" \
   -H "Accept-Language: tr"
 ```
 
@@ -69,7 +69,7 @@ import { AvciCMS, CONTENT_LANGUAGE_HEADER } from 'avcicms';
 const cms = new AvciCMS({
   apiKey: process.env.AVCI_API_KEY!,
   clientId: process.env.AVCI_CLIENT_ID!,
-  language: 'en', // Her istekte otomatik olarak `x-avci-language: en` gönderir
+  language: 'en', // Her istekte otomatik olarak `x-avcicms-language: en` gönderir
 });
 ```
 
@@ -77,7 +77,7 @@ const cms = new AvciCMS({
 
 ## Çoklu Dil Destekleyen Modüller
 
-`x-avci-language` / `?language=` standardı tüm çok dilli modüllerde ortak çalışır:
+`x-avcicms-language` / `?language=` standardı tüm çok dilli modüllerde ortak çalışır:
 
 - **Katalog:** Ürünler, Etkinlikler, Projeler, Kampanyalar, Kuponlar
 - **İçerik:** Blog, Haberler, Sayfalar, Sözlük, Ekip Üyeleri

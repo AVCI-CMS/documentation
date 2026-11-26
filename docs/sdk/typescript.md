@@ -34,11 +34,11 @@ import { AvciCMS } from 'avcicms';
 export const cms = new AvciCMS({
   apiKey: process.env.AVCI_API_KEY!,
   projectId: process.env.AVCI_PROJECT_ID!,
-  language: 'tr', // Optional default content language (`x-avci-language` header)
+  language: 'tr', // Optional default content language (`x-avcicms-language` header)
 });
 ```
 
-> **Multi-Language Support:** When `language` is provided in `AvciCMSConfig`, the SDK automatically attaches `x-avci-language` to every outgoing request (without overriding any per-request `x-avci-language` header). See [Multi-Language & Localization](/api/extra/localization) for details.
+> **Multi-Language Support:** When `language` is provided in `AvciCMSConfig`, the SDK automatically attaches `x-avcicms-language` to every outgoing request (without overriding any per-request `x-avcicms-language` header). See [Multi-Language & Localization](/api/extra/localization) for details.
 
 ---
 

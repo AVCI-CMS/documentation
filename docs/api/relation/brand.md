@@ -8,7 +8,7 @@ sidebar_position: 2
 
 You can use these endpoints to list Brands associated with products and stores in the system and fetch their profiles.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all brands on the platform with pagination and search support.
 
 *   **Endpoint:** `GET /brand`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -34,7 +34,7 @@ Lists all brands on the platform with pagination and search support.
 Fetches full profile details of a specific brand (logo, description, etc.) via its slug value.
 
 *   **Endpoint:** `GET /brand/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -43,7 +43,7 @@ Fetches full profile details of a specific brand (logo, description, etc.) via i
 Returns the details of a specific brand using its MongoDB `_id` value.
 
 *   **Endpoint:** `GET /brand/id/:_id`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -52,7 +52,7 @@ Returns the details of a specific brand using its MongoDB `_id` value.
 Fetches only basic summary data of the brand for performance-focused scenarios (e.g., brand filters on product listing pages or logo carousel components).
 
 *   **Endpoint:** `GET /brand/card/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -61,7 +61,7 @@ Fetches only basic summary data of the brand for performance-focused scenarios (
 If physical stores/dealers of the brands are defined in the system, returns a list containing their location data for map views (Store Locator).
 
 *   **Endpoint:** `GET /brand/location`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -72,7 +72,7 @@ Authenticated brand owners can view and update their public-facing brand showcas
 *   **Endpoints:**
     *   `GET /v1/brand/me`: Fetch currently logged-in brand owner's profile.
     *   `PUT /v1/brand/me` or `PATCH /v1/brand/me`: Update brand showcase presentation details.
-*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <brand_token>`
+*   **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <brand_token>`
 
 ### Editable Showcase Fields
 *   `logo` / `image`: Official brand emblem or logo.
@@ -88,7 +88,7 @@ Authenticated brand owners can view and update their public-facing brand showcas
 ### Example Update Request
 ```bash
 curl -X PUT "https://api.avcicms.com/v1/brand/me" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <brand_token>" \
   -H "Content-Type: application/json" \
   -d '{

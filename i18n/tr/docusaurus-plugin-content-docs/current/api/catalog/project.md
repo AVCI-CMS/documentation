@@ -8,7 +8,7 @@ sidebar_position: 8
 
 AVCI CMS kullanan B2B mimari firmalar, emlak siteleri veya portfolyo sergileyen kurumlar için "Projeler" modülüne ait verileri dışarıya açan uç noktalardır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Tamamlanmış veya devam eden projeleri sayfalama, kategori ve filtreleme yetenekleriyle listeler.
 
 *   **Endpoint:** `GET /project`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -35,7 +35,7 @@ Tamamlanmış veya devam eden projeleri sayfalama, kategori ve filtreleme yetene
 Slug değeri üzerinden belirli bir projenin tüm detaylarını (teslim tarihi, fotoğraf galerisi, lokasyon vb.) getirir.
 
 *   **Endpoint:** `GET /project/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

@@ -33,4 +33,4 @@ API referansımız iş mantığına göre aşağıdaki devasa modül ve servisle
 
 ## Sonraki Adımlar
 
-AVCI CMS API'sini kullanmaya başlamak, gerekli HTTP Header ayarlarını yapmak (örneğin `x-avci-client` kullanımı) ve ilk isteğinizi göndermek için **[Başlangıç (Getting Started)](/api/getting-started)** sayfamızı inceleyin.
+AVCI CMS API'sini kullanmaya başlamak, gerekli HTTP Header ayarlarını yapmak (örneğin `x-avcicms-client` kullanımı) ve ilk isteğinizi göndermek için **[Başlangıç (Getting Started)](/api/getting-started)** sayfamızı inceleyin.

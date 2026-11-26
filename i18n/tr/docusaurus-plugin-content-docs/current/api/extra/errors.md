@@ -42,7 +42,7 @@ Başarısız olan tüm isteklerde aşağıdaki JSON yapısı dönmektedir:
 
 ### 401 Unauthorized
 Erişim izniniz yok. Bunun sebebi aşağıdaki durumlardan biri olabilir:
-*   `x-avci-client` header'ı gönderilmedi veya geçersiz bir ID içeriyor.
+*   `x-avcicms-client` header'ı gönderilmedi veya geçersiz bir ID içeriyor.
 *   `Authorization` header'ı (JWT Token) eksik veya süresi (expire) dolmuş.
 *   Örnek Hata Kodu: `TENANT_NOT_FOUND`, `TOKEN_EXPIRED`, `UNAUTHORIZED`
 

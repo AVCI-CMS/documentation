@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Kullanıcıların veya müşterilerin Satış Sonrası Destek, İade Talebi veya Teknik Servis gibi konular için oluşturdukları Destek Taleplerini (Ticket) yönetmek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca işlemin hangi kullanıcı adına yapıldığını bilmek için `Authorization` başlığı ile giriş yapılmış olması gerekir.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca işlemin hangi kullanıcı adına yapıldığını bilmek için `Authorization` başlığı ile giriş yapılmış olması gerekir.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Kullanıcının seçtiği kategori ve konu altında yeni bir destek talebi (Ticket) oluşturur.
 
 *   **Endpoint:** `POST /ticket`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 **Örnek JSON Body:**
 ```json
@@ -36,7 +36,7 @@ Kullanıcının seçtiği kategori ve konu altında yeni bir destek talebi (Tick
 Oturum açmış olan kullanıcının geçmişte açtığı tüm destek taleplerini, durumlarıyla (Açık, Yanıtlandı, Kapalı) birlikte listeler.
 
 *   **Endpoint:** `GET /ticket/customer`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 
@@ -45,7 +45,7 @@ Oturum açmış olan kullanıcının geçmişte açtığı tüm destek talepleri
 ID'si verilen belirli bir biletin durumunu ve ana detaylarını getirir.
 
 *   **Endpoint:** `GET /ticket/:id`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 
@@ -56,7 +56,7 @@ Destek talebi içindeki yazışmaları okumak ve yeni yanıt göndermek için ku
 *   **Mesaj Gönder:** `POST /ticket/message` (Gövde: `{ "ticketId": "...", "content": "..." }`)
 *   **Mesajları Listele:** `GET /ticket/message/ticket/:ticketId`
 *   **Mesajı Güncelle/Sil:** `PUT /ticket/message/:id` ve `DELETE /ticket/message/:id`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 

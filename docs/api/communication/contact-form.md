@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Used to submit the messages sent by end users (customers or visitors) from the Contact Us / Contact pages to the system.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Sends the data filled in the contact form (first name, last name, email, subject, message) to the AVCI CMS admin panel. Admins see these messages as "Unread" in the Inbox section.
 
 *   **Endpoint:** `POST /contactForm`
-*   **Auth Requirement:** `x-avci-client` (It's a public endpoint for visitors, does not require a Token).
+*   **Auth Requirement:** `x-avcicms-client` (It's a public endpoint for visitors, does not require a Token).
 
 **Example JSON Body:**
 ```json

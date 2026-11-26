@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Şirket haberlerini, basın bültenlerini, platform içi duyuruları veya kampanya bildirimlerini yayınlamak için kullanılan modüldür.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki yayınlanmış tüm haberleri sayfalama ve filtreleme seçenekleriyle listeler.
 
 *   **Endpoint:** `GET /news`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -35,7 +35,7 @@ Sistemdeki yayınlanmış tüm haberleri sayfalama ve filtreleme seçenekleriyle
 Slug değeri üzerinden belirli bir haberin tam içeriğini (body), görsellerini ve yayın tarihini getirir.
 
 *   **Endpoint:** `GET /news/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -59,4 +59,4 @@ Slug değeri üzerinden belirli bir haberin tam içeriğini (body), görsellerin
 Uygulamanın ana sayfasında veya header'da "Son Dakika" gibi en güncel haberleri listelemek için kullanılır.
 
 *   **Endpoint:** `GET /news/new`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
