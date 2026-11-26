@@ -290,3 +290,48 @@ export default async function ProductDetailPage({
 }
 ```
 
+
+---
+
+## Dynamic Agreements & SHA-256 Consents (`cms.terms`)
+
+Use `cms.terms` to render personalized legal agreements on the fly, collect cryptographically locked **SHA-256** user consents from any external application, check re-consent status, and verify integrity.
+
+```typescript
+// 1. Render agreement with dynamic variables & receive SHA-256 contentHash
+const { data: rendered } = await cms.terms.render('saas-master-agreement', {
+  language: 'en',
+  variables: {
+    customerName: 'Jane Doe',
+    planName: 'Pro Annual',
+    contractAmount: '$499.00',
+  },
+});
+
+// 2. Record immutable user consent locked to expectedContentHash
+const { data: consent } = await cms.terms.accept('saas-master-agreement', {
+  subject: {
+    type: 'EXTERNAL',
+    externalId: 'usr_987654',
+    email: 'jane@example.com',
+    fullName: 'Jane Doe',
+  },
+  variables: {
+    customerName: 'Jane Doe',
+    planName: 'Pro Annual',
+    contractAmount: '$499.00',
+  },
+  expectedContentHash: rendered?.contentHash,
+  generatePdf: false,
+});
+
+// 3. Check if user needs to re-consent on login/checkout
+const { data: status } = await cms.terms.checkStatus({
+  externalId: 'usr_987654',
+  slugs: ['saas-master-agreement', 'kvkk'],
+});
+
+// 4. Verify SHA-256 integrity anytime (tamper-proof audit)
+const { data: verification } = await cms.terms.verify(consent!.consentId);
+console.log(verification?.valid); // true
+```
