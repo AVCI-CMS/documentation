@@ -1,10 +1,68 @@
 ---
 sidebar_position: 2
-title: "Plan"
+title: "Abonelik Planları ve Özellik Matrisi"
 ---
 
-# Subscription Plan
+# Abonelik Planları ve Özellik Matrisi
 
-**Menu Path:** `Workspace > Plan`
+**Menü Yolu:** `Çalışma Alanı > Plan`
 
-The **Plan** page allows you to view and upgrade your current subscription tier. Different tiers provide access to more resources and advanced modules.
+:::info Yetki Gereksinimi
+Abonelik planlarını görüntülemek veya yükseltmek için **Workspace Owner** (`WORKSPACE_OWNER`) rolü veya `workspace:manage` yetkisi gerekir.
+:::
+
+AVCI CMS, bireysel vitrin projelerinden yüksek hacimli e-ticaret sitelerine ve çok satıcılı pazar yerlerine kadar ölçeklenen dört müşteri planı sunar: **Basic**, **Pro**, **Business** ve **Enterprise**.
+
+:::note Satış ve E-Ticaret Sınırı
+**Pro** planı; içerik, katalog vitrini, ekip ve rol yönetimi, özel alan adları, önbellek (ISR) ve dinamik sözleşmeler için tasarlanmıştır — **satış ve ödeme modüllerini içermez**. Online satış yapmak isteyen tenant'lar **Business** planına (çok satıcılı pazar yeri için **Enterprise** planına) geçmelidir.
+:::
+
+---
+
+## Plan Bazlı Kaynak Kotaları
+
+| Kaynak / Limit | Basic | Pro | Business | Enterprise |
+| :--- | :---: | :---: | :---: | :---: |
+| **Aktif Ürün** | 10 | 250 | 2.500 | 50.000 |
+| **Aktif Etkinlik** | 5 | 50 | 200 | 2.000 |
+| **Ekip Üyesi** | 1 (Yalnızca Sahip) | 5 | 15 | 50 |
+| **Medya Depolama** | 1 GB | 10 GB | 50 GB | 250 GB |
+| **Aylık API Çağrısı** | 50.000 | 250.000 | 1.000.000 | 10.000.000 |
+| **Aylık Bant Genişliği** | 50 GB | 250 GB | 1.000 GB | 5.000 GB |
+| **Aylık Sipariş** | — | — | 2.500 | 50.000 |
+
+---
+
+## Modül ve Ayar Erişim Matrisi
+
+| Modül / Özellik | Basic | Pro | Business | Enterprise |
+| :--- | :---: | :---: | :---: | :---: |
+| **İçerik Yönetimi (Blog, Haber, Sayfa, Sözlük, Menü)** | Dahil | Dahil | Dahil | Dahil |
+| **Katalog Vitrini (Ürün, Etkinlik, Proje, Rota)** | Dahil | Dahil | Dahil | Dahil |
+| **API Anahtarları (`x-avcicms-client`, `pk_live_`, `sk_live_`)** | Dahil | Dahil | Dahil | Dahil |
+| **Üyelik Sistemi (`USER` rolü)** | — | Dahil | Dahil | Dahil |
+| **Ekip Yönetimi (`Team`)** | — | Dahil (5 kişi) | Dahil (15 kişi) | Dahil (50 kişi) |
+| **Roller ve Yetkiler (`RBAC`)** | Yalnızca Sahip | `USER`, `EDITOR`, `FINANCE` | + `ADMIN` | + `MERCHANT`, `BRAND`, `ORGANIZATION` |
+| **Özel Alan Adları (Domains) ve SSL** | — | Dahil | Dahil | Dahil |
+| **Önbellek ve ISR Revalidation** | — | Dahil | Dahil | Dahil |
+| **Tema, Marka ve Etiketleme (Labelling)** | — | Dahil | Dahil | Dahil |
+| **Dinamik Sözleşmeler ve SHA-256 Onay Defteri** | Dahil | Dahil | Dahil | Dahil |
+| **E-Ticaret ve Satış (Ödeme, Sepet, Kargo Ücretleri, Öneri)** | — | — | Dahil | Dahil |
+| **Kupon ve Kampanya Motoru** | — | — | Dahil | Dahil |
+| **Çok Satıcılı Pazar Yeri (Satıcı, Marka, Kurum)** | — | — | — | Dahil |
+| **Pazar Yeri Kuralları (Komisyon, Ceza, İtiraz, İade)** | — | — | — | Dahil |
+| **Özel Rehberler ve Test Kullanıcısı Araçları** | — | — | — | Dahil |
+
+:::tip Eski Plan Eşleştirmesi
+Eski plan kodlarına sahip çalışma alanları otomatik eşleştirilir: `ECOMMERCE` → **Business**, `MARKETPLACE` → **Enterprise**.
+:::
+
+---
+
+## Plan Yükseltme veya Değiştirme
+
+1. **Çalışma Alanı > Plan** sayfasına gidin.
+2. Mevcut planınızı ve kullanım kotalarınızı inceleyin.
+3. **Aylık** veya **Yıllık** faturalandırma dönemini seçin.
+4. **Planı Yükselt** butonuna tıklayarak ödeme adımını tamamlayın.
+5. Plan düşürme veya iptal işlemleri mevcut fatura döneminin sonunda geçerli olur.

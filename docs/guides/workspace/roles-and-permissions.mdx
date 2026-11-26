@@ -1,0 +1,113 @@
+---
+sidebar_position: 3
+title: "Roles & Canonical RBAC Permissions"
+---
+
+# Roles & Canonical RBAC Permissions
+
+**Menu Path:** `Workspace > Settings > Authority & Team`
+
+AVCI CMS uses a tenant-isolated, **fail-closed Role-Based Access Control (RBAC)** model backed by a single canonical permission registry (`module:action` lowercase codes).
+
+---
+
+## Workspace Roles
+
+| Role Code | Title | Scope & Isolation | Available Plans |
+| :--- | :--- | :--- | :--- |
+| `AVCI` | Platform Super Admin | Global platform health, migrations (`migration:manage`), system settings (`*`) | Platform Core |
+| `WORKSPACE_OWNER` | Workspace Owner | Full control inside own workspace (`workspace:*`, excluding platform-only permissions) | Basic, Pro, Business, Enterprise |
+| `WORKSPACE_ADMIN` | Operations Admin | Orders, approvals, catalog, content, tickets, team operations | Business, Enterprise |
+| `WORKSPACE_EDITOR` | Content & Catalog Editor | CMS content (blog, news, pages, dictionary) and catalog entries | Pro, Business, Enterprise |
+| `WORKSPACE_FINANCE` | Finance Specialist | Payouts, transactions, ledger, taxes, disputes, penalties | Pro, Business, Enterprise |
+| `WORKSPACE_MERCHANT` | Marketplace Vendor | Isolated to own products, sub-orders, stock, and shipments | Enterprise |
+| `WORKSPACE_BRAND` | Brand Owner | Master GTIN/EAN product catalog and authorized merchant approvals | Enterprise |
+| `WORKSPACE_ORGANIZATION` | Umbrella Organization | Cooperatives, chambers, unions managing member merchants and brands | Enterprise |
+| `USER` | End-User / Customer | **Never allowed in Admin Panel.** Storefront / Public API only | Pro, Business, Enterprise |
+
+:::warning Wildcard & Platform Isolation
+- `*` is reserved exclusively for `AVCI` (Platform Super Admin).
+- `workspace:*` grants all tenant-scoped permissions to `WORKSPACE_OWNER`, **never** platform-only permissions (`system:manage`, `migration:view`, `migration:manage`).
+- End-users (`USER`) and guests are strictly rejected from all `/management/*` endpoints.
+:::
+
+---
+
+## Canonical Permission Codes
+
+All backend middlewares (`auth(...)`, `authWorkspace(...)`), database `Permission` documents, and frontend guards validate against lowercase singular codes in `module:action` (or `module:subresource:action`) format.
+
+### Platform & System
+- `system:manage`
+- `migration:view`, `migration:manage` *(AVCI Platform Super Admin only)*
+- `cron:view`, `cron:create`, `cron:edit`, `cron:delete`, `cron:manage`
+- `domain:view`, `domain:manage`
+- `role:view`, `role:manage`
+- `permission:view`, `permission:manage`
+
+### Workspace & Operations
+- `workspace:view`, `workspace:create`, `workspace:edit`, `workspace:delete`, `workspace:settings`, `workspace:shortlist`, `workspace:manage`
+- `onboarding:view`, `onboarding:create`, `onboarding:edit`
+- `analytics:view`, `activity_log:view`, `team_comment:manage`
+- `action:view`, `action:create`, `action:edit`
+- `applyment:view`, `applyment:edit`, `applyment:delete`
+
+### Team & Users
+- `team:view`, `team:create`, `team:edit`, `team:delete`
+- `team_member:view`, `team_member:create`, `team_member:edit`, `team_member:delete`
+- `user:view`, `user:create`, `user:edit`, `user:delete`, `user:address:edit`, `user:email:validate`
+
+### Content (CMS)
+- `blog:view`, `blog:create`, `blog:edit`, `blog:delete`, `blog:category:manage`
+- `news:view`, `news:create`, `news:edit`, `news:delete`, `news:category:manage`
+- `page:view`, `page:create`, `page:edit`, `page:delete`, `page:category:manage`
+- `word:view`, `word:create`, `word:edit`, `word:delete`, `word:category:manage`
+- `menu:view`, `menu:create`, `menu:edit`, `menu:delete`
+- `faq:view`, `faq:create`, `faq:edit`, `faq:delete`, `faq:group:manage`
+
+### Catalog
+- `product:view`, `product:create`, `product:edit`, `product:delete`
+- `event:view`, `event:create`, `event:edit`, `event:delete`, `event:category:manage`
+- `project:view`, `project:create`, `project:edit`, `project:delete`, `project:category:manage`
+- `route:view`, `route:create`, `route:edit`, `route:delete`
+- `campaign:view`, `campaign:create`, `campaign:edit`, `campaign:delete`
+- `coupon:view`, `coupon:create`, `coupon:edit`, `coupon:delete`
+
+### Common (Taxonomy, Media, Slider)
+- `category:view`, `category:create`, `category:edit`, `category:delete`
+- `attribute:view`, `attribute:create`, `attribute:edit`, `attribute:delete`
+- `badge:view`, `badge:create`, `badge:edit`, `badge:delete`
+- `collection:view`, `collection:create`, `collection:edit`, `collection:delete`
+- `group:view`, `group:create`, `group:edit`, `group:delete`, `group:manage`
+- `media:image:create`, `media:image:edit`, `media:dir:view`, `media:dir:create`, `media:dir:edit`, `media:dir:delete`
+- `media:logo:view`, `media:logo:create`, `media:logo:edit`, `media:logo:delete`
+- `media:favicon:view`, `media:favicon:create`, `media:favicon:edit`, `media:favicon:delete`
+- `slider:view`, `slider:create`, `slider:edit`, `slider:delete`, `slider:publish`
+
+### Relations
+- `merchant:view`, `merchant:create`, `merchant:edit`, `merchant:delete`, `merchant:category:manage`
+- `brand:view`, `brand:create`, `brand:edit`, `brand:delete`
+- `organization:view`, `organization:create`, `organization:edit`, `organization:delete`
+- `place:view`, `place:create`, `place:edit`, `place:delete`, `place:category:manage`
+- `document:view`, `document:create`, `document:edit`, `document:delete`
+
+### Finance, Orders & Logistics
+- `financial:view`, `bank:view`, `bank:edit`
+- `order:view`, `order:edit`, `order:cancel`
+- `order:suborder:view`, `order:suborder:edit`, `order:suborder:cancel`
+- `basket:view`, `basket:delete`
+- `payment:view`, `payment:edit`, `payment:cancel`, `payment:refund`
+- `transaction:view`, `transaction:edit`, `transaction:cancel`
+- `shipment:view`, `shipment:edit`, `shipment:cancel`, `shipment:admin`
+- `dispute:view`, `dispute:create`, `dispute:edit`, `dispute:resolve`
+- `ledger:view`, `ledger:create`
+- `penalty:view`, `penalty:create`, `penalty:edit`, `penalty:cancel`
+
+### Tools & Communication
+- `terms:template:create`, `terms:template:edit`, `terms:template:delete`
+- `nfc:view`, `nfc:edit`
+- `notification:view`, `notification:manage`
+- `ticket:view`, `ticket:edit`, `ticket:delete`
+
+### Storefront End-User Actions
+- `customer:order`, `customer:like`, `customer:follow`, `customer:share`, `customer:view`
