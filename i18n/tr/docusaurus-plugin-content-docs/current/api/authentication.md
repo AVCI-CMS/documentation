@@ -11,11 +11,12 @@ AVCI CMS; Storefront, Mobil Uygulama ve Sunucu entegrasyonları için **`x-avcic
 | Header | Amaç | Format | Güvenlik Sınıfı |
 | :--- | :--- | :--- | :--- |
 | **`x-avcicms-client`** | Workspace Public Kimliği (`workspace.clientId`) | UUID (asla MongoDB ObjectId değil) | Public (tarayıcı & mobil güvenli) |
-| **`x-avcicms-api-key`** | Döndürülebilir API Anahtarı | `pk_live_...` (İstemci / Public Read + GUEST view log) veya `sk_live_...` (Sunucu / SSR Yazma & Yönetim) | `pk_live_`: Public, `sk_live_`: Gizli (Yalnızca Sunucu) |
+| **`x-avcicms-api-key`** | Genel API Anahtarı | `pk_live_...` (İstemci / Public Read + GUEST view log) | Public (tarayıcı & mobil güvenli) |
+| **`x-avcicms-secret-key`** | Sunucu Gizli API Anahtarı | `sk_live_...` (Sunucu / SSR Yazma & Yönetim) | Gizli (Yalnızca Sunucu; asla tarayıcıya konulmaz) |
 | **`Authorization`** | Son Kullanıcı / Yönetici Oturum JWT'si | `Bearer <jwt>` | Oturum Token'ı (asla API key konulmaz) |
 | **`x-avcicms-language`** | İçerik Dili Seçimi | `tr`, `en`, `tr-TR` | Public |
 
-> **Güvenlik Notu:** `sk_live_...` anahtarını asla tarayıcı koduna veya `NEXT_PUBLIC_*` değişkenlerine koymayın. Tarayıcı/mobil isteklerinde `x-avcicms-client` + `pk_live_...` kullanın; her iki anahtarı da **Workspace Ayarları → API Anahtarları** ekranından bağımsız olarak yenileyebilirsiniz (rotate).
+> **Güvenlik Notu:** `x-avcicms-secret-key` (`sk_live_...`) anahtarını asla tarayıcı koduna veya `NEXT_PUBLIC_*` değişkenlerine koymayın. Tarayıcı/mobil isteklerinde `x-avcicms-client` + `x-avcicms-api-key` (`pk_live_...`), sunucu isteklerinde `x-avcicms-client` + `x-avcicms-secret-key` (`sk_live_...`) kullanın; her iki anahtarı da **Çalışma Alanı Ayarları → API Anahtarları** ekranından bağımsız olarak yenileyebilirsiniz.
 
 ---
 

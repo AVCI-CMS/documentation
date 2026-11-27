@@ -11,11 +11,12 @@ AVCI CMS uses a strict, zero-legacy **`x-avcicms-*`** header standard and a **Du
 | Header | Purpose | Format | Security Class |
 | :--- | :--- | :--- | :--- |
 | **`x-avcicms-client`** | Workspace Public Identifier (`workspace.clientId`) | UUID (never MongoDB ObjectId) | Public (browser & mobile safe) |
-| **`x-avcicms-api-key`** | Rotatable API Key | `pk_live_...` (Client/Public Read + GUEST view logs) or `sk_live_...` (Server/SSR Write & Admin) | `pk_live_`: Public, `sk_live_`: Secret (Server-only) |
+| **`x-avcicms-api-key`** | Publishable API Key | `pk_live_...` (Client/Public Read + GUEST view logs) | Public (browser & mobile safe) |
+| **`x-avcicms-secret-key`** | Server-Side Secret Key | `sk_live_...` (Server/SSR Write, Admin & S2S) | Secret (Server-only, never expose in browsers) |
 | **`Authorization`** | End-User / Admin Session JWT | `Bearer <jwt>` | Human Session Token (never pass API keys here) |
 | **`x-avcicms-language`** | Content Language Override | `tr`, `en`, `tr-TR` | Public |
 
-> **Security Note:** Never expose `sk_live_...` in browser bundles or `NEXT_PUBLIC_*` variables. Use `x-avcicms-client` + `pk_live_...` for Storefront/Mobile public requests, and rotate keys independently anytime from **Workspace Settings → API Keys**.
+> **Security Note:** Never expose `sk_live_...` (`x-avcicms-secret-key`) in browser bundles or `NEXT_PUBLIC_*` variables. Use `x-avcicms-client` + `x-avcicms-api-key` (`pk_live_...`) for Storefront/Mobile public requests, and `x-avcicms-client` + `x-avcicms-secret-key` (`sk_live_...`) for server-to-server calls. For backwards compatibility, `sk_live_...` is also accepted in `x-avcicms-api-key`, but `x-avcicms-secret-key` is the canonical header for secret keys. Rotate keys independently anytime from **Workspace Settings → API Keys**.
 
 ---
 
