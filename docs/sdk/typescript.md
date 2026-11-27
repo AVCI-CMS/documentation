@@ -32,8 +32,8 @@ Initialize the client with your credentials obtained from **Workspace > Settings
 import { AvciCMS } from 'avcicms';
 
 export const cms = new AvciCMS({
-  apiKey: process.env.AVCI_API_KEY!,
-  projectId: process.env.AVCI_PROJECT_ID!,
+  clientId: process.env.NEXT_PUBLIC_AVCICMS_CLIENT_ID!,
+  apiKey: process.env.NEXT_PUBLIC_AVCICMS_PUBLIC_KEY!, // pk_live_... (or secretKey: process.env.AVCICMS_SECRET_KEY! on server)
   language: 'tr', // Optional default content language (`x-avcicms-language` header)
 });
 ```
