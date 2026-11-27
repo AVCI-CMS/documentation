@@ -20,12 +20,12 @@ For simplicity and readability, the Base URL is omitted in all endpoints listed 
 
 AVCI CMS has a multi-tenant infrastructure. To help us understand which **Workspace** or **Tenant** account your external application is reading from or writing to, you must send a mandatory Identification Header with every request.
 
-### `x-avci-client`
+### `x-avcicms-client`
 
 All public endpoints are protected by a special security middleware called `tenantResolver`. If you do not send this header, the server will return an unauthorized access error.
 
 ```http
-x-avci-client: <Your-Workspace-ID-Value>
+x-avcicms-client: <Your-Workspace-ID-Value>
 ```
 
 **Where can I find it?**
@@ -45,6 +45,24 @@ Authorization: Bearer <user_token>
 
 *(For detailed information on how users will log in and how you will obtain this token, review the [User Authentication](/api/authentication) page).*
 
+### `x-avcicms-language`
+
+Specifies the **content language** for multi-language catalog, editorial, and relation endpoints. Accepts both ISO-2 (`tr`, `en`) and BCP-47 (`tr-TR`, `en-US`) codes. For Public GET requests behind a CDN, you may alternatively pass `?language=en` or `?lang=en` in the URL query string.
+
+```http
+x-avcicms-language: en
+```
+
+### `Accept-Language`
+
+Specifies the **UI / error message language** (`tr` or `en`) used for backend `i18next` error responses. It is kept strictly separate from `x-avcicms-language` and never overrides content language.
+
+```http
+Accept-Language: en
+```
+
+*(See the [Multi-Language & Localization](/api/extra/localization) guide for resolution priority and SDK usage).*
+
 ## Standard cURL Request Example
 
 In light of all this information, here is an example of a successful API request (e.g., listing products) to the AVCI CMS server:
@@ -52,7 +70,9 @@ In light of all this information, here is an example of a successful API request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/catalog/product" \
   -H "Content-Type: application/json" \
-  -H "x-avci-client: d9c8b7a6-1234-5678-abcd-ef0987654321"
+  -H "x-avcicms-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
+  -H "x-avcicms-language: en" \
+  -H "Accept-Language: en"
 ```
 
 ## CORS and Domain Whitelisting

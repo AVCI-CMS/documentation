@@ -8,7 +8,7 @@ sidebar_position: 4
 
 This is the Orchestrator module that handles the processes of converting the cart into an approval, finalizing the Order or Subscription, and notifying the Merchants after the Payment step.
 
-It works in strict coordination with the Payment module. The `x-avci-client` is mandatory for all requests.
+It works in strict coordination with the Payment module. The `x-avcicms-client` is mandatory for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ It works in strict coordination with the Payment module. The `x-avci-client` is 
 Directly concludes the purchase of a prepared Basket or a standard credit card / prepaid balance that does not require 3D Secure, creating the Order Record.
 
 *   **Endpoint:** `POST /purchase`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -35,7 +35,7 @@ Directly concludes the purchase of a prepared Basket or a standard credit card /
 Unlike products, it makes the first collection of monthly or annually renewable Subscription packages and starts the plan.
 
 *   **Endpoint:** `POST /purchase/subscription`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 

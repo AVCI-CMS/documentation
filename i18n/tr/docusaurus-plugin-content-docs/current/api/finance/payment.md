@@ -10,7 +10,7 @@ AVCI CMS, müşterilerinizin kredi kartı (3D Secure), havale (Bank Transfer) ve
 
 Bu uç noktalar Checkout (Ödeme) sayfanızda sanal poslarla ve cüzdan sistemleriyle konuşmak için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi zorunludur.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi zorunludur.
 
 ---
 
@@ -19,7 +19,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi zorunludur.
 Ödeme ekranında, sepetteki tutar ve müşterinin gireceği kredi kartı BIN numarasına (ilk 6 veya 8 hane) göre aktif sanal pos'un taksit oranlarını ve komisyonları getirir.
 
 *   **Endpoint:** `POST /payment/installment`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -28,7 +28,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi zorunludur.
 Kredi kartı ile 3D Secure güvenli ödeme sürecini başlatır ve bankanın doğrulama ekranına yönlendirme HTML formunu döner.
 
 *   **Endpoint:** `POST /payment/3ds`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -49,7 +49,7 @@ Kullanıcı bankadan SMS şifresini girdikten sonra, banka sonucu bu URL'e bildi
 ### 3D Secure Tamamlama
 İşlemin başarıyla sonuçlanmasının ardından siparişin (Order) kesinleşmesi için çağrılır.
 *   **Endpoint:** `POST /payment/3ds/complete`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 

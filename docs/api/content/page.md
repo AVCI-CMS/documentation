@@ -8,7 +8,7 @@ sidebar_position: 1
 
 You can create dynamic content pages in AVCI CMS (e.g., About Us, Privacy Policy, Contact, Return Policy) and render them in your application (Frontend, Mobile) via these API endpoints.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all pages in the Published state in the system with pagination support.
 
 *   **Endpoint:** `GET /page`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -49,7 +49,7 @@ Lists all pages in the Published state in the system with pagination support.
 Fetches the full content (body) in HTML or rich text format, the title, and metadata of a specific page via its slug value.
 
 *   **Endpoint:** `GET /page/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/page/privacy-policy`
 

@@ -56,7 +56,7 @@ sequenceDiagram
 ## 3. Verifying Callbacks with `@avci/sdk`
 
 Every incoming callback request includes cryptographic headers:
-* `x-avci-workspace-id`: The originating workspace ID.
+* `x-avcicms-client`: The originating workspace client ID.
 * `x-avci-cache-signature`: Format `t={timestamp},v1={hmac_sha256_hash}`.
 * `x-avci-cache-timestamp`: Epoch timestamp in milliseconds.
 

@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Müşterilerin/kullanıcıların mağazaları, markaları, yazarları veya organizasyonları "Takip Etmesi" (Follow) altyapısını sağlayan modüldür. 
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca kullanıcıların kimliğini doğrulamak ve takip işlemini gerçekleştirebilmeleri için `Authorization` başlığıyla JWT token gönderilmesi gerekir.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca kullanıcıların kimliğini doğrulamak ve takip işlemini gerçekleştirebilmeleri için `Authorization` başlığıyla JWT token gönderilmesi gerekir.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Giriş yapmış olan kullanıcının belirli bir öğeyi (Mağaza, Marka vb.) takip edip etmediğini kontrol eder.
 
 *   **Endpoint:** `GET /follow/:type/:id`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 *   **Parametreler:**
     *   `type`: Takip edilen öğenin türü (Örn: `merchant`, `brand`, `organization`)
     *   `id`: Öğenin ID'si.
@@ -31,7 +31,7 @@ Giriş yapmış olan kullanıcının belirli bir öğeyi (Mağaza, Marka vb.) ta
 Kullanıcının belirli bir öğeyi takip etmesini sağlar. Eğer zaten ediyorsa takipten çıkarır (Toggle davranışı).
 
 *   **Endpoint:** `POST /follow/:type/:id`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 
@@ -40,7 +40,7 @@ Kullanıcının belirli bir öğeyi takip etmesini sağlar. Eğer zaten ediyorsa
 Giriş yapmış olan kullanıcının belirli bir türdeki tüm takip ettiklerini listeler. Örneğin "Takip ettiğim mağazalar".
 
 *   **Endpoint:** `GET /follow/:type`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 **Örnek:** `/follow/merchant`
 
@@ -51,7 +51,7 @@ Giriş yapmış olan kullanıcının belirli bir türdeki tüm takip ettiklerini
 Belirli bir mağazanın veya markanın kimler tarafından takip edildiğini listeler.
 
 *   **Endpoint:** `GET /follow/:type/:id/follows`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -60,4 +60,4 @@ Belirli bir mağazanın veya markanın kimler tarafından takip edildiğini list
 Belirli bir öğenin sadece toplam takipçi sayısını (Count) getirir. Profil sayfalarında "1,200 Takipçi" ibaresini yazmak için idealdir.
 
 *   **Endpoint:** `GET /follow/:type/:id/count`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

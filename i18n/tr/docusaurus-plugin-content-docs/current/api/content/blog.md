@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Sitenizin blog veya makale bölümünü beslemek için kullanılan uç noktalardır. Blog yazıları kategorilere ayrılabilir ve etiketlenebilir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Yayınlanmış durumdaki blog yazılarını sayfalama ve filtreleme destekli olarak listeler.
 
 *   **Endpoint:** `GET /blog`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -35,7 +35,7 @@ Yayınlanmış durumdaki blog yazılarını sayfalama ve filtreleme destekli ola
 Slug değeri üzerinden belirli bir blog yazısının HTML/Zengin metin formatındaki tam içeriğini, yazar bilgisini (author), kapak görselini (thumbnail) ve yayınlanma tarihini getirir.
 
 *   **Endpoint:** `GET /blog/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/blog/2026-e-ticaret-trendleri`
 
@@ -46,4 +46,4 @@ Slug değeri üzerinden belirli bir blog yazısının HTML/Zengin metin formatı
 Blog ana sayfanızda "En Yeniler" veya "Son Eklenenler" gibi bir widget/slider oluşturmak için tarihe göre en yeni blogları hızlıca getirir.
 
 *   **Endpoint:** `GET /blog/new`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

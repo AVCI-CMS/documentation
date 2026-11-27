@@ -8,27 +8,39 @@ title: "API Keys"
 **Menu Path:** `Workspace > Settings > Authority > API Keys`
 
 :::info Permission Requirements
-To view and manage API keys, you must have the **Workspace:Settings:Manage** permission.
+To view and manage API keys, you must have the **workspace:manage** permission.
 :::
 
-The API Keys module allows you to integrate your workspace with external platforms, custom mobile applications, or third-party services securely. By generating and managing your API credentials here, you can programmatically interact with your workspace data.
+The API Keys module allows you to integrate your workspace with storefronts, mobile applications, and server-side services securely using AVCI CMS's `x-avcicms-*` header standard and dual-key architecture.
 
-## Key Features & Configuration
+## Credentials & Headers
 
-### 1. Client ID
-- **Identifier:** Your `Client ID` is a public-facing identifier for your workspace. It is used in the `x-avci-client` header to route API requests to your specific environment.
-- **Copy & Use:** You can easily copy the Client ID and view a snippet of how to pass it in your HTTP requests.
+### 1. Client ID (`x-avcicms-client`)
+- **Identifier:** Your Client ID is the public UUID identifier for your workspace. Send it in the `x-avcicms-client` header on every external API request to route traffic to your tenant.
+- **Safety:** Public and safe to use in browser bundles and mobile apps.
 
-### 2. Private API Key
-- **Generation:** You can generate a new private API Key to authenticate your requests. If you already have one, generating a new one will invalidate the old one.
-- **Security:** Upon generation, the full API Key is shown **only once**. Please copy and store it securely. Afterwards, it will be masked (e.g., `••••••••••••a1b2`) for security reasons.
-- **Revocation:** If you suspect your API Key has been compromised, you can revoke it immediately to sever all external access.
-- **Usage Tracking:** The system tracks and displays when the key was created and when it was last used.
+### 2. Publishable Key (`x-avcicms-api-key`)
+- **Format:** `pk_live_...`
+- **Scope:** Safe for browsers and mobile applications. Grants public read access and anonymous view logging only.
+- **Rotation:** Click the inline **Rotate** icon inside the key field to generate a new Publishable Key. Generating a new key immediately invalidates the previous one.
+- **Timestamps:** Creation and last-used dates are displayed in the card header.
+
+### 3. Secret Key (`x-avcicms-secret-key`)
+- **Format:** `sk_live_...`
+- **Scope:** Reserved for server-side operations (SSR, backend services, cron jobs, and webhooks).
+- **One-Time Visibility:** Newly generated keys are displayed in plain text **only once** inside the confirmation modal. Copy and store the key securely; afterwards it is shown masked.
+- **Rotation:** Click the inline **Rotate** icon inside the key field to rotate the Secret Key immediately if compromised.
 
 > [!WARNING]
-> **Security Recommendation:** Never store your private API keys in client-side applications (like mobile apps or frontend websites). Always route your API calls through your own secure backend services.
+> **Security Recommendation:** Never store `x-avcicms-secret-key` (`sk_live_...`) in client-side code or `NEXT_PUBLIC_*` environment variables. Always use `x-avcicms-client` + `x-avcicms-api-key` in browsers, and restrict `x-avcicms-secret-key` strictly to secure server environments.
+
+### 4. Quick Start Template
+Copy the ready-to-use environment variable block directly from the Quick Start card to configure your Next.js or Node.js project.
 
 ## Common Issues
 
-- **Issue:** API requests are returning a 401 Unauthorized error.
-- **Solution:** Verify that you are passing both the correct `x-avci-client` header and the `x-avci-api-key` header. If the key was regenerated, ensure your backend is using the latest one.
+- **Issue:** API requests return `401 Unauthorized` or `403 Forbidden`.
+- **Solution:**
+  - For public/browser calls, verify both `x-avcicms-client` and `x-avcicms-api-key` (`pk_live_...`).
+  - For server-side calls requiring secret access, verify `x-avcicms-client` and `x-avcicms-secret-key` (`sk_live_...`).
+  - If a key was rotated, update your deployment environment variables with the latest value.

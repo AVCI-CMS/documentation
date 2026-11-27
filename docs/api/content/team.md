@@ -8,7 +8,7 @@ sidebar_position: 7
 
 The Team API delivers dynamic corporate team listings, executive rosters, and advisory boards for your storefront's "About Us" and "Our Team" pages. It replaces hardcoded static staff sections with backend-managed team profiles.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all active team members with pagination, search, and department/order sorting.
 
 * **Endpoint:** `GET /v1/team`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 | Parameter | Type | Description |
@@ -30,7 +30,7 @@ Lists all active team members with pagination, search, and department/order sort
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/team?page=1&limit=10" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Response
@@ -68,12 +68,12 @@ curl -X GET "https://api.avcicms.com/v1/team?page=1&limit=10" \
 Fetches full details, bio, and social links of an individual team member via their unique URL slug.
 
 * **Endpoint:** `GET /v1/team/:slug`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/team/jane-doe" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ---
@@ -83,11 +83,11 @@ curl -X GET "https://api.avcicms.com/v1/team/jane-doe" \
 Fetches full details of a team member using their unique identifier.
 
 * **Endpoint:** `GET /v1/team/id/:id`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/team/id/team_6735a12f9b8c" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 

@@ -8,7 +8,7 @@ sidebar_position: 4
 
 The User module allows authenticated storefront customers to manage their profile details and shipping/billing address book.
 
-Both the `x-avci-client` identity header and `Authorization: Bearer <user_token>` are **mandatory** for all requests.
+Both the `x-avcicms-client` identity header and `Authorization: Bearer <user_token>` are **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ Both the `x-avci-client` identity header and `Authorization: Bearer <user_token>
 Lists all saved shipping and billing addresses for the currently authenticated user.
 
 * **Endpoint:** `GET /v1/user/address`
-* **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <token>`
 
 ### Example Response
 ```json
@@ -49,7 +49,7 @@ Lists all saved shipping and billing addresses for the currently authenticated u
 Adds a new address to the user's address book. If `isPrimary: true` is passed, this address becomes the user's primary/default address and any previous default is automatically unset.
 
 * **Endpoint:** `POST /v1/user/address`
-* **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <token>`
 
 ### Request Body
 ```json
@@ -75,7 +75,7 @@ Adds a new address to the user's address book. If `isPrimary: true` is passed, t
 Updates an existing address by its ID.
 
 * **Endpoint:** `PUT /v1/user/address/:id`
-* **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <token>`
 
 ### Address Identifier Compatibility
 The `:id` path parameter supports:
@@ -109,12 +109,12 @@ Returns the updated list of all user addresses.
 A dedicated endpoint to set a specific address as the default without updating any other fields.
 
 * **Endpoint:** `PUT /v1/user/address/:id/primary`
-* **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <token>`
 
 ### Example Request
 ```bash
 curl -X PUT "https://api.avcicms.com/v1/user/address/addr_6735be91a12e/primary" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <user_token>"
 ```
 
@@ -135,12 +135,12 @@ curl -X PUT "https://api.avcicms.com/v1/user/address/addr_6735be91a12e/primary" 
 Removes an address from the user's address book.
 
 * **Endpoint:** `DELETE /v1/user/address/:id`
-* **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <token>`
+* **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <token>`
 
 ### Example Request
 ```bash
 curl -X DELETE "https://api.avcicms.com/v1/user/address/addr_6735be91a12e" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <user_token>"
 ```
 

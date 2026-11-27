@@ -8,7 +8,7 @@ sidebar_position: 3
 
 You can use these endpoints to list and fetch the profiles of umbrella entities (Organizations) such as companies, associations, event organizers, or large institutions.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all organizations in the system along with pagination and filtering parameters.
 
 *   **Endpoint:** `GET /organization`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -34,7 +34,7 @@ Lists all organizations in the system along with pagination and filtering parame
 Fetches full details of a specific organization (about text, logo, contact info, etc.) via its slug value.
 
 *   **Endpoint:** `GET /organization/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/organization/acme-corp`
 
@@ -45,7 +45,7 @@ Fetches full details of a specific organization (about text, logo, contact info,
 Returns the details of an organization using its MongoDB `_id` value.
 
 *   **Endpoint:** `GET /organization/id/:_id`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -54,7 +54,7 @@ Returns the details of an organization using its MongoDB `_id` value.
 Fetches only the summary (name, logo, brief description) info of the organization for short previews and card views.
 
 *   **Endpoint:** `GET /organization/short/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -65,7 +65,7 @@ Authenticated organization managers (cooperatives, chambers of commerce, foundat
 *   **Endpoints:**
     *   `GET /v1/organization/me`: Fetch currently logged-in organization profile.
     *   `PUT /v1/organization/me` or `PATCH /v1/organization/me`: Update organization showcase details.
-*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <org_token>`
+*   **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <org_token>`
 
 ### Editable Showcase Fields
 *   `logo` / `image`: Official organization emblem or coat of arms.
@@ -81,7 +81,7 @@ Authenticated organization managers (cooperatives, chambers of commerce, foundat
 ### Example Update Request
 ```bash
 curl -X PUT "https://api.avcicms.com/v1/organization/me" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <org_token>" \
   -H "Content-Type: application/json" \
   -d '{

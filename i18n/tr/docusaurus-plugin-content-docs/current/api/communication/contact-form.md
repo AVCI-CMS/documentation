@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Son kullanıcıların (müşteriler veya ziyaretçiler) Bize Ulaşın / İletişim sayfalarından gönderdikleri mesajları sisteme iletmek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 İletişim formundan doldurulan veriyi (ad, soyad, e-posta, konu, mesaj) AVCI CMS yönetim paneline iletir. Yöneticiler bu mesajları Gelen Kutusu bölümünde "Okunmadı" olarak görür.
 
 *   **Endpoint:** `POST /contactForm`
-*   **Auth Gereksinimi:** `x-avci-client` (Ziyaretçiler için açık uç noktadır, Token gerektirmez).
+*   **Auth Gereksinimi:** `x-avcicms-client` (Ziyaretçiler için açık uç noktadır, Token gerektirmez).
 
 **Örnek JSON Body:**
 ```json

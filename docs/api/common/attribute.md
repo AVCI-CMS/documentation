@@ -17,7 +17,7 @@ Attributes are not restricted to product catalog variants; they power dynamic sc
 * `organization`: Cooperative, chamber, and association classification data.
 * `place`: Venue amenities, coordinates, accessibility options, and capacities.
 
-The `x-avci-client` header is **mandatory** on all Storefront and Management requests.
+The `x-avcicms-client` header is **mandatory** on all Storefront and Management requests.
 
 ---
 
@@ -64,7 +64,7 @@ Retrieves all filterable attributes with their configured options for a specifie
 
 * **Endpoint:** `GET /attribute/:type`
 * **Path Parameter:** `type` (one of `product`, `project`, `event`, `merchant`, `brand`, `organization`, `place`)
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 **Example Response:**
 ```json
@@ -96,7 +96,7 @@ Retrieves all filterable attributes with their configured options for a specifie
 Retrieves dynamic dropdown options for `SOURCE`-type attributes linked to relational entities.
 
 * **Endpoint:** `GET /attribute/:type/source-options`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 **Example Response:**
 ```json

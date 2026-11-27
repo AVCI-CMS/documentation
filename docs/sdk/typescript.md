@@ -32,11 +32,13 @@ Initialize the client with your credentials obtained from **Workspace > Settings
 import { AvciCMS } from 'avcicms';
 
 export const cms = new AvciCMS({
-  apiKey: process.env.AVCI_API_KEY!,
-  projectId: process.env.AVCI_PROJECT_ID!,
-  // Optional custom environment: 'production' | 'staging'
+  clientId: process.env.NEXT_PUBLIC_AVCICMS_CLIENT_ID!,
+  apiKey: process.env.NEXT_PUBLIC_AVCICMS_PUBLIC_KEY!, // pk_live_... (or secretKey: process.env.AVCICMS_SECRET_KEY! on server)
+  language: 'tr', // Optional default content language (`x-avcicms-language` header)
 });
 ```
+
+> **Multi-Language Support:** When `language` is provided in `AvciCMSConfig`, the SDK automatically attaches `x-avcicms-language` to every outgoing request (without overriding any per-request `x-avcicms-language` header). See [Multi-Language & Localization](/api/extra/localization) for details.
 
 ---
 
@@ -288,3 +290,48 @@ export default async function ProductDetailPage({
 }
 ```
 
+
+---
+
+## Dynamic Agreements & SHA-256 Consents (`cms.terms`)
+
+Use `cms.terms` to render personalized legal agreements on the fly, collect cryptographically locked **SHA-256** user consents from any external application, check re-consent status, and verify integrity.
+
+```typescript
+// 1. Render agreement with dynamic variables & receive SHA-256 contentHash
+const { data: rendered } = await cms.terms.render('saas-master-agreement', {
+  language: 'en',
+  variables: {
+    customerName: 'Jane Doe',
+    planName: 'Pro Annual',
+    contractAmount: '$499.00',
+  },
+});
+
+// 2. Record immutable user consent locked to expectedContentHash
+const { data: consent } = await cms.terms.accept('saas-master-agreement', {
+  subject: {
+    type: 'EXTERNAL',
+    externalId: 'usr_987654',
+    email: 'jane@example.com',
+    fullName: 'Jane Doe',
+  },
+  variables: {
+    customerName: 'Jane Doe',
+    planName: 'Pro Annual',
+    contractAmount: '$499.00',
+  },
+  expectedContentHash: rendered?.contentHash,
+  generatePdf: false,
+});
+
+// 3. Check if user needs to re-consent on login/checkout
+const { data: status } = await cms.terms.checkStatus({
+  externalId: 'usr_987654',
+  slugs: ['saas-master-agreement', 'kvkk'],
+});
+
+// 4. Verify SHA-256 integrity anytime (tamper-proof audit)
+const { data: verification } = await cms.terms.verify(consent!.consentId);
+console.log(verification?.valid); // true
+```

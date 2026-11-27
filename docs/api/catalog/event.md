@@ -8,7 +8,7 @@ sidebar_position: 5
 
 AVCI CMS is not just for e-commerce (product sales); it also supports the sale and management of time-based activities such as ticketed events, webinars, workshops, and concerts.
 
-Through these endpoints, you can list the events on the platform, fetch the ones open for ticket sales, and view the customer's tickets. Sending the `x-avci-client` identity header is mandatory for all requests.
+Through these endpoints, you can list the events on the platform, fetch the ones open for ticket sales, and view the customer's tickets. Sending the `x-avcicms-client` identity header is mandatory for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ Through these endpoints, you can list the events on the platform, fetch the ones
 Lists all events (concerts, theater, etc.) on the platform with filtering.
 
 *   **Endpoint:** `GET /event`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -81,7 +81,7 @@ export interface EventListResponse {
 Fetches all details of a specific event (venue, date, ticket types, description) via its slug value.
 
 *   **Endpoint:** `GET /event/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **TypeScript Response Interface:**
 ```typescript
@@ -141,7 +141,7 @@ export interface EventDetailsResponse {
 Lists current events that will take place in the future, whose date has not yet passed.
 
 *   **Endpoint:** `GET /event/upcoming`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -150,7 +150,7 @@ Lists current events that will take place in the future, whose date has not yet 
 Lists completed events whose dates have passed. Usually used for archive views.
 
 *   **Endpoint:** `GET /event/passed`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -159,7 +159,7 @@ Lists completed events whose dates have passed. Usually used for archive views.
 Fetches the newest events that have been recently added and announced to the system.
 
 *   **Endpoint:** `GET /event/new`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -168,7 +168,7 @@ Fetches the newest events that have been recently added and announced to the sys
 Returns dynamic filter options (active venues, categories, etc.) that can be used on event search screens.
 
 *   **Endpoint:** `GET /event/filters`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -177,7 +177,7 @@ Returns dynamic filter options (active venues, categories, etc.) that can be use
 Suggests other events similar to the viewed event (taking place in the same venue or belonging to the same category).
 
 *   **Endpoint:** `GET /event/:slug/similar`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -197,4 +197,4 @@ Suggests other events similar to the viewed event (taking place in the same venu
 Fetches necessary data such as meta title, description, and og:image for search engines and social media sharing (OpenGraph, Twitter Cards) when rendering the event details page.
 
 *   **Endpoint:** `GET /event/:slug/seo`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

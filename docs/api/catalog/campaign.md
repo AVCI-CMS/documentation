@@ -8,7 +8,7 @@ sidebar_position: 7
 
 Used to list and show details to customers for special day discounts, "Buy 3 Pay for 2" deals, or major category-based campaigns.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all campaigns in the system along with pagination and filtering parameters.
 
 *   **Endpoint:** `GET /campaign`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -34,7 +34,7 @@ Lists all campaigns in the system along with pagination and filtering parameters
 Lists currently valid campaigns (those that have started and not yet ended) to be displayed in storefronts (like homepage banners, etc.).
 
 *   **Endpoint:** `GET /campaign/active`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json
@@ -58,6 +58,6 @@ Lists currently valid campaigns (those that have started and not yet ended) to b
 Fetches full details of a specific campaign (participation conditions, included brands, or product groups) using its MongoDB `_id` value.
 
 *   **Endpoint:** `GET /campaign/:_id`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/campaign/60d5ecb54d6e9f1234567890`

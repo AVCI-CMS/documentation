@@ -8,7 +8,7 @@ sidebar_position: 7
 
 Özel gün indirimleri, "3 Al 2 Öde" veya kategori bazlı büyük kampanyaları listelemek ve detaylarını müşterilere göstermek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki tüm kampanyaları sayfalama ve filtreleme parametreleriyle birlikte listeler.
 
 *   **Endpoint:** `GET /campaign`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -34,7 +34,7 @@ Sistemdeki tüm kampanyaları sayfalama ve filtreleme parametreleriyle birlikte 
 Şu an geçerli olan (Tarihi başlamış ve henüz bitmemiş) kampanyaları vitrinlerde (Ana sayfa banner'ları vb.) göstermek için listeler.
 
 *   **Endpoint:** `GET /campaign/active`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -58,6 +58,6 @@ Sistemdeki tüm kampanyaları sayfalama ve filtreleme parametreleriyle birlikte 
 MongoDB `_id` değeri kullanılarak belirli bir kampanyanın tam detaylarını (katılım koşulları, dahil olan markalar veya ürün grupları) getirir.
 
 *   **Endpoint:** `GET /campaign/:_id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/campaign/60d5ecb54d6e9f1234567890`

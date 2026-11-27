@@ -8,7 +8,7 @@ sidebar_position: 1
 
 The Basket API manages the customer cart lifecycle, supporting physical goods, digital products, and ticketed catalog items (events and routes). It automatically performs real-time stock and capacity checks, calculates multi-merchant sub-totals, and applies discounts and shipping costs.
 
-All public Storefront endpoints require the standard `x-avci-client` header (and optional `Authorization: Bearer <token>` for authenticated customers).
+All public Storefront endpoints require the standard `x-avcicms-client` header (and optional `Authorization: Bearer <token>` for authenticated customers).
 
 ---
 
@@ -36,7 +36,7 @@ In Marketplace mode, items from multiple merchants can coexist in a single baske
 Creates a new shopping basket for a guest visitor or customer session.
 
 * **Endpoint:** `POST /v1/basket`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 * **Body:**
   ```json
   {
@@ -65,7 +65,7 @@ Creates a new shopping basket for a guest visitor or customer session.
 Retrieves the current state, active items, applied coupons, and calculated totals of an existing basket.
 
 * **Endpoint:** `GET /v1/basket/:basketId`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 
 ---
 
@@ -73,7 +73,7 @@ Retrieves the current state, active items, applied coupons, and calculated total
 Adds one or more products, event tickets, or route tickets to the basket.
 
 * **Endpoint:** `POST /v1/basket/add/:basketId`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 * **Body:**
   ```json
   {
@@ -106,7 +106,7 @@ Modifies the quantity of an item or removes it.
   - `basketId`: Basket ID
   - `itemId`: The item `_id` inside the basket
   - `action`: `increase` | `decrease` | `delete`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 
 ---
 
@@ -114,7 +114,7 @@ Modifies the quantity of an item or removes it.
 Dynamically recalibrates all line items and shipping costs to the specified currency.
 
 * **Endpoint:** `PUT /v1/basket/currency/:basketId`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 * **Body:**
   ```json
   {
@@ -128,7 +128,7 @@ Dynamically recalibrates all line items and shipping costs to the specified curr
 Applies coupons or binds delivery and billing address IDs to the basket.
 
 * **Endpoint:** `PUT /v1/basket/:basketId`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 * **Body:**
   ```json
   {
@@ -144,7 +144,7 @@ Applies coupons or binds delivery and billing address IDs to the basket.
 Generates the legal documents (Distance Selling Contract and Preliminary Information Form) tailored to the items and prices currently in the basket.
 
 * **Endpoint:** `POST /v1/basket/terms/`
-* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <token>`
+* **Headers:** `x-avcicms-client: <client_key>`, `Authorization: Bearer <token>`
 * **Body:**
   ```json
   {
@@ -165,4 +165,4 @@ Generates the legal documents (Distance Selling Contract and Preliminary Informa
 Empties all items from the basket and releases any temporary ticket capacity locks.
 
 * **Endpoint:** `DELETE /v1/basket/:basketId`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`

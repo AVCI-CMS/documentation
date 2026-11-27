@@ -8,7 +8,7 @@ sidebar_position: 1
 
 In a Marketplace architecture, you can use these endpoints to list the different brands, boutiques, or stores (Merchants) selling on your platform and to fetch their profiles.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all merchants on the platform with pagination and search support.
 
 *   **Endpoint:** `GET /merchant`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -30,7 +30,7 @@ Lists all merchants on the platform with pagination and search support.
 **Example cURL Request:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/merchant?page=1&limit=20" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ---
@@ -40,7 +40,7 @@ curl -X GET "https://api.avcicms.com/v1/merchant?page=1&limit=20" \
 Fetches full profile details of a specific merchant (contact information, about us text, etc.) via its slug value.
 
 *   **Endpoint:** `GET /merchant/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/merchant/sample-store`
 
@@ -51,7 +51,7 @@ Fetches full profile details of a specific merchant (contact information, about 
 Fetches only the basic (summary) data of the merchant for performance-focused scenarios (e.g., rendering just a small store profile card on the product detail page).
 
 *   **Endpoint:** `GET /merchant/card/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -60,7 +60,7 @@ Fetches only the basic (summary) data of the merchant for performance-focused sc
 Returns an optimized list containing the location information (latitude, longitude, and address) of physical stores on the platform for map-based views (Store Locator).
 
 *   **Endpoint:** `GET /merchant/location`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json
@@ -89,7 +89,7 @@ Authenticated sellers and artisans can inspect and update their public-facing st
 *   **Endpoints:**
     *   `GET /v1/merchant/me`: Fetch currently logged-in vendor's profile.
     *   `PUT /v1/merchant/me` or `PATCH /v1/merchant/me`: Update storefront showcase details.
-*   **Auth Requirement:** `x-avci-client`, `Authorization: Bearer <vendor_token>`
+*   **Auth Requirement:** `x-avcicms-client`, `Authorization: Bearer <vendor_token>`
 
 ### Editable Showcase Fields
 Vendors can update presentation and branding properties:
@@ -106,7 +106,7 @@ Vendors can update presentation and branding properties:
 ### Example Update Request
 ```bash
 curl -X PUT "https://api.avcicms.com/v1/merchant/me" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <vendor_token>" \
   -H "Content-Type: application/json" \
   -d '{

@@ -8,7 +8,7 @@ sidebar_position: 1
 
 E-ticaret ve sipariş süreçlerinin en temel modülü olan Sepet (Basket) işlemleri, bir kullanıcının veya ziyaretçinin (guest) ürünlerini toplaması, miktar güncellemesi ve kargo ataması yapabilmesini sağlar.
 
-Bu uç noktalar, arka planda stok (rezervasyon) kontrollerini ve dinamik fiyat hesaplamalarını otomatik olarak yürütür. Tüm isteklerde `x-avci-client` header'ı zorunludur.
+Bu uç noktalar, arka planda stok (rezervasyon) kontrollerini ve dinamik fiyat hesaplamalarını otomatik olarak yürütür. Tüm isteklerde `x-avcicms-client` header'ı zorunludur.
 
 ---
 
@@ -17,7 +17,7 @@ Bu uç noktalar, arka planda stok (rezervasyon) kontrollerini ve dinamik fiyat h
 Yeni ve boş bir sepet oluşturmak (genellikle bir misafir kullanıcı siteye ilk girdiğinde) için kullanılır. Başarılı yanıtta size bir `basketId` (sepet ID'si) döner. Sonraki tüm işlemler bu ID üzerinden yürütülür.
 
 *   **Endpoint:** `POST /basket`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -39,7 +39,7 @@ Yeni ve boş bir sepet oluşturmak (genellikle bir misafir kullanıcı siteye il
 Mevcut bir sepetin güncel durumunu, içerisindeki ürünleri ve hesaplanmış toplam tutarlarını getirir.
 
 *   **Endpoint:** `GET /basket/:basketId`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 ---
 
@@ -48,7 +48,7 @@ Mevcut bir sepetin güncel durumunu, içerisindeki ürünleri ve hesaplanmış t
 Oluşturulmuş bir sepete yeni bir ürün/varyant ekler. Eğer ürün zaten sepetteyse, miktarını artırır.
 
 *   **Endpoint:** `POST /basket/:basketId/items`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -66,7 +66,7 @@ Oluşturulmuş bir sepete yeni bir ürün/varyant ekler. Eğer ürün zaten sepe
 Sepete daha önceden eklenmiş bir ürünün miktarını (quantity) değiştirir. Stok yetersizse `400 Bad Request` veya `INSUFFICIENT_STOCK` hatası döner.
 
 *   **Endpoint:** `PUT /basket/:basketId/items/:itemId`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -82,7 +82,7 @@ Sepete daha önceden eklenmiş bir ürünün miktarını (quantity) değiştirir
 Belirli bir ürünü (item) sepetten tamamen kaldırır.
 
 *   **Endpoint:** `DELETE /basket/:basketId/items/:itemId`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 ---
 
@@ -91,7 +91,7 @@ Belirli bir ürünü (item) sepetten tamamen kaldırır.
 Sepeti tamamen siler veya içindeki tüm ürünleri boşaltır.
 
 *   **Endpoint:** `DELETE /basket/:basketId`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 ---
 
@@ -100,7 +100,7 @@ Sepeti tamamen siler veya içindeki tüm ürünleri boşaltır.
 Sepete, ürünlerin hangi kargo firmasıyla gönderileceğini veya hangi kargo kurallarının geçerli olacağını atar. Bu adım, ödeme aşamasına geçmeden önce kargo ücretinin hesaplanabilmesi için kritiktir.
 
 *   **Endpoint:** `POST /basket/:basketId/carriers`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -116,7 +116,7 @@ Sepete, ürünlerin hangi kargo firmasıyla gönderileceğini veya hangi kargo k
 Kullanıcının satıcıya veya siparişi hazırlayan ekibe iletmek istediği sipariş notlarını sepete kaydeder.
 
 *   **Endpoint:** `POST /basket/:basketId/notes`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -132,5 +132,5 @@ Kullanıcının satıcıya veya siparişi hazırlayan ekibe iletmek istediği si
 Kullanıcının ödeme aşamasına (Checkout) geçmeden önce kabul etmesi gereken Mesafeli Satış Sözleşmesi (Distance Selling Contract) ve Ön Bilgilendirme Formu (Preliminary Information Form) gibi hukuki dokümanların taslaklarını, sepetteki anlık ürünlere ve fiyatlara göre dinamik olarak oluşturur.
 
 *   **Endpoint:** `POST /basket/terms`
-*   **Auth:** `x-avci-client`
+*   **Auth:** `x-avcicms-client`
 *   **Not:** İstek body'sinde `basketId` veya ödeme yöntemleri gibi bağlamsal veriler istenebilir. (Parametreler için SDK referansını inceleyin).

@@ -8,7 +8,7 @@ sidebar_position: 1
 
 AVCI CMS Public API üzerinden mağazanızdaki aktif ürünleri listeleyebilir, filtreleyebilir, detaylarını çekebilir ve SEO verilerini alabilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**. *Detaylar için [Başlangıç](/api/getting-started) sayfasına göz atın.*
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**. *Detaylar için [Başlangıç](/api/getting-started) sayfasına göz atın.*
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Katalogdaki ürünleri sayfalama ve zengin filtreleme seçenekleriyle listeler.
 
 *   **Endpoint:** `GET /product`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -41,7 +41,7 @@ Sayfalama ve sıralama kuralları geçerlidir (Bknz: [Sayfalama & Filtreleme](/a
 **Örnek cURL İsteği:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/product?category=cat_123&minPrice=100&maxPrice=500" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 **Örnek JSON Yanıtı:**
@@ -116,7 +116,7 @@ export interface ProductListResponse {
 Belirli bir ürünün slug değeri kullanılarak tüm detaylarını getirir.
 
 *   **Endpoint:** `GET /product/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json
@@ -197,7 +197,7 @@ export interface ProductDetailsResponse {
 Sisteme yeni eklenen ürünleri sayfalamalı olarak listeler.
 
 *   **Endpoint:** `GET /product/new?page=1&limit=10`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -206,7 +206,7 @@ Sisteme yeni eklenen ürünleri sayfalamalı olarak listeler.
 Çok satan veya en çok ziyaret edilen popüler ürünleri listeler.
 
 *   **Endpoint:** `GET /product/popular?page=1&limit=10`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -215,7 +215,7 @@ Sisteme yeni eklenen ürünleri sayfalamalı olarak listeler.
 Belirtilen miktarda rastgele ürün getirir (Örn. ana sayfa keşfet bölümleri için).
 
 *   **Endpoint:** `GET /product/random/:amount`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/product/random/5`
 
@@ -226,7 +226,7 @@ Belirtilen miktarda rastgele ürün getirir (Örn. ana sayfa keşfet bölümleri
 Mevcut arama/kategori kriterlerine göre yan menüde (sidebar) gösterilebilecek aktif filtreleri (fiyat aralığı, markalar, kategoriler) getirir.
 
 *   **Endpoint:** `GET /product/filters`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 *   **Parametreler:** Listeleme işlemiyle aynı query parametrelerini (`category`, `search`, `brand`) alır.
 
 ---
@@ -236,4 +236,4 @@ Mevcut arama/kategori kriterlerine göre yan menüde (sidebar) gösterilebilecek
 Görüntülenen bir ürüne benzeyen (aynı kategoride vb.) alternatif ürünleri getirir.
 
 *   **Endpoint:** `GET /product/:slug/similar?limit=4`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

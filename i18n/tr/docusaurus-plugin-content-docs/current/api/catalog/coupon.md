@@ -8,7 +8,7 @@ sidebar_position: 6
 
 Sitenizdeki aktif indirim kodlarının geçerliliğini sorgulamak ve sepet/ödeme aşamalarında kupon kurallarını doğrulamak için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca kullanıcıların kupon tanımlarını görebilmesi için `Authorization` başlığıyla JWT token gönderilmesi gerekir.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**. Ayrıca kullanıcıların kupon tanımlarını görebilmesi için `Authorization` başlığıyla JWT token gönderilmesi gerekir.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Kullanıcının girdiği bir kupon kodunun (Örn: `YAZ2026`) sistemde var olup olmadığını ve o müşteri için geçerli olup olmadığını kontrol eder.
 
 *   **Endpoint:** `GET /coupon/check/:code`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 **Örnek:** `/coupon/check/YAZ2026`
 
@@ -43,12 +43,12 @@ Kullanıcının girdiği bir kupon kodunun (Örn: `YAZ2026`) sistemde var olup o
 Sepetteki mevcut ürünler ve tutarlar baz alınarak kuponun uygulanabilir olup olmadığını (Örn: "Sepetinizde kampanya dışı ürün var" kontrolü) doğrular. 
 
 *   **Endpoint:** `GET /coupon/validate`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 *   **Not:** Genellikle sorgu parametresi olarak `code` ve gerekirse `basketId` alır.
 
 **Örnek cURL İsteği:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/coupon/validate?code=YAZ2026&basketId=bskt_789" \
-  -H "x-avci-client: <tenant_id>" \
+  -H "x-avcicms-client: <tenant_id>" \
   -H "Authorization: Bearer <token>"
 ```

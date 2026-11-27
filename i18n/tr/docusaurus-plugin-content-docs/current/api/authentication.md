@@ -4,7 +4,23 @@ title: Kullanıcı Kimlik Doğrulama (Auth)
 sidebar_position: 3
 ---
 
-# Kullanıcı Kimlik Doğrulama İşlemleri
+# Kimlik Doğrulama, Header ve API Anahtarı Standardı
+
+AVCI CMS; Storefront, Mobil Uygulama ve Sunucu entegrasyonları için **`x-avcicms-*`** header standardını ve bağımsız döndürülebilir **Çift Anahtar (`pk_live_` / `sk_live_`)** mimarisini kullanır.
+
+| Header | Amaç | Format | Güvenlik Sınıfı |
+| :--- | :--- | :--- | :--- |
+| **`x-avcicms-client`** | Workspace Public Kimliği (`workspace.clientId`) | UUID (asla MongoDB ObjectId değil) | Public (tarayıcı & mobil güvenli) |
+| **`x-avcicms-api-key`** | Genel API Anahtarı | `pk_live_...` (İstemci / Public Read + GUEST view log) | Public (tarayıcı & mobil güvenli) |
+| **`x-avcicms-secret-key`** | Sunucu Gizli API Anahtarı | `sk_live_...` (Sunucu / SSR Yazma & Yönetim) | Gizli (Yalnızca Sunucu; asla tarayıcıya konulmaz) |
+| **`Authorization`** | Son Kullanıcı / Yönetici Oturum JWT'si | `Bearer <jwt>` | Oturum Token'ı (asla API key konulmaz) |
+| **`x-avcicms-language`** | İçerik Dili Seçimi | `tr`, `en`, `tr-TR` | Public |
+
+> **Güvenlik Notu:** `x-avcicms-secret-key` (`sk_live_...`) anahtarını asla tarayıcı koduna veya `NEXT_PUBLIC_*` değişkenlerine koymayın. Tarayıcı/mobil isteklerinde `x-avcicms-client` + `x-avcicms-api-key` (`pk_live_...`), sunucu isteklerinde `x-avcicms-client` + `x-avcicms-secret-key` (`sk_live_...`) kullanın; her iki anahtarı da **Çalışma Alanı Ayarları → API Anahtarları** ekranından bağımsız olarak yenileyebilirsiniz.
+
+---
+
+## Kullanıcı Kimlik Doğrulama İşlemleri
 
 AVCI CMS Public API üzerinden geliştirme yaparken, sadece herkese açık olan verileri okumanın ötesinde; bir e-ticaret üyesini kayıt etmek, giriş yaptırmak, şifresini sıfırlamak veya sadece bu üyeye özel verileri listelemek isteyebilirsiniz. 
 
@@ -17,7 +33,7 @@ Tüm User Auth işlemleri `/auth` rotası üzerinden yürütülür ve başarıl�
 Yeni bir B2C müşterisi (veya uygun ayarlanmışsa B2B müşterisi) oluşturmak için kullanılır. İstek gövdesinde (body) `name`, `email`, `password` ve `contact` detaylarının iletilmesi zorunludur.
 
 *   **Endpoint:** `POST /auth/signup`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -48,7 +64,7 @@ Yeni bir B2C müşterisi (veya uygun ayarlanmışsa B2B müşterisi) oluşturmak
 Sisteme kayıtlı kullanıcının e-posta ve şifre ile giriş yapıp access ve refresh token'larını almasını sağlar.
 
 *   **Endpoint:** `POST /auth/login`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -93,7 +109,7 @@ Giriş başarılı olduğunda sunucu size erişim token'ını ve oturumu yenilem
 Kullanıcının oturumunu sonlandırmak ve sistemdeki `refreshToken` değerini geçersiz kılmak için kullanılır.
 
 *   **Endpoint:** `POST /auth/logout`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -109,7 +125,7 @@ Kullanıcının oturumunu sonlandırmak ve sistemdeki `refreshToken` değerini g
 Erişim (access) token'ınızın süresi dolduğunda, kullanıcıyı tekrar giriş ekranına yönlendirmemek için `refreshToken` ile yeni bir oturum token'ı oluşturmanızı sağlar.
 
 *   **Endpoint:** `POST /auth/refresh-tokens`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -125,7 +141,7 @@ Erişim (access) token'ınızın süresi dolduğunda, kullanıcıyı tekrar giri
 Kullanıcının şifresini sıfırlaması için e-posta (veya SMS) adresine güvenli bir sıfırlama bağlantısı gönderilmesini tetikler.
 
 *   **Endpoint:** `POST /auth/forgot-password`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -142,7 +158,7 @@ Kullanıcının şifresini sıfırlaması için e-posta (veya SMS) adresine güv
 Kullanıcının e-postasına gönderilen `token` ile yeni şifresini belirlemesini sağlar. Token, URL'den query parametresi olarak alınır.
 
 *   **Endpoint:** `POST /auth/reset-password?token=<sifirlama_tokeni>`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 **Örnek Body:**
 ```json
@@ -180,7 +196,7 @@ Kullanıcının e-posta adresini veya telefonunu doğrulaması gereken senaryola
 Google, Apple, Facebook vb. platformlar üzerinden dönen token'lar ile kullanıcıyı sisteme kaydeder veya otomatik giriş yaptırır.
 
 *   **Endpoint:** `POST /auth/social-login`
-*   **Header Gereksinimi:** `x-avci-client`
+*   **Header Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -191,6 +207,6 @@ Giriş veya kayıt sonrası `tokens.access.token` içinde elde ettiğiniz bu uzu
 ```bash
 curl -X GET "https://api.avcicms.com/v1/finance/basket" \
   -H "Content-Type: application/json" \
-  -H "x-avci-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
+  -H "x-avcicms-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn..."
 ```

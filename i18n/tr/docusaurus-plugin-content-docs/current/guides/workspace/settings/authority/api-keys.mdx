@@ -5,30 +5,42 @@ title: "API Anahtarları"
 
 # API Anahtarları
 
-**Menü Yolu:** `Workspace > Settings > Authority > API Keys`
+**Menü Yolu:** `Çalışma Alanı > Ayarlar > Yetki > API Anahtarları`
 
 :::info Yetki Gereksinimleri
-API anahtarlarını görüntülemek ve yönetmek için **Workspace:Settings:Manage** yetkisine sahip olmanız gerekmektedir.
+API anahtarlarını görüntülemek ve yönetmek için **workspace:manage** yetkisine sahip olmanız gerekir.
 :::
 
-API Anahtarları (API Keys) modülü, çalışma alanınızı harici platformlarla, özel mobil uygulamalarla veya üçüncü parti servislerle güvenli bir şekilde entegre etmenizi sağlar. Kimlik bilgilerinizi buradan oluşturup yöneterek çalışma alanı verilerinize programatik olarak (API üzerinden) erişebilirsiniz.
+API Anahtarları modülü; çalışma alanınızı mağaza, mobil uygulama ve sunucu servisleriyle `x-avcicms-*` başlık standardı ve çift anahtar mimarisi üzerinden güvenli biçimde entegre etmenizi sağlar.
 
-## Temel Özellikler & Yapılandırma
+## Kimlik Bilgileri ve Başlıklar
 
-### 1. Client ID (İstemci Kimliği)
-- **Tanımlayıcı:** `Client ID`, çalışma alanınızın dışa açık (public) kimliğidir. API isteklerini doğru çalışma alanına yönlendirmek için `x-avci-client` HTTP başlığında (header) kullanılır.
-- **Kullanım:** Client ID'nizi kopyalayabilir ve HTTP isteklerinizde nasıl göndereceğinizi gösteren kod örneğini inceleyebilirsiniz.
+### 1. İstemci Kimliği (`x-avcicms-client`)
+- **Tanımlayıcı:** Çalışma alanınızın dış servislerdeki benzersiz UUID kimliğidir. Tüm harici API isteklerinde `x-avcicms-client` başlığı ile gönderilir.
+- **Güvenlik:** Herkese açıktır; tarayıcı ve mobil uygulamalarda güvenle kullanılabilir.
 
-### 2. Gizli API Anahtarı (Private API Key)
-- **Oluşturma:** İsteklerinizi doğrulamak için yeni bir gizli API anahtarı üretebilirsiniz. Eğer zaten bir anahtarınız varsa, yenisini üretmek eskini anında geçersiz kılacaktır (invalidate).
-- **Güvenlik:** Oluşturulan yeni API anahtarı tam metin olarak **yalnızca bir kez** gösterilir. Lütfen güvenli bir yere kopyaladığınızdan emin olun. Daha sonrasında güvenlik sebebiyle maskelenmiş olarak (örn: `••••••••••••a1b2`) gösterilecektir.
-- **İptal Etme (Revoke):** API anahtarınızın ele geçirildiğinden (çalındığından) şüpheleniyorsanız, dış erişimi tamamen kesmek için anahtarı anında iptal edebilirsiniz.
-- **Kullanım Takibi:** Sistem, anahtarın ne zaman oluşturulduğunu ve en son ne zaman kullanıldığını takip eder ve ekranda gösterir.
+### 2. Genel Anahtar (`x-avcicms-api-key`)
+- **Format:** `pk_live_...`
+- **Kapsam:** Tarayıcı ve mobil uygulamalar için güvenlidir. Yalnızca herkese açık okuma ve anonim görüntülenme yetkisi taşır.
+- **Yenileme:** Anahtar alanı içindeki yenile ikonuna tıklayarak yeni bir Genel Anahtar üretebilirsiniz. Yeni anahtar üretildiğinde önceki anahtar anında geçersiz olur.
+- **Zaman Takibi:** Oluşturulma ve son kullanım tarihleri kart başlığında gösterilir.
+
+### 3. Gizli Anahtar (`x-avcicms-secret-key`)
+- **Format:** `sk_live_...`
+- **Kapsam:** Yalnızca sunucu tarafı işlemler (SSR, arka uç servisleri, zamanlanmış görevler ve webhook'lar) için kullanılır.
+- **Tek Seferlik Gösterim:** Yeni üretilen anahtar onay penceresinde tam metin olarak **yalnızca bir kez** gösterilir. Güvenli bir yere kaydedin; sonrasında güvenlik gereği maskeli olarak görünür.
+- **Yenileme:** Anahtarın sızdığından şüpheleniyorsanız, alan içindeki yenile ikonunu kullanarak anında yeni bir Gizli Anahtar oluşturabilirsiniz.
 
 > [!WARNING]
-> **Güvenlik Önerisi:** Gizli API anahtarlarınızı asla istemci tarafı (client-side) uygulamalarda (mobil uygulamalar veya frontend web siteleri gibi) saklamayın. API çağrılarınızı her zaman kendi güvenli arka uç (backend) servisleriniz üzerinden yönlendirin.
+> **Güvenlik Önerisi:** `x-avcicms-secret-key` (`sk_live_...`) değerini asla tarayıcı koduna veya `NEXT_PUBLIC_*` ortam değişkenlerine eklemeyin. İstemci isteklerinde yalnızca `x-avcicms-client` ve `x-avcicms-api-key` kullanın; `x-avcicms-secret-key` değerini yalnızca sunucu ortamında saklayın.
+
+### 4. Hızlı Başlangıç Şablonu
+Projenizde kullanmak üzere standart ortam değişkeni şablonunu Hızlı Başlangıç kartından tek tıkla kopyalayabilirsiniz.
 
 ## Sık Karşılaşılan Sorunlar
 
-- **Sorun:** API istekleri 401 Yetkisiz (Unauthorized) hatası döndürüyor.
-- **Çözüm:** İsteklerinizde hem `x-avci-client` hem de `x-avci-api-key` başlıklarının (header) doğru değerlerle gönderildiğinden emin olun. Eğer anahtar yakın zamanda yenilendiyse, backend sunucunuzun yeni anahtarı kullandığını doğrulayın.
+- **Sorun:** API istekleri `401 Yetkisiz` veya `403 Yasaklı` hatası döndürüyor.
+- **Çözüm:**
+  - İstemci/tarayıcı isteklerinde `x-avcicms-client` ve `x-avcicms-api-key` (`pk_live_...`) başlıklarını kontrol edin.
+  - Gizli anahtar gerektiren sunucu isteklerinde `x-avcicms-client` ve `x-avcicms-secret-key` (`sk_live_...`) başlıklarının doğru gönderildiğini doğrulayın.
+  - Anahtar yenilendiyse sunucu ortam değişkenlerinizi güncelleyin.

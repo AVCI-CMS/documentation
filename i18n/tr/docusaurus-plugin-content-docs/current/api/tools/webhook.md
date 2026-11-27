@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Dış sistemlerin (Kargo firmaları, Ödeme Geçitleri, Pazaryerleri) AVCI CMS ile olay bazlı konuşmasını sağlayan webhook uç noktalarıdır.
 
-Genellikle sunucudan sunucuya (S2S) iletişim olduğu için bu dosyadaki rotalar `x-avci-client` **gerektirmeyebilir**, yerine dış sistemin kendi gizli anahtarı (Secret) kullanılır.
+Genellikle sunucudan sunucuya (S2S) iletişim olduğu için bu dosyadaki rotalar `x-avcicms-client` **gerektirmeyebilir**, yerine dış sistemin kendi gizli anahtarı (Secret) kullanılır.
 
 ---
 

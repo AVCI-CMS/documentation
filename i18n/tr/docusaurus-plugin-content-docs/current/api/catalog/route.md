@@ -8,7 +8,7 @@ sidebar_position: 9
 
 Turizm, seyahat veya etkinlik odaklı sistemler için oluşturulmuş özel seyahat rotalarını, gezi turlarını (Örn: "7 Günlük Karadeniz Turu") listelemek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Sistemdeki tüm seyahat rotalarını ve tur paketlerini sayfalama desteğiyle listeler.
 
 *   **Endpoint:** `GET /route`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -34,7 +34,7 @@ Sistemdeki tüm seyahat rotalarını ve tur paketlerini sayfalama desteğiyle li
 Slug değeri üzerinden belirli bir seyahat rotasının tüm detaylarını (duraklar, harita koordinatları, program içeriği) getirir.
 
 *   **Endpoint:** `GET /route/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

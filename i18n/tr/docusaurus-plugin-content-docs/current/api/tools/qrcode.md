@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Özellikle etkinlik (Event) biletlerinin kapı girişinde doğrulanması (Check-in) veya fiziksel mağaza içi yönlendirmelerde kullanılan QR kodların arka uç işlemleridir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Bilet okuyucu (Görevli) kapıda QR kodu tarattığında bu uç nokta tetiklenir. Barkod hash'ini kontrol eder ve bilet geçerliyse "Check-in Başarılı" yanıtı döner.
 
 *   **Endpoint:** `POST /qrcode/scan`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>` (Görevli yetkisi gerekir)
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>` (Görevli yetkisi gerekir)
 *   **Body Parametreleri:**
     *   `hash`: Taratılan QR kodun içindeki string değer.
 
@@ -28,4 +28,4 @@ Bilet okuyucu (Görevli) kapıda QR kodu tarattığında bu uç nokta tetiklenir
 Bir içerik veya bilet için anlık Base64 veya SVG formatında QR Kod imajı üretmek için kullanılır.
 
 *   **Endpoint:** `GET /qrcode/generate/:type/:id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

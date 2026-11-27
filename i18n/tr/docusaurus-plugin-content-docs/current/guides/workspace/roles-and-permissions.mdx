@@ -1,0 +1,113 @@
+---
+sidebar_position: 3
+title: "Roller ve Kanonik RBAC İzinleri"
+---
+
+# Roller ve Kanonik RBAC İzinleri
+
+**Menü Yolu:** `Çalışma Alanı > Ayarlar > Ekip ve Yetkiler`
+
+AVCI CMS, tenant bazında izole edilmiş, **fail-closed (varsayılan kapalı)** bir Rol Tabanlı Erişim Kontrolü (RBAC) mimarisi kullanır. Tüm izinler tek bir kanonik kayıt defterinden (`module:action` küçük harf formatında) yönetilir.
+
+---
+
+## Çalışma Alanı Rolleri
+
+| Rol Kodu | Unvan | Kapsam ve İzolasyon | Kullanılabilir Planlar |
+| :--- | :--- | :--- | :--- |
+| `AVCI` | Platform Super Admin | Tüm tenant'lar, migration'lar (`migration:manage`), sistem sağlığı (`*`) | Platform Çekirdeği |
+| `WORKSPACE_OWNER` | Çalışma Alanı Sahibi | Kendi çalışma alanında tam yetki (`workspace:*`, platform-only izinler hariç) | Basic, Pro, Business, Enterprise |
+| `WORKSPACE_ADMIN` | Operasyon Yöneticisi | Siparişler, onay kuyrukları, katalog, içerik, bilet ve ekip yönetimi | Business, Enterprise |
+| `WORKSPACE_EDITOR` | İçerik ve Katalog Uzmanı | CMS içerikleri (blog, haber, sayfa, sözlük) ve katalog girişleri | Pro, Business, Enterprise |
+| `WORKSPACE_FINANCE` | Finans ve Hakediş Uzmanı | Hakedişler, işlemler, defter kayıtları, vergi, itiraz ve cezalar | Pro, Business, Enterprise |
+| `WORKSPACE_MERCHANT` | Pazar Yeri Satıcısı | Yalnızca kendi ürünleri, alt siparişleri, stoğu ve kargo işlemleri | Enterprise |
+| `WORKSPACE_BRAND` | Marka Sahibi | Ana GTIN/EAN kataloğu ve yetkili satıcı onayları | Enterprise |
+| `WORKSPACE_ORGANIZATION` | Çatı Kurum | Kooperatif, oda ve birliklerin bağlı satıcı ve marka yönetimi | Enterprise |
+| `USER` | Son Kullanıcı / Müşteri | **Yönetim Paneline ASLA giremez.** Yalnızca Storefront / Public API | Pro, Business, Enterprise |
+
+:::warning Wildcard ve Platform İzolasyonu
+- `*` yetkisi yalnızca `AVCI` (Platform Super Admin) rolüne özeldir.
+- `workspace:*` yetkisi `WORKSPACE_OWNER` rolüne kendi tenant'ı içindeki tüm yetkileri verir; ancak platform-only izinleri (`system:manage`, `migration:view`, `migration:manage`) **asla kapsamaz**.
+- Son kullanıcılar (`USER`) ve misafirler tüm `/management/*` uç noktalarından reddedilir.
+:::
+
+---
+
+## Kanonik İzin Kodları
+
+Tüm backend middleware'leri (`auth(...)`, `authWorkspace(...)`), veritabanındaki `Permission` kayıtları ve frontend yetki kontrolleri tekil ve küçük harfli `module:action` (veya `module:subresource:action`) kodlarını doğrular.
+
+### Platform ve Sistem
+- `system:manage`
+- `migration:view`, `migration:manage` *(Yalnızca AVCI Platform Super Admin)*
+- `cron:view`, `cron:create`, `cron:edit`, `cron:delete`, `cron:manage`
+- `domain:view`, `domain:manage`
+- `role:view`, `role:manage`
+- `permission:view`, `permission:manage`
+
+### Çalışma Alanı ve Operasyon
+- `workspace:view`, `workspace:create`, `workspace:edit`, `workspace:delete`, `workspace:settings`, `workspace:shortlist`, `workspace:manage`
+- `onboarding:view`, `onboarding:create`, `onboarding:edit`
+- `analytics:view`, `activity_log:view`, `team_comment:manage`
+- `action:view`, `action:create`, `action:edit`
+- `applyment:view`, `applyment:edit`, `applyment:delete`
+
+### Ekip ve Kullanıcılar
+- `team:view`, `team:create`, `team:edit`, `team:delete`
+- `team_member:view`, `team_member:create`, `team_member:edit`, `team_member:delete`
+- `user:view`, `user:create`, `user:edit`, `user:delete`, `user:address:edit`, `user:email:validate`
+
+### İçerik (CMS)
+- `blog:view`, `blog:create`, `blog:edit`, `blog:delete`, `blog:category:manage`
+- `news:view`, `news:create`, `news:edit`, `news:delete`, `news:category:manage`
+- `page:view`, `page:create`, `page:edit`, `page:delete`, `page:category:manage`
+- `word:view`, `word:create`, `word:edit`, `word:delete`, `word:category:manage`
+- `menu:view`, `menu:create`, `menu:edit`, `menu:delete`
+- `faq:view`, `faq:create`, `faq:edit`, `faq:delete`, `faq:group:manage`
+
+### Katalog
+- `product:view`, `product:create`, `product:edit`, `product:delete`
+- `event:view`, `event:create`, `event:edit`, `event:delete`, `event:category:manage`
+- `project:view`, `project:create`, `project:edit`, `project:delete`, `project:category:manage`
+- `route:view`, `route:create`, `route:edit`, `route:delete`
+- `campaign:view`, `campaign:create`, `campaign:edit`, `campaign:delete`
+- `coupon:view`, `coupon:create`, `coupon:edit`, `coupon:delete`
+
+### Ortak (Taksonomi, Medya, Slider)
+- `category:view`, `category:create`, `category:edit`, `category:delete`
+- `attribute:view`, `attribute:create`, `attribute:edit`, `attribute:delete`
+- `badge:view`, `badge:create`, `badge:edit`, `badge:delete`
+- `collection:view`, `collection:create`, `collection:edit`, `collection:delete`
+- `group:view`, `group:create`, `group:edit`, `group:delete`, `group:manage`
+- `media:image:create`, `media:image:edit`, `media:dir:view`, `media:dir:create`, `media:dir:edit`, `media:dir:delete`
+- `media:logo:view`, `media:logo:create`, `media:logo:edit`, `media:logo:delete`
+- `media:favicon:view`, `media:favicon:create`, `media:favicon:edit`, `media:favicon:delete`
+- `slider:view`, `slider:create`, `slider:edit`, `slider:delete`, `slider:publish`
+
+### İlişkiler
+- `merchant:view`, `merchant:create`, `merchant:edit`, `merchant:delete`, `merchant:category:manage`
+- `brand:view`, `brand:create`, `brand:edit`, `brand:delete`
+- `organization:view`, `organization:create`, `organization:edit`, `organization:delete`
+- `place:view`, `place:create`, `place:edit`, `place:delete`, `place:category:manage`
+- `document:view`, `document:create`, `document:edit`, `document:delete`
+
+### Finans, Sipariş ve Lojistik
+- `financial:view`, `bank:view`, `bank:edit`
+- `order:view`, `order:edit`, `order:cancel`
+- `order:suborder:view`, `order:suborder:edit`, `order:suborder:cancel`
+- `basket:view`, `basket:delete`
+- `payment:view`, `payment:edit`, `payment:cancel`, `payment:refund`
+- `transaction:view`, `transaction:edit`, `transaction:cancel`
+- `shipment:view`, `shipment:edit`, `shipment:cancel`, `shipment:admin`
+- `dispute:view`, `dispute:create`, `dispute:edit`, `dispute:resolve`
+- `ledger:view`, `ledger:create`
+- `penalty:view`, `penalty:create`, `penalty:edit`, `penalty:cancel`
+
+### Araçlar ve İletişim
+- `terms:template:create`, `terms:template:edit`, `terms:template:delete`
+- `nfc:view`, `nfc:edit`
+- `notification:view`, `notification:manage`
+- `ticket:view`, `ticket:edit`, `ticket:delete`
+
+### Storefront Son Kullanıcı Aksiyonları
+- `customer:order`, `customer:like`, `customer:follow`, `customer:share`, `customer:view`

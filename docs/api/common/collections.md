@@ -8,7 +8,7 @@ sidebar_position: 3
 
 These are product showcases specially grouped by a store or the system (e.g., "Hello Summer Collection", "Valentine's Day Gifts"). They are great for creating special landing pages in conjunction with campaigns.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all live (active) collections in the system with pagination. Collections have their own showcase images and descriptions.
 
 *   **Endpoint:** `GET /collections`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -26,7 +26,7 @@ Lists all live (active) collections in the system with pagination. Collections h
 Returns both the banner details of a specific collection and the **products included** in that collection as a list.
 
 *   **Endpoint:** `GET /collections/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

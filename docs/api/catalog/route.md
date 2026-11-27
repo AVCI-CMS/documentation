@@ -8,7 +8,7 @@ sidebar_position: 9
 
 Used to list custom travel routes and sightseeing tours (e.g., "7-Day Black Sea Tour") created for tourism, travel, or event-focused systems.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all travel routes and tour packages in the system with pagination support.
 
 *   **Endpoint:** `GET /route`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -34,7 +34,7 @@ Lists all travel routes and tour packages in the system with pagination support.
 Fetches all details of a specific travel route (stops, map coordinates, program content) via its slug value.
 
 *   **Endpoint:** `GET /route/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

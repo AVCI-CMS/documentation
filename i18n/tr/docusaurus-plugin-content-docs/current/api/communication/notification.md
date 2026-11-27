@@ -8,7 +8,7 @@ sidebar_position: 9
 
 AVCI CMS, kullanıcılara "Siparişiniz kargoya verildi", "Etkinlik saati yaklaştı" veya "Kampanya başladı" gibi anlık bildirimleri (Push Notification, Web Notification) iletmek için bildirim altyapısı sağlar.
 
-Tüm isteklerde `x-avci-client` kimlik başlığı ve `Authorization` ile Bearer token gönderilmesi **zorunludur**, çünkü bildirimler kişiye özeldir.
+Tüm isteklerde `x-avcicms-client` kimlik başlığı ve `Authorization` ile Bearer token gönderilmesi **zorunludur**, çünkü bildirimler kişiye özeldir.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığı ve `Authorization` ile Bearer
 Giriş yapmış olan kullanıcının aldığı tüm sistem bildirimlerini (Okunmuş ve Okunmamış) kronolojik sırayla listeler.
 
 *   **Endpoint:** `GET /notification`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 
@@ -27,4 +27,4 @@ Kullanıcı bildirime tıkladığında veya "Tümünü Okundu İşaretle" dediğ
 
 *   **Tekli İşaretleme:** `PUT /notification/:id/read`
 *   **Tümünü İşaretleme:** `PUT /notification/read-all`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`

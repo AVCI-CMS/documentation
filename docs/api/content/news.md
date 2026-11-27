@@ -8,7 +8,7 @@ sidebar_position: 3
 
 This is the module used to publish company news, press releases, in-platform announcements, or campaign notifications.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists all published news in the system with pagination and filtering options.
 
 *   **Endpoint:** `GET /news`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -35,7 +35,7 @@ Lists all published news in the system with pagination and filtering options.
 Fetches the full content (body), images, and publish date of a specific news item via its slug value.
 
 *   **Endpoint:** `GET /news/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json
@@ -59,4 +59,4 @@ Fetches the full content (body), images, and publish date of a specific news ite
 Used to list the most current news, like "Breaking News", on the homepage or header of the application.
 
 *   **Endpoint:** `GET /news/new`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

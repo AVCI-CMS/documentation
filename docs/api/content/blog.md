@@ -8,7 +8,7 @@ sidebar_position: 2
 
 These are the endpoints used to populate the blog or article section of your site. Blog posts can be categorized and tagged.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Lists published blog posts with pagination and filtering support.
 
 *   **Endpoint:** `GET /blog`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ### Query Parameters
 
@@ -35,7 +35,7 @@ Lists published blog posts with pagination and filtering support.
 Fetches the full content in HTML/Rich text format, author information, cover image (thumbnail), and publish date of a specific blog post via its slug value.
 
 *   **Endpoint:** `GET /blog/:slug`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example:** `/blog/2026-e-commerce-trends`
 
@@ -46,4 +46,4 @@ Fetches the full content in HTML/Rich text format, author information, cover ima
 Quickly fetches the newest blogs by date to build a widget/slider like "Newest" or "Recently Added" on your blog homepage.
 
 *   **Endpoint:** `GET /blog/new`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

@@ -8,7 +8,7 @@ sidebar_position: 7
 
 Bir e-ticaret sitesindeki ürünleri "Favorilere Ekleme (Wishlist)" veya blog yazılarına "Kalp bırakma" fonksiyonudur.
 
-Tüm isteklerde `x-avci-client` kimlik başlığı ve `Authorization` **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığı ve `Authorization` **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığı ve `Authorization` **zorunlud
 Kullanıcının daha önceden kalplediği (favoriye aldığı) tüm ürünleri/içerikleri listeler.
 
 *   **Endpoint:** `GET /like`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 *   **Query Parametreleri:**
     *   `type`: (Opsiyonel) Sadece favori ürünleri getirmek için `?type=product`.
 
@@ -28,4 +28,4 @@ Kullanıcının daha önceden kalplediği (favoriye aldığı) tüm ürünleri/i
 İçeriğin `_id` değerini alarak, kullanıcı eğer daha önce beğendiyse beğeniyi geri alır (Unlike), beğenmediyse favorilere ekler.
 
 *   **Endpoint:** `POST /like/:type/:id`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`

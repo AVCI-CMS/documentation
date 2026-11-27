@@ -8,7 +8,7 @@ sidebar_position: 6
 
 It is a flexible structure that manages comments, star ratings, and comment likes left by users under products, blog posts, events, or seller profiles.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -42,7 +42,7 @@ Used only to give a 1-5 star score to a product or content (or to fetch its stat
 Used to post a "Reply" to an existing comment. It generally allows sellers or other users to initiate a discussion.
 
 *   **Endpoint:** `POST /comment/:type/comment/:commentId/reply`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 
 ---
 

@@ -8,7 +8,7 @@ sidebar_position: 9
 
 The Static Data API provides standardized geographic references (cities, districts, neighborhoods) and official Revenue Administration (GİB) tax office directories for Turkey. These endpoints are designed to populate checkout address selectors, shipping calculators, and merchant corporate onboarding forms.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,12 +17,12 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 Retrieves the standardized list of all 81 provinces in Turkey sorted by plate code.
 
 * **Endpoint:** `GET /v1/static/cities`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/static/cities" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Response
@@ -57,7 +57,7 @@ curl -X GET "https://api.avcicms.com/v1/static/cities" \
 Retrieves all districts belonging to a specific city identified by its plate code (`cityId`).
 
 * **Endpoint:** `GET /v1/static/districts/:cityId`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Path Parameters
 | Parameter | Type | Description |
@@ -67,7 +67,7 @@ Retrieves all districts belonging to a specific city identified by its plate cod
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/static/districts/34" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Response
@@ -101,7 +101,7 @@ curl -X GET "https://api.avcicms.com/v1/static/districts/34" \
 Retrieves all neighborhoods belonging to a specific district.
 
 * **Endpoint:** `GET /v1/static/neighborhoods/:districtId`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Path Parameters
 | Parameter | Type | Description |
@@ -111,7 +111,7 @@ Retrieves all neighborhoods belonging to a specific district.
 ### Example Request
 ```bash
 curl -X GET "https://api.avcicms.com/v1/static/neighborhoods/450" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Response
@@ -140,7 +140,7 @@ curl -X GET "https://api.avcicms.com/v1/static/neighborhoods/450" \
 Retrieves the official list of Turkish Revenue Administration (GİB) tax offices registered for a province, with optional district filtering and automated plate code normalization.
 
 * **Endpoint:** `GET /v1/static/tax-administration/:cityId`
-* **Auth Requirement:** `x-avci-client`
+* **Auth Requirement:** `x-avcicms-client`
 
 ### Plate Code Normalization
 The `cityId` parameter is automatically normalized by the backend:
@@ -155,13 +155,13 @@ The `cityId` parameter is automatically normalized by the backend:
 ### Example Request (All City Tax Offices)
 ```bash
 curl -X GET "https://api.avcicms.com/v1/static/tax-administration/34" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Request (Filtered by District)
 ```bash
 curl -X GET "https://api.avcicms.com/v1/static/tax-administration/34?district=Kadıköy" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ### Example Response

@@ -8,7 +8,7 @@ sidebar_position: 6
 
 Ürünler, blog yazıları, etkinlikler veya satıcı profilleri altına kullanıcıların bıraktığı yorumları, yıldızlı değerlendirmeleri (Rating) ve yorum beğenilerini yöneten esnek yapıdır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -42,7 +42,7 @@ Bir ürüne veya içeriğe sadece 1-5 yıldız arası puan vermek (veya istatist
 Mevcut bir yoruma "Yanıt (Reply)" göndermek için kullanılır. Genellikle satıcıların veya diğer kullanıcıların tartışma yaratmasını sağlar.
 
 *   **Endpoint:** `POST /comment/:type/comment/:commentId/reply`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 

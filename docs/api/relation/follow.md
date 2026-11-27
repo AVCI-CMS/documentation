@@ -8,7 +8,7 @@ sidebar_position: 5
 
 This module provides the infrastructure for customers/users to "Follow" stores, brands, authors, or organizations.
 
-The `x-avci-client` identity header is **mandatory** for all requests. Additionally, a JWT token must be sent via the `Authorization` header to authenticate users so they can perform follow operations.
+The `x-avcicms-client` identity header is **mandatory** for all requests. Additionally, a JWT token must be sent via the `Authorization` header to authenticate users so they can perform follow operations.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests. Additiona
 Checks whether the logged-in user is following a specific item (Store, Brand, etc.).
 
 *   **Endpoint:** `GET /follow/:type/:id`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 *   **Parameters:**
     *   `type`: Type of the followed item (e.g., `merchant`, `brand`, `organization`)
     *   `id`: The ID of the item.
@@ -31,7 +31,7 @@ Checks whether the logged-in user is following a specific item (Store, Brand, et
 Allows the user to follow a specific item. If they are already following it, they will be unfollowed (Toggle behavior).
 
 *   **Endpoint:** `POST /follow/:type/:id`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 
 ---
 
@@ -40,7 +40,7 @@ Allows the user to follow a specific item. If they are already following it, the
 Lists all followed items of a specific type for the logged-in user. For example, "stores I follow".
 
 *   **Endpoint:** `GET /follow/:type`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`
 
 **Example:** `/follow/merchant`
 
@@ -51,7 +51,7 @@ Lists all followed items of a specific type for the logged-in user. For example,
 Lists who follows a specific store or brand.
 
 *   **Endpoint:** `GET /follow/:type/:id/follows`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 ---
 
@@ -60,4 +60,4 @@ Lists who follows a specific store or brand.
 Returns only the total follow count for a specific item. Ideal for displaying "1,200 Followers" on profile pages.
 
 *   **Endpoint:** `GET /follow/:type/:id/count`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`

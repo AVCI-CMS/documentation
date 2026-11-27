@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Pazar yeri (Marketplace) mimarisinde, platformunuzda satış yapan farklı markaları, butikleri veya mağazaları (Merchant) listelemek ve profillerini çekmek için bu uç noktaları kullanabilirsiniz.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Platformdaki tüm satıcıları sayfalama ve arama destekli olarak listeler.
 
 *   **Endpoint:** `GET /merchant`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ### Query Parametreleri
 
@@ -30,7 +30,7 @@ Platformdaki tüm satıcıları sayfalama ve arama destekli olarak listeler.
 **Örnek cURL İsteği:**
 ```bash
 curl -X GET "https://api.avcicms.com/v1/merchant?page=1&limit=20" \
-  -H "x-avci-client: <tenant_id>"
+  -H "x-avcicms-client: <tenant_id>"
 ```
 
 ---
@@ -40,7 +40,7 @@ curl -X GET "https://api.avcicms.com/v1/merchant?page=1&limit=20" \
 Slug değeri üzerinden belirli bir satıcının tüm profil detaylarını (iletişim bilgileri, hakkımızda metni vb.) getirir.
 
 *   **Endpoint:** `GET /merchant/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek:** `/merchant/ornek-magaza`
 
@@ -51,7 +51,7 @@ Slug değeri üzerinden belirli bir satıcının tüm profil detaylarını (ilet
 Performans odaklı senaryolar (örn: ürün detay sayfasında sadece küçük bir mağaza profil kartı çizmek) için satıcının sadece temel (özet) verilerini getirir.
 
 *   **Endpoint:** `GET /merchant/card/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -60,7 +60,7 @@ Performans odaklı senaryolar (örn: ürün detay sayfasında sadece küçük bi
 Harita tabanlı görünümler (Store Locator) için platformdaki fiziki mağazaların konum bilgilerini (enlem, boylam ve adres) içeren optimize edilmiş bir liste döner.
 
 *   **Endpoint:** `GET /merchant/location`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

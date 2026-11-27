@@ -8,7 +8,7 @@ sidebar_position: 6
 
 AVCI CMS has a powerful SEO service that dynamically provides all the `<title>`, `<meta>`, and `<link>` tags your application needs when rendering in SSR (Server Side Rendering) frameworks like Next.js or Nuxt.js.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 If the page you are on (e.g., Home Page) does not have specific SEO data, it returns the "Default" (Fallback) SEO data defined for the entire Workspace (Tenant).
 
 *   **Endpoint:** `GET /seo/`
-*   **Auth Requirement:** `x-avci-client`
+*   **Auth Requirement:** `x-avcicms-client`
 
 **Example JSON Response:**
 ```json

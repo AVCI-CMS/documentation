@@ -8,7 +8,7 @@ sidebar_position: 6
 
 AVCI CMS, uygulamanızın Next.js veya Nuxt.js gibi SSR (Server Side Rendering) altyapısında render edilirken ihtiyaç duyduğu `<title>`, `<meta>` ve `<link>` etiketlerinin tümünü dinamik olarak sağlayan güçlü bir SEO servisine sahiptir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Eğer bulunduğunuz sayfanın (Örn: Ana Sayfa) spesifik bir SEO verisi yoksa, tüm Workspace (Tenant) için tanımlanmış olan "Varsayılan" (Fallback) SEO verilerini getirir.
 
 *   **Endpoint:** `GET /seo/`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 **Örnek JSON Yanıtı:**
 ```json

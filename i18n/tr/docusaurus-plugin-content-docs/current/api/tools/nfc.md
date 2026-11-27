@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Özellikle fiziksel etkinliklerde (bilet kontrolü) veya dijital kartvizit gibi ürünlerde kullanılan NFC yongalarına yazılan URL'lerin eşleştirilmesi ve doğrulanmasını yönetir.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Bir mobil cihaz NFC etiketine dokunduğunda tetiklenen (NFC Tag Read) arka plan API'sidir. Cihazı ilgili etkinliğin veya profilin detay sayfasına yönlendirir.
 
 *   **Endpoint:** `GET /nfc/tag/:tagId`
-*   **Auth Gereksinimi:** Sadece `x-avci-client` (Public)
+*   **Auth Gereksinimi:** Sadece `x-avcicms-client` (Public)
 
 ---
 
@@ -26,4 +26,4 @@ Bir mobil cihaz NFC etiketine dokunduğunda tetiklenen (NFC Tag Read) arka plan 
 Yönetici veya cihaz sahibi yeni bir fiziksel NFC kartını kendi profiliyle (veya bir etkinlik biletiyle) eşleştirmek için kullanır.
 
 *   **Endpoint:** `POST /nfc/pair`
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`

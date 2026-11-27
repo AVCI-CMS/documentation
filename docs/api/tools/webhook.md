@@ -8,7 +8,7 @@ sidebar_position: 4
 
 These are webhook endpoints that allow external systems (Shipping companies, Payment Gateways, Marketplaces) to communicate with AVCI CMS on an event basis.
 
-Since it is generally server-to-server (S2S) communication, the routes in this file **might not require** `x-avci-client`; instead, the external system's own Secret key is used.
+Since it is generally server-to-server (S2S) communication, the routes in this file **might not require** `x-avcicms-client`; instead, the external system's own Secret key is used.
 
 ---
 

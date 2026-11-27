@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Manages the mapping and validation of URLs written to NFC chips, especially used in physical events (ticket control) or products like digital business cards.
 
-The `x-avci-client` identity header is **mandatory** for all requests.
+The `x-avcicms-client` identity header is **mandatory** for all requests.
 
 ---
 
@@ -17,7 +17,7 @@ The `x-avci-client` identity header is **mandatory** for all requests.
 This is a background API triggered when a mobile device taps an NFC tag (NFC Tag Read). It redirects the device to the detail page of the relevant event or profile.
 
 *   **Endpoint:** `GET /nfc/tag/:tagId`
-*   **Auth Requirement:** Only `x-avci-client` (Public)
+*   **Auth Requirement:** Only `x-avcicms-client` (Public)
 
 ---
 
@@ -26,4 +26,4 @@ This is a background API triggered when a mobile device taps an NFC tag (NFC Tag
 Used by an administrator or device owner to pair a new physical NFC card with their own profile (or with an event ticket).
 
 *   **Endpoint:** `POST /nfc/pair`
-*   **Auth Requirement:** `x-avci-client` and `Authorization: Bearer <token>`
+*   **Auth Requirement:** `x-avcicms-client` and `Authorization: Bearer <token>`

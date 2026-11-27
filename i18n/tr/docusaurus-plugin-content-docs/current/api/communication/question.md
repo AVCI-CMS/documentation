@@ -8,7 +8,7 @@ sidebar_position: 7
 
 Pazaryerlerinde sıkça görülen "Satıcıya Soru Sor" veya ürün özelinde kullanıcıların merak ettikleri soruları sormalarını sağlayan "Soru ve Cevap (Q&A)" altyapısıdır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -30,7 +30,7 @@ Sadece ilgili yetkiye sahip kişilerin (Ürün sahibi mağaza vb.) sorulan soruy
 
 *   **Cevap Ver:** `POST /question/:type/question/:questionId/answer`
 *   **Cevabı Güncelle:** `PUT /question/:type/question/:questionId/answer` (Genelde 1 saat içinde düzenleme izni verilir).
-*   **Auth Gereksinimi:** `x-avci-client` ve `Authorization: Bearer <token>`
+*   **Auth Gereksinimi:** `x-avcicms-client` ve `Authorization: Bearer <token>`
 
 ---
 

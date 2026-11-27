@@ -4,7 +4,23 @@ title: Authentication & Security
 sidebar_position: 3
 ---
 
-# User Authentication Operations
+# Authentication, Headers & API Keys
+
+AVCI CMS uses a strict, zero-legacy **`x-avcicms-*`** header standard and a **Dual-Key (`pk_live_` / `sk_live_`)** architecture across Storefront, Mobile App, and Server-to-Server integrations.
+
+| Header | Purpose | Format | Security Class |
+| :--- | :--- | :--- | :--- |
+| **`x-avcicms-client`** | Workspace Public Identifier (`workspace.clientId`) | UUID (never MongoDB ObjectId) | Public (browser & mobile safe) |
+| **`x-avcicms-api-key`** | Publishable API Key | `pk_live_...` (Client/Public Read + GUEST view logs) | Public (browser & mobile safe) |
+| **`x-avcicms-secret-key`** | Server-Side Secret Key | `sk_live_...` (Server/SSR Write, Admin & S2S) | Secret (Server-only, never expose in browsers) |
+| **`Authorization`** | End-User / Admin Session JWT | `Bearer <jwt>` | Human Session Token (never pass API keys here) |
+| **`x-avcicms-language`** | Content Language Override | `tr`, `en`, `tr-TR` | Public |
+
+> **Security Note:** Never expose `sk_live_...` (`x-avcicms-secret-key`) in browser bundles or `NEXT_PUBLIC_*` variables. Use `x-avcicms-client` + `x-avcicms-api-key` (`pk_live_...`) for Storefront/Mobile public requests, and `x-avcicms-client` + `x-avcicms-secret-key` (`sk_live_...`) for server-to-server calls. For backwards compatibility, `sk_live_...` is also accepted in `x-avcicms-api-key`, but `x-avcicms-secret-key` is the canonical header for secret keys. Rotate keys independently anytime from **Workspace Settings → API Keys**.
+
+---
+
+## User Authentication Operations
 
 While developing with the AVCI CMS Public API, beyond just reading public data; you might want to register an e-commerce member, log them in, reset their password, or list data specific to that member.
 
@@ -17,7 +33,7 @@ All User Auth operations are executed via the `/auth` route, and upon successful
 Used to create a new B2C customer (or B2B customer if configured accordingly). The `name`, `email`, `password`, and `contact` details are required in the request body.
 
 *   **Endpoint:** `POST /auth/signup`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -48,7 +64,7 @@ Used to create a new B2C customer (or B2B customer if configured accordingly). T
 Allows a registered user to log into the system with their email and password to receive access and refresh tokens.
 
 *   **Endpoint:** `POST /auth/login`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -93,7 +109,7 @@ When the login is successful, the server will return the access token and the re
 Used to terminate the user's session and invalidate the `refreshToken` value in the system.
 
 *   **Endpoint:** `POST /auth/logout`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -109,7 +125,7 @@ Used to terminate the user's session and invalidate the `refreshToken` value in 
 When your access token expires, it allows you to generate a new session token using the `refreshToken` without redirecting the user back to the login screen.
 
 *   **Endpoint:** `POST /auth/refresh-tokens`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -125,7 +141,7 @@ When your access token expires, it allows you to generate a new session token us
 Triggers a secure reset link to be sent to the user's email (or SMS) address so they can reset their password.
 
 *   **Endpoint:** `POST /auth/forgot-password`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -142,7 +158,7 @@ Triggers a secure reset link to be sent to the user's email (or SMS) address so 
 Allows the user to set their new password using the `token` sent to their email. The token is taken as a query parameter from the URL.
 
 *   **Endpoint:** `POST /auth/reset-password?token=<reset_token>`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 **Example Body:**
 ```json
@@ -180,7 +196,7 @@ For Passwordless login or SMS-based security processes:
 Registers the user into the system or automatically logs them in using tokens returned from platforms like Google, Apple, Facebook, etc.
 
 *   **Endpoint:** `POST /auth/social-login`
-*   **Header Requirement:** `x-avci-client`
+*   **Header Requirement:** `x-avcicms-client`
 
 ---
 
@@ -191,6 +207,6 @@ You must send this long encrypted string, which you obtain inside `tokens.access
 ```bash
 curl -X GET "https://api.avcicms.com/v1/finance/basket" \
   -H "Content-Type: application/json" \
-  -H "x-avci-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
+  -H "x-avcicms-client: d9c8b7a6-1234-5678-abcd-ef0987654321" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn..."
 ```

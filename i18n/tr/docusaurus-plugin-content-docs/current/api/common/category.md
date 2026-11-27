@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Sistemdeki ürünlerin, etkinliklerin, blog yazılarının veya haberlerin sınıflandırıldığı kategorileri (Ağaç yapısında) çekmek için kullanılır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Frontend tarafında "Kategori Menüsü (Mega Menü)" veya "Kategori Filtresi" çizerken ihtiyaç duyulan kategorileri hiyerarşik olarak (İç içe children dizileriyle) getirir.
 
 *   **Endpoint:** `GET /category/tree`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 *   **Query Parametreleri:**
     *   `type`: Kategori tipi (Örn: `product`, `blog`, `event`, `merchant`). Gönderilmezse tüm ağacı getirir.
 
@@ -50,7 +50,7 @@ Frontend tarafında "Kategori Menüsü (Mega Menü)" veya "Kategori Filtresi" ç
 Kategorileri iç içe ağaç (tree) yerine düz bir dizi (flat array) olarak döner. Özellikle selectbox'lar veya hızlı arama (autocomplete) için uygundur.
 
 *   **Endpoint:** `GET /category/list`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 
 ---
 
@@ -59,4 +59,4 @@ Kategorileri iç içe ağaç (tree) yerine düz bir dizi (flat array) olarak dö
 Verilen kategori ID'si veya slug'ına göre kategorinin açıklamasını, banner görselini ve üst (parent) kategorisini getirir.
 
 *   **Endpoint:** `GET /category/:slug`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`

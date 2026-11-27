@@ -8,7 +8,7 @@ sidebar_position: 5
 
 E-ticaret veya içerik sitelerinde, bir ürünün "WhatsApp'ta Paylaş", "Twitter'da Paylaş" gibi butonlara kaç kez tıklandığını takip etmek ve raporlamak için kullanılan sayıcıdır.
 
-Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludur**.
+Tüm isteklerde `x-avcicms-client` kimlik başlığının gönderilmesi **zorunludur**.
 
 ---
 
@@ -17,7 +17,7 @@ Tüm isteklerde `x-avci-client` kimlik başlığının gönderilmesi **zorunludu
 Kullanıcı "Paylaş" butonuna tıkladığında arka planda bu endpoint tetiklenerek ürünün/içeriğin popülarite skoru artırılır.
 
 *   **Endpoint:** `POST /share/:type/:id`
-*   **Auth Gereksinimi:** `x-avci-client`
+*   **Auth Gereksinimi:** `x-avcicms-client`
 *   **Parametreler:**
     *   `type`: Paylaşılan içerik tipi (Örn: `product`, `blog`)
     *   `id`: Paylaşılan nesnenin benzersiz ID'si.

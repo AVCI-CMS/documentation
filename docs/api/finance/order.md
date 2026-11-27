@@ -16,7 +16,7 @@ The Order API orchestrates the finalization of purchases, participant registrati
 Finalizes checkout using an existing basket, delivery addresses, and payment credentials.
 
 * **Endpoint:** `POST /v1/order`
-* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <token>`
+* **Headers:** `x-avcicms-client: <client_key>`, `Authorization: Bearer <token>`
 * **Body Fields:**
   | Field | Type | Required | Description |
   | :--- | :--- | :--- | :--- |
@@ -64,7 +64,7 @@ Returns the authenticated customer's order history.
 
 * **Endpoint:** `GET /v1/order`
 * **Query Parameters:** `page`, `limit`, `status`
-* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <token>`
+* **Headers:** `x-avcicms-client: <client_key>`, `Authorization: Bearer <token>`
 
 ---
 
@@ -72,7 +72,7 @@ Returns the authenticated customer's order history.
 Fetches detailed tracking, invoice, agreement, and item records for a single customer order.
 
 * **Endpoint:** `GET /v1/order/:orderId`
-* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <token>`
+* **Headers:** `x-avcicms-client: <client_key>`, `Authorization: Bearer <token>`
 
 ---
 
@@ -80,7 +80,7 @@ Fetches detailed tracking, invoice, agreement, and item records for a single cus
 Retrieves installment matrix and bank rates based on the customer's credit card BIN number.
 
 * **Endpoint:** `POST /v1/order/installment`
-* **Headers:** `x-avci-client: <client_key>`
+* **Headers:** `x-avcicms-client: <client_key>`
 * **Body:**
   ```json
   {
@@ -96,7 +96,7 @@ Directly cancels an order before it has been shipped (`WAITING`, `PREPARING`, or
 Instantly executes product stock restoration (`restoreStockCounts`), rolls back coupon usage (`rollbackCouponUsage`), voids or refunds payment via the active payment provider, and notifies the merchant.
 
 * **Endpoint:** `POST /v1/order/:orderId/cancel`
-* **Headers:** `x-avci-client: <client_key>`, `Authorization: Bearer <customer_token>`
+* **Headers:** `x-avcicms-client: <client_key>`, `Authorization: Bearer <customer_token>`
 * **Rules & Constraints:**
   - Customers can only cancel orders belonging to their own user account.
   - Allowed statuses: `WAITING`, `PREPARING`, `PENDING_PAYMENT`.
